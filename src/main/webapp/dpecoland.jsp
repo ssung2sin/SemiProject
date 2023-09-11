@@ -11,7 +11,7 @@
 <%
 	//절대경로보기
 	String root=request.getContextPath();
-	String mainPage="layout/mainDp.jsp"; //기본페이지
+	String mainPage="layout-Dp/mainDp.jsp"; //기본페이지
 
 	//url을 통해서 main값을 얻어서 메인웹페이지에 출력
 	if(request.getParameter("main")!=null){
@@ -50,13 +50,13 @@
 <body>
 <img alt="" src="<%=root%>/image/visual_01.jpg" style="width: 1520px; z-index: 1">
 <div class="layout header">
-	<jsp:include page="layout/headerDp.jsp"/>
+	<jsp:include page="layout-Dp/headerDp.jsp"/>
 </div>
 <div class="layout main">
 	<jsp:include page="<%=mainPage %>"/>
 </div>
 <div class="layout footer">
-	<jsp:include page="layout/footerDp.jsp"/>
+	<jsp:include page="layout-Dp/footerDp.jsp"/>
 </div>
 
 </body>
