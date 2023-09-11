@@ -98,4 +98,37 @@ public class ExpressDao {
 		
 		return isid;
 	}
+	
+	//아이디,비번 체크
+	public boolean isBIdPass(String bId,String bPass)
+	{
+		boolean b=false;
+		   
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select * from express where b_id=? and b_pass=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, bId);
+			pstmt.setString(2, bPass);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				b=true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+
+		   return b;
+	   }
 }

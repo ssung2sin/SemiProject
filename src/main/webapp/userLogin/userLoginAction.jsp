@@ -28,7 +28,7 @@
 	if(b){ //로그인 성공 시
 		session.setMaxInactiveInterval(60*60*2);  //로그인 지속시간 2시간 설정
 		session.setAttribute("loginok", "yes");  //로그인 된 상태인지 다른 페이지에서 볼 수 있도록
-		session.setAttribute("Id", userId); //로그인 후, 누가 로그인 했는지 표시
+		session.setAttribute("id", userId); //로그인 후, 누가 로그인 했는지 표시
 		session.setAttribute("saveok", uSave==null?null:"uyes"); //로그인 시, 아이디 저장 체크박스 표시하면 로그인폼에 아이디값 고정
 		session.setAttribute("grade","user");	
 		request.setCharacterEncoding("utf-8");

@@ -170,4 +170,37 @@ public class ShopDao {
 			
 			return isid;
 		}
+		
+		//아이디,비번체크
+		  public boolean isSIdPass(String sId,String sPass)
+		   {
+			   boolean b=false;
+			   
+			   Connection conn=db.getConnection();
+			   PreparedStatement pstmt=null;
+			   ResultSet rs=null;
+			   
+			   String sql="select * from shop where s_id=? and s_pass=?";
+			   
+			   try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, sId);
+				pstmt.setString(2, sPass);
+				
+				rs=pstmt.executeQuery();
+				
+				if(rs.next())
+				{
+					b=true;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+
+			   return b;
+		   }
 }

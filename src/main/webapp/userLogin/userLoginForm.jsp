@@ -19,18 +19,19 @@ if(saveok==null){
 }
 String uid="";
 String bid="";
+String sid="";
 
 if(saveok!=null){//로그인시 아이디저장을 체크했다면 
 	
 	if(saveok.equals("uyes")){
-		uid=(String)session.getAttribute("Id");
-	}else{
-		bid=(String)session.getAttribute("Id");
+		uid=(String)session.getAttribute("id");
+	}else {
+		bid=(String)session.getAttribute("id");
 	}
 }
 %>
 <body>
-<div class="container mt-3">
+<div class="mt-3">
 			  
 			  <!-- Nav pills -->
 			  <ul class="nav nav-pills" role="tablist">
@@ -44,7 +45,7 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 			
 			  <!-- Tab panes -->
 			  <div class="tab-content">
-			    <div id="ulogin" class="container tab-pane active"><br>
+			    <div id="ulogin" class="tab-pane active"><br>
 			     	<form action="userLogin/userLoginAction.jsp" method="post">
 					<table class="table table-bordered" style="width: 350px;">
 						<tr>
@@ -74,8 +75,8 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 					</table>
 					</form>
 			    </div>
-			    <div id="blogin" class="container tab-pane fade"><br>
-			      <form action="bLoginAction.jsp" method="post">
+			    <div id="blogin" class="tab-pane fade"><br>
+			      <form action="userLogin/bLoginAction.jsp" method="post">
 					<table class="table table-bordered" style="width: 350px;">
 						<tr>
 							<th>사업자번호</th>

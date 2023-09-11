@@ -15,7 +15,7 @@
 	String root=request.getContextPath();
 	String mainPage="main/mainpageSearch.jsp"; //기본페이지
 
-	//url을 통해서 main값을 얻어서 메인웹페이지에 출력
+	//url을 통해서 main값을 얻어서 메인 웹페이지에 출력
 	if(request.getParameter("main")!=null){
 		mainPage=request.getParameter("main");
 	}

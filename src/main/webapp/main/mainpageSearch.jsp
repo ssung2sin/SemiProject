@@ -204,6 +204,13 @@ form.box input[type=text]:placeholder{
 }
 
 </style>
+<%
+	String id=(String)session.getAttribute("id");
+	String loginok=(String)session.getAttribute("loginok");
+	String grade=(String)session.getAttribute("grade");
+	
+	System.out.println("로그인: "+loginok+", id : "+id+",등급: "+grade);
+%>
 <script type="text/javascript">
 	
 $(function(){
