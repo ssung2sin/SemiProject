@@ -4,17 +4,8 @@
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Diphylleia&family=Dokdo&family=Nanum+Brush+Script&family=Nanum+Gothic+Coding&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<title>Insert title here</title>
-</head>
-<body>
 <%
+String root=request.getContextPath();
 	request.setCharacterEncoding("utf-8");
 
 	String realPath=getServletContext().getRealPath("/save");
@@ -34,7 +25,7 @@
 		String s_hp=multi.getParameter("s_hp1")+"-"+multi.getParameter("s_hp2")+"-"+multi.getParameter("s_hp3");
 		String b_hp=multi.getParameter("b_hp1")+"-"+multi.getParameter("b_hp2")+"-"+multi.getParameter("b_hp3");
 		String image=multi.getFilesystemName("image");
-		
+		System.out.println(addr);
 		ExpressDto dto=new ExpressDto();
 		dto.setB_id(b_id);
 		dto.setB_pass(b_pass);
@@ -47,10 +38,8 @@
 		ExpressDao dao=new ExpressDao();
 		dao.insertExpress(dto);
 		
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect(root+"/index.jsp");
 	}catch(Exception e){
-		
+		System.out.println("오류:"+e.getMessage());
 	}
 %>
-</body>
-</html>
