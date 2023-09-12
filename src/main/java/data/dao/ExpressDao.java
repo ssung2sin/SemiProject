@@ -249,5 +249,36 @@ public class ExpressDao {
 	      
 	      return list;
 	   }
+	   
+	   //아이디에 따른 이름 반환
+	   public String getBName(String bid)
+	   {
+		   String bname="";
+		   
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select * from express where b_id=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, bid);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				bname=rs.getString("b_name");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		   return bname;
+	   }
 	
 }

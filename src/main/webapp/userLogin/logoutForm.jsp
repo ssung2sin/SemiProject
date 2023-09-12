@@ -10,20 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Hi+Melody&family=Itim&family=Nanum+Pen+Script&family=Rock+Salt&family=Wallpoet&display=swap" rel="stylesheet">
-<title>Login Form</title>
+<title>Logout Form</title>
 </head>
 <body>
-<%
-//loginok는 로그인 성공 시 저장하고, 로그아웃 시 제거하기
-String loginok=(String)session.getAttribute("loginok");
 
-if(loginok==null)
-{%>
-	<jsp:include page="userLoginForm.jsp"/>
-<%}else{%>
-	<jsp:include page="logoutForm.jsp"/>
-<%}
-%>
 
 </body>
 </html>

@@ -1,3 +1,4 @@
+<%@page import="data.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -30,7 +31,48 @@
 }
 </style>
 <%
+//절대경로잡기
 String root=request.getContextPath();
+
+//로그인세션_로그인/로그아웃 표현 위함,개인/사업자 db 접근 위함,아이디얻기
+String loginok=(String)session.getAttribute("loginok"); //로그인,로그아웃
+System.out.println(loginok);
+String grade=(String)session.getAttribute("grade"); //개인,사업자
+System.out.println(grade);
+String id=(String)session.getAttribute("id"); //아이디
+System.out.println(id);
+
+//db에 이름 반환해주는 메소드 사용하기
+UserDao udao=new UserDao();
+
+//사용할 변수 선언하기
+String name="";
+String selectId="";
+
+//첫 페이지 들어가면 로그인하지 않은 상태라 초기값 선언이 필요함
+if(grade==null){
+	grade="";
+}
+
+String allId=(String)session.getAttribute("id");
+if(grade.equals("shop"))
+{
+	selectId="s_id";
+	name="s_name";
+} else if(grade.equals("express")){
+	
+	selectId="b_id";
+	name="b_name";
+} else if(grade.equals("user")){
+	
+	selectId="u_id";
+	name="u_name";
+}
+
+String titleName =udao.allSelect(grade, id, name, selectId);
+
+
+
 %>
 <script type="text/javascript">
 $(function(){
@@ -72,7 +114,13 @@ $(function(){
 </head>
 <body>
    <section class="container">
-      <h5><span id="login">로그인</span>
+   	<%
+   	if(loginok==null){%>
+   		<h5><span id="login">로그인</span>
+   	<%
+   	} else{%>
+   		<h5><span><%=titleName %></span>
+   	<%}%>
       <span id="ex-register">휴게소사업자 회원가입</span><span id="shop-register">가게 회원가입</span><span id="u-register">유저 회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
       <h1>HG</h1>
    </section>

@@ -16,14 +16,14 @@
 
 body{
    background-image: url("image/hgsimage.jpg") ;
-     background-size :100% 100vh;
-    background-attachment: scroll;
+   background-size :100% 100vh;
+   background-attachment: scroll;
    background-repeat: no-repeat;
 }
 
 div.bcblack{
-    width: 100%;
-    height: 100vh;
+   width: 100%;
+   height: 100vh;
    left:0;
    top:0;
    background-color:rgba(0,0,0,0.7);
@@ -37,9 +37,7 @@ div.layout {
 div.title {
    width: 100%;
    height: 15%;
-   
    text-align: center;
-   
 }
 
 div.main {
@@ -58,7 +56,6 @@ div.info {
   border-radius: 3%;
   right: 1%;
   padding: 20px 10px;
-  
   display: inline-block;   
   position:fixed;
   top:30%;
@@ -71,7 +68,7 @@ div.hgintroduce{
    top: 100%;
    background-image:url("image/yellowbackground.jpg");
    background-size :100% 100vh;
-    background-attachment: scroll;
+   background-attachment: scroll;
    background-repeat: no-repeat;
 }
 

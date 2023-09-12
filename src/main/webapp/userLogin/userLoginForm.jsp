@@ -13,6 +13,7 @@
 <title>Login Form</title>
 </head>
 <%
+String root=request.getContextPath();
 String saveok=(String)session.getAttribute("saveok");
 if(saveok==null){
 	saveok="";
@@ -46,7 +47,7 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 			  <!-- Tab panes -->
 			  <div class="tab-content">
 			    <div id="ulogin" class="tab-pane active"><br>
-			     	<form action="userLogin/userLoginAction.jsp" method="post">
+			     	<form action="<%=root %>/userLogin/userLoginAction.jsp" method="post">
 					<table class="table table-bordered" style="width: 350px;">
 						<tr>
 							<th>아이디</th>

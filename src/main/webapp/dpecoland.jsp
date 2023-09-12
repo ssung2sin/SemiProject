@@ -31,7 +31,8 @@
 	}
 	div.header{
 		/* border: 2px solid blue; */
-		position: fixed;	
+		position: fixed;
+		top:0;	
 		width:1520px;
 		height:110px;
 		z-index: 10;

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import data.dto.UserDto;
 import mysql.db.DBConnect;
@@ -158,4 +159,64 @@ public class UserDao {
 
 		   return b;
 	   }
+	   
+	   //아이디에 따른 이름 반환
+	   public String getUName(String uid)
+	   {
+		   String uname="";
+		   
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select * from user where u_id=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, uid);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				uname=rs.getString("u_name");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		   return uname;
+	   }
+	   
+	   //아이디에 따른 이름 반환_user/shop/express 한 번에 가져오는 sql 만들기
+	   //grade는 user,express,shop함, id는 고객 입력한 값, selectId는 db에 입력된 id값
+	   public String allSelect(String grade, String id, String name, String selectId)
+	   {
+		   Connection conn=db.getConnection();
+		   
+		   Statement stmt=null;
+		   ResultSet rs=null;
+		   
+		   String titleName="";
+		   
+		   String sql="select "+name+" from "+grade+" where "+selectId+"='"+id+"'";
+		   
+		   try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			if(rs.next())
+			{
+				titleName=rs.getString(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, stmt, conn);
+		}
+		   return titleName;
+	   }	  
 }
