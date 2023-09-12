@@ -31,29 +31,27 @@
 </style>
 <%
 String root=request.getContextPath();
-
 %>
 <script type="text/javascript">
 $(function(){
     
     
     
-   $("#register").click(function(){
+    $("#register").click(function(){
        
        
-       location.href='index.jsp?main=businessRegistration/regiForm.jsp';
-       
+        location.href='index.jsp?main=businessRegistration/regiForm.jsp';
+        
+    });
+    
+    $("#login").click(function(){
+        
+   
+        location.href='index.jsp?main=userLogin/userLoginForm.jsp';
    });
-   
-   $("#login").click(function(){
-       
-  
-       location.href='index.jsp?main=userLogin/userLoginForm.jsp';
-  });
-   
+    
 
-});
-
+ });
 
 
 
@@ -63,7 +61,7 @@ $(function(){
 <body>
    <section class="container">
       <h5><span id="login">로그인</span>
-         <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>
+      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
       <h1>HG</h1>
    </section>
 </body>
