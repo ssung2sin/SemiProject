@@ -36,21 +36,10 @@ body { min-width:1024px; font:normal 14px 'Noto Sans KR',sans-serif; color:#555;
 table { width:100%; border-collapse:collapse; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; }
 input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color:#555; }
 
-/*
-.nts { font-family:'Noto Sans KR'; }
-.nsq { font-family:'Nanum Square'; }
-.green { color:#56991f; }
-.red { color:red; }
-.w_70 { width:70px !important; }
-.w_220 { width:220px !important; }
-.w_760 { width:760px !important; }
-#wrapper { background:#fff; }
-*/
 
-/* Container */
 #container { padding-top:101px; position: relative; }/*20190325 수정*/
 #container.main h3 { margin-bottom:58px; font-size:38px; font-weight:700; color:#292c25; text-align:center; letter-spacing:-1px; }
-/* Container */
+
 
 
 #contents { width:960px; padding:70px 0 100px; margin:0 auto; }
@@ -59,7 +48,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #sub_01 .item_01 .slider { margin-top:45px; }
 #sub_01 .item_02 > ul > li { padding-top:50px; overflow:hidden; }
 #sub_01 .item_02 > ul > li:first-child { padding-top:0; }
-#sub_01 .item_02 > ul > li.lpt { padding-top:20px; }
+
 #sub_01 .item_02 >    ul > li .txt { width:385px; height:260px; display:table; }
 #sub_01 .item_02 > ul > li .txt dl { display:table-cell; vertical-align:middle; }
 #sub_01 .item_02 > ul > li .txt dl dt { font-size:20px; font-weight:700; color:#292c25; }
@@ -88,16 +77,16 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #sub_01 .item_03 ul li p { font-size:20px; font-weight:700; color:#fff; }
 #sub_01 .item_03 ul li p span { display:block; padding-bottom:5px; font-size:12px; font-weight:800; color:#77c9f9; }
 #sub_01 .item_03 ul li p:first-child { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ddd; }
-#sub_01.sub_01_02 .item { background:url(/images/sub_01_title.png) right 0 no-repeat; }
-#sub_01.sub_01_03 .article { margin-top:35px; }
-#sub_01.sub_01_03 .article .img { overflow:hidden; }
-#sub_01.sub_01_03 .article .img p { width:475px; float:left; position:relative; }
-#sub_01.sub_01_03 .article .img p:first-child { margin-right:10px; }
-#sub_01.sub_01_03 .article .img p span { width:104px; position:absolute; left:0; top:0; font-size:13px; font-weight:500; line-height:38px; color:#fff; text-align:center; background:rgba(0,0,0,0.4); }
-#sub_01.sub_01_03 .article dl { margin-top:30px; }
-#sub_01.sub_01_03 .article dl dt { font-size:20px; font-weight:700; color:#292c25; }
-#sub_01.sub_01_03 .article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
-#sub_01.sub_01_03 .article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
+
+#sub_01.body .article { margin-top:35px; }
+#sub_01.body .article .img { overflow:hidden; }
+#sub_01.body .article .img p { width:475px; float:left; position:relative; }
+#sub_01.body .article .img p:first-child { margin-right:10px; }
+#sub_01.body .article .img p span { width:104px; position:absolute; left:0; top:0; font-size:13px; font-weight:500; line-height:38px; color:#fff; text-align:center; background:rgba(0,0,0,0.4); }
+#sub_01.body .article dl { margin-top:30px; }
+#sub_01.body .article dl dt { font-size:20px; font-weight:700; color:#292c25; }
+#sub_01.body .article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
+#sub_01.body .article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
 
 </style>
 <body>
@@ -115,8 +104,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                     </div>
                     <div class="article">
                         <div class="img">
-                            <p class="left"><img src="../Semi_img/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
-                            <p class="right"><img src="../Semi_img/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
+                            <p class="left"><img src="../image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
+                            <p class="right"><img src="../image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
                         </div>
                         <dl>
                             <dt>주차시설&nbsp;&nbsp;l&nbsp;&nbsp;Parking</dt>
@@ -146,8 +135,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_02">
                                     <ul>
-                                        <li><img src="../Semi_img/information_center_01_01.jpg"></li>
-                                        <li><img src="../Semi_img/information_center_01_02.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/information_center_01_01.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/information_center_01_02.jpg"></li>
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
@@ -160,11 +149,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="txt">
                                 <dl>
                                     <dt>종합안내소&nbsp;&nbsp;l&nbsp;&nbsp;Information Center</dt>
-                                    <!--
-                                    <dd class="nts">상, 하행 모두 이용할 수 있는 안내소, 비지니스 <br />서비스(FAX 인터넷, 문자서비스)하이패스 충전, <br />교통정보 이용안내, 길안내 및 전국 관광명소 안내</dd>
-                                    -->
                                     <dd class="nts">상, 하행 모두 이용할 수 있는 안내소. 비즈니스 <br>서비스(FAX, 인터넷, 문자), 하이패스 충전, <br>교통정보 이용안내, 길안내, 전국 관광명소  <br>안내를 받으실 수 있습니다.</dd>
-                                    <dd class="link"><a class="btn_pop" href="javascript:">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA3" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -172,8 +158,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_03">
                                     <ul>
-                                        <li><img src="../Semi_img/nursing_room_01_01.jpg"></li>
-                                        <li><img src="../Semi_img/nursing_room_01_02.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/nursing_room_01_01.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/nursing_room_01_02.jpg"></li>
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
@@ -186,71 +172,156 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="txt">
                                 <dl>
                                     <dt>수유실&nbsp;&nbsp;l&nbsp;&nbsp;Nursing Room</dt>
-                                    <!--
-                                    <dd class="nts">모던하고 환경친화적인 소재를 사용한 인테리어로 꾸며져 <br />있습니다. 수유공간 2곳, 편의시설 완비</dd>
-                                    -->
                                     <dd class="nts">모던하고 환경친화적인 소재를 사용한 인테리어로 꾸며져 <br>있습니다. (수유공간 2곳, 편의시설 완비)</dd>
-                                    <dd class="link"><a class="btn_pop" href="javascript:">위치보기</a></dd>
+                                    <dd class="link" id="linkA4"><a class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
+                        
+                        
+                        
+                        <!-- ////////////////////////////////////////////// -->
                         <li class="left">
                             <div class="img">
-                                <div class="slider slider_04">
+                                <div class="slider slider_02">
                                     <ul>
-                                        <li><img src="../Semi_img/store_01_01.jpg"></li>
-                                        <!--<li><img src="/images/sub_01_07_05_03.jpg" /></li>-->
+                                        <li><img src="../image/FacilitiesImage/drugstore_01_01.jpg"></li>
+                                        <li><img src=""></li>
                                     </ul>
-                                    <!--<a href="javascript:" class="btn_prev"></a>
+                                    <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
                                     <p class="bullet">
                                         <a class="on" href="javascript:"></a>
                                         <a href="javascript:"></a>
-                                    </p>-->
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>약국&nbsp;&nbsp;l&nbsp;&nbsp;DrugStore</dt>
+                                    <dd class="nts">덕평자연휴게소 내부에는 24시간 편의점과 약국이 자리잡고 <br />있습니다. 스낵류, 여행관련 소품 및 비상상비약이 준비되어 <br />있습니다.</dd>
+                                    <dd class="link"><a id="linkA5" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="right">
+                            <div class="img">
+                                <div class="slider slider_04">
+                                    <ul>
+                                        <li><img src="../image/FacilitiesImage/store_01_01.jpg"></li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="txt">
                                 <dl>
                                     <dt>편의점&nbsp;&nbsp;l&nbsp;&nbsp;Store</dt>
-                                    <!--
-                                    <dd class="nts">덕평자연휴게소 내부에는 24시간 편의점과 약국이 자리잡고 <br />있습니다. 스낵류, 여행관련 소품 및 비상상비약이 준비되어 <br />있습니다.</dd>
-                                    <dd class="nts info">세계자연기금(WWF): 자연 보존과 회복을 위해 각국에서 협력하는 국제단체</dd>
-                                    -->
                                     <dd class="nts">덕평자연휴게소 내부에는 24시간 편의점이 있습니다. 스낵류 뿐만 아니라, 여행 관련 소품, 즉석 조리 식품, 선물용 음료 등을 구매하실 수 있습니다.</dd>
                                     <!--<dd class="nts info">세계자연기금(WWF): 자연 보존과 회복을 위해 각국에서 협력하는 국제단체</dd>-->
-                                    <dd class="link"><a class="btn_pop" href="javascript:">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA6" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
-                    </ul>
+                       
+                       <!-- success -->
+                       <!-- ////////////////////////////////////////////// -->
+                        
+                        <li class="left">
+                            <div class="img">
+                                <div class="slider slider_02">
+                                    <ul>
+                                       <li><img src=""></li>
+                                    </ul>
+                                    <a href="javascript:" class="btn_prev"></a>
+                                    <a href="javascript:" class="btn_next"></a>
+                                    <p class="bullet">
+                                        <a class="on" href="javascript:"></a>
+                                        <a href="javascript:"></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>식당가&nbsp;&nbsp;l&nbsp;&nbsp;Restaurant Area</dt>
+                                    <dd class="nts"></dd>
+                                    <dd class="link"><a id="linkA7" class="btn_pop" href="#image-map">위치보기</a></dd>
+                                </dl>
+                            </div>
+                        </li>
+                        <li class="right">
+                            <div class="img">
+                                <div class="slider slider_04">
+                                    <ul>
+                                        <li><img src=""></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="txt">
+                                <dl>
+                                    <dt>주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station</dt>
+                                    <dd class="nts"></dd>
+                                    <dd class="link"><a id="linkA8" class="btn_pop" href="#image-map">위치보기</a></dd>
+                                </dl>
+                            </div>
+                        </li>
+                        
+                    </ul> 
                 </div>
         </div>
     </div>
 	
+	
+	
+	<!-- The Modal -->
 	<div class="modal" id="myModal">
-  		<div class="modal-dialog">
-    		<div class="modal-content">
-			    <!-- Modal Header -->
-		    	<div class="modal-header">
-			        <h4 class="modal-title">수정하기</h4>
-		    	    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-			    </div>
-				      
-			    <!-- Modal body -->
-		      	<div class="updateform">
-					<%-- <textarea style="width: 480px; height: 80px;" name="content" required="required" class="form-control"></textarea> --%>
-					<input type="hidden" id="idx" class="idx">
-					<textarea style="width: 480px; height: 80px;" id="content" required="required" class="form-control editText"></textarea>
-				</div>
-		
-			     <!-- Modal footer -->
-			     <div class="modal-footer">
-			      	<button type="button" class="btn btn-info btnUpdate">수정 하기</button>
-			        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">수정 취소</button>
-			      </div>
-			      
-	    	</div>
-	  	</div>  	
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	
+	      <!-- Modal Header -->
+	      <div class="modal-header">
+	        <h4 class="modal-title">Modal Heading</h4>
+	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+	      </div>
+	
+	      <!-- Modal body -->
+	      <div class="modal-body">
+	        Modal body..
+	      </div>
+	
+	      <!-- Modal footer -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+	      </div>
+	
+	    </div>
+	  </div>
 	</div>
+	
+	
+	
+	<!-- <div class="Map">
+		<img src="../image/FacilitiesImage/dpImage.jpg" alt="덕평자연휴게소 배치도" usemap="#plan01"/>
+	    <div id="linkA1" class="shoppop shop1"></div>
+	    <div id="linkA2" class="shoppop shop2"></div>
+	    <div id="linkA3" class="shoppop shop3"></div>
+	    <div id="linkA4" class="shoppop shop4"></div>
+		<div id="linkA5" class="shoppop shop5"></div>
+		<div id="linkA6" class="shoppop shop6"></div>
+		<div id="linkA7" class="shoppop shop7"></div>
+		<div id="linkA8" class="shoppop shop8"></div>
+    </div>
+    
+     
+     <map name="plan01" id="plan01" class="plan">
+     		
+            <area id="#linkA1" href="#" coords="426,567,11" shape="circle" class="blink blinking-area">
+		    <area id="#linkA2" href="#" coords="254,489,13" shape="circle" class="blink blinking-area">
+		    <area id="#linkA3" href="#" coords="494,626,11" shape="circle" class="blink blinking-area">
+		    <area id="#linkA4" href="#" coords="270,599,29" shape="circle" class="blink blinking-area">
+		    <area id="#linkA5" href="#" coords="445,249,12" shape="circle" class="blink blinking-area">
+		    <area id="#linkA6" href="#" coords="363,519,51" shape="circle" class="blink blinking-area">
+		    <area id="#linkA7" href="#" coords="56,602,83,610,69,684,38,684" shape="poly" class="blink blinking-area">
+		    <area id="#linkA8" href="#" coords="48,512,74,514,84,594,58,596" shape="poly" class="blink blinking-area">
+     </map> -->
+	
 </body>
 </html>
