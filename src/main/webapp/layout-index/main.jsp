@@ -137,9 +137,13 @@ $(function(){
 </script>
 </head>
 <% 
+<<<<<<< HEAD
 
 String root=request.getContextPath();
 
+=======
+String root=request.getContextPath();
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
 request.setCharacterEncoding("UTF-8");
 
 ExpressDao dao=new ExpressDao();
@@ -260,7 +264,11 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
                var myid = '<%=dto.getB_id()%>';
                     //alert("if문 성공");
                  //location.href='index.jsp?main =board/supage.jsp';
+<<<<<<< HEAD
               location.href='<%=root%>/dpecoland.jsp?id='+myid;
+=======
+              location.href= '<%=root%>/subPage.jsp?id='+myid;
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
               
           }
            
@@ -422,7 +430,11 @@ map.setZoomable(false);
                                  var myid = item.b_id;
                                        //alert("if문 성공");
                                        //location.href='index.jsp?main =board/supage.jsp';
+<<<<<<< HEAD
                                        location.href = '<%=root%>/dpecoland.jsp?id='
+=======
+                                       location.href = '<%=root%>/subPage.jsp?id='
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
                                              + myid;
                
                                     }

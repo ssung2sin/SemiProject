@@ -31,6 +31,20 @@
 		padding-bottom: 15px;
 		
 	}
+	.orderBtn{
+		font-size:30px;
+		font-family:'Dongle';
+		margin-left: 450px;
+		border: 1px solid white;
+		width: 150px;
+		height: 50px;
+		background-color: orange;
+		color: white;
+	}
+	.orderBtn:active{
+		background-color: white;
+		color: orange;
+	}
 </style>
 </head>
 <%
@@ -42,12 +56,21 @@ List<String> categorylist=new ArrayList<String>();
 categorylist=dao.getCategory(s_id);
 %>
 <body>
+<script type="text/javascript">
+	$(function(){
+		
+		#(".orderBtn").click(function(){
+			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+		})
+	})
 
+</script>
 <%
 	for(int i=0;i<list.size();i++){
 		MenuDto dto=list.get(i);
 		if(s_id.equals("106-31-1000"+(i+1))){%>
 			<img src="../shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px; margin-left: 20px;">
+			<button class="orderBtn">주문하기</button>
 
 			<div id="category">
 				<b style="margin-left: 20px;">분류보기</b>
@@ -84,8 +107,8 @@ categorylist=dao.getCategory(s_id);
 				</td>
 			<%
 			if(i%3==2){%>
-				<tr>
 				</tr>
+				<tr>
 			<%}
 		}
 		%>

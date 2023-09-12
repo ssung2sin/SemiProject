@@ -47,7 +47,7 @@ select::-ms-expand {
 
 }
 </style>
-<%
+<%	
 	String sang_num=request.getParameter("sang_num");
 	String loginok=(String)session.getAttribute("loginok");
 	String id=(String)session.getAttribute("idok");

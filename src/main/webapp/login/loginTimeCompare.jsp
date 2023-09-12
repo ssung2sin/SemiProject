@@ -48,7 +48,6 @@
 	ob.put("u_name", dto.getU_name());
 	ob.put("u_hp", dto.getU_hp());
 	ob.put("u_birth", dto.getU_birth());
-	ob.put("u_birth", dto.getU_birth());
 	ob.put("u_email", dto.getU_email());
 	ob.put("u_rdate", sdf.format(dto.getU_rdate()));
 	ob.put("ll_date",sdf.format(dto2.getLl_date()));

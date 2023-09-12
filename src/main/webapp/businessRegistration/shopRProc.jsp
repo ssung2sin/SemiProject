@@ -15,6 +15,7 @@
 </head>
 <body>
 <%
+	String root=request.getContextPath();
 	request.setCharacterEncoding("utf-8");
 
 	String realPath=getServletContext().getRealPath("/save");
@@ -59,7 +60,7 @@
 		ShopDao dao=new ShopDao();
 		dao.insertShop(dto);
 		
-		response.sendRedirect("shopRForm.jsp");
+		response.sendRedirect(root+"/index.jsp");
 	}catch(Exception e){
 		
 	}

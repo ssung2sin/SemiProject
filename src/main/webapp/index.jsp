@@ -38,6 +38,11 @@ div.title {
    width: 100%;
    height: 15%;
    text-align: center;
+<<<<<<< HEAD
+=======
+   background-color: blue;
+   
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
 }
 
 div.main {
@@ -46,11 +51,11 @@ div.main {
    font-size: 13pt;
    margin-left: 15%;
    top: 15%;
-
+   background-color: pink;
 }
 
 div.info {
-   width:13%;
+  width:13%;
   height:30%;
   line-height: 10px;
   border-radius: 3%;
@@ -59,7 +64,7 @@ div.info {
   display: inline-block;   
   position:fixed;
   top:30%;
-  
+  background-color: orange;
 }
 
 div.hgintroduce{

@@ -160,6 +160,7 @@ public class UserDao {
 		   return b;
 	   }
 	   
+<<<<<<< HEAD
 	   //아이디에 따른 이름 반환
 	   public String getUName(String uid)
 	   {
@@ -180,10 +181,32 @@ public class UserDao {
 			if(rs.next())
 			{
 				uname=rs.getString("u_name");
+=======
+	   public String allSelect(String grade, String id,String name, String selectId) {
+		   Connection conn=db.getConnection();
+		   String returnName="";
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select ? from ? where ?=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, grade);
+			pstmt.setString(3, selectId);
+			pstmt.setString(4, id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				returnName=rs.getString(1);
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+<<<<<<< HEAD
 		} finally {
 			db.dbClose(rs, pstmt, conn);
 		}
@@ -219,4 +242,10 @@ public class UserDao {
 		}
 		   return titleName;
 	   }	  
+=======
+		}
+		
+		   return returnName;
+	   }
+>>>>>>> f05de360aec773de3470464b12394ef8392cb118
 }
