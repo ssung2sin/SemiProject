@@ -75,20 +75,20 @@ span * {
 <%
 //절대경로보기
 String root = request.getContextPath();
-String s_id=request.getParameter("id");
-if(s_id==null){
-	s_id=(String)session.getAttribute("s_id");
+String b_id=request.getParameter("id");
+if(b_id==null){
+	b_id=(String)session.getAttribute("b_id");
 }
 %>
 <script type="text/javascript">
 $(function(){
-	var s_id=$("#s_id").val();
+	var b_id=$("#b_id").val();
 	//alert(s_id);
 	$.ajax({
 		type:"get",
 		url: "layout-106-33-15937/sessionGet.jsp",
 		dataType:"html",
-		data: {"s_id":s_id},
+		data: {"b_id":b_id},
 		success: function(data){
 			//alert("보내짐");
 		}
@@ -106,13 +106,14 @@ $(function(){
 </script>
 </head>
 <body>
-	<input type="hidden" id="s_id" value="<%=s_id%>">
+	<input type="hidden" id="b_id" value="<%=b_id%>">
 <div class="dv1" style="position: fixed; z-index:999; height: 0px;">
    <nav id="ttop" style="">
    <ul class="t1">
       <li><img src="image/logo.png" style="margin-left: 40px; 
       cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"></li>
-      <li><a href="#" class="topmenu" style="width: 200px; margin-left: 80px;">ABOUT 제주</a>
+      <li><a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" 
+      class="topmenu" style="width: 200px; margin-left: 80px;">음식점</a>
          <ul class="submenu" style="margin-left: 40px;">
          <a href="<%=root%>/index.jsp?main=about/introduce.jsp" style="font-size: 15px;">제주 소개</a>
          </ul>

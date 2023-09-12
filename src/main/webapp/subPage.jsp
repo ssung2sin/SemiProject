@@ -11,15 +11,15 @@
 <%
 	//절대경로보기
 	String root=request.getContextPath();
-	String s_id=request.getParameter("id");
-	System.out.println(s_id);
-	if(s_id==null || s_id.equals("null")){
-		s_id=(String)session.getAttribute("s_id");
-		System.out.println("s_id="+s_id);
+	String b_id=request.getParameter("id");
+	System.out.println(b_id);
+	if(b_id==null || b_id.equals("null")){
+		b_id=(String)session.getAttribute("b_id");
+		System.out.println("b_id="+b_id);
 	}
-	String mainPage="layout-"+s_id+"/main.jsp"; //기본페이지
-	String header="layout-"+s_id+"/header.jsp";
-	String footer="layout-"+s_id+"/footer.jsp";
+	String mainPage="layout-"+b_id+"/main.jsp"; //기본페이지
+	String header="layout-"+b_id+"/header.jsp";
+	String footer="layout-"+b_id+"/footer.jsp";
 
 	//url을 통해서 main값을 얻어서 메인웹페이지에 출력
 	if(request.getParameter("main")!=null){
