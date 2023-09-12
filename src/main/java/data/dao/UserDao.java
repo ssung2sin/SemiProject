@@ -158,4 +158,32 @@ public class UserDao {
 
 		   return b;
 	   }
+	   
+	   public String allSelect(String grade, String id,String name, String selectId) {
+		   Connection conn=db.getConnection();
+		   String returnName="";
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select ? from ? where ?=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, grade);
+			pstmt.setString(3, selectId);
+			pstmt.setString(4, id);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				returnName=rs.getString(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		   return returnName;
+	   }
 }
