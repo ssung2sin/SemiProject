@@ -37,25 +37,13 @@ $(function(){
     
     
     
-    $("#ex-register").click(function(){
+    $("#register").click(function(){
        
        
-        location.href='index.jsp?main=businessRegistration/expressRForm.jsp';
+        location.href='index.jsp?main=businessRegistration/regiForm.jsp';
         
     });
-    $("#shop-register").click(function(){
-       
-     
-        location.href='index.jsp?main=businessRegistration/shopRForm.jsp';
-        
-        
-    });
-    $("#u-register").click(function(){
     
-      
-        location.href='index.jsp?main=userRegistration/userRForm.jsp';
-       
-   });
     $("#login").click(function(){
         
    
@@ -73,7 +61,7 @@ $(function(){
 <body>
    <section class="container">
       <h5><span id="login">로그인</span>
-      <span id="ex-register">휴게소사업자 회원가입</span><span id="shop-register">가게 회원가입</span><span id="u-register">유저 회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
+      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
       <h1>HG</h1>
    </section>
 </body>

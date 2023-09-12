@@ -137,6 +137,7 @@ $(function(){
 </script>
 </head>
 <% 
+String root=request.getContextPath();
 request.setCharacterEncoding("UTF-8");
 
 ExpressDao dao=new ExpressDao();
@@ -257,7 +258,7 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
                var myid = '<%=dto.getB_id()%>';
                     //alert("if문 성공");
                  //location.href='index.jsp?main =board/supage.jsp';
-              location.href='../board/supage.jsp?id='+myid;
+              location.href= '<%=root%>/subPage.jsp?id='+myid;
               
           }
            
@@ -419,7 +420,7 @@ map.setZoomable(false);
                                  var myid = item.b_id;
                                        //alert("if문 성공");
                                        //location.href='index.jsp?main =board/supage.jsp';
-                                       location.href = '../board/supage.jsp?id='
+                                       location.href = '<%=root%>/subPage.jsp?id='
                                              + myid;
                
                                     }

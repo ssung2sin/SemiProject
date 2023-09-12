@@ -176,6 +176,9 @@
         }).open();
     }
 </script>
+<%
+	String root = request.getContextPath();
+%>
 </head>
 <body>
 	<div>
@@ -254,7 +257,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<button type="submit" class="btn btn-outline-warning" id="btnbregi">회원가입</button>
+						<button type="submit" class="btn btn-outline-warning">회원가입</button>
 					</td>
 				</tr>
 			</table>
