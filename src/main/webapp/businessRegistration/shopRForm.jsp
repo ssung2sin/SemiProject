@@ -75,7 +75,7 @@
 		        $.ajax({
 		            type: "get",
 		            dataType: "json",
-		            url: "s_idsearch.jsp",
+		            url: "businessRegistration/s_idsearch.jsp",
 		            data: { "s_id1": s_id1, "s_id2": s_id2, "s_id3": s_id3 },
 		            success: function (data) {
 		                if (data.check == 1) {
@@ -176,7 +176,7 @@
 </head>
 <body>
 	<div>
-		<form action="shopRProc.jsp" method="post" enctype="multipart/form-data" onsubmit="return checkpass(this)">
+		<form action="businessRegistration/shopRProc.jsp" method="post" enctype="multipart/form-data" onsubmit="return checkpass(this)">
 			<table class="table table-bordered form-group" style="width: 1000px;">
 				<caption align="top"><b>상가 회원가입</b></caption>
 				<tr valign="middle">

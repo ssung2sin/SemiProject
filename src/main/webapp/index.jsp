@@ -39,6 +39,7 @@ div.title {
    height: 15%;
    
    text-align: center;
+   background-color: blue;
    
 }
 
@@ -48,11 +49,11 @@ div.main {
    font-size: 13pt;
    margin-left: 15%;
    top: 15%;
-
+   background-color: pink;
 }
 
 div.info {
-   width:13%;
+  width:13%;
   height:30%;
   line-height: 10px;
   border-radius: 3%;
@@ -62,7 +63,7 @@ div.info {
   display: inline-block;   
   position:fixed;
   top:30%;
-  
+  background-color: orange;
 }
 
 div.hgintroduce{
@@ -71,7 +72,7 @@ div.hgintroduce{
    top: 100%;
    background-image:url("image/yellowbackground.jpg");
    background-size :100% 100vh;
-    background-attachment: scroll;
+   background-attachment: scroll;
    background-repeat: no-repeat;
 }
 
