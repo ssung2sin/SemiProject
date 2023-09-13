@@ -68,7 +68,7 @@ $(function(){
 		$.ajax({
 			
 			type:"get",
-			url:"userIdSearch.jsp",
+			url:"userRegistration/userIdSearch.jsp",
 			dataType:"json",
 			data:{"userId":userId},
 			success:function(data){
@@ -179,7 +179,7 @@ $(function(){
         var dateInput = document.getElementById("userbirth");
 
         // 현재 날짜 이후의 날짜를 선택할 수 없도록 비활성화
-        dateInput.min = currentDate.toISOString().split('T')[0];
+        dateInput.max = currentDate.toISOString().split('T')[0];
 	
 });
 
