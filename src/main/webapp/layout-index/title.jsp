@@ -105,22 +105,16 @@ $(function(){
 </head>
 <body>
    <section class="container">
-	
-	<h5>
    	<%
-      if(loginok==null){%>
-         <span id="login">로그인</span>
-      <%
-      } else {%>
-         <span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
-         <%=titleName %>님 환영합니다&nbsp;&nbsp;
-         <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
-      <%}%>
-
-
-      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span>
-      </h5>   
-      
+   	if(loginok==null){%>
+   		<h5><span id="login">로그인</span>
+   	<%
+   	} else {%>
+   		<h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
+   		<%=titleName %>님 환영합니다&nbsp;&nbsp;<input type="button" value="로그아웃" class="btn btn-danger"
+   		onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
+   	<%}%>
+      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
       <h1 id="titlepage">HG</h1>
    </section>
 </body>
