@@ -13,22 +13,26 @@
 <title>Insert title here</title>
 <style type="text/css">
 .container h5{
+	position:absolute;
    color:white;
-   position:absolute;
-   right:3%;
-   top:40%;
-   font-size: 2vh;
+   font-size: 1.2rem;
    cursor: pointer;
+   right:8%;
+   top:50%;
+   transform: translate(-50%, -50%);
 }
 .container h1{
+	
    font-family:Wallpoet;
-   font-size: 10vh;
+   font-size: 5em;
    color:gold;
-   position: absolute;
-   top:4%;
-   bottom:4%;
-   left:3%;
    cursor: pointer;
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+   
 }
 </style>
 <%
@@ -92,9 +96,11 @@ $(function(){
    
         location.href='index.jsp?main=userLogin/userLoginForm.jsp';
    });
+    
     $("#titlepage").click(function(){
     	location.href='index.jsp';
     });
+    
 
  });
 
@@ -105,22 +111,15 @@ $(function(){
 </head>
 <body>
    <section class="container">
-	
-	<h5>
    	<%
       if(loginok==null){%>
-         <span id="login">로그인</span>
+         <h5><span id="login">로그인</span></h5>
       <%
       } else {%>
-         <span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
+         <h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
          <%=titleName %>님 환영합니다&nbsp;&nbsp;
-         <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
+         <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span></h5>
       <%}%>
-
-
-      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span>
-      </h5>   
-      
       <h1 id="titlepage">HG</h1>
    </section>
 </body>

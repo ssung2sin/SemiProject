@@ -14,34 +14,34 @@
 <title>Insert title here</title>
 <style type="text/css">
 #mouse div{
-   width: 30px;
-   height: 60px;
-   border: 3px solid #fff;
-   border-radius: 10px 10px 15px 15px;
+   width: 3vh;
+   height: 6vh;
+   border: 0.5vh solid #fff;
+   border-radius: 1.25vh 1.25vh 2vh 2vh;
    margin: 5vw auto 1vw;
    position: relative;
    margin: auto;
 }
 
 #mouse div span{
-   width: 6px;
-   height: 6px;
+   width: 0.7vh;
+   height: 0.7vh;
    border-radius: 50%;
    background-color: #fff;
    position: absolute;
-   
-   top: 10px;
-   left: 10px;
+   transform:translate(-50%,-50%);
+   top: 50%;
+   left: 50%;
    text-indent: -9999px;
    animation: wheel 1s ease-out infinite;
 }
 @keyframes wheel{
    0%{
-      top:10px;
+      top:1vh;
       opacity: 1;
    }
    100%{
-      top:30px;
+      top:4vh;
       opacity:0;
    }
 }

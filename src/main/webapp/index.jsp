@@ -11,7 +11,7 @@
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
    rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<title>Insert title here</title>
+<title>Hugo</title>
 <style type="text/css">
 
 body{
@@ -38,17 +38,15 @@ div.title {
    width: 100%;
    height: 15%;
    text-align: center;
-<<<<<<< HEAD
-=======
+
    background-color: blue;
-   
->>>>>>> f05de360aec773de3470464b12394ef8392cb118
+
 }
 
 div.main {
    width: 70%;
    height: 84%;
-   font-size: 13pt;
+   font-size: 2vh;
    margin-left: 15%;
    top: 15%;
    background-color: pink;
@@ -61,7 +59,7 @@ div.info {
   border-radius: 3%;
   right: 1%;
   padding: 20px 10px;
-  display: inline-block;   
+  display: inline-block;
   position:fixed;
   top:30%;
   background-color: orange;

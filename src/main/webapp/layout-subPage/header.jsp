@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="data.dto.ExpressDto"%>
+<%@page import="data.dao.ExpressDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,12 +24,14 @@ span * {
     font-style: normal;
 }
 
-
+	.dv1{
+	width: 100%;
+}
 #ttop {
    margin-top: -18px;
    height: 80px;
-   width: 1690px;
-   background-color: white;
+   width: 100%;
+   
 }
 
 .topmenu {
@@ -75,24 +80,43 @@ span * {
 <%
 //절대경로보기
 String root = request.getContextPath();
-String b_id=request.getParameter("id");
-if(b_id==null){
-	b_id=(String)session.getAttribute("b_id");
+
+String inherence_HU=request.getParameter("id");
+if(inherence_HU==null){
+	inherence_HU=(String)session.getAttribute("inherence_HU");
+}
+System.out.println("aaaaaaa"+(String)session.getAttribute("inherence_HU"));
+
+ExpressDao dao=new ExpressDao();
+ExpressDto dto=new ExpressDto();
+
+List<ExpressDto> list=dao.getId(inherence_HU);
+System.out.println(inherence_HU);
+
+
+
+String myimg=null;
+String mytitle=null;
+for (int i = 0; i < list.size(); i++) {
+dto = list.get(i);
+myimg = dto.getImage();
+mytitle = dto.getB_name();
 }
 %>
 <script type="text/javascript">
 $(function(){
 	var b_id=$("#b_id").val();
-	//alert(s_id);
+	
 	$.ajax({
-		type:"get",
-		url: "layout-106-33-15937/sessionGet.jsp",
-		dataType:"html",
-		data: {"b_id":b_id},
-		success: function(data){
-			//alert("보내짐");
-		}
-	})
+	      type:"get",
+	      url: "layout-subPage/sessionGet.jsp",
+	      dataType:"html",
+	      data: {"b_id":b_id},
+	      success: function(data){
+	         //alert("보내짐");
+	      }
+	   })
+	//alert(s_id);
 	
 	  $("#ttop").mouseout(function(){
 	         $(".dv1").css("height","0px").css("background-color","white").css("transition","all 0.5s ease-in-out");
@@ -106,28 +130,18 @@ $(function(){
 </script>
 </head>
 <body>
-	<input type="hidden" id="b_id" value="<%=b_id%>">
+	<input type="hidden" id="b_id" value="<%=inherence_HU%>">
 <div class="dv1" style="position: fixed; z-index:999; height: 0px;">
    <nav id="ttop" style="">
    <ul class="t1">
-      <li><img src="image/logo.png" style="margin-left: 40px; 
-      cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"></li>
+      <%-- <li><img src="image/logo.png" style="margin-left: 40px; 
+      cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"></li> --%>
+      <li><b3 style="margin-left: 40px; 
+      cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3></li>
       <li><a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" 
-      class="topmenu" style="width: 200px; margin-left: 80px;">음식점</a>
+      class="topmenu" style="width: 200px; margin-left: 80px;">음식주문</a>
          <ul class="submenu" style="margin-left: 40px;">
          <a href="<%=root%>/index.jsp?main=about/introduce.jsp" style="font-size: 15px;">제주 소개</a>
-         </ul>
-      </li>
-      <li><a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">추천 코스</a>
-         <ul class="submenu" style="margin-left: -20px;">
-         <a href="index.jsp?main=search/searchIndex.jsp" style="font-size: 15px;">테마</a>
-         <a href="" style="font-size: 15px;">지역</a>
-         </ul></li>
-
-      <li><a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">리뷰</a>
-         <ul class="submenu" style="margin-left: -10px;">
-         <a href="" style="font-size: 15px;">코스 리뷰</a>
-         <a href="" style="font-size: 15px;">관광지 리뷰</a>
          </ul>
       </li>
       <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">이벤트</a>
@@ -136,13 +150,15 @@ $(function(){
          <a href="" style="font-size: 15px;">종료 이벤트</a>
          </ul>
       </li>
-         
+      <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">자유게시판</a>
+         <ul class="submenu" style="margin-left: -20px;">
+         <a href="" style="font-size: 15px;">공지게시판</a>
+         <a href="" style="font-size: 15px;">자유게시판</a>
+         </ul>
+      </li> 
      
    </ul>
-    <form class="d-flex" action="index.jsp?main=search/searchIndex.jsp" method="post">
-        <input class="form-control me-2" type="text"  style="width: 120px; margin-left: 30px; margin-top: 20px;" name="inputWords" placeholder="Search">
-        <button class="btn btn-primary" type="submit" style="margin-top: 20px; background-color: #696969; border-color: #696969;">Search</button>
-      </form>
+    
    </nav>
 </div>
 	

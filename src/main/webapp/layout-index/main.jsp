@@ -94,10 +94,11 @@ form.box input{
 }
 
 .searchbtn{
-   width:130px;
+   width:13vh;
+   height:5vh;
    background-color: orange;
-   padding: 10px;
-   border-radius: 25px;
+   padding: 1vh;
+   border-radius: 2.5vh;
    color:#fff;
    margin-left: -6px;
 }
@@ -137,13 +138,10 @@ $(function(){
 </script>
 </head>
 <% 
-<<<<<<< HEAD
+
 
 String root=request.getContextPath();
 
-=======
-String root=request.getContextPath();
->>>>>>> f05de360aec773de3470464b12394ef8392cb118
 request.setCharacterEncoding("UTF-8");
 
 ExpressDao dao=new ExpressDao();
@@ -239,7 +237,7 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
      var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
         mycontent += '<b><%=dto.getB_name()%></b>';
         mycontent += '<br>';
-        mycontent += '<img src="<%=dto.getImage()%>" style="width:100%; height:70px">';
+        mycontent += '<img src="image/<%=dto.getImage()%>" style="width:100%; height:70px">';
         mycontent += '<b><%=dto.getB_hp()%></b>';
         mycontent += '<br>';
         mycontent += '<b><%=dto.getS_hp()%></b>';
@@ -264,11 +262,9 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
                var myid = '<%=dto.getB_id()%>';
                     //alert("if문 성공");
                  //location.href='index.jsp?main =board/supage.jsp';
-<<<<<<< HEAD
-              location.href='<%=root%>/dpecoland.jsp?id='+myid;
-=======
+
               location.href= '<%=root%>/subPage.jsp?id='+myid;
->>>>>>> f05de360aec773de3470464b12394ef8392cb118
+
               
           }
            
@@ -428,16 +424,10 @@ map.setZoomable(false);
                              var ml=map.getLevel();//선언 안하면 데이터 타입 알수없어 if문 작동안함
                              if(ml=='4'){
                                  var myid = item.b_id;
-                                       //alert("if문 성공");
-                                       //location.href='index.jsp?main =board/supage.jsp';
-<<<<<<< HEAD
-                                       location.href = '<%=root%>/dpecoland.jsp?id='
-=======
-                                       location.href = '<%=root%>/subPage.jsp?id='
->>>>>>> f05de360aec773de3470464b12394ef8392cb118
-                                             + myid;
-               
-                                    }
+                                       
+                                 location.href = '<%=root%>/subPage.jsp?id=' + myid;
+               					
+                               }
                              map.setLevel(4);
 
                              map.panTo(this.getPosition());
