@@ -29,7 +29,7 @@ span * {
 }
 #ttop {
    margin-top: -18px;
-   height: 80px;
+   height: 10vh;
    width: 100%;
    
 }
@@ -82,6 +82,11 @@ span * {
 String root = request.getContextPath();
 
 String inherence_HU=request.getParameter("id");
+String grade=(String)session.getAttribute("grade");
+if(grade==null){
+	grade="";
+}
+
 if(inherence_HU==null){
 	inherence_HU=(String)session.getAttribute("inherence_HU");
 }
@@ -98,9 +103,9 @@ System.out.println(inherence_HU);
 String myimg=null;
 String mytitle=null;
 for (int i = 0; i < list.size(); i++) {
-dto = list.get(i);
-myimg = dto.getImage();
-mytitle = dto.getB_name();
+	dto = list.get(i);
+	myimg = dto.getImage();
+	mytitle = dto.getB_name();
 }
 %>
 <script type="text/javascript">
@@ -136,21 +141,42 @@ $(function(){
    <ul class="t1">
       <%-- <li><img src="image/logo.png" style="margin-left: 40px; 
       cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"></li> --%>
-      <li><b3 style="margin-left: 40px; 
-      cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3></li>
-      <li><a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" 
-      class="topmenu" style="width: 200px; margin-left: 80px;">음식주문</a>
-         <ul class="submenu" style="margin-left: 40px;">
-         <a href="<%=root%>/index.jsp?main=about/introduce.jsp" style="font-size: 15px;">제주 소개</a>
+      
+      
+      <li><!-- title 각휴게소 -->
+      	<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
+      </li>
+      
+      <li><!-- menu 시설안내 -->
+      	 <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">시설안내</a>
+         <ul class="topmenu" style="margin-left: 40px;">
+         <a href="" style="font-size: 15px;">편의시설</a>
          </ul>
       </li>
-      <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">이벤트</a>
+      
+      <li><!-- menu 음식점-->
+         <a href="#" class="topmenu" style="width: 150px; margin-left: 20px;">음식점</a>
+         <ul class="submenu" style="margin-left: -20px;">
+         <a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" class="submenu" style="width: 200px; margin-left: 80px;">음식점</a>
+         <%if(grade.equals("shop")){
+        	 %>
+         <a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
+         <%
+         }
+         %>
+         </ul>
+      </li>
+      
+      <li><!-- menu 이벤트 -->
+         <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">이벤트</a>
          <ul class="submenu" style="margin-left: -20px;">
          <a href="" style="font-size: 15px;">진행중 이벤트</a>
          <a href="" style="font-size: 15px;">종료 이벤트</a>
          </ul>
       </li>
-      <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">자유게시판</a>
+      
+      <li><!-- menu 자유게시판-->
+      <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">게시판</a>
          <ul class="submenu" style="margin-left: -20px;">
          <a href="" style="font-size: 15px;">공지게시판</a>
          <a href="" style="font-size: 15px;">자유게시판</a>

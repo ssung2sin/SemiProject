@@ -160,31 +160,34 @@ public class UserDao {
 		   return b;
 	   }
 	   
-	   public String allSelect(String grade, String id,String name, String selectId) {
+	   //아이디에 따른 이름 반환_user/shop/express 한 번에 가져오는 sql 만들기
+	   //grade는 user,express,shop함, id는 고객 입력한 값, selectId는 db에 입력된 id값
+	   public String allSelect(String grade, String id, String name, String selectId)
+	   {
 		   Connection conn=db.getConnection();
-		   String returnName="";
-		   PreparedStatement pstmt=null;
+		   
+		   Statement stmt=null;
 		   ResultSet rs=null;
 		   
-		   String sql="select ? from ? where ?=?";
+		   String titleName="";
+		   
+		   String sql="select "+name+" from "+grade+" where "+selectId+"='"+id+"'";
 		   
 		   try {
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, name);
-			pstmt.setString(2, grade);
-			pstmt.setString(3, selectId);
-			pstmt.setString(4, id);
-			
-			rs=pstmt.executeQuery();
-			
-			if(rs.next()) {
-				returnName=rs.getString(1);
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			if(rs.next())
+			{
+				titleName=rs.getString(1);
 			}
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, stmt, conn);
 		}
-		
-		   return returnName;
-	   }
+		   return titleName;
+	   }	  
+
 }
