@@ -1,3 +1,4 @@
+<%@page import="mail.Mail"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -18,7 +19,19 @@
 	String userPass=(String)pageContext.getSession().getAttribute("userPass");
 	UserDao dao=new UserDao();
 	UserDto dto=dao.getData(userId);
-	String codenumber="1111";
+	
+	String email = dto.getU_email();
+	
+	String recipient[]=email.split("@");
+  //난수 인증번호 생성
+    int ranNum[]=new int[4];
+    
+    for(int i=0;i<ranNum.length;i++){
+       ranNum[i]=(int)(Math.random()*10);
+    }
+    
+    String codenumber=ranNum[0]+""+ranNum[1]+""+ranNum[2]+""+ranNum[3];
+    System.out.println(codenumber);
 %>
 
 <style type="text/css">
@@ -49,10 +62,20 @@
 		var x="";
 		
 		$("#codebtn").click(function(){
-			if(userhp.value == "<%=dto.getU_hp()%>"){
+			if(userEmail.value == "<%=dto.getU_email()%>"){
 				$("#codeform").show();
-				
-				var time = 10;	//제한시간
+				$.ajax({
+					
+					type:"get",
+					dataType:"html",
+					url:"mail/mailsend.jsp",
+					data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
+					success:function(){
+						
+					}
+					
+				})
+				var time = 180;	//제한시간
 				var min = ""; 	//분
 				var sec = ""; 	//초
 				
@@ -84,8 +107,20 @@
 			$("#codenum").prop("disabled",false);
 			$("#codenum").attr("placeholder","인증번호를 입력하세요");
 			clearInterval(x);
-			
-			var time = 10;	//제한시간
+			var email=$(".email-recip").val();
+			var codenumber=$(".codeNum").val();
+			$.ajax({
+				
+				type:"get",
+				dataType:"html",
+				url:"mail/mailsend.jsp",
+				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
+				success:function(){
+					
+				}
+				
+			})
+			var time = 180;	//제한시간
 			var min = ""; 	//분
 			var sec = ""; 	//초
 			
@@ -135,7 +170,7 @@
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
 		<h6>계정을 활성화 하시려면 휴대폰인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"
-		 maxlength="13" required="required" placeholder="000-0000-0000" id="userhp">
+		 required="required" placeholder="이메일을 입력하시오" id="userEmail">
 		<button type="button" class="btn btn-success" id="codebtn">인증번호 요청</button><br>
 		<div id="codeform">
 			<input type="text" style="width: 200px; height: 40px;" class="form-control"

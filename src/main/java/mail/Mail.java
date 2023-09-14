@@ -14,18 +14,20 @@ public class Mail {
     // 구글 이메일
     static final String user_email= "sist0615lee@gmail.com";
     // 구글 비번
-    static final String user_pw = "Tkddyd06!";
+    static final String user_pw = "enmv vmti kayj lpdo";
     
     static final String smtp_host = "smtp.gmail.com";
     static final int smtp_port = 465;  // TLS : 587, SSL : 465
 
-    public static void Send() throws Exception {
+    public static void Send(String email,String ranNum) throws Exception {
+    	System.setProperty("jdk.tls.client.protocols", "TLSv1.2");
         Properties props = System.getProperties();
         props.put("mail.smtp.host", smtp_host); 
         props.put("mail.smtp.port", smtp_port); 
         props.put("mail.smtp.auth", "true"); 
         props.put("mail.smtp.ssl.enable", "true"); 
         props.put("mail.smtp.ssl.trust", smtp_host);
+        props.put("mail.smtp.ssl.socketFactory", "javax.net.ssl.SSLSocketFactory");
         
         Session session = Session.getInstance(props,
                 new javax.mail.Authenticator() {
@@ -42,14 +44,14 @@ public class Mail {
            // 받는 이메일
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("ssung2sin@naver.com")    
+                    InternetAddress.parse(email)    
             );
 	
 	  // 제목
-            message.setSubject("테스트 메일입니다."); 
+            message.setSubject("휴고 인증메일 입니다."); 
 	  
 	   // 내용
-            message.setText("이것은 테스트 메일입니다. \n\n 잘 갔나요?");
+            message.setText("인증번호 : "+ranNum);
 
             // 발송
             Transport.send(message);
