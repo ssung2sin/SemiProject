@@ -1,3 +1,5 @@
+<%@page import="data.dto.UserDto"%>
+<%@page import="data.dao.UserDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.MenuDao"%>
@@ -12,6 +14,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&family=Orbit&display=swap"
         rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
@@ -51,6 +54,15 @@
 String s_id=request.getParameter("s_id");
 MenuDao dao=new MenuDao();
 List<MenuDto> list=dao.selectMenu(s_id);
+String loginok=(String)session.getAttribute("loginok");
+String id=(String)session.getAttribute("id");
+String grade=(String)session.getAttribute("grade");
+if(grade==null){
+	grade="";
+}
+UserDao udao=new UserDao();
+
+UserDto udto=udao.getData(id);
 
 List<String> categorylist=new ArrayList<String>();
 categorylist=dao.getCategory(s_id);
@@ -58,20 +70,45 @@ categorylist=dao.getCategory(s_id);
 <body>
 <script type="text/javascript">
 	$(function(){
-		
-		#(".orderBtn").click(function(){
-			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+		$(".orderBtn").click(function(){
+			var id=$("#id").val();
+			var s_id=$("#s_id").val();
+			var loginok=$("#loginok").val();
+			//alert(loginok);
+			if(loginok=='null'){
+				$("#my-modal").click();
+				//alert("누름");
+			}else{
+				location.href="../order/orderCart.jsp?s_id="+s_id;
+			}
+		})
+		$(".logoutBtn").click(function(){
+			location.href="logoutAction.jsp";	
 		})
 	})
 
 </script>
+<input type="hidden" id="loginok" value="<%=loginok%>">
+<input type="hidden" id="id" value="<%=id%>">
+<input type="hidden" id="s_id" value="<%=s_id%>">
 <%
 	for(int i=0;i<list.size();i++){
 		MenuDto dto=list.get(i);
 		if(s_id.equals("106-31-1000"+(i+1))){%>
 			<img src="../shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px; margin-left: 20px;">
+			<% 
+			if(grade!="shop"|| grade!="expresss"){
+			%>
 			<button class="orderBtn">주문하기</button>
-
+			<%
+			}
+			if(grade.equals("user")&&loginok!=null){ 
+			%>
+			<h5 style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</h5>
+			<button class="logoutBtn">로그아웃</button>
+			<%
+			}
+			%>
 			<div id="category">
 				<b style="margin-left: 20px;">분류보기</b>
 				<hr width="660" style="margin-left: 20px;">
@@ -185,5 +222,34 @@ categorylist=dao.getCategory(s_id);
 			}
 		});
 	</script>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="display: none"
+id="my-modal">
+Open modal
+</button>
+	<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">로그인</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <jsp:include page="../userLogin/orderLoginForm.jsp"></jsp:include>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+	
 </body>
 </html>

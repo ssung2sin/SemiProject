@@ -49,6 +49,7 @@ UserDao udao=new UserDao();
 //사용할 변수 선언하기
 String name="";
 String selectId="";
+String titleName="";
 
 //첫 페이지 들어가면 로그인하지 않은 상태라 초기값 선언이 필요함
 if(grade==null){
@@ -70,8 +71,9 @@ if(grade.equals("shop"))
 	name="u_name";
 }
 
-String titleName =udao.allSelect(grade, id, name, selectId);
-
+if(loginok!=null){
+	titleName=udao.allSelect(grade, id, name, selectId);
+}
 
 
 %>
@@ -105,22 +107,16 @@ $(function(){
 </head>
 <body>
    <section class="container">
-	
-	<h5>
    	<%
-      if(loginok==null){%>
-         <span id="login">로그인</span>
-      <%
-      } else {%>
-         <span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
-         <%=titleName %>님 환영합니다&nbsp;&nbsp;
-         <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
-      <%}%>
-
-
-      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span>
-      </h5>   
-      
+   	if(loginok==null){%>
+   		<h5><span id="login">로그인</span>
+   	<%
+   	} else {%>
+   		<h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
+   		<%=titleName %>님 환영합니다&nbsp;&nbsp;<input type="button" value="로그아웃" class="btn btn-danger"
+   		onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
+   	<%}%>
+      <span id="register">회원가입</span><span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>   
       <h1 id="titlepage">HG</h1>
    </section>
 </body>

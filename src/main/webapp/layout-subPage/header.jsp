@@ -82,6 +82,11 @@ span * {
 String root = request.getContextPath();
 
 String inherence_HU=request.getParameter("id");
+String grade=(String)session.getAttribute("grade");
+if(grade==null){
+	grade="";
+}
+
 if(inherence_HU==null){
 	inherence_HU=(String)session.getAttribute("inherence_HU");
 }
@@ -139,10 +144,15 @@ $(function(){
       <li><b3 style="margin-left: 40px; 
       cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3></li>
       <li><a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" 
-      class="topmenu" style="width: 200px; margin-left: 80px;">음식주문</a>
+      class="topmenu" style="width: 200px; margin-left: 80px;">음식점</a>
+         <%if(grade.equals("shop")){
+        	 %>
          <ul class="submenu" style="margin-left: 40px;">
-         <a href="<%=root%>/index.jsp?main=about/introduce.jsp" style="font-size: 15px;">제주 소개</a>
+         <a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
          </ul>
+         <%
+         }
+         %>
       </li>
       <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">이벤트</a>
          <ul class="submenu" style="margin-left: -20px;">

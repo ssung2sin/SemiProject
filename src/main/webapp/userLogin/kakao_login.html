@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<a href="javascript:kakaoLogin();"><img src="https://www.gb.go.kr/Main/Images/ko/member/certi_kakao_login.png" style="height: 60px; width: auto;"></a>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script>
+		 // 쿠키 설정
+        document.cookie = "crossCookie=bar; SameSite=None; Secure";
+        
+		<!--//cc700751f1365d255c3f92aa2675dc39-->
+		document.cookie = "crossCookie=bar; SameSite=None; Secure";
+		window.Kakao.init("cc700751f1365d255c3f92aa2675dc39");
+		
+		function kakaoLogin(){
+			window.Kakao.Auth.login({
+				scope:'profile_nickname,account_email,gender',
+				success:function(authObj){
+					console.log(authObj);
+					window.Kakao.API.request({
+						url:'/v2/user/me',
+						success: res=> {
+							const kakao_account = res.kakao_account;
+							console.log(kakao_account);
+						}
+					});
+				}
+			});
+		}
+	</script>
+	
+</body>
+</html>

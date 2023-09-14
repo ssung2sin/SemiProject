@@ -31,6 +31,15 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 	}
 }
 %>
+<script>
+	$(function(){
+		
+		$("#naverIdLogin_loginButton").click(function(){
+			
+			location.href="userLogin/naver_login.jsp";
+		});
+	});
+</script>
 <body>
 <div class="mt-3">
 			  
@@ -64,13 +73,13 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" align="center">
-							<button type="submit" class="btn btn-info">로그인</button>
+							<td colspan="2" align="left">
+								<input type="checkbox" name="uSave" <%=saveok.equals("uyes")?"checked":""  %>>아이디저장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-info">로그인</button>
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" rowspan="2" align="center">
-								<input type="checkbox" name="uSave" <%=saveok.equals("uyes")?"checked":""  %>>아이디저장
+							<td colspan="2" align="center">
+							<img src="https://static.nid.naver.com/oauth/big_g.PNG?version=js-2.0.0" style="width:200px; height: 50px; cursor:pointer;" id="naverIdLogin_loginButton">
 							</td>
 						</tr>
 					</table>
@@ -94,13 +103,13 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2"  align="center">
-							<button type="submit" class="btn btn-info">로그인</button>
+							<td colspan="2" align="left">
+								<input type="checkbox" name="bSave" <%=saveok.equals("byes")?"checked":"" %>>아이디저장
 							</td>
 						</tr>
 						<tr>
-							<td colspan="2" rowspan="2" align="center">
-								<input type="checkbox" name="bSave" <%=saveok.equals("byes")?"checked":"" %>>아이디저장
+							<td colspan="2"  align="center">
+							<button type="submit" class="btn btn-info">로그인</button>
 							</td>
 						</tr>
 					</table>
