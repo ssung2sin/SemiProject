@@ -184,11 +184,13 @@ $(function(){
 });
 
 </script>
-
+<%
+	String root=request.getContextPath();
+%>
 </head>
 <body>
 <div class="inputform" style="width:1000px;">
-	<form action="userRAction.jsp" method="post">
+	<form action="<%=root %>/userRegistration/userRAction.jsp" method="post">
 		<table class="table table-bordered">
 		<caption align="top"><b>개인 회원가입</b></caption>
 			<tr>
