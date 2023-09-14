@@ -56,7 +56,7 @@
 					onclick="location.href='subPage.jsp?main=board/freeboard.jsp'">목록</button> -->
 				<button type="button" class="btn btn-warning"
 					style="width: 120px;"
-					onclick="location.href='freeBoard.jsp'">목록</button>
+					onclick="location.href='freeBoard.jsp'">취소</button>
 			</td>
 		</tr>
 		

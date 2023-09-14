@@ -22,7 +22,7 @@
 <%
 	dao.insertBoard(dto);
 
-	response.sendRedirect("../board/freeBoard.jsp");
+	response.sendRedirect("../subPage.jsp?main=board/freeBoard.jsp");
 %>
 </body>
 </html>

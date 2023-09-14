@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.BoardDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.BoardDao"%>
@@ -50,7 +51,7 @@
 	<table class="table table-striped" style="width: 1000px;">
 		<caption align="top"><h3>자유게시판</h3></caption>
 		<tr align="center">
-			<th style="width: 80px; background-color: #;">
+			<th style="width: 80px; background-color: #;"></
 			<span style="float: left; margin-left: 50px;">번호</span>
 			<span style="float: left; margin-left: 250px;">제목</span>
 			
@@ -71,9 +72,21 @@
 				</tr>
 			<%}
 			else
-			{%>
-				
-			<%}
+			{
+				SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+				for(int i=0;i<list.size();i++)
+				{	
+					BoardDto dto=list.get(i);
+					%>
+					
+					<tr>
+						<td>
+						<span>
+						</span>
+						</td>
+					</tr>
+				<%}
+			}
 		%>
 	</table>
 </div>

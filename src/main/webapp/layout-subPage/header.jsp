@@ -153,7 +153,7 @@ $(function(){
       <li><a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">자유게시판</a>
          <ul class="submenu" style="margin-left: -20px;">
          <a href="" style="font-size: 15px;">공지게시판</a>
-         <a href="" style="font-size: 15px;">자유게시판</a>
+         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 15px;">자유게시판</a>
          </ul>
       </li> 
      
