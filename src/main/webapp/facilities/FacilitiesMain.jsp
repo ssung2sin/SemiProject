@@ -88,6 +88,30 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #sub_01.body .article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
 #sub_01.body .article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
 
+#mapsLayerBackground{ position: absolute;}
+#mapsLayerPoint{ position: relative;}
+
+.flicker{
+  -webkit-animation: blink 0.5s ease-in-out infinite alternate;
+  -moz-animation: blink 0.5s ease-in-out infinite alternate;
+  animation: blink 0.5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@-moz-keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+ 
 </style>
 <body>
 	<div class="title">
@@ -118,7 +142,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                         </dl>
                     </div>
                 </div>
-                
+               	
                 <!-- 
                 ../Semi_img/information_center_01_01.jpg
                 ../Semi_img/information_center_01_02.jpg
@@ -150,7 +174,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>종합안내소&nbsp;&nbsp;l&nbsp;&nbsp;Information Center</dt>
                                     <dd class="nts">상, 하행 모두 이용할 수 있는 안내소. 비즈니스 <br>서비스(FAX, 인터넷, 문자), 하이패스 충전, <br>교통정보 이용안내, 길안내, 전국 관광명소  <br>안내를 받으실 수 있습니다.</dd>
-                                    <dd class="link"><a id="linkA3" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA3" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal1">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -173,14 +197,14 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>수유실&nbsp;&nbsp;l&nbsp;&nbsp;Nursing Room</dt>
                                     <dd class="nts">모던하고 환경친화적인 소재를 사용한 인테리어로 꾸며져 <br>있습니다. (수유공간 2곳, 편의시설 완비)</dd>
-                                    <dd class="link" id="linkA4"><a class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
+                                    <dd class="link" id="linkA4"><a class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal2">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
                         
                         
                         
-                        <!-- ////////////////////////////////////////////// -->
+                        
                         <li class="left">
                             <div class="img">
                                 <div class="slider slider_02">
@@ -200,7 +224,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>약국&nbsp;&nbsp;l&nbsp;&nbsp;DrugStore</dt>
                                     <dd class="nts">덕평자연휴게소 내부에는 24시간 편의점과 약국이 자리잡고 <br />있습니다. 스낵류, 여행관련 소품 및 비상상비약이 준비되어 <br />있습니다.</dd>
-                                    <dd class="link"><a id="linkA5" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA5" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal3">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -216,15 +240,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>편의점&nbsp;&nbsp;l&nbsp;&nbsp;Store</dt>
                                     <dd class="nts">덕평자연휴게소 내부에는 24시간 편의점이 있습니다. 스낵류 뿐만 아니라, 여행 관련 소품, 즉석 조리 식품, 선물용 음료 등을 구매하실 수 있습니다.</dd>
-                                    <!--<dd class="nts info">세계자연기금(WWF): 자연 보존과 회복을 위해 각국에서 협력하는 국제단체</dd>-->
-                                    <dd class="link"><a id="linkA6" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA6" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal4">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
-                       
-                       <!-- success -->
-                       <!-- ////////////////////////////////////////////// -->
-                        
                         <li class="left">
                             <div class="img">
                                 <div class="slider slider_02">
@@ -234,7 +253,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
                                     <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
+                                        <a class="on" href="javascript:"></a>+
                                         <a href="javascript:"></a>
                                     </p>
                                 </div>
@@ -243,7 +262,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>식당가&nbsp;&nbsp;l&nbsp;&nbsp;Restaurant Area</dt>
                                     <dd class="nts"></dd>
-                                    <dd class="link"><a id="linkA7" class="btn_pop" href="#image-map">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA7" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal5">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -259,7 +278,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <dl>
                                     <dt>주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station</dt>
                                     <dd class="nts"></dd>
-                                    <dd class="link"><a id="linkA8" class="btn_pop" href="#image-map">위치보기</a></dd>
+                                    <dd class="link"><a id="linkA8" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal6">위치보기</a></dd>
                                 </dl>
                             </div>
                         </li>
@@ -271,57 +290,152 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 	
 	
 	
-	<!-- The Modal -->
-	<div class="modal" id="myModal">
-	  <div class="modal-dialog">
-	    <div class="modal-content">
 	
-	      <!-- Modal Header -->
-	      <div class="modal-header">
-	        <h4 class="modal-title">Modal Heading</h4>
-	        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-	      </div>
+	 
+	<div class="modal" id="myModal1">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>종합안내소 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div id="mapsLayerPoint">
+							<div id="maps-point"  style="height: 400px; width: 450px;">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>	
+ 	
+	<div class="modal" id="myModal2">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>수유실 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div id="mapsLayerPoint">
+							<div id="maps-point"  style="height: 400px; width: 450px;">
+								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>	
 	
-	      <!-- Modal body -->
-	      <div class="modal-body">
-	        Modal body..
-	      </div>
-	
-	      <!-- Modal footer -->
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-	      </div>
-	
-	    </div>
-	  </div>
-	</div>
-	
-	
-	
-	<!-- <div class="Map">
-		<img src="../image/FacilitiesImage/dpImage.jpg" alt="덕평자연휴게소 배치도" usemap="#plan01"/>
-	    <div id="linkA1" class="shoppop shop1"></div>
-	    <div id="linkA2" class="shoppop shop2"></div>
-	    <div id="linkA3" class="shoppop shop3"></div>
-	    <div id="linkA4" class="shoppop shop4"></div>
-		<div id="linkA5" class="shoppop shop5"></div>
-		<div id="linkA6" class="shoppop shop6"></div>
-		<div id="linkA7" class="shoppop shop7"></div>
-		<div id="linkA8" class="shoppop shop8"></div>
-    </div>
-    
-     
-     <map name="plan01" id="plan01" class="plan">
-     		
-            <area id="#linkA1" href="#" coords="426,567,11" shape="circle" class="blink blinking-area">
-		    <area id="#linkA2" href="#" coords="254,489,13" shape="circle" class="blink blinking-area">
-		    <area id="#linkA3" href="#" coords="494,626,11" shape="circle" class="blink blinking-area">
-		    <area id="#linkA4" href="#" coords="270,599,29" shape="circle" class="blink blinking-area">
-		    <area id="#linkA5" href="#" coords="445,249,12" shape="circle" class="blink blinking-area">
-		    <area id="#linkA6" href="#" coords="363,519,51" shape="circle" class="blink blinking-area">
-		    <area id="#linkA7" href="#" coords="56,602,83,610,69,684,38,684" shape="poly" class="blink blinking-area">
-		    <area id="#linkA8" href="#" coords="48,512,74,514,84,594,58,596" shape="poly" class="blink blinking-area">
-     </map> -->
-	
+	<div class="modal" id="myModal3">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>약국 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div id="mapsLayerPoint">
+							<div id="maps-point"  style="height: 400px; width: 450px;">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>
+ 	
+ 	<div class="modal" id="myModal4">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>편의점 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div id="mapsLayerPoint">
+							<div id="maps-point" style="height: 400px; width: 450px;">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>
+ 	
+ 	<div class="modal" id="myModal5">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>식당가 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div class="maps-point" style="height: 400px; width: 450px;">
+							<div id="maps-point" style="transform: translate(-58px, -7px) scale(0.15);">
+								<img src="../image/FacilitiesImage/Marker.png" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>
+ 	
+ 	<div class="modal" id="myModal6">
+	  	<div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h4 class="modal-title" style="text-align: center;"><b>주유소 위치 보기</b></h4>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+		      </div>
+		      <div class="modal-body" >
+			      <div id="map">
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+						<div id="mapsLayerPoint">
+							<div class="maps-point" style="height: 400px; width: 450px;">
+								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
+							</div>
+						</div>
+		    	  </div>
+			  </div>  
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+		      </div>
+	  		</div>
+		</div>
+ 	</div>
 </body>
 </html>

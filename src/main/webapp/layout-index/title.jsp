@@ -49,6 +49,7 @@ UserDao udao=new UserDao();
 //사용할 변수 선언하기
 String name="";
 String selectId="";
+String titleName="";
 
 //첫 페이지 들어가면 로그인하지 않은 상태라 초기값 선언이 필요함
 if(grade==null){
@@ -70,8 +71,9 @@ if(grade.equals("shop"))
 	name="u_name";
 }
 
-String titleName =udao.allSelect(grade, id, name, selectId);
-
+if(loginok!=null){
+	titleName=udao.allSelect(grade, id, name, selectId);
+}
 
 
 %>
