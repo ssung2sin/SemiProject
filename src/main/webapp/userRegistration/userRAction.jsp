@@ -19,7 +19,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+<% 
+	String root=request.getContextPath();
 	request.setCharacterEncoding("utf-8");
 	LocalDateTime now=LocalDateTime.now();
 	/* SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm"); */
@@ -49,7 +50,7 @@
 	dao.insertUser(dto, sdfNow);
 	
 	//회원가입하면, 로그인 페이지로 이동
-	response.sendRedirect("");
+	response.sendRedirect(root+"/index.jsp?main=userLogin/userLoginForm.jsp");
 
 %>
 </body>
