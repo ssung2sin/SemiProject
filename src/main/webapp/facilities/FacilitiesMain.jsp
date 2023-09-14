@@ -12,44 +12,7 @@
   
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-$(function() {
-	var slider_02_num=0;
-	 $(".slider_02 .bullet a").click(function(e){
-	        slider_02_num=$(this).index();
-	        $(this).parent().find("a").removeClass("on");
-	        $(this).addClass("on");
-	        $(".slider_02 ul").stop().animate({"left":(-100*slider_02_num)+"%"},500);
-	    });
-	$(".slider_02 .btn_prev").click(function(e){
-	    slider_02_num=(slider_02_num-1)%$(".slider_02 ul li").length;
-	    $(".slider_02 .bullet a:eq("+slider_02_num+")").trigger("click");
-	});
 
-	$(".slider_02 .btn_next").click(function(e){
-	    slider_02_num=(slider_02_num+1)%$(".slider_02 ul li").length;
-	    $(".slider_02 .bullet a:eq("+slider_02_num+")").trigger("click");
-	});
-	
-	var slider_03_num=0;
-    $(".slider_03 .bullet a").click(function(e){
-        slider_03_num=$(this).index();
-        $(this).parent().find("a").removeClass("on");
-        $(this).addClass("on");
-        $(".slider_03 ul").stop().animate({"left":(-100*slider_03_num)+"%"},500);
-    });
-
-    $(".slider_03 .btn_prev").click(function(e){
-        slider_03_num=(slider_03_num-1)%$(".slider_03 ul li").length;
-        $(".slider_03 .bullet a:eq("+slider_03_num+")").trigger("click");
-    });
-
-    $(".slider_03 .btn_next").click(function(e){
-        slider_03_num=(slider_03_num+1)%$(".slider_03 ul li").length;
-        $(".slider_03 .bullet a:eq("+slider_03_num+")").trigger("click");
-    }); 
-});
-</script>
 <style>
 /* Reset */
 html,body{min-height:100%}
@@ -101,7 +64,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #sub_01 .item_02 > ul > li .txt dl dd.link { margin-top:20px; }
 #sub_01 .item_02 > ul > li .txt dl dd.link a { display:inline-block; width:100px; border:1px solid #b2b2b2; font-size:13px; font-weight:500; line-height:34px; color:#56991f; text-align:center; }
 #sub_01 .item_02 > ul > li .txt dl dd.link a:hover { color:#fff; background:#56991f; }
-#sub_01 .item_02 > ul > li .img { width:520px; }
+#sub_01 .item_02 > ul > li .img { width:520px; height: 2	60px;}
 #sub_01 .item_02 > ul > li.left .img { float:left; }
 #sub_01 .item_02 > ul > li.left .txt { float:right; padding-left:50px; }
 #sub_01 .item_02 > ul > li.right .img { float:right; }
@@ -157,54 +120,24 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                     </div>
                     <div class="article">
                         <div class="img">
-                            <p class="left"><img src="../image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
-                            <p class="right"><img src="../image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
+                            <p class="left"><img src="image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
+                            <p class="right"><img src="image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
                         </div>
                         <dl>
                             <dt>주차시설&nbsp;&nbsp;l&nbsp;&nbsp;Parking</dt>
                             <dd class="nts">덕평자연휴게소는 넓은 주차공간을 갖추고 있습니다. 인천방향(상행)은 551대, 강릉방향(하행)은 367대로 총 918대의 주차공간을 제공합니다.</dd>
                             <dd class="nts info"><!--- 장시간 주차 시, 장기주차장을 이용해주시기 바랍니다. <br />-->- 24시간 이상 주차 시, 고속도로 최장거리 이용요금이 부과됩니다. (도로공사에서 부과)</dd>
                         </dl>
-						 <dl>
-                            <dt>전기차 충전소&nbsp;&nbsp;l&nbsp;&nbsp;EV Charging Station</dt>
-                            <dd class="nts">덕평자연휴게소 주차장에는 총 4대의 전기차 충전소가 있습니다.<br />인천방향(상행)은 1대, 강릉방향(하행)은 3대로 총 4대입니다.</dd>
-                        </dl>
                     </div>
                 </div>
-
-
-<style>
-#sub_01 .slider { overflow:hidden; position:relative; }
-#sub_01 .slider ul { width:500%; position:relative; }
-
-#sub_01 .slider ul li { width:20%; float:left; }
-/*
-#sub_01 .slider .btn_prev,
-#sub_01 .slider .btn_next { width:52px; height:52px; position:absolute; top:50%; margin-top:-26px; background:url(/images/arrow_sub_01.png) 0 0 no-repeat; opacity:0.8; }
-#sub_01 .slider .btn_prev:hover,
-#sub_01 .slider .btn_next:hover { opacity:1; }
-#sub_01 .slider .btn_prev { left:20px; }
-#sub_01 .slider .btn_next { right:20px; background-position:right 0; }
-#sub_01 .slider p { width:100%; position:absolute; left:0; bottom:12px; text-align:center; font-size:0; }
-#sub_01 .slider p a { display:inline-block; width:10px; height:10px; margin-left:8px; background:url(/images/bullet.png) right 0 no-repeat; }
-#sub_01 .slider p a:first-child { margin-left:0; }
-#sub_01 .slider p a:hover,
-#sub_01 .slider p a.on { background-position:0 0; } 
-
-#sub_01 .item_01 .title p { font-weight: 700 }.contents_title .slider,
-#sub_01 .item_01 .slider { margin-top:45px; }
-*/
-</style>
-
-
-                <div class="item_02">
+           <div class="item_02">
                     <ul>
                         <li class="left">
                             <div class="img">
                                 <div class="slider slider_02">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/information_center_01_01.jpg"></li>
-                                        <li><img src="../image/FacilitiesImage/information_center_01_02.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/information_center_01_01.jpg"></li>
+                                        <!-- <li><img src="image/FacilitiesImage/information_center_01_02.jpg"></li> -->
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
@@ -226,8 +159,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_03">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/nursing_room_01_01.jpg"></li>
-                                        <li><img src="../image/FacilitiesImage/nursing_room_01_02.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/nursing_room_01_01.jpg"></li>
+                                        <!-- <li><img src="image/FacilitiesImage/nursing_room_01_02.jpg"></li> -->
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
@@ -253,7 +186,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_04">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/drugstore_01_01.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/drugstore_01_03.jpg"></li>
                                         <li><img src=""></li>
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
@@ -276,7 +209,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_05">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/store_01_01.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/store_01_01.jpg"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -288,11 +221,12 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 </dl>
                             </div>
                         </li>
+                        
                         <li class="left">
                             <div class="img">
                                 <div class="slider slider_06">
                                     <ul>
-                                       <li><img src=""></li>
+                                       <li><img src="image/FacilitiesImage/Restaurant_Area_01_01.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
                                     <a href="javascript:" class="btn_prev"></a>
                                     <a href="javascript:" class="btn_next"></a>
@@ -320,8 +254,9 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             </div>
                             <div class="txt">
                                 <dl>
-                                    <dt>주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station</dt>
-                                    <dd class="nts"></dd>
+                                    <dt style="font-size: 19px;">주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station<br />전기차 충전소&nbsp;&nbsp;l&nbsp;&nbsp;EV Charging Station</dt>
+                                    
+                            		<dd class="nts">덕평자연휴게소 주차장에는 총 4대의 전기차 충전소가 있습니다.<br />인천방향(상행)은 1대, 강릉방향(하행)은 3대로 총 4대입니다.</dd>
                                     <dd class="link"><a id="linkA8" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal6">위치보기</a></dd>
                                 </dl>
                             </div>
@@ -331,7 +266,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                 </div>
         </div>
     </div>
-	
+	</div>
 	
 	
 	
@@ -345,10 +280,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -369,10 +304,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -393,10 +328,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -417,11 +352,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point" style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -442,10 +377,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div class="maps-point" style="height: 400px; width: 450px;">
 							<div id="maps-point" style="transform: translate(-58px, -7px) scale(0.15);">
-								<img src="../image/FacilitiesImage/Marker.png" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -466,11 +401,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div class="maps-point" style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>

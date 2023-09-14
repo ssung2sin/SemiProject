@@ -67,6 +67,7 @@ myimg = dto.getImage();
     	background-attachment: scroll;
    		background-repeat: no-repeat;
 	}
+	
 	div.layout{
    		position: absolute;
    		
