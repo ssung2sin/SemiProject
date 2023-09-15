@@ -14,18 +14,19 @@ public class BoardDao {
 
 	DBConnect db=new DBConnect();
 	
-	public void insertBoard(BoardDto dto)
+	public void insertUserBoard(BoardDto dto)
 	{
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into board values(null,?,?,?,0,now())";
+		String sql="insert into board values(null,0,?,?,?,?,0,0,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getWriter());
-			pstmt.setString(2, dto.getTitle());
-			pstmt.setString(3, dto.getContent());
+			pstmt.setString(2, dto.getExpress());
+			pstmt.setString(3, dto.getTitle());
+			pstmt.setString(4, dto.getContent());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -36,6 +37,29 @@ public class BoardDao {
 		}
 	}
 	
+	public void insertAdminBoard(BoardDto dto,int note)
+	{
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="insert into board values(null,?,?,?,?,?,0,0,now())";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, note);
+			pstmt.setString(2, dto.getWriter());
+			pstmt.setString(3, dto.getExpress());
+			pstmt.setString(4, dto.getTitle());
+			pstmt.setString(5, dto.getContent());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 	//paging
 		public List<BoardDto> getPagingList(int start,int perPage)
 		{
@@ -59,10 +83,13 @@ public class BoardDao {
 					BoardDto dto=new BoardDto();
 					
 					dto.setNum(rs.getString("num"));
+					dto.setNote(rs.getInt("note"));
 					dto.setWriter(rs.getString("writer"));
+					dto.setExpress(rs.getString("express"));
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setView(rs.getInt("view"));
+					dto.setRecommend(rs.getInt("recommend"));
 					dto.setWriteday(rs.getTimestamp("writeday"));
 					
 					list.add(dto);
@@ -148,10 +175,13 @@ public class BoardDao {
 				if(rs.next())
 				{
 					dto.setNum(rs.getString("num"));
+					dto.setNote(rs.getInt("note"));
 					dto.setWriter(rs.getString("writer"));
+					dto.setExpress(rs.getString("express"));
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setView(rs.getInt("view"));
+					dto.setRecommend(rs.getInt("recommend"));
 					dto.setWriteday(rs.getTimestamp("writeday"));
 				}
 			} catch (SQLException e) {

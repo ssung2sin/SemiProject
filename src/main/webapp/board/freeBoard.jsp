@@ -1,3 +1,5 @@
+<%@page import="data.dto.ExpressDto"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.BoardDto"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dao.BoardDao"%>
@@ -11,8 +13,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+	a.title{
+		text-decoration: none;
+		color: black;
+	}
+	a.notetitle{
+		text-decoration: none;
+		color: red;
+	}
+</style>
 </head>
 <%
+	String root = request.getContextPath();
 	BoardDao dao=new BoardDao();
 
 	int totalCount=dao.getTotalCount(); 
@@ -21,7 +34,7 @@
 	int endPage; 
 	int startNum; 
 	int perPage=10; 
-	int perBlock=10; 
+	int perBlock=2; 
 	int currentPage;
 	int no;
 	
@@ -47,8 +60,11 @@
 %>
 <body>
 <div>
+	<h3>자유게시판</h3>
+	<select></select>
+	<option></option>
+	<button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
 	<table class="table table-striped" style="width: 1000px;">
-		<caption align="top"><h3>자유게시판</h3></caption>
 		<tr align="center">
 			<th style="width: 80px; background-color: #;">
 			<span style="float: left; margin-left: 50px;">번호</span>
@@ -62,8 +78,13 @@
 		</tr>
 		
 		<%
+			
+			
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+			
 			if(list.size()==0)
-			{%>
+			{
+				%>
 				<tr>
 					<td>
 						<h5 align="center">게시물이 없습니다</h5>
@@ -71,11 +92,100 @@
 				</tr>
 			<%}
 			else
-			{%>
+			{
+				for(BoardDto dto:list)
+				{	
+					int note=dto.getNote();
+					
+					if(note==1)
+					{%>
+					
+					<tr>
+						<td style="color: red;">
+							<b>
+							<span style="float: left; margin-left: 45px;">[공지]</span>
+							
+							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="notetitle">
+							<span style="float: left; margin-left: 40px;">[<%=dto.getExpress() %>]</span>
+							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+							</a>
 				
-			<%}
+							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
+							<span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
+							<span style="float: right; margin-right: 75px;">관리자</span>
+							</b>
+						</td>
+					</tr>
+					<%no--;
+					}
+				}
+				
+				for(BoardDto dto:list)
+				{
+					int note=dto.getNote();
+					
+					if(note==0)
+					{%>
+					<tr>
+						<td>
+							<span style="float: left; margin-left: 60px;"><%=no--%></span>
+							
+							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title">
+							<span style="float: left; margin-left: 60px;">[<%=dto.getExpress() %>]</span>
+							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+							</a>
+				
+				
+							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
+							<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
+							<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
+						</td>
+					</tr>
+					<%}
+				}
+			}
 		%>
 	</table>
+	
+	    <%-- 페이지번호 출력 --%>
+		<div>
+			<ul class="pagination justify-content-center">
+				<%
+					//이전버튼
+					if(startPage>1)
+					{%>
+						<li class="page-item">
+      						<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=startPage-1 %>" tabindex="-1" aria-disabled="true"><</a>
+   						</li>
+					<%}
+				
+					for(int pp=startPage;pp<=endPage;pp++)
+					{
+						//현재페이지에 css추가를 위한 조건
+						if(pp==currentPage)
+						{%>
+							<li class="page-item active">
+								<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=pp%>"><%=pp %></a>
+							</li>
+						<%}
+						else //선택 안한 페이지는 색이 다른 색이기 때문에 똑같이 적어도 괜찮다
+						{%>
+							<li class="page-item">
+								<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=pp%>"><%=pp %></a>
+							</li>
+						<%}
+					}
+					
+					//다음버튼
+					if(endPage<totalPage)
+					{%>
+						<li class="page-item">
+     						<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=endPage+1%>">></a>
+    					</li>
+					<%}
+				%>
+			</ul>
+		</div>
 </div>
 </body>
 </html>
