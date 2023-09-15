@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="data.dto.MenuDto"%>
 <%@page import="data.dao.MenuDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -73,10 +74,10 @@ div.allBox{
 	width: 300px;
 	font-size:20px;
 }
-.order-btn{
+.order-footer{
 	position: absolute;
 	top: 630px;
-	left: 750px;
+	width:300px;
 	font-size: 25px;
 }
 .su{
@@ -101,6 +102,8 @@ div.allBox{
 
 	UserDto udto = new UserDto();
 	udto = udao.getData(id);
+	
+	NumberFormat nf=NumberFormat.getCurrencyInstance();
 %>
 <script type="text/javascript">
 	$(function(){
@@ -109,6 +112,8 @@ div.allBox{
 			var sang_num=$(this).attr("sang_num");
 			var price=$(this).children().eq(0).val();
 			var name=$(this).children().eq(3).text();
+			i=$("#idx").val();
+			//alert("i="+i);
 			for(var j=1;j<i;j++){
 				var compSang=$(".td"+j+"first").attr("sang_num");
 				//alert(compSang);
@@ -123,16 +128,19 @@ div.allBox{
 				}
 			//alert(name);
 				s="";
-				s+="<tr><td class='td"+i+" td"+i+"first' sang_num='"+sang_num+"'>"+name+"</td>";
+				s+="<tr><td class='td"+i+" td"+i+"first' id='td+"+i"' sang_num='"+sang_num+"'>"+name+"</td>";
 				s+="<td class='td"+i+"'><button type='button' class='minus minus"+i+"'>-</button> <span class='su' name='su"+i+"'>1</span> "; 
 				s+="<button type='button' class='plus plus"+i+"'>+</button></td>";
-				s+="<td class='td"+i+" price' value='"+price+"'>"+price+"</td>";
+				s+="<td class='td"+i+" price price"+i+"' value='"+price+"'>"+price+"</td>";
 				s+="<td class='td"+i+" del'><button class='btn btn-danger sm del' td='td"+i+"'>x</button>";
 				s+="</tr>"
 			
 				$(".cart-table").append(s);
 				i++;
+				$("#idx").val(i);
+				totPrice();
 		})
+		
 		$(document).on("click",".plus",function(){
 			var su=$(this).parent().find(".su").text();
 			su++;
@@ -143,6 +151,8 @@ div.allBox{
 			var modPrice=price*su;
 			//alert("modPrice="+modPrice);
 			$(this).parent().parent().find(".price").text(modPrice);
+			
+			totPrice();
 		})
 		
 		$(document).on("click",".minus",function(){
@@ -160,10 +170,28 @@ div.allBox{
 				//alert("modPrice="+modPrice);
 				$(this).parent().parent().find(".price").text(modPrice);
 			}
+			totPrice();
 		})
+		
 		$(document).on("click",".del",function(){
 			var td=$(this).attr("td");
+			var idx=$("#idx").val();
+			if(idx==0){
+				idx=1;
+			}
+			$("#idx").val(idx);
 			$("."+td).remove();
+			totPrice();
+		})
+		
+		//버튼 클릭하면 db추가
+		$("#addCartBtn").click(function(){
+			var idx=("#idx").val();
+			for(var i=0;i<idx;i++){
+				if($(".price"+i).text()==0){
+					continue;
+				}
+			}
 		})
 	})
 	function plusBtn(){
@@ -171,10 +199,33 @@ div.allBox{
 		//alert(plusNum);
 		$(plusNum).click();
 	}
+	
+	function totPrice(){
+		var idx=$("#idx").val();
+		var cnt=1;
+		//alert(idx);
+		var totPrice=0;
+		var j=1;
+		for(j=1;j<idx;j++){
+			if($(".price"+j).text()==0){
+				cnt++;
+				continue;
+			}
+			var price=parseInt($(".price"+j).text());
+			totPrice+=price;
+			//alert(totPrice);
+			$("#total-price").text(totPrice);
+		}
+		if(cnt==j){
+			$("#total-price").text(0);
+		}
+	}
+	
 </script>
 </head>
 <body>
 <h5><%=udto.getU_name()%>님 반갑습니다!</h5>
+	<input type="hidden" id="idx" value="1">
 	<input type="hidden" class="plusNum" value="">
 	<div class="allBox">
 		<div class="mt-3">
@@ -269,13 +320,14 @@ div.allBox{
 				<table class="cart-table">
 				
 				</table>
-				<table class="order-btn">
+				<table class="order-footer">
 					<tr>
-						<!-- <td>
-						총금액 : <span id="total-price"></span>
-						</td> -->
-						<td colspan='3' style="float: right">
-							<button type="button">주문하기</button>
+						<td>
+						총금액 : <span id="total-price">0</span>
+						</td>
+						<td colspan='2' style="float: right">
+							<button type="button">전체삭제</button>
+							<button type="button" id="addCartBtn">주문하기</button>
 						</td>
 					</tr>
 				</table>
