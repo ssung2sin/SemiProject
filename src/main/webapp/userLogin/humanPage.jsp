@@ -107,6 +107,7 @@
 		$("#timereset").click(function(){
 			$("#codenum").prop("disabled",false);
 			$("#codenum").attr("placeholder","인증번호를 입력하세요");
+			$("#codenum").val("");
 			clearInterval(x);
 			var email=$(".email-recip").val();
 			var codenumber=$(".codeNum").val();

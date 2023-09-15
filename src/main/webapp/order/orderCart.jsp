@@ -79,6 +79,11 @@ div.allBox{
 	left: 750px;
 	font-size: 25px;
 }
+.su{
+	width: 30px;
+	height: 30px;
+
+}
 </style>
 <%
 	
@@ -104,25 +109,73 @@ div.allBox{
 			var sang_num=$(this).attr("sang_num");
 			var price=$(this).children().eq(0).val();
 			var name=$(this).children().eq(3).text();
-			alert(name);
-			s="";
-			s+="</td><td class=td"+i+">"+name;
-			/* s+="</td><td class=td"+i+"><button>-</button><button>+</button	>; */
-			s+="</td><td class=td"+i+">"+price;
-			s+="</tr><td>"
+			for(var j=1;j<i;j++){
+				var compSang=$(".td"+j+"first").attr("sang_num");
+				//alert(compSang);
+				//alert(sang_num);
+				if(sang_num==compSang){
+					//alert("둘이같다");
+					var plus=".plus"+j;
+					$(".plusNum").val(plus);
+					plusBtn();
+					return;
+					}
+				}
+			//alert(name);
+				s="";
+				s+="<tr><td class='td"+i+" td"+i+"first' sang_num='"+sang_num+"'>"+name+"</td>";
+				s+="<td class='td"+i+"'><button type='button' class='minus minus"+i+"'>-</button> <span class='su' name='su"+i+"'>1</span> "; 
+				s+="<button type='button' class='plus plus"+i+"'>+</button></td>";
+				s+="<td class='td"+i+" price' value='"+price+"'>"+price+"</td>";
+				s+="<td class='td"+i+" del'><button class='btn btn-danger sm del' td='td"+i+"'>x</button>";
+				s+="</tr>"
 			
-			$(".order-cart").append(s);
-			i++;
+				$(".cart-table").append(s);
+				i++;
+		})
+		$(document).on("click",".plus",function(){
+			var su=$(this).parent().find(".su").text();
+			su++;
+			$(this).parent().find(".su").text(su);
+			
+			var price=$(this).parent().parent().find(".price").attr("value");
+			//alert("price="+price);
+			var modPrice=price*su;
+			//alert("modPrice="+modPrice);
+			$(this).parent().parent().find(".price").text(modPrice);
+		})
+		
+		$(document).on("click",".minus",function(){
+			var su=$(this).parent().find(".su").text();
+			if(su==1){
+				return;
+			}
+			else{
+				su--;
+				$(this).parent().find(".su").text(su);
+			
+				var price=$(this).parent().parent().find(".price").attr("value");
+				//alert("price="+price);
+				var modPrice=price*su;
+				//alert("modPrice="+modPrice);
+				$(this).parent().parent().find(".price").text(modPrice);
+			}
+		})
+		$(document).on("click",".del",function(){
+			var td=$(this).attr("td");
+			$("."+td).remove();
 		})
 	})
-	
-	function list(){
-		
+	function plusBtn(){
+		var plusNum=$(".plusNum").val();
+		//alert(plusNum);
+		$(plusNum).click();
 	}
 </script>
 </head>
 <body>
 <h5><%=udto.getU_name()%>님 반갑습니다!</h5>
+	<input type="hidden" class="plusNum" value="">
 	<div class="allBox">
 		<div class="mt-3">
 			<img src="../shopimg/shop1.png"
@@ -213,11 +266,16 @@ div.allBox{
 			<h2 class="order-h2">장바구니</h2>
 			<hr style="border: 3px solid gray">
 			<form action="#" method="post">
-				<div class="order-cart"></div>
+				<table class="cart-table">
+				
+				</table>
 				<table class="order-btn">
 					<tr>
-						<td colspan="3" style="float: right">
-							<button type="submit">주문하기</button>
+						<!-- <td>
+						총금액 : <span id="total-price"></span>
+						</td> -->
+						<td colspan='3' style="float: right">
+							<button type="button">주문하기</button>
 						</td>
 					</tr>
 				</table>
