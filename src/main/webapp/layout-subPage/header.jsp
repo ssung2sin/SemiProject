@@ -150,7 +150,7 @@ $(function(){
       <li><!-- menu 시설안내 -->
       	 <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">시설안내</a>
          <ul class="topmenu" style="margin-left: 40px;">
-         <a href="" style="font-size: 15px;">편의시설</a>
+         <a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 15px;">편의시설</a>
          </ul>
       </li>
       

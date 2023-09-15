@@ -1,4 +1,4 @@
-
+<%@page import="java.util.Random"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -22,7 +22,6 @@
 	String userPass=(String)pageContext.getSession().getAttribute("userPass");
 	UserDao dao=new UserDao();
 	UserDto dto=dao.getData(userId);
-	
 	String email = dto.getU_email();
 	
 	String recipient[]=email.split("@");
@@ -67,6 +66,7 @@
 		$("#codebtn").click(function(){
 			if(userEmail.value == "<%=dto.getU_email()%>"){
 				$("#codeform").show();
+				$("#codebtn").prop("disabled",true);
 				$.ajax({
 					
 					type:"get",
@@ -102,24 +102,25 @@
 				}, 1000);
 			}
 			else{
-				alert("번호가 틀립니다");
+				alert("이메일이 일치하지 않습니다.");
 			}
 		});
 		
 		$("#timereset").click(function(){
 			$("#codenum").prop("disabled",false);
 			$("#codenum").attr("placeholder","인증번호를 입력하세요");
+			$("#codenum").val("");
 			clearInterval(x);
 			var email=$(".email-recip").val();
 			var codenumber=$(".codeNum").val();
 			$.ajax({
 				
 				type:"get",
-				dataType:"html",
+				dataType:"json",
 				url:"mail/mailsend.jsp",
-				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
-				success:function(){
-					
+				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>'},
+				success:function(data){
+					$(".resetRanNum").val(data.ranNum);
 				}
 				
 			})
@@ -148,15 +149,28 @@
 	});
 	
 	function check() {	//인증번호가 같으면 submit
-		
-		if(codenum.value != <%=codenumber%>){
-			alert("인증번호가 틀립니다");
-			codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
-			codenum.focus();			// 전화번호쪽으로 focus
-			return false;			// 번호가 일치하지않으면 submit 안되게			
+		var resetRanNum=$(".resetRanNum").val()
+		if(resetRanNum=="none"){
+			if(codenum.value != <%=codenumber%>){
+				alert("인증번호가 틀립니다");
+				codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
+				codenum.focus();			// 전화번호쪽으로 focus
+				return false;			// 번호가 일치하지않으면 submit 안되게			
+			}
+			else{
+				return true;
+			}
 		}
 		else{
-			return true;
+			if(codenum.value != resetRanNum){
+				alert("인증번호가 틀립니다");
+				codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
+				codenum.focus();			// 전화번호쪽으로 focus
+				return false;			// 번호가 일치하지않으면 submit 안되게			
+			}
+			else{
+				return true;
+			}
 		}
 	}
 </script>
@@ -170,8 +184,9 @@
 	<form action="userLogin/humanLoginAction.jsp" method="post" onsubmit="return check()">
 		<input type="hidden" value="<%=userId%>" name="userId">
 		<input type="hidden" value="<%=userPass%>" name="userPass">
+		<input type="hidden" value="none" class="resetRanNum">
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
-		<h6>계정을 활성화 하시려면 휴대폰인증을 해주세요</h6>
+		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"
 		 required="required" placeholder="이메일을 입력하시오" id="userEmail">
 		<button type="button" class="btn btn-success" id="codebtn">인증번호 요청</button><br>
