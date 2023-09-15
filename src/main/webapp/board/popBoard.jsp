@@ -22,11 +22,6 @@
 		text-decoration: none;
 		color: red;
 	}
-	
-	.pop{
-		font-weight: bold;
-		background-color: blue;
-	}
 </style>
 </head>
 <%
@@ -62,8 +57,6 @@
 	no=totalCount-(currentPage-1)*perPage;
 	
 	List<BoardDto> list=dao.getPagingList(startNum, perPage);
-	
-	BoardDto pdto=new BoardDto();
 %>
 <body>
 <div>
@@ -136,15 +129,9 @@
 					int note=dto.getNote();
 					
 					if(note==0)
-					{
-						int likes=dto.getLikes();
-						int unlikes=dto.getUnlikes();
-						
-						int pop=(likes-unlikes);
-						System.out.println("pop="+pop);
-					%>
-					<tr class="<%=pop>=10?"pop":""%>">
-						<td>
+					{%>
+					<tr>
+						<td style="color: ">
 							<span style="float: left; margin-left: 60px;"><%=no--%></span>
 							
 							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title">
@@ -152,8 +139,8 @@
 							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
 							</a>
 				
+							
 							<span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
-							<input type="hidden" class="pop" value="<%=pop%>">
 							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
 							<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
 							<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>

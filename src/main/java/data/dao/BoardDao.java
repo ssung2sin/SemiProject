@@ -19,7 +19,7 @@ public class BoardDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into board values(null,0,?,?,?,?,0,0,now())";
+		String sql="insert into board values(null,0,?,?,?,?,0,0,0,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -42,7 +42,7 @@ public class BoardDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into board values(null,?,?,?,?,?,0,0,now())";
+		String sql="insert into board values(null,?,?,?,?,?,0,0,0,now())";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -89,7 +89,8 @@ public class BoardDao {
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setView(rs.getInt("view"));
-					dto.setRecommend(rs.getInt("recommend"));
+					dto.setLikes(rs.getInt("likes"));
+					dto.setUnlikes(rs.getInt("unlikes"));
 					dto.setWriteday(rs.getTimestamp("writeday"));
 					
 					list.add(dto);
@@ -181,7 +182,8 @@ public class BoardDao {
 					dto.setTitle(rs.getString("title"));
 					dto.setContent(rs.getString("content"));
 					dto.setView(rs.getInt("view"));
-					dto.setRecommend(rs.getInt("recommend"));
+					dto.setLikes(rs.getInt("likes"));
+					dto.setUnlikes(rs.getInt("unlikes"));
 					dto.setWriteday(rs.getTimestamp("writeday"));
 				}
 			} catch (SQLException e) {
@@ -191,5 +193,45 @@ public class BoardDao {
 				db.dbClose(rs, pstmt, conn);
 			}
 			return dto;
+		}
+		
+		//추천수
+		public void updatelike(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="update board set likes=likes+1 where num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
+		
+		//추천수
+		public void updateunlike(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+					
+			String sql="update board set unlikes=unlikes+1 where num=?";
+					
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
 		}
 }

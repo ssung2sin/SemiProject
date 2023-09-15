@@ -11,16 +11,23 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private int view;
-	private int recommend;
+	private int likes;
+	private int unlikes;
 	private Timestamp writeday;
 	
 	
 	
-	public int getRecommend() {
-		return recommend;
+	public int getLikes() {
+		return likes;
 	}
-	public void setRecommend(int recommend) {
-		this.recommend = recommend;
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+	public int getUnlikes() {
+		return unlikes;
+	}
+	public void setUnlikes(int unlikes) {
+		this.unlikes = unlikes;
 	}
 	public int getNote() {
 		return note;
