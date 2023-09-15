@@ -21,6 +21,7 @@
 	String userId=request.getParameter("userId");
 	String userPass=request.getParameter("userPass");
 	String uSave=request.getParameter("uSave");
+	System.out.println("usave="+uSave);
 	
 	UserDao dao=new UserDao();
 	boolean b=dao.isUserIdPass(userId, userPass);
