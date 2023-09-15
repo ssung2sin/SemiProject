@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import data.dto.UserDto;
 import mysql.db.DBConnect;
 
@@ -189,5 +190,6 @@ public class UserDao {
 		}
 		   return titleName;
 	   }	  
+	   
 
 }

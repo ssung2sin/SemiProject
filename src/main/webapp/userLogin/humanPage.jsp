@@ -1,4 +1,4 @@
-<%@page import="mail.Mail"%>
+<%@page import="java.util.Random"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -19,7 +19,7 @@
 	String userPass=(String)pageContext.getSession().getAttribute("userPass");
 	UserDao dao=new UserDao();
 	UserDto dto=dao.getData(userId);
-	
+
 	String email = dto.getU_email();
 	
 	String recipient[]=email.split("@");
