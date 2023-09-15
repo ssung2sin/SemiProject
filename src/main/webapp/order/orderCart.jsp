@@ -121,6 +121,7 @@ div.allBox{
 				if(sang_num==compSang){
 					//alert("둘이같다");
 					var plus=".plus"+j;
+					
 					$(".plusNum").val(plus);
 					plusBtn();
 					return;
