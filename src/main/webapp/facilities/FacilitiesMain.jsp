@@ -125,8 +125,8 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                         </div>
                         <dl>
                             <dt>주차시설&nbsp;&nbsp;l&nbsp;&nbsp;Parking</dt>
-                            <dd class="nts">덕평자연휴게소는 넓은 주차공간을 갖추고 있습니다. 인천방향(상행)은 551대, 강릉방향(하행)은 367대로 총 918대의 주차공간을 제공합니다.</dd>
-                            <dd class="nts info"><!--- 장시간 주차 시, 장기주차장을 이용해주시기 바랍니다. <br />-->- 24시간 이상 주차 시, 고속도로 최장거리 이용요금이 부과됩니다. (도로공사에서 부과)</dd>
+                            <dd class="nts">덕평자연휴게소는 넓은 주차공간을 갖추고 있습니다. 인천방향(상행)은 551대, 강릉방향(하행)은 367대로 총 918대의 주차공간을 제공합니다. <br /><b>장시간 주차 시, 장기주차장을 이용해주시기 바랍니다.</b></dd>
+                            <dd class="nts info">- 24시간 이상 주차 시, 고속도로 최장거리 이용요금이 부과됩니다. (도로공사에서 부과)</dd>
                         </dl>
                     </div>
                 </div>
@@ -137,14 +137,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 <div class="slider slider_02">
                                     <ul>
                                         <li><img src="image/FacilitiesImage/information_center_01_01.jpg"></li>
-                                        <!-- <li><img src="image/FacilitiesImage/information_center_01_02.jpg"></li> -->
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -162,12 +155,6 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                         <li><img src="image/FacilitiesImage/nursing_room_01_01.jpg"></li>
                                         <!-- <li><img src="image/FacilitiesImage/nursing_room_01_02.jpg"></li> -->
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -189,12 +176,6 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                         <li><img src="image/FacilitiesImage/drugstore_01_03.jpg"></li>
                                         <li><img src=""></li>
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -228,12 +209,6 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                     <ul>
                                        <li><img src="image/FacilitiesImage/Restaurant_Area_01_01.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
