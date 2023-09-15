@@ -1,3 +1,4 @@
+<%@page import="data.dto.ExpressDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@
 	charset="utf-8"></script>	
 </head>
 <body>
-<form action="insertProc.jsp" method="post">
+<form action="board/insertProc.jsp" method="post">
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption align="top"><h3>자유 게시판</h3></caption>
 		<tr>
@@ -32,9 +33,15 @@
 		</tr>
 		<tr>
 			<th bgcolor="#99CC99" width="100">제  목</th>
-			<td>
-				<input type="text" name="title" class="form-control"
-					required="required" style="width: 500px;">
+			<td class="form-group">
+				<select	name="express">
+					<option value="덕평자연휴게소">덕평자연휴게소</option>
+					<option value="부산휴게소">부산휴게소</option>
+					<option value="대전휴게소">대전휴게소</option>
+					<option value="수원휴게소">수원휴게소</option>
+					<option value="용인휴게소">용인휴게소</option>
+				</select>
+				<input type="text" name="title" required="required" style="width: 500px;">
 			</td>
 		</tr>
 		<tr>
@@ -56,7 +63,7 @@
 					onclick="location.href='subPage.jsp?main=board/freeboard.jsp'">목록</button> -->
 				<button type="button" class="btn btn-warning"
 					style="width: 120px;"
-					onclick="location.href='freeBoard.jsp'">취소</button>
+					onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">취소</button>
 			</td>
 		</tr>
 		
@@ -111,25 +118,3 @@ function pasteHTML(filepath){
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
