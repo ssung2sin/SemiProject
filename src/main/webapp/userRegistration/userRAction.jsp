@@ -28,7 +28,7 @@
 
 	//데이터 읽어서 dto 넣기
 	UserDto dto=new UserDto();
-	
+	String useremail2=request.getParameter("useremail2");
 	String userId=request.getParameter("userId");
 	String userPass=request.getParameter("userpass2");
 	String userName=request.getParameter("username");

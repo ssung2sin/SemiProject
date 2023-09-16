@@ -96,7 +96,8 @@ public class UserDao {
     	}
     	return isUserId;
     }
-  //insert... user 회원가입 
+    
+    	//insert... user 회원가입 
 	   public void insertUser(UserDto dto,String now)
 	   {
 		   Connection conn=db.getConnection();
@@ -114,8 +115,8 @@ public class UserDao {
 			   pstmt.setString(4, dto.getU_hp());
 			   pstmt.setString(5, dto.getU_birth());
 			   pstmt.setString(6, dto.getU_email());
-			   pstmt.setString(7, now);
-			   pstmt.setString(8, now);
+			   pstmt.setString(7, now);	//가입일
+			   pstmt.setString(8, now);	//마지막로그인날짜
 			
 			   pstmt.execute();
 			   
@@ -127,6 +128,7 @@ public class UserDao {
 		}
 		   
 	   }
+	   
 	   
 	   //로그인 시, 아이디와 비번 체크
 	   public boolean isUserIdPass(String userId,String userPass)
@@ -189,7 +191,102 @@ public class UserDao {
 			db.dbClose(rs, stmt, conn);
 		}
 		   return titleName;
-	   }	  
+	   }	
 	   
+	   //mypage_회원정보수정 위해 정보 가져오기
+	   public UserDto getUserInfo(String uid)
 
+	   {
+		   UserDto dto=new UserDto();
+		   
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select * from user where u_id=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, uid);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				dto.setNum(rs.getString("num"));
+				dto.setU_id(rs.getString("u_id"));
+				dto.setU_name(rs.getString("u_name"));
+				dto.setU_hp(rs.getString("u_hp"));
+				dto.setU_birth(rs.getString("u_birth"));
+				dto.setU_email(rs.getString("u_email"));				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		   
+		   return dto;
+	   }
+	   
+	   //mypage_회원정보수정 (비밀번호,핸드폰,이메일 변경)
+	   public void updateUserInfo(UserDto dto)
+	   {
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   
+		   String sql="update user set u_pass=?,u_hp=?,u_email=? where u_id=?";
+		   
+		   try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getU_pass());
+			pstmt.setString(2, dto.getU_hp());
+			pstmt.setString(3, dto.getU_email());
+			pstmt.setString(4, dto.getU_id());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	   }
+	   
+	   //네이버 아이디 로그인 insert (토큰값 insert해서 로그인하기)   
+	   public void insertNaver(UserDto dto,String now)
+	   {
+		   Connection conn=db.getConnection();
+		   PreparedStatement pstmt=null;
+		   
+		   String sql="insert into user values(null,?,?,?,?,?,?,?,?)"
+		   		+ ""
+		   		+ "";
+		   
+		   try {
+			   
+			   pstmt=conn.prepareStatement(sql);
+			   
+			   pstmt.setString(1, dto.getU_id());
+			   pstmt.setString(2, dto.getU_pass());
+			   pstmt.setString(3, dto.getU_name());
+			   pstmt.setString(4, dto.getU_hp());
+			   pstmt.setString(5, dto.getU_birth());
+			   pstmt.setString(6, dto.getU_email());
+			   pstmt.setString(7, now);
+			   pstmt.setString(8, now);
+			
+			   pstmt.execute();
+			   
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+		   
+	   }
 }

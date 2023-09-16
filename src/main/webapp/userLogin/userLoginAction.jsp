@@ -24,6 +24,7 @@
 	String userId=request.getParameter("userId");
 	String userPass=request.getParameter("userPass");
 	String uSave=request.getParameter("uSave");
+	System.out.println("유저로그인폼:"+uSave);
 	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.0");
 	
 	UserDao dao=new UserDao();
@@ -46,6 +47,7 @@
 		if(dif>=1){
 			pageContext.getSession().setAttribute("userId", userId);
 			pageContext.getSession().setAttribute("userPass", userPass);
+			pageContext.getSession().setAttribute("uSave",uSave);
 			response.sendRedirect("../index.jsp?main=userLogin/humanPage.jsp");
 		}
 		else{
