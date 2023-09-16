@@ -25,7 +25,7 @@
 	String email = dto.getU_email();
 	
 	String recipient[]=email.split("@");
-  //난수 인증번호 생성
+  	//난수 인증번호 생성
     int ranNum[]=new int[4];
     
     for(int i=0;i<ranNum.length;i++){
