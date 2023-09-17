@@ -104,6 +104,7 @@ public class BoardDao {
 			return list;
 		}
 		
+		
 		//전체개수 반환
 		
 		public int getTotalCount()
@@ -222,6 +223,25 @@ public class BoardDao {
 			PreparedStatement pstmt=null;
 					
 			String sql="update board set unlikes=unlikes+1 where num=?";
+					
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
+		
+		public void updateView(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+					
+			String sql="update board set view=view+1 where num=?";
 					
 			try {
 				pstmt=conn.prepareStatement(sql);

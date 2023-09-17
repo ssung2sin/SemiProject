@@ -30,7 +30,7 @@
 			
 			$.ajax({
 				
-				type:"get",
+				type:"post",
 				dataType:"json",
 				url:"board/likeProc.jsp",
 				data:{"num":num},
@@ -48,7 +48,7 @@
 			
 			$.ajax({
 				
-				type:"get",
+				type:"post",
 				dataType:"json",
 				url:"board/unlikeProc.jsp",
 				data:{"num":num},

@@ -22,6 +22,11 @@
 		text-decoration: none;
 		color: red;
 	}
+	
+	.pop span{
+		font-weight: bold;
+		color: blue;
+	}
 </style>
 </head>
 <%
@@ -57,6 +62,8 @@
 	no=totalCount-(currentPage-1)*perPage;
 	
 	List<BoardDto> list=dao.getPagingList(startNum, perPage);
+	
+	BoardDto pdto=new BoardDto();
 %>
 <body>
 <div>
@@ -115,7 +122,7 @@
 				
 							<span style="float: right; margin-right: 60px;">-</span>
 							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-							<span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
+				 			<span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
 							<span style="float: right; margin-right: 75px;">관리자</span>
 							</b>
 						</td>
@@ -129,24 +136,33 @@
 					int note=dto.getNote();
 					
 					if(note==0)
-					{%>
-					<tr>
-						<td style="color: ">
-							<span style="float: left; margin-left: 60px;"><%=no--%></span>
-							
-							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title">
-							<span style="float: left; margin-left: 60px;">[<%=dto.getExpress() %>]</span>
-							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
-							</a>
-				
-							
-							<span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
-							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-							<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
-							<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
-						</td>
-					</tr>
-					<%}
+					{
+						int likes=dto.getLikes();
+						int unlikes=dto.getUnlikes();
+						
+						int pop=(likes-unlikes);
+						
+						if(pop>=10)
+						{
+						%>
+							<tr class="<%=pop>=10?"pop":""%>">
+								<td>
+									<span style="float: left; margin-left: 60px;"><%=no--%></span>
+									
+									<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title">
+									<span style="float: left; margin-left: 60px;">[<%=dto.getExpress() %>]</span>
+									<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+									</a>
+						
+									<span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
+									<input type="hidden" class="pop" value="<%=pop%>">
+									<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
+									<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
+									<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
+								</td>
+							</tr>
+						<%}
+					}
 				}
 			}
 		%>
