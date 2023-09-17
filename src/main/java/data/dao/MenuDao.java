@@ -257,14 +257,14 @@ public class MenuDao {
 	}
 	
 	//주문메뉴 조회
-	public List<MenuOrderDto> selectMyOrder(String u_id) {
+	public List<MenuOrderDto> selectMyOrder(String u_id,String selectId) {
 		List<MenuOrderDto> list=new ArrayList<MenuOrderDto>();
 		
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from order_menu where u_id=? order by order_time desc";
+		String sql="select * from order_menu where "+selectId+"=? order by order_time desc";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

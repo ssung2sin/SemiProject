@@ -20,6 +20,7 @@
 <%
 	String userId=request.getParameter("userId");
 	String userPass=request.getParameter("userPass");
+	String menuPage=request.getParameter("menuPage");
 	String uSave=request.getParameter("uSave");
 	
 	UserDao dao=new UserDao();
@@ -36,7 +37,7 @@
 		String sdfNow=now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0"));
 		
 		dao.updateLL_date(userId, sdfNow);
-		response.sendRedirect("../index.jsp");
+		response.sendRedirect("../shop/shopMenu.jsp?s_id="+menuPage);
 	} else{%> <!--로그인 실패 시 -->
 		<script type="text/javascript">
 			alert("아이디/비밀번호가 일치하지 않습니다");

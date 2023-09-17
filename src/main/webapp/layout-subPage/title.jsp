@@ -65,8 +65,6 @@ UserDao udao=new UserDao();
 
 MenuDao mdao=new MenuDao();
 
-mdao.selectMyOrder(id);
-
 //사용할 변수 선언하기
 String name="";
 String selectId="";
@@ -140,7 +138,7 @@ $(function(){
          <h5><span id="login">로그인</span></h5>
       <%
       }else{%>
-      	<h5><% if(grade.equals("shop")||grade.equals("user")){%>
+      	<h5><% if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){%>
 			<i class="bi bi-bell-fill order-alert" style="width: 50px; height: 50px;"></i>
       		<%
    			}
@@ -154,14 +152,14 @@ $(function(){
    <div class="notification-panel">
     	<table>
     	<%
-    	List<MenuOrderDto> list=mdao.selectMyOrder(id);
+    	List<MenuOrderDto> list=mdao.selectMyOrder(id,selectId);
     	System.out.println(list.size());
     	for(int i=0;i<list.size();i++){
     		MenuOrderDto dto=list.get(i);
     	%>
        		<tr>
     			<td>
-    				주문번호 : <%=dto.getNum() %> <span><%=dto.getPrepare_time()==null?"접수준비중":"주문준비중"%></span>
+    				주문번호 : <%=dto.getNum() %> <span><%=dto.getPrepare_time()==null?"접수 준비중":"메뉴 준비중"%></span>
     			</td>
     		</tr>
     	<%}
