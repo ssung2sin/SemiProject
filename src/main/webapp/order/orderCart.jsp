@@ -168,9 +168,9 @@ div.allBox{
 			$(this).parent().find(".su").text(su);
 			
 			var price=$(this).parent().parent().find(".price").attr("value");
-			alert("price="+price);
+			//alert("price="+price);
 			var modPrice=price*su;
-			alert("modPrice="+modPrice);
+			//alert("modPrice="+modPrice);
 			$(this).parent().parent().find(".price").text(modPrice);
 			
 			totPrice();
@@ -214,6 +214,7 @@ div.allBox{
 			var totPrice=$("#total-price").text();
 			var s_id=$("#s_id").val();
 			var u_id='<%=id%>';
+			alert(u_id);
 			for(var i=0;i<idx;i++){
 				if($(".price"+i).text()==0){
 					continue;
@@ -221,11 +222,11 @@ div.allBox{
 				var sangName=$("#td"+i).text();
 				//alert(sangName);
 				var su=$(".td"+i+"su").text();
-				content+=sangName+" "+su+"<br>";
+				content+=sangName+" : "+su+"<br>";
 				//alert(content);
 			}
 			content+="총 금액 : "+totPrice;
-			alert(content);
+			//alert(content);
 			
 			var today = new Date();
 			var hours = today.getHours(); // 시
@@ -239,91 +240,87 @@ div.allBox{
 				return;
 			}
 			if(selpay=='kakao'){
-			    if (confirm("구매 하시겠습니까?")) { // 구매 클릭시 한번 더 확인하기
-			        if (true) { // 회원만 결제 가능
+				var y=confirm("구매 하시겠습니까?");
+			    if (y) { // 구매 클릭시 한번 더 확인하기
+			       
 
-			            IMP.init("imp27065454"); // 가맹점 식별코드
-			            IMP.request_pay({
-			                pg: 'kakaopay.TC0ONETIME', // PG사 코드표에서 선택
-			                pay_method: 'card', // 결제 방식
-			                merchant_uid: "IMP" + makeMerchantUid, // 결제 고유 번호
-			                name: '메가커피 주문', // 제품명
-			                amount: totPrice, // 가격
-			                //구매자 정보 ↓
-			                buyer_name: 'iamport@siot.do',
-			                buyer_tel : '010-1234-5678',
-			                buyer_addr : '서울특별시 강남구 삼성동',
-			                buyer_postcode : '123-456'
-			            }, async function (rsp) { // callback
-			                if (rsp.success) { //결제 성공시
-			                   	console.log(rsp);
-			                	alert(rsp.imp_uid);
-								$.ajax({
-									type:"get",
-									dataType:"html",
-									url:"addOrder.jsp",
-									data:{"receipt":content,"u_id":u_id,"s_id":s_id,"totPrice":totPrice,"num":rsp.imp_uid},
-									success:function(data){
-										alert("결제 완료되었습니다!\n 주문번호 : "+rsp.imp_uid);
-										window.location.reload();
-									}
-								})
+			    IMP.init("imp27065454"); // 가맹점 식별코드
+			    IMP.request_pay({
+			        pg: 'kakaopay.TC0ONETIME', // PG사 코드표에서 선택
+			        pay_method: 'card', // 결제 방식
+			        merchant_uid: "IMP" + makeMerchantUid, // 결제 고유 번호
+			        name: '메가커피 주문', // 제품명
+			        amount: totPrice, // 가격
+			        //구매자 정보 ↓
+			        //buyer_email: `${useremail}`,
+			        //buyer_name: `${username}`,
+			        // buyer_tel : '010-1234-5678',
+			        // buyer_addr : '서울특별시 강남구 삼성동',
+			        // buyer_postcode : '123-456'
+			    }, async function (rsp) { // callback
+			         if (rsp.success) { //결제 성공시
+			        	console.log(rsp);
+			            alert(rsp.imp_uid);
+						$.ajax({
+							type:"get",
+							dataType:"html",
+							url:"addOrder.jsp",
+							data:{"receipt":content,"u_id":u_id,"s_id":s_id,"totPrice":totPrice,"num":rsp.imp_uid},
+							success:function(data){
+								alert("결제 완료되었습니다!\n 주문번호 : "+rsp.imp_uid);
+								window.location.reload();
+							}
+						})
 
-			                } else if (rsp.success == false) { // 결제 실패시
-			                    alert(rsp.error_msg);
-			                }
-			            });
+			        } else if (rsp.success == false) { // 결제 실패시
+			        	alert(rsp.error_msg);
 			        }
-			        else { // 비회원 결제 불가
-			            alert('로그인이 필요합니다!');
-			        }
-			    } else { // 구매 확인 알림창 취소 클릭시 돌아가기
-			        return false;
-			    }
-			}/* else if(selpay=='toss'){
-				if (confirm("구매 하시겠습니까?")) { // 구매 클릭시 한번 더 확인하기
-					if (true) { // 회원만 결제 가능
-						IMP.init("imp27065454");
-						IMP.request_pay({
-				   		pg : 'tosspay',
-				    	pay_method : 'card',
-				    	merchant_uid: "IMP" + makeMerchantUid, //상점에서 생성한 고유 주문번호
-				    	name : '메가커피 주문',   //필수 파라미터 입니다.
-				   		amount : totPrice,
-				    	buyer_email : 'iamport@siot.do',
-				    	buyer_name : '구매자이름',
-				   		buyer_tel : '010-1234-5678',
-				    	buyer_addr : '서울특별시 강남구 삼성동',
-				   		buyer_postcode : '123-456',
-				    	m_redirect_url : 'https://www.my-service.com/payments/complete' // 예: https://www.my-service.com/payments/complete 
-						}, async function (rsp) { // callback
-							if (rsp.success) { //결제 성공시
-		                   		console.log(rsp);
-		                		alert(rsp.imp_uid);
-								$.ajax({
-									type:"get",
-									dataType:"html",
-									url:"addOrder.jsp",
-									data:{"receipt":content,"u_id":u_id,"s_id":s_id,"totPrice":totPrice,"num":rsp.imp_uid},
-									success:function(data){
-										alert("결제 완료되었습니다!\n 주문번호 : "+rsp.imp_uid);
-										window.location.reload();
-									}
-								})
+			 	});
+			}
+			else { // 비회원 결제 불가
+			  	alert('취소하였습니다.');
+			  	return false;
+			}
+		}else if(selpay=='toss'){
+			if (confirm("구매 하시겠습니까?")) { // 구매 클릭시 한번 더 확인하기
+				IMP.init("imp27065454");
+				IMP.request_pay({
+			   		pg : 'tosspay',
+			    	pay_method : 'card',
+			    	merchant_uid: "IMP" + makeMerchantUid, //상점에서 생성한 고유 주문번호
+			    	name : '메가커피 주문',   //필수 파라미터 입니다.
+				   	amount : totPrice,
+				    buyer_email : 'iamport@siot.do',
+			    	buyer_name : '구매자이름',
+			   		buyer_tel : '010-1234-5678',
+			    	buyer_addr : '서울특별시 강남구 삼성동',
+			   		buyer_postcode : '123-456',
+			    	//m_redirect_url : '../order/orderCart.jsp' // 예: https://www.my-service.com/payments/complete 
+				}, async function (rsp) { // callback
+					if (rsp.success) { //결제 성공시
+	                	alert(rsp.imp_uid);
+	                	$.ajax({
+							type:"get",
+							dataType:"html",
+							url:"addOrder.jsp",
+							data:{"receipt":content,"u_id":u_id,"s_id":s_id,"totPrice":totPrice,"num":rsp.imp_uid},
+							success:function(data){
+								alert("결제 완료되었습니다!\n 주문번호 : "+rsp.imp_uid);
+								window.location.reload();
+							}
+						})
 
-		                	} else if (rsp.success == false) { // 결제 실패시
-		                    	alert(rsp.error_msg);
-		                	}
-						});
-	       			}
-	        		else { // 비회원 결제 불가
-	            		alert('로그인이 필요합니다!');
-	        		}
-				} else { // 구매 확인 알림창 취소 클릭시 돌아가기
-			        return false;
-			    }
-			} */
-		})
+	               	} else if (rsp.success == false) { // 결제 실패시
+	                   	alert(rsp.error_msg);
+	               	}
+				});
+       		}
+       		else { // 비회원 결제 불가
+			  	alert('취소하였습니다.');
+			  	return false;
+       		}
+		}
+	})
 		
 		//전체 장바구니 삭제
 		$("#alldel").click(function(){
@@ -457,27 +454,25 @@ div.allBox{
 		<div class="orderBox">
 			<h2 class="order-h2">장바구니</h2>
 			<hr style="border: 3px solid gray">
-			<form action="#" method="post">
-				<table class="cart-table">
+			<table class="cart-table">
 				
-				</table>
-				<table class="order-footer">
-					<tr valign="top" style="height: 50px;">
-						<td style="width: 100px;">
+			</table>
+			<table class="order-footer">
+				<tr valign="top" style="height: 50px;">
+					<td style="width: 100px;">
 						총금액 : <span id="total-price">0</span>
-						</td>
-						<td style="width: 70px;">
-							<button type="button" id="alldel" style="width: 60px; font-size: 17px;">전체삭제</button>
-						</td>
-						<td style="width: 130px;">
-							<input type='image' class='addOrder kakao' src='../image/Kakaopay_Logo.png' 
-							name='kakao'>
-							<!-- <input type='image' class='addOrder toss' src='../image/Toss_Logo_black.png' 
-    						name='toss'> -->
-						</td>
-					</tr>
-				</table>
-			</form>
+					</td>
+					<td style="width: 70px;">
+						<button type="button" id="alldel" style="width: 60px; font-size: 17px;">전체삭제</button>
+					</td>
+					<td style="width: 130px;">
+						<input type='image' class='addOrder kakao' src='../image/Kakaopay_Logo.png' 
+						name='kakao'>
+						<input type='image' class='addOrder toss' src='../image/Toss_Logo_black.png' 
+    					name='toss'>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
 </body>

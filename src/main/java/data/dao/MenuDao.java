@@ -235,7 +235,7 @@ public class MenuDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into menu values(?,?,?,?,?,?,null)";
+		String sql="insert into order_menu values(?,?,?,?,?,?,null)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -254,5 +254,44 @@ public class MenuDao {
 			db.dbClose(pstmt, conn);
 		}
 		
+	}
+	
+	//주문메뉴 조회
+	public List<MenuOrderDto> selectMyOrder(String u_id) {
+		List<MenuOrderDto> list=new ArrayList<MenuOrderDto>();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from order_menu where u_id=? order by order_time desc";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
+			
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				MenuOrderDto dto=new MenuOrderDto();
+				
+				dto.setNum(rs.getString("num"));
+				dto.setOrder_time(rs.getTimestamp("order_time"));
+				dto.setReceipt(rs.getString("receipt"));
+				dto.setS_id(rs.getString("s_id"));
+				dto.setU_id(rs.getString("u_id"));
+				dto.setTotal_price(rs.getString("total_price"));
+				dto.setPrepare_time(rs.getString("prepare_time"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return list;
 	}
 }

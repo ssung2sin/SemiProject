@@ -10,6 +10,7 @@
 	String u_id=request.getParameter("u_id");
 	String totPrice=request.getParameter("totPrice");
 	String num=request.getParameter("num");
+	System.out.println("num = "+num);
 	
 	MenuOrderDto dto=new MenuOrderDto();
 	dto.setNum(num);
