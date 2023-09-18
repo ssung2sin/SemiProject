@@ -4,7 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import data.dto.MenuDto;
@@ -183,6 +188,7 @@ public class MenuDao {
 				
 				dto.setSang_num(rs.getString("sang_num"));
 				dto.setM_image(rs.getString("m_image"));
+				dto.setPrice(rs.getInt("price"));
 				dto.setMenu(rs.getString("menu"));
 				dto.setM_score(rs.getDouble("m_score"));
 					
@@ -235,7 +241,7 @@ public class MenuDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into order_menu values(?,?,?,?,?,?,null)";
+		String sql="insert into order_menu values(?,?,?,?,?,?,null,0)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -281,7 +287,8 @@ public class MenuDao {
 				dto.setS_id(rs.getString("s_id"));
 				dto.setU_id(rs.getString("u_id"));
 				dto.setTotal_price(rs.getString("total_price"));
-				dto.setPrepare_time(rs.getString("prepare_time"));
+				dto.setPrepare_time(rs.getTimestamp("prepare_time"));
+				dto.setCompletion(rs.getInt("completion"));
 				
 				list.add(dto);
 			}
@@ -293,5 +300,93 @@ public class MenuDao {
 		}
 		
 		return list;
+	}
+	
+	//메뉴준비시간 추가
+	public void updatePrepareTime(String time,String num){
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		System.out.println("시간 : "+time+", 주문번호 : "+num);
+		
+		String sql="update order_menu set prepare_time=? where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, time);
+			pstmt.setString(2, num);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}	
+	}
+	
+	//남은시간 계산
+	public int subTime(String prepare) {
+		int subTime=0;
+
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.0");
+		
+		LocalDateTime now=LocalDateTime.now();
+		String sdfNow=now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0"));		//현재 시간
+		
+		Date today;
+		Date prepareTime;
+		try {
+			today = sdf.parse(sdfNow);
+			prepareTime=sdf.parse(prepare);
+			
+			subTime = (int)((prepareTime.getTime()-today.getTime())/(60*1000));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				//string을 date로 변환
+
+		return subTime;
+	}
+	
+	//주문삭제
+	public void deleteOrder(String num) {
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="delete from order_menu where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
+	//주문완료
+	public void orderComplete(String num) {
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		//System.out.println("시간 : "+time+", 주문번호 : "+num);
+		
+		String sql="update order_menu set completion=1 where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
 	}
 }
