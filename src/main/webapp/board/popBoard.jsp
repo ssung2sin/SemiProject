@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="data.dto.ExpressDto"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dto.BoardDto"%>
@@ -29,33 +28,6 @@
 		color: blue;
 	}
 </style>
-<script type="text/javascript">
-	$(function(){
-		
-		$("a.title").click(function(){
-			
-			var num=$(this).attr("num");
-			
-			$.ajax({
-				
-				type:"post",
-				dataType:"json",
-				url:"board/viewProc.jsp",
-				data:{"num":num},
-				success:function(data){
-					
-				}
-			});
-		});
-		
-		$("select.listcnt").change(function(){
-			
-			var cnt=$(this).val();
-			
-			cnt.prop("selected",true);
-		});
-	});
-</script>
 </head>
 <%
 	String root = request.getContextPath();
@@ -67,13 +39,13 @@
 	int endPage; 
 	int startNum; 
 	int perPage=10; 
-	int perBlock=5;
+	int perBlock=2; 
 	int currentPage;
 	int no;
 	
 	if(request.getParameter("currentPage")==null||request.getParameter("currentPage").equals("null"))
 		currentPage=1;
-	else
+		else
 		currentPage=Integer.parseInt(request.getParameter("currentPage"));
 	
 		totalPage=totalCount/perPage+(totalCount%perPage==0?0:1);
@@ -90,6 +62,8 @@
 	no=totalCount-(currentPage-1)*perPage;
 	
 	List<BoardDto> list=dao.getPagingList(startNum, perPage);
+	
+	BoardDto pdto=new BoardDto();
 %>
 <body>
 <div>
@@ -98,14 +72,7 @@
 		<button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
 		<button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
 	</div>
-	<div style="float: right;">
-		<select name="listcnt" style="margin-right: 10px;" class="listcnt">
-			<option value="5">5개</option>
-			<option value="10" selected>10개</option>
-			<option value="20">20개</option>
-		</select>
-		<button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
-	</div>
+	<button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
 	<table class="table table-striped" style="width: 1000px;">
 		<tr align="center">
 			<th style="width: 80px; background-color: #;">
@@ -135,7 +102,7 @@
 				</tr>
 			<%}
 			else
-			{	
+			{
 				for(BoardDto dto:list)
 				{	
 					int note=dto.getNote();
@@ -148,14 +115,14 @@
 							<b>
 							<span style="float: left; margin-left: 45px;">[공지]</span>
 							
-							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage %>" class="notetitle" num="<%=dto.getNum()%>">
+							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="notetitle">
 							<span style="float: left; margin-left: 40px;">[<%=dto.getExpress() %>]</span>
 							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
 							</a>
 				
 							<span style="float: right; margin-right: 60px;">-</span>
 							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-							<span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
+				 			<span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
 							<span style="float: right; margin-right: 75px;">관리자</span>
 							</b>
 						</td>
@@ -174,28 +141,28 @@
 						int unlikes=dto.getUnlikes();
 						
 						int pop=(likes-unlikes);
-						System.out.println("pop="+pop);
-					%>
-					<tr class="<%=pop>=10?"pop":""%>">
-						<td>
-							<span style="float: left; margin-left: 60px;"><%=no--%></span>
-							
-							<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title" num="<%=dto.getNum()%>">
-							<span style="float: left; margin-left: 60px;">
-								<%=pop>=10?"<img src='image/star.png' style='width: 20px;'>":""%>
-								[<%=dto.getExpress() %>]
-							</span>
-							<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
-							</a>
-				
-							<span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
-							<input type="hidden" class="pop" value="<%=pop%>">
-							<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-							<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
-							<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
-						</td>
-					</tr>
-					<%}
+						
+						if(pop>=10)
+						{
+						%>
+							<tr class="<%=pop>=10?"pop":""%>">
+								<td>
+									<span style="float: left; margin-left: 60px;"><%=no--%></span>
+									
+									<a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title">
+									<span style="float: left; margin-left: 60px;">[<%=dto.getExpress() %>]</span>
+									<span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+									</a>
+						
+									<span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
+									<input type="hidden" class="pop" value="<%=pop%>">
+									<span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
+									<span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
+									<span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
+								</td>
+							</tr>
+						<%}
+					}
 				}
 			}
 		%>
@@ -209,7 +176,7 @@
 					if(startPage>1)
 					{%>
 						<li class="page-item">
-      						<a class="page-link" href="<%=root %>/subPage.jsp?main=board/freeBoard.jsp&currentPage=<%=startPage-1 %>" tabindex="-1" aria-disabled="true"><</a>
+      						<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=startPage-1 %>" tabindex="-1" aria-disabled="true"><</a>
    						</li>
 					<%}
 				
@@ -219,13 +186,13 @@
 						if(pp==currentPage)
 						{%>
 							<li class="page-item active">
-								<a class="page-link" href="<%=root %>/subPage.jsp?main=board/freeBoard.jsp&currentPage=<%=pp%>"><%=pp %></a>
+								<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=pp%>"><%=pp %></a>
 							</li>
 						<%}
 						else //선택 안한 페이지는 색이 다른 색이기 때문에 똑같이 적어도 괜찮다
 						{%>
 							<li class="page-item">
-								<a class="page-link" href="<%=root %>/subPage.jsp?main=board/freeBoard.jsp&currentPage=<%=pp%>"><%=pp %></a>
+								<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=pp%>"><%=pp %></a>
 							</li>
 						<%}
 					}
@@ -234,7 +201,7 @@
 					if(endPage<totalPage)
 					{%>
 						<li class="page-item">
-     						<a class="page-link" href="<%=root %>/subPage.jsp?main=board/freeBoard.jsp&currentPage=<%=endPage+1%>">></a>
+     						<a class="page-link" href="index.jsp?main=board/boardlist.jsp?currentPage=<%=endPage+1%>">></a>
     					</li>
 					<%}
 				%>

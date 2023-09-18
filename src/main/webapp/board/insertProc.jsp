@@ -12,6 +12,7 @@
 <body>
 <%
 	request.setCharacterEncoding("utf-8");
+	String root = request.getContextPath();
 %>
 
 	<jsp:useBean id="dao" class="data.dao.BoardDao"/>
@@ -20,9 +21,20 @@
 	<jsp:setProperty property="*" name="dto"/>
 	
 <%
-	dao.insertBoard(dto);
+	int note=dto.getNote();
+	String b_id=(String)session.getAttribute("inherence_HU");
+	if(dto.getWriter().equals(b_id))
+	{
+		
+		note=1;
+		dao.insertAdminBoard(dto,note);
+	}
+	else
+	{
+		dao.insertUserBoard(dto);
+	}
 
-	response.sendRedirect("../board/freeBoard.jsp");
+	response.sendRedirect(root+"/subPage.jsp?main=board/freeBoard.jsp?note="+note);
 %>
 </body>
 </html>
