@@ -49,7 +49,6 @@ String root = request.getContextPath();
 	//$("#token").val(N_token);
 	$("#name").val(N_name);
 	$("#email").val(N_email);
-   
   }
  
   /* function name(){
