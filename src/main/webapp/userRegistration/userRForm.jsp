@@ -39,10 +39,10 @@ option{
 $(function(){
 	
 	//아이디 중복체크
-	$("#userId").on("input",function(){
+	$(".userId").on("input",function(){
 		
 		//id 읽기
-		var userId=$("#userId").val();
+		var userId=$(".userId").val();
 		//alert(userId);
 		
 		//한글이면 제거하는 변수 만들기(유효성 검사)
@@ -73,7 +73,15 @@ $(function(){
 			data:{"userId":userId},
 			success:function(data){
 				
-				//alert(data.count);
+				if(data.count==0){
+					$("span.idsuccess").text("사용가능한 아이디입니다");
+					$("span.idsuccess").css("color","green");
+				} else{
+					$("span.idsuccess").text("사용할 수 없는 아이디입니다.\n다시 입력해주세요");
+					$("span.idsuccess").css("color","red");
+				}
+				
+				/* //alert(data.count);
 				if(data.count==1 && userId.length < 6){
 				
 					$("span.idsuccess").text("사용할 수 없는 아이디입니다.\n다시 입력해주세요");
@@ -84,7 +92,7 @@ $(function(){
 					
 					$("span.idsuccess").text("사용가능한 아이디입니다");
 					$("span.idsuccess").css("color","green");
-				} 
+				}  */
 			}			
 		});
 		
@@ -164,8 +172,9 @@ $(function(){
 			$("#domain-txt").val("");
 			$("#domain-txt").focus();
 			
-		}else{
-				$("#domain-txt").val($(this).val());
+		} else{
+				$(".emailbox1").val($(this).val());
+				alert($(".emailbox1").val());
 		}
 		
 	});
@@ -196,7 +205,7 @@ $(function(){
 			<tr>
 				<td style="width: 150px;"><b>아이디<span style="margin-left: 10px; color: #FF3333">*</span></b></td>
 				<td>
-					<input type="text" id="userId" name="userId" placeholder="아이디" required="required">
+					<input type="text" class="userId" name="userId" placeholder="아이디" required="required">
 					
 					<span class="idsuccess"></span>	
 				</td>
@@ -213,7 +222,7 @@ $(function(){
 				<td style="width:150px;"><b>이메일<span style="margin-left: 10px; color: #FF3333">*</span></b></td>
 				<td>
 					<input type="text" id="useremail1" name="useremail1" placeholder="이메일" required="required">&nbsp;@
-					<input class="box" id="domain-txt" type="text" placeholder="선택하기"  name="useremail2" value="">
+					<input type="text" class="box emailbox1"  placeholder="선택하기"  name="useremail2" value="">
 					<select class="box" id="domain-list" style="width: 200px;">
 						<option value="type">직접입력</option>
 						<option value="naver.com">네이버</option>			

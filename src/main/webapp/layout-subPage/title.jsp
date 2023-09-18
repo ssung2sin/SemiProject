@@ -135,7 +135,7 @@ $(function(){
    <section class="container">
    	<%
       if(loginok==null){%>
-         <h5><span id="login">로그인</span></h5>
+         <h5><span id="login">로그인</span>
       <%
       }else{%>
       	<h5><% if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){%>
