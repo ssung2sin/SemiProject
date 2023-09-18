@@ -41,8 +41,6 @@
 			history.back();
 		</script>
 	
-	<%}
-	
-%>
+	<%}%>
 </body>
 </html>
