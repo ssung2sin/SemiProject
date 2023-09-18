@@ -185,6 +185,7 @@
 		<input type="hidden" value="<%=userId%>" name="userId">
 		<input type="hidden" value="<%=userPass%>" name="userPass">
 		<input type="hidden" value="none" class="resetRanNum">
+		<input type="hidden" value="<%=uSave%>" name="uSave">
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
 		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"

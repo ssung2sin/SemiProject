@@ -125,7 +125,14 @@ $(function(){
    		<%=titleName %>님 환영합니다&nbsp;&nbsp;
    		<input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
    	<%}%>
-      <span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>
+   		<%
+   		//로그인 이후에 마이페이지 보이도록
+   		if(loginok!=null)
+   		{%>
+			<span id="mypage">마이페이지</span>
+   		<%}
+   		%>
+      <span id="admin">관리자</span></h5>
       <h1 id="titlepage">HG</h1>
    </section>
 </body>

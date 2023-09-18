@@ -200,7 +200,7 @@ $("#domain-list").change(function(){
 					<td>
 						<input type="text" style="width: 100px;" maxlength="3" required="required" name="userhp1" id="userhp1" value="<%=uhp1%>">&nbsp;-
 						<input type="text" style="width: 100px;" maxlength="4" required="required" name="userhp2" id="userhp2" value="<%=uhp2%>">&nbsp;-
-						<input type="text" style="width: 100px;" maxlength="4" required="required" name="userhp3" id="userhp3" value="<%=uhp3%>">
+						<input type="text" style="width: 100px;" minlength="4" maxlength="4" required="required" name="userhp3" id="userhp3" value="<%=uhp3%>">
 					</td>
 				</tr>
 			<tr>
