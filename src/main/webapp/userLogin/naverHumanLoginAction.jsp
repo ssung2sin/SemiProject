@@ -19,23 +19,27 @@
 <body>
 <%
 	String userId=request.getParameter("userId");
-	String uSave=request.getParameter("uSave");
-	System.out.println("usave="+uSave);
+	String modal=request.getParameter("modal");
+	System.out.println("modal="+modal);
+	System.out.println(userId);
 	
 	UserDao dao=new UserDao();
 	
 		session.setMaxInactiveInterval(60*60*2);  //로그인 지속시간 2시간 설정
 		session.setAttribute("loginok", "yes");  //로그인 된 상태인지 다른 페이지에서 볼 수 있도록
 		session.setAttribute("id", userId); //로그인 후, 누가 로그인 했는지 표시
-		session.setAttribute("saveok", uSave==null?null:"uyes"); //로그인 시, 아이디 저장 체크박스 표시하면 로그인폼에 아이디값 고정
-		session.setAttribute("grade","user");	
+		session.setAttribute("grade","user");
+		session.setAttribute("saveok","naver");
 		request.setCharacterEncoding("utf-8");
 		LocalDateTime now=LocalDateTime.now();
 		String sdfNow=now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0"));
 		
 		dao.updateLL_date(userId, sdfNow);
-		response.sendRedirect("../index.jsp");
 %>
+<script type="text/javascript">
+	window.opener.location.href ="<%=modal==null?"../index.jsp":"../shop/shopMenu.jsp?s_id="+modal%>";
+	window.close();
+</script>
 
 </body>
 </html>

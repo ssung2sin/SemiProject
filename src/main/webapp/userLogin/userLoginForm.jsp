@@ -118,7 +118,7 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 </div>
 <script type="text/javascript">
    /*네이버 로그인 변수에  api인자값과 callback URL*/
-     var naver_id_login = new naver_id_login("r1ELIdSzzQk6g7kY9OiQ", "http://localhost:8080/SemiProject/userLogin/callback.jsp");
+     var naver_id_login = new naver_id_login("mxqUPyw1CadFAnqmOC_4", "http://localhost:8080/SemiProject/userLogin/callback.jsp");
  // 접근 토큰 값 출력
       var state = naver_id_login.getUniqState(); //네이버 API 설정된 정보값 전달 변수
       naver_id_login.setButton("white", 2, 40); //네이버 로그인 버튼 색상 크기 설정사용 가능한 Option ,버튼 색상 : white, green ,크기 : 1(버튼형), 2(작은 배너), 3(큰 배너), 배너 및 버튼 높이 : 사용자 지정값

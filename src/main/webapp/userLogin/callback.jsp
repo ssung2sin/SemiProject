@@ -20,10 +20,15 @@
 <%
 //절대경로잡기
 String root = request.getContextPath();
+String modal=(String)session.getAttribute("modal");
+System.out.println("modal="+modal);
+
+session.removeAttribute("modal");
 UserDao dao=new UserDao();
 List<String>list=dao.selectId();
 %>
 <body>
+<input type="hidden" id="modalS_id"value="<%=modal%>">
 <!-- 네이버아디디로로그인 Callback페이지 처리 Script -->
 <script type="text/javascript">
   var naver_id_login = new naver_id_login("mxqUPyw1CadFAnqmOC_4", "http://localhost:8080/SemiProject/userLogin/callback.jsp");
@@ -37,25 +42,31 @@ List<String>list=dao.selectId();
     /* alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('name'));
     alert(naver_id_login.getProfileData('email')); */
-    
+    var modal=$("#modalS_id").val();
     var N_token= naver_id_login.oauthParams.access_token;
    	var N_email=naver_id_login.getProfileData('email');
    	var N_name=naver_id_login.getProfileData('name');
+   	var returnNum=0;
 	<%
 	for(int i=0;i<list.size();i++){
 		String name=list.get(i);
 	%>
-   		if(N_token=="<%=name%>"){
-   			alert("일치");
+   		if(N_email=="<%=name%>"){
+   			//alert("일치");
+   			returnNum=1;
+   			//alert(returnNum);
    			$.ajax({
    				
    				type:"get",
-   				dataType:"html",
+   				dataType:"json",
    				url:"../userLogin/naverLoginAction.jsp",
-   				data:{"u_id":N_token},
-   				success:function(){
-   					window.opener.location.href = "../index.jsp";
-   				    window.close();
+   				data:{"u_id":N_email},
+   				success:function(data){
+   					if(data.loginok==null){
+   						location.href="../userLogin/naverHumanPage.jsp?userId="+data.userId+"&modal="+modal;
+   					}else{
+   						location.href="../userLogin/naverHumanLoginAction.jsp?userId="+data.userId+"&modal="+modal;
+   					}
    				}
    				
    			})
@@ -63,29 +74,23 @@ List<String>list=dao.selectId();
    		}
    	<%
 	}
+	
 	%>
-	$.ajax({
+	if(returnNum==0){
+		alert("아이디가 존재하지 않습니다. 회원가입 합니다.");
+		$.ajax({
 		
-		type:"get",
-		dataType:"html",
-		url:"../userRegistration/naverRAction.jsp",
-		data:{"u_name":N_name,"u_id":N_token,"u_email":N_email},
-		success:function(){
-			$.ajax({
-				
-				type:"get",
-				dataType:"html",
-				url:"../userLogin/naverLoginAction.jsp",
-				data:{"u_id":N_token},
-				success:function(){
-					window.opener.location.href = "../index.jsp";
-				    window.close();
-				}
-				
-			})
-		}
+			type:"get",
+			dataType:"html",
+			url:"../userRegistration/naverRAction.jsp",
+			data:{"u_name":N_name,"u_id":N_email,"u_email":N_email},
+			success:function(){
+				alert("회원가입 완료!");
+				location.href="../userLogin/naverHumanLoginAction.jsp?userId="+N_email+"&modal="+modal;
+			}
 		
-	})
+		})
+	}
 }
 </script>
 </body>
