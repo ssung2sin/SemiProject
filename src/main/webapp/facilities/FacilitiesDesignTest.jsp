@@ -126,8 +126,8 @@ div.modal-footer { position: relative; z-index: 9999; }
                     </div>
                     <div class="article">
                         <div class="img">
-                            <p class="left"><img src="image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
-                            <p class="right"><img src="image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
+                            <p class="left"><img src="../image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
+                            <p class="right"><img src="../image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
                         </div>
                         <dl>
                             <dt>주차시설&nbsp;&nbsp;l&nbsp;&nbsp;Parking</dt>
@@ -142,7 +142,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_02">
                                     <ul>
-                                        <li><img src="image/FacilitiesImage/information_center_01_01.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/information_center_01_01.jpg"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -158,7 +158,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_03">
                                     <ul>
-                                        <li><img src="image/FacilitiesImage/nursing_room_01_01.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/nursing_room_01_01.jpg"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_04">
                                     <ul>
-                                        <li><img src="image/FacilitiesImage/drugstore_01_03.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/drugstore_01_03.jpg"></li>
                                         <li><img src=""></li>
                                     </ul>
                                 </div>
@@ -195,7 +195,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_05">
                                     <ul>
-                                        <li><img src="image/FacilitiesImage/store_01_01.jpg"></li>
+                                        <li><img src="../image/FacilitiesImage/store_01_01.jpg"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_06">
                                     <ul>
-                                       <li><img src="image/FacilitiesImage/Restaurant_Area_01_01.jpg" style="height: 244px; width: 488px;"></li>
+                                       <li><img src="../image/FacilitiesImage/Restaurant_Area_01_01.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -228,7 +228,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_07">
                                     <ul>
-                                        <li><img src="image/FacilitiesImage/gas_station_01_01.jpg" style="height: 244px; width: 488px;"></li>
+                                        <li><img src="../image/FacilitiesImage/gas_station_01_01.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                             <div class="img">
                                 <div class="slider slider_06">
                                     <ul>
-                                       <li><img src="image/FacilitiesImage/EV_charging_station.jpg" style="height: 244px; width: 488px;"></li>
+                                       <li><img src="../image/FacilitiesImage/EV_charging_station.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -275,10 +275,10 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -299,10 +299,10 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -323,10 +323,10 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -347,11 +347,11 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point" style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -372,10 +372,10 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div class="maps-point" style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-58px, -7px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-58px, -7px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -396,11 +396,11 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div class="maps-point" style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -421,11 +421,11 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="image/FacilitiesImage/restarea_01_02.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 400px;"><img src="../image/FacilitiesImage/restarea_01_02.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div class="maps-point" style="height: 400px; width: 450px;">
-								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-1.5px, -177px) scale(0.15);" class="flicker">
-								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(58px, -374px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-1.5px, -177px) scale(0.15);" class="flicker">
+								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(58px, -374px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>

@@ -26,12 +26,12 @@ span * {
 
 	.dv1{
 	width: 100%;
+	/* position: absolute; */
 }
 #ttop {
    margin-top: -18px;
    height: 10vh;
    width: 100%;
-   
 }
 
 .topmenu {
