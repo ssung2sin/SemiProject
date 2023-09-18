@@ -41,16 +41,20 @@ String root = request.getContextPath();
     alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('name'));
     alert(naver_id_login.getProfileData('birthday'));
+    alert(naver_id_login.getProfileData('birthyear'));
+    
  
-    //alert(naver_id_login.oauthParams.access_token);
     var N_token= naver_id_login.oauthParams.access_token;
    	var N_email=naver_id_login.getProfileData('email');
    	var N_name=naver_id_login.getProfileData('name');
-	var N_birthday=naver_id_login.getProfileData('birthday');
+	/* var N_birthday=naver_id_login.getProfileData('birthday');
+	var N_birthday=naver_id_login.getProfileData('birthyear'); */
+	
 	   
-	$("#name").val(N_name);
-	$("#email").val(N_email);
-	$("#birth").val(N_birthday);
+	/*  $("#name").val(N_name);
+	$("#email").val(N_email); */
+	/* $("#birthday").val(N_birthday);
+	$("#birthyear").val(N_birthyear); */
    
   }
  
@@ -60,9 +64,10 @@ String root = request.getContextPath();
 </script>
 <!-- //네이버아디디로로그인 Callback페이지 처리 Script -->
 
-<%-- <input type="hidden" name="name" id="name" value=""> 
-<input type="hidden" name="email" id="email" value=""> 
-<input type="hidden" name="birth" id="birth" value=""> 
-<%response.sendRedirect("callbackAction.jsp"); %> --%>
+<!-- <input type="hidden" name="name" id="name" value=""> 
+<input type="hidden" name="email" id="email" value="">  -->
+<!-- <input type="hidden" name="birthday" id="birthday" value=""> 
+<input type="hidden" name="birthyear" id="birthyear" value=""> --> 
+<%-- <%response.sendRedirect("callbackAction.jsp"); %> --%>
   </body>
 </html>

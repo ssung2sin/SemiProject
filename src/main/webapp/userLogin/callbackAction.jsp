@@ -14,10 +14,12 @@
 <title>Insert title here</title>	
 </head>
 <%
-	String email=request.getParameter("email");
-	String birth=request.getParameter("birth");
-	String name=request.getParameter("name");
 	String token=request.getParameter("N_token");
+	String email=request.getParameter("email");
+	String name=request.getParameter("name");
+	//String birth=request.getParameter("birthyear")+request.getParameter("birthday");
+	
+	
 
 %>
 <body>

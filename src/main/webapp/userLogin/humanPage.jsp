@@ -174,6 +174,16 @@
 				return true;
 			}
 		}
+		
+		<%-- if(codenum.value != <%=codenumber%>){
+	         alert("인증번호가 틀립니다");
+	         codenum.value = "";      // 잘 못 입력한 전화번호 리셋해주기
+	         codenum.focus();         // 전화번호쪽으로 focus
+	         return false;         // 번호가 일치하지않으면 submit 안되게         
+	      }
+	      else{
+	         return true;
+	      } --%>
 	}
 </script>
 </head>

@@ -262,9 +262,8 @@ public class UserDao {
 		   Connection conn=db.getConnection();
 		   PreparedStatement pstmt=null;
 		   
-		   String sql="insert into user values(null,?,?,?,?,?,?,?,?)"
-		   		+ ""
-		   		+ "";
+		   //ignore에 의해 중복키 에러(u_id 중복)가 나면 insert하지 않는다
+		   String sql="insert ignore into user values (null,?,?,?,?,?,?,?,?)";
 		   
 		   try {
 			   
