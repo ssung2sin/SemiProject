@@ -29,9 +29,16 @@
       color: blue;
    }
 </style>
+<%
+	String cnt=(String)session.getAttribute("cnt");
+
+	if(cnt==null)
+	{
+		cnt="10";
+	}
+%>
 <script type="text/javascript">
    $(function(){
-      
       $("a.title").click(function(){
          
          var num=$(this).attr("num");
@@ -52,7 +59,17 @@
          
          var cnt=$(this).val();
          
-         cnt.prop("selected",true);
+         $.ajax({
+        	
+        	 type:"get",
+        	 dataType:"html",
+        	 url:"board/listCntChange.jsp",
+        	 data:{"cnt":cnt},
+        	 success:function(){
+        		 
+        		 location.reload();
+        	 }
+         });
       });
    });
 </script>
@@ -66,7 +83,7 @@
    int startPage; 
    int endPage; 
    int startNum; 
-   int perPage=10; 
+   int perPage=Integer.parseInt(cnt);
    int perBlock=5;
    int currentPage;
    int no;
@@ -84,10 +101,6 @@
    
    if(endPage>totalPage)
       endPage=totalPage;
-   
-   System.out.println("endPage="+endPage);
-   System.out.println("totalPage="+totalPage);
-   System.out.println("totalCount="+totalCount);
 
    startNum=(currentPage-1)*perPage;
    
@@ -105,9 +118,9 @@
    </div>
    <div style="float: right;">
       <select name="listcnt" style="margin-right: 10px;" class="listcnt">
-         <option value="5">5개</option>
-         <option value="10" selected>10개</option>
-         <option value="20">20개</option>
+         <option value="5" <%=cnt.equals("5")?"selected":"" %>>5개</option>
+         <option value="10" <%=cnt.equals("10")?"selected":"" %>>10개</option>
+         <option value="20" <%=cnt.equals("20")?"selected":"" %>>20개</option>
       </select>
       <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
    </div>
@@ -168,7 +181,6 @@
                <%
                }
             }
-            
             for(BoardDto dto:list)
             {
                int note=dto.getNote();
