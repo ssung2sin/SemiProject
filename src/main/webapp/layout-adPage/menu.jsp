@@ -37,8 +37,36 @@
 			$('#asd3').toggle();
 			$('#circle2').toggle();
 	    });
-	});
+		$("#individual").click(function(){
+		       
+		       
+	        location.href='adPage.jsp?main=admin/individualform.jsp';
+	        
+	    });
+		$("#master").click(function(){
+		       
+		       
+	        location.href='adPage.jsp?main=admin/masterform.jsp';
+	        
+	    });
+	    
+	    $("#business").click(function(){
+	        
+	        location.href='adPage.jsp?main=admin/businessform.jsp';
+	   });
 
+	$("#login_history").click(function(){
+	        
+	        location.href='adPage.jsp?main=admin/login_historyform.jsp';
+	   });
+	$("#food").click(function(){
+	    
+	    location.href='adPage.jsp?main=admin/foodform.jsp';
+	});
+	
+	});
+	
+	
 </script>
 
 </head>
@@ -46,16 +74,16 @@
 <div id="userlist">
 	<li><a id="user_information" >사용자 관리<i class="bi bi-plus-circle" id="circle1"></i></a></li>
 	<ul id="asd">
-	<li><a id="individual">개인</a></li>
-	<li><a id="master">휴게소주</a></li>
-	<li><a id="business">입점업주</a></li>
+	<li><a id="individual" name="individual">개인</a></li>
+	<li><a id="master" name="master">휴게소주</a></li>
+	<li><a id="business" name="business">입점업주</a></li>
 	</ul>
 	
-	<li><a id="login_history" >로그인기록</a></li>
+	<li><a id="login_history" name="login_history" >로그인기록</a></li>
 	
-	<li><a id="Payment_details" >결제내역<i class="bi bi-plus-circle" id="circle2"></i></a></li>
+	<li><a id="Payment_details" name="Payment_details" >결제내역<i class="bi bi-plus-circle" id="circle2"></i></a></li>
 	<ul id="asd3">
-	<li><a id="individual">음식점</a></li>
+	<li><a id="food" name="food">음식점</a></li>
 	</ul>
 </div>
 	

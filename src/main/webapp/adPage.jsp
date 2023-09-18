@@ -30,24 +30,31 @@ if (request.getParameter("main")!= null) {
 
 	div.main{
 	margin-top:10vh;
-   		width: 70%;
-   		height: 100%;
-   		font-size: 13pt;
-   		margin-left: 15%;
+   		width: 150vh;
+   		height: 90vh;
+   		font-size: 2vh;
+   		margin-left: 31vh;
 		background-color: orange;
 	}
 	
 	div.menu {
 	 margin-top:10vh;
-  	 width: 15%;
+  	 width: 31vh;
   	 height: 100vh;
   	 background-color:rgba(0,0,0,0.7);
 	}
+	
 	div.title {
-
-  	 width: 15%;
+  	 width: 31vh;
   	 height: 10vh;
   	 background-color:blue;
+  	 /*background-color:rgba(0,0,0,0.7);*/
+	}
+	div.title2 {
+  	 width: 150vh;
+  	 margin-left: 31vh;
+  	 height: 10vh;
+  	 background-color:red;
   	 /*background-color:rgba(0,0,0,0.7);*/
 	}
 </style>
@@ -62,6 +69,9 @@ if (request.getParameter("main")!= null) {
 </div>
 <div class="layout title">
 	<jsp:include page="layout-adPage/title.jsp"/>
+</div>
+<div class="layout title2">
+	<jsp:include page="layout-adPage/title2.jsp"/>
 </div>
 </body>
 </html>
