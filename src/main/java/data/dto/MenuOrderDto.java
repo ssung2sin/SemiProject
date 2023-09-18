@@ -9,7 +9,9 @@ public class MenuOrderDto {
 	private String s_id;
 	private String receipt;
 	private String u_id;
-	private String prepare_time;
+	private Timestamp prepare_time;
+	private int completion;
+	
 	public String getNum() {
 		return num;
 	}
@@ -46,12 +48,17 @@ public class MenuOrderDto {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
-	public String getPrepare_time() {
+	public Timestamp getPrepare_time() {
 		return prepare_time;
 	}
-	public void setPrepare_time(String prepare_time) {
+	public void setPrepare_time(Timestamp prepare_time) {
 		this.prepare_time = prepare_time;
 	}
-	
+	public int getCompletion() {
+		return completion;
+	}
+	public void setCompletion(int completion) {
+		this.completion = completion;
+	}
 	
 }

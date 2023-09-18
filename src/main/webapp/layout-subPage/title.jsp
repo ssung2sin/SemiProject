@@ -150,7 +150,7 @@ $(function(){
       <%}%>
       <h1 id="titlepage">HG</h1>
    </section>
-   <div class="notification-panel">
+   <%-- <div class="notification-panel">
     	<table>
     	<%
     	List<MenuOrderDto> list=mdao.selectMyOrder(id,selectId);
@@ -166,6 +166,6 @@ $(function(){
     	<%}
     	%>
     	</table>
-	</div>
+	</div> --%>
 </body>
 </html>
