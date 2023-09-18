@@ -76,7 +76,6 @@ myimg = dto.getImage();
 	div.header{
    		width: 100%;
    		height: 10%;
-   		position: fixed;
   		text-align: center;
    		background-color:pink;
    		top: 10%;

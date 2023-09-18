@@ -51,6 +51,7 @@ System.out.println(grade);
 String id=(String)session.getAttribute("id"); //아이디
 System.out.println(id);
 
+session.setAttribute("ssss", "asdsadsa");
 //db에 이름 반환해주는 메소드 사용하기
 UserDao udao=new UserDao();
 

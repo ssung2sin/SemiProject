@@ -86,6 +86,7 @@ String mainPage = "layout-index/main.jsp";
 if (request.getParameter("main")!= null) {
    mainPage = request.getParameter("main");
 }
+
 %>
 <body>
       <div class="layout bcblack"></div>
@@ -93,5 +94,9 @@ if (request.getParameter("main")!= null) {
       <div class="layout main"><jsp:include page="<%=mainPage%>" /></div>
       <div class="layout hgintroduce"><%-- <jsp:include page="layout/hgintroduce.jsp" /> --%></div>
       <div class="layout info"><jsp:include page="layout-index/info.jsp" /></div>
+      <%
+      String name=(String)session.getAttribute("ssss");
+      System.out.println("나오는 session="+name); 
+      %>
 </body>
 </html>
