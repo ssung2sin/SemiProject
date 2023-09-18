@@ -60,6 +60,7 @@ System.out.println(grade);
 String id=(String)session.getAttribute("id"); //아이디
 System.out.println(id);
 
+
 //db에 이름 반환해주는 메소드 사용하기
 UserDao udao=new UserDao();
 
@@ -149,7 +150,7 @@ $(function(){
       <%}%>
       <h1 id="titlepage">HG</h1>
    </section>
-   <div class="notification-panel">
+   <%-- <div class="notification-panel">
     	<table>
     	<%
     	List<MenuOrderDto> list=mdao.selectMyOrder(id,selectId);
@@ -165,6 +166,6 @@ $(function(){
     	<%}
     	%>
     	</table>
-	</div>
+	</div> --%>
 </body>
 </html>

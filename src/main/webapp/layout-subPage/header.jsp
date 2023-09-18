@@ -136,7 +136,7 @@ $(function(){
 </head>
 <body>
 	<input type="hidden" id="b_id" value="<%=inherence_HU%>">
-<div class="dv1" style="position: fixed; z-index:999; height: 0px;">
+<div class="dv1" style=" z-index:999; height: 0px;">
    <nav id="ttop" style="">
    <ul class="t1">
       <%-- <li><img src="image/logo.png" style="margin-left: 40px; 

@@ -11,11 +11,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Hi+Melody&family=Itim&family=Nanum+Pen+Script&family=Rock+Salt&family=Wallpoet&display=swap" rel="stylesheet">
 <script type="text/javascript"
-   src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
-   charset="utf-8"></script>
+	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"
+	charset="utf-8"></script>
 <script type="text/javascript"
-   src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <title>Login Form</title>
 </head>
 <%
