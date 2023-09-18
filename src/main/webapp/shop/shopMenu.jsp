@@ -42,11 +42,17 @@
 		width: 150px;
 		height: 50px;
 		background-color: orange;
-		color: white;
+		color: white;	
 	}
 	.orderBtn:active{
 		background-color: white;
 		color: orange;
+	}
+	.name{
+		position:absolute;
+		top: 10px;
+		left: 610px;
+		margin-left: 200px;
 	}
 </style>
 </head>
@@ -96,19 +102,17 @@ categorylist=dao.getCategory(s_id);
 		MenuDto dto=list.get(i);
 		if(s_id.equals("106-31-1000"+(i+1))){%>
 			<img src="../shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px; margin-left: 20px;">
-			<% 
+			<%
+			if(grade.equals("user")&&loginok!=null){ 
+				%>
+				<b class="name" style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
+				<%
+				}
 			if(grade!="shop"|| grade!="expresss"){
 			%>
 			<button class="orderBtn">주문하기</button>
 			<%
-			}
-			if(grade.equals("user")&&loginok!=null){ 
-			%>
-			<h5 style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</h5>
-			<button class="logoutBtn">로그아웃</button>
-			<%
-			}
-			%>
+			}%>
 			<div id="category">
 				<b style="margin-left: 20px;">분류보기</b>
 				<hr width="660" style="margin-left: 20px;">

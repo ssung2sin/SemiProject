@@ -5,12 +5,42 @@ import java.sql.Timestamp;
 public class BoardDto {
 	
 	private String num;
+	private int note;
 	private String writer;
+	private String express;
 	private String title;
 	private String content;
 	private int view;
+	private int likes;
+	private int unlikes;
 	private Timestamp writeday;
 	
+	
+	
+	public int getLikes() {
+		return likes;
+	}
+	public void setLikes(int likes) {
+		this.likes = likes;
+	}
+	public int getUnlikes() {
+		return unlikes;
+	}
+	public void setUnlikes(int unlikes) {
+		this.unlikes = unlikes;
+	}
+	public int getNote() {
+		return note;
+	}
+	public void setNote(int note) {
+		this.note = note;
+	}
+	public String getExpress() {
+		return express;
+	}
+	public void setExpress(String express) {
+		this.express = express;
+	}
 	public String getNum() {
 		return num;
 	}

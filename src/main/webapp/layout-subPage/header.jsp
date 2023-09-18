@@ -149,18 +149,23 @@ $(function(){
       
       <li><!-- menu 시설안내 -->
       	 <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">시설안내</a>
-         <ul class="submenu" style="margin-left: 40px;">
-         <a href="#" style="font-size: 15px;">편의시설</a>
+         <ul class="submenu" style="margin-left: -20px;">
+         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 15px;">편의시설</a>
          </ul>
       </li>
       
       <li><!-- menu 음식점-->
          <a href="#" class="topmenu" style="width: 150px; margin-left: 20px;">음식점</a>
          <ul class="submenu" style="margin-left: -20px;">
-         <a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;" class="submenu">음식점</a>
+         	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;">음식점</a>
          <%if(grade.equals("shop")){
         	 %>
-         <a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
+         <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
+         <%
+         }
+         if(grade.equals("shop")||grade.equals("user")){
+        	 %>   
+         <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
          <%
          }
          %>
@@ -179,7 +184,7 @@ $(function(){
       <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">게시판</a>
          <ul class="submenu" style="margin-left: -20px;">
          <a href="" style="font-size: 15px;">공지게시판</a>
-         <a href="" style="font-size: 15px;">자유게시판</a>
+         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 15px;">자유게시판</a>
          </ul>
       </li> 
      

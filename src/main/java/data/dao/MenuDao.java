@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import data.dto.MenuDto;
+import data.dto.MenuOrderDto;
 import mysql.db.DBConnect;
 
 public class MenuDao {
@@ -134,98 +135,163 @@ public class MenuDao {
 		}
 	}
 	//카테고리 종류 출력
-		public List<String> getCategory(String s_id){
-			List<String> list=new ArrayList<String>();
+	public List<String> getCategory(String s_id){
+		List<String> list=new ArrayList<String>();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
 			
-			Connection conn=db.getConnection();
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
+		String sql="select distinct eng_category from menu where s_id=?";
 			
-			String sql="select distinct eng_category from menu where s_id=?";
-			
-			try {
-				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, s_id);
-				rs=pstmt.executeQuery();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, s_id);
+			rs=pstmt.executeQuery();
 				
-				while(rs.next()) {
-					list.add(rs.getString("eng_category"));
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			while(rs.next()) {
+				list.add(rs.getString("eng_category"));
 			}
-			finally {
-				db.dbClose(rs, pstmt, conn);
-			}
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			db.dbClose(rs, pstmt, conn);
+		}
 			
-			return list;
+		return list;
+	}
+		
+	//카테고리별 상품 출력
+	public List<MenuDto> seperateCategory(String eng_category){
+		List<MenuDto> list=new ArrayList<MenuDto>();
+			
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+			
+		String sql="select * from menu where eng_category=?";
+			
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, eng_category);
+			rs=pstmt.executeQuery();
+				
+			while(rs.next()) {
+				MenuDto dto=new MenuDto();
+				
+				dto.setSang_num(rs.getString("sang_num"));
+				dto.setM_image(rs.getString("m_image"));
+				dto.setMenu(rs.getString("menu"));
+				dto.setM_score(rs.getDouble("m_score"));
+					
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+			
+		return list;
+	}
+		
+	public List<String[]> selectCategory(String s_id) {
+		List<String[]>list=new ArrayList<String[]>();
+			
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+			
+		String sql="select distinct category,eng_category from menu where s_id=?";
+			
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, s_id);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+					
+				String category[]=new String[2];
+				category[0]=rs.getString("category");
+				category[1]=rs.getString("eng_category");
+					
+				list.add(category);
+			}
+				
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return list;
+	}
+	
+	//메뉴카트 추가
+	public void insertOrderMenu(MenuOrderDto dto,String now) {
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="insert into order_menu values(?,?,?,?,?,?,null)";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getNum());
+			pstmt.setString(2, dto.getTotal_price());
+			pstmt.setString(3, now);
+			pstmt.setString(4, dto.getS_id());
+			pstmt.setString(5, dto.getReceipt());
+			pstmt.setString(6, dto.getU_id());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
 		}
 		
-		//카테고리별 상품 출력
-		public List<MenuDto> seperateCategory(String eng_category){
-			List<MenuDto> list=new ArrayList<MenuDto>();
+	}
+	
+	//주문메뉴 조회
+	public List<MenuOrderDto> selectMyOrder(String u_id,String selectId) {
+		List<MenuOrderDto> list=new ArrayList<MenuOrderDto>();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from order_menu where "+selectId+"=? order by order_time desc";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, u_id);
 			
-			Connection conn=db.getConnection();
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
+			rs=pstmt.executeQuery();
 			
-			String sql="select * from menu where eng_category=?";
-			
-			try {
-				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, eng_category);
-				rs=pstmt.executeQuery();
+			while(rs.next()) {
+				MenuOrderDto dto=new MenuOrderDto();
 				
-				while(rs.next()) {
-					MenuDto dto=new MenuDto();
-					
-					dto.setSang_num(rs.getString("sang_num"));
-					dto.setM_image(rs.getString("m_image"));
-					dto.setMenu(rs.getString("menu"));
-					dto.setM_score(rs.getDouble("m_score"));
-					
-					list.add(dto);
-				}
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				dto.setNum(rs.getString("num"));
+				dto.setOrder_time(rs.getTimestamp("order_time"));
+				dto.setReceipt(rs.getString("receipt"));
+				dto.setS_id(rs.getString("s_id"));
+				dto.setU_id(rs.getString("u_id"));
+				dto.setTotal_price(rs.getString("total_price"));
+				dto.setPrepare_time(rs.getString("prepare_time"));
+				
+				list.add(dto);
 			}
-			finally {
-				db.dbClose(rs, pstmt, conn);
-			}
-			
-			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
 		}
 		
-		public List<String[]> selectCategory(String s_id) {
-			List<String[]>list=new ArrayList<String[]>();
-			
-			Connection conn=db.getConnection();
-			PreparedStatement pstmt=null;
-			ResultSet rs=null;
-			
-			String sql="select distinct category,eng_category from menu where s_id=?";
-			
-			try {
-				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, s_id);
-				rs=pstmt.executeQuery();
-				
-				while(rs.next()) {
-					
-					String category[]=new String[2];
-					category[0]=rs.getString("category");
-					category[1]=rs.getString("eng_category");
-					
-					list.add(category);
-				}
-				
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-			return list;
-		}
+		return list;
+	}
 }

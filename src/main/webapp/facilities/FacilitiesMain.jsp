@@ -12,23 +12,11 @@
   
 <title>Insert title here</title>
 </head>
-<script type="text/javascript">
-$(function() {
-	$(".slider_02 .btn_prev").click(function(e){
-	    slider_02_num=(slider_02_num-1)%$(".slider_02 ul li").length;
-	    $(".slider_02 .bullet a:eq("+slider_02_num+")").trigger("click");
-	});
 
-	$(".slider_02 .btn_next").click(function(e){
-	    slider_02_num=(slider_02_num+1)%$(".slider_02 ul li").length;
-	    $(".slider_02 .bullet a:eq("+slider_02_num+")").trigger("click");
-	});
-});
-</script>
 <style>
 /* Reset */
 html,body{min-height:100%}
-html,body,div,ul,li,dl,dt,dd,p,h1,h2,h3,h4,h5,h6,a,span,form,input, select { margin:0; padding:0; }
+html,body,div,ul,li,dl,dt,dd,p,h2,h3,h4,a,span,form,input, select { margin:0; padding:0; }
 a { border:0; text-decoration:none; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; letter-spacing:-0.3px; }
 ul,dl,ol { list-style:none; }
 img { max-width:100%; border:0; vertical-align:top; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select: none; }
@@ -36,20 +24,39 @@ body { min-width:1024px; font:normal 14px 'Noto Sans KR',sans-serif; color:#555;
 table { width:100%; border-collapse:collapse; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; }
 input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color:#555; }
 
-
 #container { padding-top:101px; position: relative; }/*20190325 수정*/
 #container.main h3 { margin-bottom:58px; font-size:38px; font-weight:700; color:#292c25; text-align:center; letter-spacing:-1px; }
 
-
-
 #contents { width:960px; padding:70px 0 100px; margin:0 auto; }
 
+/* 이미지를 합치고 좌우로 이동하는 애니메이션 css */
 
+/* 
+#sub_01 .slider { overflow:hidden; position:relative; }
+#sub_01 .slider ul { width:500%; position:relative; }
+
+#sub_01 .slider ul li { width:20%; float:left; }
+
+#sub_01 .slider .btn_prev,
+#sub_01 .slider .btn_next { width:52px; height:52px; position:absolute; top:50%; margin-top:-26px; background:url(/images/arrow_sub_01.png) 0 0 no-repeat; opacity:0.8; }
+#sub_01 .slider .btn_prev:hover,
+#sub_01 .slider .btn_next:hover { opacity:1; }
+#sub_01 .slider .btn_prev { left:20px; }
+#sub_01 .slider .btn_next { right:20px; background-position:right 0; }
+#sub_01 .slider p { width:100%; position:absolute; left:0; bottom:12px; text-align:center; font-size:0; }
+#sub_01 .slider p a { display:inline-block; width:10px; height:10px; margin-left:8px; background:url(/images/bullet.png) right 0 no-repeat; }
+#sub_01 .slider p a:first-child { margin-left:0; }
+#sub_01 .slider p a:hover,
+#sub_01 .slider p a.on { background-position:0 0; } 
+
+#sub_01 .item_01 .title p { font-weight: 700 }.contents_title .slider,
 #sub_01 .item_01 .slider { margin-top:45px; }
+*/
+
 #sub_01 .item_02 > ul > li { padding-top:50px; overflow:hidden; }
 #sub_01 .item_02 > ul > li:first-child { padding-top:0; }
 
-#sub_01 .item_02 >    ul > li .txt { width:385px; height:260px; display:table; }
+#sub_01 .item_02 > ul > li .txt { width:385px; height:260px; display:table; }
 #sub_01 .item_02 > ul > li .txt dl { display:table-cell; vertical-align:middle; }
 #sub_01 .item_02 > ul > li .txt dl dt { font-size:20px; font-weight:700; color:#292c25; }
 #sub_01 .item_02 > ul > li .txt dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
@@ -57,26 +64,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #sub_01 .item_02 > ul > li .txt dl dd.link { margin-top:20px; }
 #sub_01 .item_02 > ul > li .txt dl dd.link a { display:inline-block; width:100px; border:1px solid #b2b2b2; font-size:13px; font-weight:500; line-height:34px; color:#56991f; text-align:center; }
 #sub_01 .item_02 > ul > li .txt dl dd.link a:hover { color:#fff; background:#56991f; }
-#sub_01 .item_02 > ul > li .img { width:520px; }
+#sub_01 .item_02 > ul > li .img { width:520px; height: 2	60px;}
 #sub_01 .item_02 > ul > li.left .img { float:left; }
 #sub_01 .item_02 > ul > li.left .txt { float:right; padding-left:50px; }
 #sub_01 .item_02 > ul > li.right .img { float:right; }
 #sub_01 .item_02 > ul > li.right .txt { float:left; padding-right:55px; }
-#sub_01 .item_03 { text-align:center; }
-#sub_01 .item_03 h4 { display:inline-block; padding:0 32px; font-size:32px; font-weight:700; color:#56991f; }
-#sub_01 .item_03.man h4 { background:url(/images/icon_man.png) 0 center no-repeat; }
-#sub_01 .item_03.woman { margin-top:50px; padding-top:50px; border-top:1px solid #ccc; background:url(/images/sub_01_title.png) 0 50px no-repeat; }
-#sub_01 .item_03.woman h4 { background:url(/images/icon_woman.png) 0 center no-repeat; }
-#sub_01 .item_03.woman div { margin-bottom:60px; }
-#sub_01 .item_03 .line { margin:5px 0 30px; }
-#sub_01 .item_03 .line span { display:inline-block; width:40px; height:2px; background:#56991f; }
-#sub_01 .item_03 ul { margin-bottom:70px; overflow:hidden; }
-#sub_01 .item_03 ul li { width:20%; float:left; padding:24px 10px 30px; border-left:1px solid #fff; box-sizing:border-box; background:#6d7073; }
-#sub_01 .item_03 ul li.gray { background:#6d7073; }
-#sub_01 .item_03 ul li:first-child { border-left:0; }
-#sub_01 .item_03 ul li p { font-size:20px; font-weight:700; color:#fff; }
-#sub_01 .item_03 ul li p span { display:block; padding-bottom:5px; font-size:12px; font-weight:800; color:#77c9f9; }
-#sub_01 .item_03 ul li p:first-child { margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #ddd; }
 
 #sub_01.body .article { margin-top:35px; }
 #sub_01.body .article .img { overflow:hidden; }
@@ -92,25 +84,25 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 #mapsLayerPoint{ position: relative;}
 
 .flicker{
-  -webkit-animation: blink 0.5s ease-in-out infinite alternate;
-  -moz-animation: blink 0.5s ease-in-out infinite alternate;
-  animation: blink 0.5s ease-in-out infinite alternate;
+   -webkit-animation: blink 0.5s ease-in-out infinite alternate; 
+   -moz-animation: blink 0.5s ease-in-out infinite alternate;
+   animation: blink 0.5s ease-in-out infinite alternate;
 }
-
-@-webkit-keyframes blink{
+/* 웹키트 : 애플 브라우저에서 사용 */
+ @-webkit-keyframes blink{
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
-
-@-moz-keyframes blink{
+/* 모질라 : 파이어폭스 기반에서 사용 */
+ @-moz-keyframes blink{
+  0% {opacity: 0;}
+  100% {opacity: 1;} 
+} 
+/* 웹페이지 요소 */
+ @keyframes blink{
   0% {opacity: 0;}
   100% {opacity: 1;}
-}
-
-@keyframes blink{
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
+} 
  
 </style>
 <body>
@@ -128,46 +120,24 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                     </div>
                     <div class="article">
                         <div class="img">
-                            <p class="left"><img src="../image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
-                            <p class="right"><img src="../image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
+                            <p class="left"><img src="image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
+                            <p class="right"><img src="image/FacilitiesImage/parking_01_02.jpg" /><span class="nts">강릉방향(하행)</span></p>
                         </div>
                         <dl>
                             <dt>주차시설&nbsp;&nbsp;l&nbsp;&nbsp;Parking</dt>
-                            <dd class="nts">덕평자연휴게소는 넓은 주차공간을 갖추고 있습니다. 인천방향(상행)은 551대, 강릉방향(하행)은 367대로 총 918대의 주차공간을 제공합니다.</dd>
-                            <dd class="nts info"><!--- 장시간 주차 시, 장기주차장을 이용해주시기 바랍니다. <br />-->- 24시간 이상 주차 시, 고속도로 최장거리 이용요금이 부과됩니다. (도로공사에서 부과)</dd>
-                        </dl>
-						 <dl>
-                            <dt>전기차 충전소&nbsp;&nbsp;l&nbsp;&nbsp;EV Charging Station</dt>
-                            <dd class="nts">덕평자연휴게소 주차장에는 총 4대의 전기차 충전소가 있습니다.<br />인천방향(상행)은 1대, 강릉방향(하행)은 3대로 총 4대입니다.</dd>
+                            <dd class="nts">덕평자연휴게소는 넓은 주차공간을 갖추고 있습니다. 인천방향(상행)은 551대, 강릉방향(하행)은 367대로 총 918대의 주차공간을 제공합니다. <br /><b>장시간 주차 시, 장기주차장을 이용해주시기 바랍니다.</b></dd>
+                            <dd class="nts info">- 24시간 이상 주차 시, 고속도로 최장거리 이용요금이 부과됩니다. (도로공사에서 부과)</dd>
                         </dl>
                     </div>
                 </div>
-               	
-                <!-- 
-                ../Semi_img/information_center_01_01.jpg
-                ../Semi_img/information_center_01_02.jpg
-                ../Semi_img/nursing_room_01_01.jpg
-                ../Semi_img/nursing_room_01_02.jpg
-                ../Semi_img/store_01_01.jpg
-                 -->
-                
-                
-                
-                <div class="item_02">
+           <div class="item_02">
                     <ul>
                         <li class="left">
                             <div class="img">
                                 <div class="slider slider_02">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/information_center_01_01.jpg"></li>
-                                        <li><img src="../image/FacilitiesImage/information_center_01_02.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/information_center_01_01.jpg"></li>
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -182,15 +152,9 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             <div class="img">
                                 <div class="slider slider_03">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/nursing_room_01_01.jpg"></li>
-                                        <li><img src="../image/FacilitiesImage/nursing_room_01_02.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/nursing_room_01_01.jpg"></li>
+                                        <!-- <li><img src="image/FacilitiesImage/nursing_room_01_02.jpg"></li> -->
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -207,17 +171,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                         
                         <li class="left">
                             <div class="img">
-                                <div class="slider slider_02">
+                                <div class="slider slider_04">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/drugstore_01_01.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/drugstore_01_03.jpg"></li>
                                         <li><img src=""></li>
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -230,9 +188,9 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                         </li>
                         <li class="right">
                             <div class="img">
-                                <div class="slider slider_04">
+                                <div class="slider slider_05">
                                     <ul>
-                                        <li><img src="../image/FacilitiesImage/store_01_01.jpg"></li>
+                                        <li><img src="image/FacilitiesImage/store_01_01.jpg"></li>
                                     </ul>
                                 </div>
                             </div>
@@ -244,18 +202,13 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                                 </dl>
                             </div>
                         </li>
+                        
                         <li class="left">
                             <div class="img">
-                                <div class="slider slider_02">
+                                <div class="slider slider_06">
                                     <ul>
-                                       <li><img src=""></li>
+                                       <li><img src="image/FacilitiesImage/Restaurant_Area_01_01.jpg" style="height: 244px; width: 488px;"></li>
                                     </ul>
-                                    <a href="javascript:" class="btn_prev"></a>
-                                    <a href="javascript:" class="btn_next"></a>
-                                    <p class="bullet">
-                                        <a class="on" href="javascript:"></a>+
-                                        <a href="javascript:"></a>
-                                    </p>
                                 </div>
                             </div>
                             <div class="txt">
@@ -268,7 +221,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                         </li>
                         <li class="right">
                             <div class="img">
-                                <div class="slider slider_04">
+                                <div class="slider slider_07">
                                     <ul>
                                         <li><img src=""></li>
                                     </ul>
@@ -276,8 +229,9 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                             </div>
                             <div class="txt">
                                 <dl>
-                                    <dt>주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station</dt>
-                                    <dd class="nts"></dd>
+                                    <dt style="font-size: 19px;">주유소&nbsp;&nbsp;l&nbsp;&nbsp;Gas Station<br />전기차 충전소&nbsp;&nbsp;l&nbsp;&nbsp;EV Charging Station</dt>
+                                    
+                            		<dd class="nts">덕평자연휴게소 주차장에는 총 4대의 전기차 충전소가 있습니다.<br />인천방향(상행)은 1대, 강릉방향(하행)은 3대로 총 4대입니다.</dd>
                                     <dd class="link"><a id="linkA8" class="btn_pop" data-bs-toggle="modal" data-bs-target="#myModal6">위치보기</a></dd>
                                 </dl>
                             </div>
@@ -287,7 +241,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
                 </div>
         </div>
     </div>
-	
+	</div>
 	
 	
 	
@@ -301,10 +255,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-25px, 19px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -325,10 +279,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-106px, -16px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -349,10 +303,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point"  style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(6.5px, 46px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -373,11 +327,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div id="maps-point" style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-98px, 34px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-16px, -580px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -398,10 +352,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div class="maps-point" style="height: 400px; width: 450px;">
 							<div id="maps-point" style="transform: translate(-58px, -7px) scale(0.15);">
-								<img src="../image/FacilitiesImage/Marker.png" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" class="flicker">
 							</div>
 						</div>
 		    	  </div>
@@ -422,11 +376,11 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 		      </div>
 		      <div class="modal-body" >
 			      <div id="map">
-				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="../image/FacilitiesImage/dpImage.jpg"></div>	
+				     	<div id="mapsLayerBackground" style="width: 450px; height: 450px;"><img src="image/FacilitiesImage/dpImage.jpg"></div>	
 						<div id="mapsLayerPoint">
 							<div class="maps-point" style="height: 400px; width: 450px;">
-								<img src="../image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
-								<img src="../image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png"  style="transform: translate(-194px, 4px) scale(0.15);" class="flicker">
+								<img src="image/FacilitiesImage/Marker.png" style="transform: translate(-194px, -400px) scale(0.15);" class="flicker">
 							</div>
 						</div>
 		    	  </div>

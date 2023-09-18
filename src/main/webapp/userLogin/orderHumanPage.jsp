@@ -17,6 +17,7 @@
 <%
 	String userId=(String)pageContext.getSession().getAttribute("userId");
 	String userPass=(String)pageContext.getSession().getAttribute("userPass");
+	String menuPage=(String)pageContext.getSession().getAttribute("menuPage");
 	UserDao dao=new UserDao();
 	UserDto dto=dao.getData(userId);
 
@@ -69,7 +70,7 @@
 					
 					type:"get",
 					dataType:"html",
-					url:"mail/mailsend.jsp",
+					url:"../mail/mailsend.jsp",
 					data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
 					success:function(){
 						
@@ -115,7 +116,7 @@
 				
 				type:"get",
 				dataType:"json",
-				url:"mail/mailsend.jsp",
+				url:"../mail/mailsend.jsp",
 				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>'},
 				success:function(data){
 					$(".resetRanNum").val(data.ranNum);
@@ -179,9 +180,10 @@
 <body>
 
 <div align="center" style="margin-top: 5%">
-	<form action="userLogin/humanLoginAction.jsp" method="post" onsubmit="return check()">
+	<form action="orderHumanLoginAction.jsp" method="post" onsubmit="return check()">
 		<input type="hidden" value="<%=userId%>" name="userId">
 		<input type="hidden" value="<%=userPass%>" name="userPass">
+		<input type="hidden" value="<%=menuPage%>" name="menuPage">
 		<input type="hidden" value="none" class="resetRanNum">
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
 		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>

@@ -36,7 +36,6 @@
 		String sdfNow=now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0"));
 		
 		dao.updateLL_date(userId, sdfNow);
-		
 		response.sendRedirect("../index.jsp");
 	} else{%> <!--로그인 실패 시 -->
 		<script type="text/javascript">
