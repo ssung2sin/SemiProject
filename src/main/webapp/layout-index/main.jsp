@@ -376,7 +376,7 @@ map.setZoomable(false);
            $.each(res,function(idx,item){
              
                   s+="<table style='width:200px;' >";
-                  s+="<tr style=' border: 2px solid black;'><td style='font-size: 1.2em;'>"+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
+                  s+="<tr style=' border: 2px solid black;'><td style='font-size: 1.2em;'>"	+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
                   s+="</td>";
                   s+="</tr>";
                   s+="</table>";
@@ -400,7 +400,7 @@ map.setZoomable(false);
                           var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
                              mycontent += '<b>'+item.b_name+'</b>';
                              mycontent += '<br>';
-                             mycontent += '<img src="'+myimage+'" style="width:100%; height:70px">';
+                             mycontent += '<img src="image/'+myimage+'" style="width:100%; height:70px">';
                              mycontent += '<b>'+item.b_hp+'</b>';
                              mycontent += '<br>';
                              mycontent += '<b>'+item.s_hp+'</b>';
