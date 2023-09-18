@@ -30,31 +30,25 @@ String root = request.getContextPath();
 <body>
 <!-- 네이버아디디로로그인 Callback페이지 처리 Script -->
 <script type="text/javascript">
-  var naver_id_login = new naver_id_login("r1ELIdSzzQk6g7kY9OiQ", "http://localhost:8080/SemiProject/userLogin/callback.jsp");
+  var naver_id_login = new naver_id_login("mxqUPyw1CadFAnqmOC_4", "http://localhost:8080/SemiProject/userLogin/callback.jsp");
   // 접근 토큰 값 출력
-  alert(naver_id_login.oauthParams.access_token);
+  // alert(naver_id_login.oauthParams.access_token);
   // 네이버 사용자 프로필 조회
   naver_id_login.get_naver_userprofile("naverSignInCallback()");
   // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
   function naverSignInCallback() {
 
-    alert(naver_id_login.getProfileData('email'));
+    /* alert(naver_id_login.getProfileData('email'));
     alert(naver_id_login.getProfileData('name'));
-    alert(naver_id_login.getProfileData('birthday'));
-    alert(naver_id_login.getProfileData('birthyear'));
+    alert(naver_id_login.getProfileData('birthday')); */
     
- 
     var N_token= naver_id_login.oauthParams.access_token;
    	var N_email=naver_id_login.getProfileData('email');
    	var N_name=naver_id_login.getProfileData('name');
-	/* var N_birthday=naver_id_login.getProfileData('birthday');
-	var N_birthday=naver_id_login.getProfileData('birthyear'); */
 	
-	   
-	/*  $("#name").val(N_name);
-	$("#email").val(N_email); */
-	/* $("#birthday").val(N_birthday);
-	$("#birthyear").val(N_birthyear); */
+	//$("#token").val(N_token);
+	$("#name").val(N_name);
+	$("#email").val(N_email);
    
   }
  
@@ -64,10 +58,9 @@ String root = request.getContextPath();
 </script>
 <!-- //네이버아디디로로그인 Callback페이지 처리 Script -->
 
-<!-- <input type="hidden" name="name" id="name" value=""> 
-<input type="hidden" name="email" id="email" value="">  -->
-<!-- <input type="hidden" name="birthday" id="birthday" value=""> 
-<input type="hidden" name="birthyear" id="birthyear" value=""> --> 
-<%-- <%response.sendRedirect("callbackAction.jsp"); %> --%>
+<!-- <input type="hidden" name="token" id="token" value="">  -->
+<input type="hidden" name="name" id="name" value=""> 
+<input type="hidden" name="email" id="email" value="">
+<%response.sendRedirect("callbackAction.jsp"); %>
   </body>
 </html>
