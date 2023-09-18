@@ -58,7 +58,6 @@
 		session.setAttribute("saveok", uSave==null?null:"uyes"); //로그인 시, 아이디 저장 체크박스 표시하면 로그인폼에 아이디값 고정
 		session.setAttribute("grade","user");	
 		
-		
 		dao.updateLL_date(userId, sdfNow);
 		
 		response.sendRedirect("../index.jsp");

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import data.dto.UserDto;
 import mysql.db.DBConnect;
 
@@ -190,10 +191,8 @@ public class UserDao {
 			db.dbClose(rs, stmt, conn);
 		}
 		   return titleName;
-	   }	
+	   }	  
 	   
-	   //mypage_회원정보수정 위해 정보 가져오기
-	   public UserDto getUserInfo(String uid)
 
 	   {
 		   UserDto dto=new UserDto();

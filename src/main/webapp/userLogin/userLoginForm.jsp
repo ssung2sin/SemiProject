@@ -21,6 +21,7 @@
 <%
 String root=request.getContextPath();
 String saveok=(String)session.getAttribute("saveok");
+System.out.println(saveok);
 if(saveok==null){
 	saveok="";
 }
@@ -32,7 +33,7 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 	
 	if(saveok.equals("uyes")){
 		uid=(String)session.getAttribute("id");
-	}else if(saveok.equals("byes")){
+	}else{
 		bid=(String)session.getAttribute("id");
 	}
 }
