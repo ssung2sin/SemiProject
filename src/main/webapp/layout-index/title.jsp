@@ -110,8 +110,14 @@ $(function(){
     });
     $("#myadmin").click(function(){
     	location.href='index.jsp?main=adlogin/adLoginForm.jsp';
-	})
+	});
 
+    window.addEventListener("keyup", (e) => {
+    	  const key = document.getElementById(e.key);
+    	  if(key) {
+    		  key.classList.remove("pressed");
+    	  }
+    	});
  });
 
 

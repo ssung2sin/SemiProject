@@ -39,8 +39,6 @@ div.title {
    height: 15%;
    text-align: center;
 
-   background-color: blue;
-
 }
 
 div.main {
@@ -48,8 +46,7 @@ div.main {
    height: 84%;
    font-size: 2vh;
    margin-left: 15%;
-   top: 15%;
-   background-color: pink;
+   top: 15%;  
 }
 
 div.info {
@@ -62,7 +59,6 @@ div.info {
   display: inline-block;
   position:fixed;
   top:30%;
-  background-color: orange;
 }
 
 div.hgintroduce{
