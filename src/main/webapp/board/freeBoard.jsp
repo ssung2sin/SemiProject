@@ -150,7 +150,7 @@
    List<BoardDto> noList=dao.getnoteList();
 %>
 <body>
-<div style="background-color: rgba(255,255,255,0.7)">
+<div>
    
    <span align="top" style="font-size: 4vh; line-height: 5vh; margin-left: 1vh;"><b>자유게시판</b></span><br>
    <table class="table table-striped" style="width: 100%;">

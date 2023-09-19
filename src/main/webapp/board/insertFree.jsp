@@ -21,7 +21,7 @@
 	charset="utf-8"></script>	
 </head>
 <body>
-<div style="background-color: rgba(255,255,255,0.7)">
+<div>
 <form action="board/insertProc.jsp" method="post">
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption align="top"><h3>자유 게시판</h3></caption>
