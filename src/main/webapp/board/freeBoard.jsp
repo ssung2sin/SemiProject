@@ -28,6 +28,46 @@
       font-weight: bold;
       color: blue;
    }
+   
+   .btn.btn-outline-secondary.btn-ghost.btn-open-line {
+	  
+	  border: 1px solid white;
+	  transition: 0.3s;
+	
+	  &::before,
+	  &::after {
+	    position: absolute;
+	    content: "";
+	    left: 0;
+	    width: 100%;
+	    height: 1px;
+	    background: var(--btn-bg);
+	    opacity: 1;
+	    transform: scaleX(0);
+	    transition: 0.4s ease-in-out;
+	  }
+	
+	  &::before {
+	    top: 0;
+	  }
+	
+	  &::after {
+	    bottom: 0;
+	  }
+	
+	  &:hover {
+	    letter-spacing: 5px;
+	    color: var(--btn-bg);
+	    background: transparent;
+	    background-color: gold;
+	
+	    &::before,
+	    &::after {
+	      opacity: 1;
+	      transform: scaleX(1.2);
+	    }
+	  }
+	}
 </style>
 <%
 	String cnt=(String)session.getAttribute("cnt");
@@ -110,13 +150,13 @@
    List<BoardDto> noList=dao.getnoteList();
 %>
 <body>
-<div>
+<div style="background-color: rgba(255,255,255,0.7)">
    
-   <span align="top" style="font-size: 4vh; line-height: 5vh;"><b>자유게시판</b></span><br>
+   <span align="top" style="font-size: 4vh; line-height: 5vh; margin-left: 1vh;"><b>자유게시판</b></span><br>
    <table class="table table-striped" style="width: 100%;">
    	  <div style="float: left;">
-	      <button type="button" style="float: right; font-size: 1.5vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
-	      <button type="button" style="float: right; font-size: 1.5vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+   	  	  <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
 	   </div>
 	   <div style="float: right;">
 	      <select name="listcnt" style="margin-right: 1.25vh; width: 7vh; height: 4vh;" class="listcnt">
@@ -124,7 +164,7 @@
 	         <option value="10" <%=cnt.equals("10")?"selected":"" %>>10개</option>
 	         <option value="20" <%=cnt.equals("20")?"selected":"" %>>20개</option>
 	      </select>
-	      <button type="button" style="float: right; font-size: 1.5vh; width: 10vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
 	   </div>
       <tr align="center">
          <th style="width: 10vh; background-color: #;">
