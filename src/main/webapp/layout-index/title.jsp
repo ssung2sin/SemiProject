@@ -36,8 +36,10 @@
 	margin-left: 30vh;
 	margin-top: 5vh;
 	width: 3vh;
-	height: 3vh;
-	
+	height: 3vh;	
+}
+h5>span{
+	margin-right: 2vh;
 }
 </style>
 <%
@@ -129,7 +131,7 @@ $(function(){
    <section class="container">
    	<%
    	if(loginok==null){%>
-   		<h5><span id="login">로그인</span><span id="register">회원가입</span>
+   		<h5><span id="login">로그인</span><span id="register">회원가입</span></h5>
    	<%
    	} else {%>
    		<h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;

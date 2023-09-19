@@ -9,19 +9,28 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <style type="text/css">
 .inputform{
-	position: absolute;
-	margin-left: 50px;
+	margin-left: 7vh;
+	margin-top: 5vh;
+}
+th{
+	font-family: 'Jalnan';
+}
+td{
+	font-family: 'NanumSquare';
+	font-size: 15px;
 }
 
 </style>
 <title>Insert title here</title>
 <%
-	String id=(String)session.getAttribute("idok");
+	String id=(String)session.getAttribute("id");
 
 	ShopDao dao=new ShopDao();
 	
@@ -29,6 +38,7 @@
 	
 	
 	String name=dao.getName(id);
+	System.out.println(id);
 	System.out.println(name);
 
 %>
@@ -62,8 +72,8 @@
 <div class="inputform" style="width: 650px;">
 		<form action="order/orderAddAction.jsp" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="s_id" value="<%=id%>">
-			<table class="table table-borderde">
-				<caption align="top"><b>상품등록</b></caption>
+			<table class="table table-bordered">
+				<caption align="top" style="font-family: 'Jalnan';"><b>상품등록</b></caption>
 				<tr>
 					<th style="width: 170px;" class="table-success">
 						<b>카테고리</b></th>
