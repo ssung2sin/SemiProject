@@ -39,7 +39,7 @@ option{
 $(function(){
 	
 	//아이디 중복체크
-	$(".userId").on("input",function(){
+	$(".userId").on("blur",function(){
 		
 		//id 읽기
 		var userId=$(".userId").val();
@@ -61,7 +61,7 @@ $(function(){
                 if (userId.length < 6) {
                     $("span.idsuccess").text("아이디는 6자리 이상이어야 합니다.");
                     $("span.idsuccess").css("color", "red");
-                    return;
+                    return false;
                 }
                 
        //ajax
@@ -143,9 +143,10 @@ $(function(){
 		    if (hp2.length === 4) {
 		        $("#userhp3").focus();
 		    }
+		 
 		});
 		
-
+	
 	//이메일 직접선택 관련
 	//도메인 직접 입력 or domain option 선택
 	const domainListEl = document.querySelector('#domain-list')
@@ -226,7 +227,7 @@ $(function(){
 					<select class="box" id="domain-list" style="width: 200px;">
 						<option value="type">직접입력</option>
 						<option value="naver.com">네이버</option>			
-						<option value="google.com">구글</option>
+						<option value="gmail.com">구글</option>
 						<option value="daum.net">다음</option>
 						<option value="hanmail.com">한메일</option>
 						<option value="nate.com">네이트</option>
@@ -250,7 +251,7 @@ $(function(){
 					<td>
 						<input type="text" style="width: 100px;" maxlength="3" required="required" name="userhp1" id="userhp1">&nbsp;-
 						<input type="text" style="width: 100px;" maxlength="4" required="required" name="userhp2" id="userhp2">&nbsp;-
-						<input type="text" style="width: 100px;" maxlength="4" required="required" name="userhp3" id="userhp3">
+						<input type="text" style="width: 100px;" minlength="4" maxlength="4" required="required" name="userhp3" id="userhp3">
 					</td>
 				</tr>
 			<tr>
