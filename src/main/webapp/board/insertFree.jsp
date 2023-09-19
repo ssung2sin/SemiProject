@@ -21,6 +21,7 @@
 	charset="utf-8"></script>	
 </head>
 <body>
+<div>
 <form action="board/insertProc.jsp" method="post">
 	<table class="table table-bordered" style="width: 800px;margin-left: 100px;">
 		<caption align="top"><h3>자유 게시판</h3></caption>
@@ -69,7 +70,7 @@
 		
 	</table>   
 </form>
-
+</div>
 <!-- 스마트게시판에 대한 스크립트 코드 넣기 -->
 <script type="text/javascript">
 var oEditors = [];
