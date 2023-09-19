@@ -13,7 +13,7 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
-#mouse div{
+.wheel{
    width: 3vh;
    height: 6vh;
    border: 0.5vh solid #fff;
@@ -35,6 +35,7 @@
    text-indent: -9999px;
    animation: wheel 1s ease-out infinite;
 }
+
 @keyframes wheel{
    0%{
       top:1vh;
@@ -45,11 +46,21 @@
       opacity:0;
    }
 }
+i{margin: auto;}
+
+.toTop{ border:0.5vh solid white; border-radius:12.5vh; width: 3vh; color: white; margin-top: 6vh; margin-bottom: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh;}
+.toTop:hover{ color: orange; background-color: white;}
+.toBottom{ border:0.5vh solid white; border-radius:12.5vh; width: 3vh; color: white; margin-top: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh; }
+.toBottom:hover{ color: orange; background-color: white;}
+
 </style>
 </head>
 <body>
 <div id="mouse">
-      <div><span>wheel</span></div>
-   </div>
+	
+	<div class="toTop" onclick="window.scrollTo(0,0)" ><i class="bi bi-chevron-bar-up"></i></div>
+	<div class="wheel"><span>wheel</span></div>
+	<div class="toBottom" onclick="window.scrollTo(0,5000)" ><i class="bi bi-chevron-bar-down"></i></div>
+</div>
 </body>
 </html>

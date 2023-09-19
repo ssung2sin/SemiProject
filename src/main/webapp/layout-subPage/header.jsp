@@ -56,7 +56,7 @@ span * {
    background-color: gray;
    color: white;
 }
-   
+ 
 #ttop ul li {
    list-style: none;
    float: left;
@@ -188,7 +188,6 @@ $(function(){
          <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 15px;">자유게시판</a>
          </ul>
       </li> 
-     
    </ul>
     
    </nav>

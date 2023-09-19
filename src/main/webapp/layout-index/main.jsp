@@ -147,9 +147,9 @@ request.setCharacterEncoding("UTF-8");
 ExpressDao dao=new ExpressDao();
 ExpressDto dto=new ExpressDto();
 
-//String aaa=null;
+// String aaa=null;
 ArrayList<ExpressDto> list=dao.getIdyo();
-//List<TestAddrDto> list2=dao.getname();
+// List<TestAddrDto> list2=dao.getname();
 %>
 <body>
 
@@ -376,7 +376,7 @@ map.setZoomable(false);
            $.each(res,function(idx,item){
              
                   s+="<table style='width:200px;' >";
-                  s+="<tr style=' border: 2px solid black;'><td style='font-size: 1.2em;'>"+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
+                  s+="<tr style=' border: 2px solid black;'><td style='font-size: 1.2em;'>"	+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
                   s+="</td>";
                   s+="</tr>";
                   s+="</table>";

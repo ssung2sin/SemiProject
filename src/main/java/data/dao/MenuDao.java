@@ -241,7 +241,7 @@ public class MenuDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into order_menu values(?,?,?,?,?,?,null,0)";
+		String sql="insert into order_menu values(?,?,?,?,?,?,null,99)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -270,7 +270,7 @@ public class MenuDao {
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from order_menu where "+selectId+"=? order by order_time desc";
+		String sql="select * from order_menu where "+selectId+"=? and completion not in(2) order by order_time desc";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -353,7 +353,7 @@ public class MenuDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="delete from order_menu where num=?";
+		String sql="update order_menu set completion=2 where num=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

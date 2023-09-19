@@ -70,15 +70,19 @@ myimg = dto.getImage();
 	
 	div.layout{
    		position: absolute;
-   		
 	}
-
+	
+	div.header{
+	
+	}
+	
 	div.header{
    		width: 100%;
    		height: 10%;
   		text-align: center;
-   		background-color:pink;
+   		/* background-color:pink; */
    		top: 10%;
+   		
 	}
 
 	div.main{
@@ -87,7 +91,7 @@ myimg = dto.getImage();
    		font-size: 13pt;
    		margin-left: 15%;
    		top: 20%;
-		background-color: orange;
+		/* background-color: orange; */
 	}
 
 	div.info{
@@ -100,7 +104,7 @@ myimg = dto.getImage();
   		display: inline-block;   
   		position:fixed;
   		top:30%;
-  		background-color: blue;
+  		
   
 	}
 	div.title {
