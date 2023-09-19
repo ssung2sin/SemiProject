@@ -108,9 +108,13 @@ $(function(){
     $("#titlepage").click(function(){
     	location.href='index.jsp';
     });
-    $("#myadmin").click(function(){
-    	location.href='index.jsp?main=adlogin/adLoginForm.jsp';
-	})
+    
+    
+    $("#mypage").click(function(){
+    
+    	location.href="index.jsp?main=mypage/mypageForm.jsp";
+    });
+    
 
  });
 
@@ -130,7 +134,7 @@ $(function(){
    		<%=titleName %>님 환영합니다&nbsp;&nbsp;
    		<input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span>
    	<%}%>
-      <span id="register">회원가입</span><span id="mypage">마이페이지</span></h5>   
+      <span id="mypage">마이페이지</span><span id="admin">관리자</span></h5>
       <h1 id="titlepage">HG</h1>
       <div id="myadmin"></div>
    </section>

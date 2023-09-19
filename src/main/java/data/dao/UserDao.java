@@ -5,7 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 
 import data.dto.UserDto;
 import mysql.db.DBConnect;
@@ -287,5 +288,32 @@ public class UserDao {
 			db.dbClose(pstmt, conn);
 		}
 		   
+	   }
+	   
+	   //아이디 조회
+	   public List<String> selectId(){
+		   List<String> list=new ArrayList<String>();
+		   
+		   Connection conn=db.getConnection();
+		   Statement stmt=null;
+		   ResultSet rs=null;
+		   
+		   String sql="select u_id from user";
+		   
+		   try {
+			stmt=conn.createStatement();
+			rs=stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				String u_id=rs.getString(1);
+				list.add(u_id);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, stmt, conn);
+		}
+		   return list;
 	   }
 }
