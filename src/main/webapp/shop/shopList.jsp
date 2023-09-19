@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <!-- <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&family=Orbit&display=swap"
         rel="stylesheet"> -->
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -17,7 +18,6 @@
 
 	div.center{
 		z-index: 900;
-		font-family: 'Jalnan';
 	}
 	div.shopdiv{
 		width: 200px;
@@ -27,7 +27,7 @@
 		margin-top: 10px;
 		cursor: pointer;
 		float: left;
-		font-family: 'Jalnan';
+		font-family: 'nanumsquareround',sans-serif;;
 	}
 </style>
 </head>
@@ -37,7 +37,7 @@ List<ShopDto> list=dao.getAllShops();
 %>
 <body>
 	<div align="center" style="color: green; ">
-	<h2 style="color: green;">푸드코트</h2>
+	<h3 style="color: green; font-family: 'Jalnan'; margin-top:20px;">푸드코트</h3>
 	<table style="width: 650px;">
 	<tr>
 	<%
