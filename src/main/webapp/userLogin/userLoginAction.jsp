@@ -46,7 +46,6 @@
 		
 		if(dif>=1){
 			pageContext.getSession().setAttribute("userId", userId);
-			pageContext.getSession().setAttribute("userPass", userPass);
 			pageContext.getSession().setAttribute("uSave",uSave);
 			response.sendRedirect("../index.jsp?main=userLogin/humanPage.jsp");
 		}

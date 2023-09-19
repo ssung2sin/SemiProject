@@ -103,6 +103,11 @@ div.allBox{
  	width: 60px;
   	height: 50px;
 }
+#name{
+	font-family: "Dongle";
+	font-size:30px;
+	margin-left: 650px;
+}
 </style>
 <%
 	
@@ -163,7 +168,7 @@ div.allBox{
 		
 		$(document).on("click",".plus",function(){
 			var su=$(this).parent().find(".su").text();
-			alert(su);
+			//alert(su);
 			su++;
 			$(this).parent().find(".su").text(su);
 			
@@ -361,7 +366,7 @@ div.allBox{
 </script>
 </head>
 <body>
-<h5><%=udto.getU_name()%>님 반갑습니다!</h5>
+<h5 id="name"><%=udto.getU_name()%>님 반갑습니다!</h5>
 	<input type="hidden" id="idx" value="1">
 	<input type="hidden" class="plusNum" value="">
 	<input type="hidden" id="s_id" value="<%=s_id%>">
@@ -429,6 +434,7 @@ div.allBox{
 							<td>
 								<div align="center" class="menudiv"
 									sang_num="<%=dto.getSang_num()%>">
+									<input type="hidden" name="price" value="<%=dto.getPrice()%>">
 									<img src="../save/<%=dto.getM_image()%>"
 										style="width: 100px; height: 100px;"><br> <b style="font-size: 15px;"><%=dto.getMenu()%></b>
 										<br><b>★<%=dto.getM_score()%></b>

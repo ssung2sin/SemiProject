@@ -381,6 +381,8 @@ map.setZoomable(false);
                   s+="</tr>";
                   s+="</table>";
                   
+           
+                  
                   
                   //주소로 마커찍기
                   geocoder.addressSearch("'"+item.addr+"'", function(result, status) {
@@ -400,7 +402,7 @@ map.setZoomable(false);
                           var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
                              mycontent += '<b>'+item.b_name+'</b>';
                              mycontent += '<br>';
-                             mycontent += '<img src="'+myimage+'" style="width:100%; height:70px">';
+                             mycontent += '<img src="image/'+myimage+'" style="width:100%; height:70px">';
                              mycontent += '<b>'+item.b_hp+'</b>';
                              mycontent += '<br>';
                              mycontent += '<b>'+item.s_hp+'</b>';

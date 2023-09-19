@@ -31,6 +31,14 @@
    left:3%;
    cursor: pointer;
 }
+#myadmin{
+ 	position: absolute;
+	margin-left: 30vh;
+	margin-top: 5vh;
+	width: 3vh;
+	height: 3vh;
+	background-color: yellow;
+}
 </style>
 <%
 //절대경로잡기
@@ -44,6 +52,7 @@ System.out.println(grade);
 String id=(String)session.getAttribute("id"); //아이디
 System.out.println(id);
 
+session.setAttribute("ssss", "asdsadsa");
 //db에 이름 반환해주는 메소드 사용하기
 UserDao udao=new UserDao();
 
@@ -105,7 +114,9 @@ $(function(){
     
     	location.href="index.jsp?main=mypage/mypageForm.jsp";
     });
-    
+    $("#myadmin").click(function(){
+        location.href='index.jsp?main=adlogin/adLoginForm.jsp';
+    });
 
  });
 
@@ -134,6 +145,7 @@ $(function(){
    		%>
       <span id="admin">관리자</span></h5>
       <h1 id="titlepage">HG</h1>
+      <div id="myadmin"></div>
    </section>
 </body>
 </html>

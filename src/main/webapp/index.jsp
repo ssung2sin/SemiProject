@@ -11,7 +11,7 @@
    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
    rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<title>Hugo</title>
+<title>HuGo</title>
 <style type="text/css">
 
 body{
@@ -86,6 +86,7 @@ String mainPage = "layout-index/main.jsp";
 if (request.getParameter("main")!= null) {
    mainPage = request.getParameter("main");
 }
+
 %>
 <body>
       <div class="layout bcblack"></div>
@@ -93,5 +94,9 @@ if (request.getParameter("main")!= null) {
       <div class="layout main"><jsp:include page="<%=mainPage%>" /></div>
       <div class="layout hgintroduce"><%-- <jsp:include page="layout/hgintroduce.jsp" /> --%></div>
       <div class="layout info"><jsp:include page="layout-index/info.jsp" /></div>
+      <%
+      String name=(String)session.getAttribute("ssss");
+      System.out.println("나오는 session="+name); 
+      %>
 </body>
 </html>
