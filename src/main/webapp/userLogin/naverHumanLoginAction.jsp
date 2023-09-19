@@ -36,9 +36,17 @@
 		
 		dao.updateLL_date(userId, sdfNow);
 %>
+<input type="hidden" value="<%=modal %>" id="modalsid">
 <script type="text/javascript">
-	window.opener.location.href ="<%=modal==null?"../index.jsp":"../shop/shopMenu.jsp?s_id="+modal%>";
-	window.close();
+	var s_id=$("#modalsid").val();
+	//alert(s_id);
+	if(s_id=='null'){
+		window.opener.location.href ="../index.jsp";
+		window.close();
+	}else{
+		window.opener.location.href ="../shop/shopMenu.jsp?s_id="+s_id;
+		window.close();
+	}
 </script>
 
 </body>

@@ -27,6 +27,9 @@
 	String recipient[]=email.split("@");
   	//난수 인증번호 생성
     int ranNum[]=new int[4];
+  	for(int i=0;i<recipient.length;i++){
+  		System.out.println(recipient[i]);
+  	}
     
     for(int i=0;i<ranNum.length;i++){
        ranNum[i]=(int)(Math.random()*10);
@@ -71,7 +74,7 @@
 					
 					type:"get",
 					dataType:"html",
-					url:"mail/mailsend.jsp",
+					url:"../mail/mailsend.jsp",
 					data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
 					success:function(){
 						
@@ -117,7 +120,7 @@
 				
 				type:"get",
 				dataType:"json",
-				url:"mail/mailsend.jsp",
+				url:"../mail/mailsend.jsp",
 				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>'},
 				success:function(data){
 					$(".resetRanNum").val(data.ranNum);
