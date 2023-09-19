@@ -113,10 +113,10 @@
 <div>
    
    <span align="top" style="font-size: 4vh; line-height: 5vh;"><b>자유게시판</b></span><br>
-   <table class="table table-striped" style="width: 127.5vh;">
+   <table class="table table-striped" style="width: 100%;">
    	  <div style="float: left;">
-	      <button type="button" style="float: right; font-size: 2vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
-	      <button type="button" style="float: right; font-size: 2vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+	      <button type="button" style="float: right; font-size: 1.5vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
+	      <button type="button" style="float: right; font-size: 1.5vh; width: 8vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
 	   </div>
 	   <div style="float: right;">
 	      <select name="listcnt" style="margin-right: 1.25vh; width: 7vh; height: 4vh;" class="listcnt">
@@ -124,7 +124,7 @@
 	         <option value="10" <%=cnt.equals("10")?"selected":"" %>>10개</option>
 	         <option value="20" <%=cnt.equals("20")?"selected":"" %>>20개</option>
 	      </select>
-	      <button type="button" style="float: right; font-size: 2vh; width: 10vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
+	      <button type="button" style="float: right; font-size: 1.5vh; width: 10vh; height: 4vh;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
 	   </div>
       <tr align="center">
          <th style="width: 10vh; background-color: #;">

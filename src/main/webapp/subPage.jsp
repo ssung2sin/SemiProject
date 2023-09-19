@@ -80,7 +80,6 @@ myimg = dto.getImage();
    		width: 100%;
    		height: 10%;
   		text-align: center;
-   		/* background-color:pink; */
    		top: 10%;
    		
 	}
@@ -91,7 +90,7 @@ myimg = dto.getImage();
    		font-size: 13pt;
    		margin-left: 15%;
    		top: 20%;
-		/* background-color: orange; */
+		
 	}
 
 	div.info{

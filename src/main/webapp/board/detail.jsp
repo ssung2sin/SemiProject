@@ -77,7 +77,7 @@
 <body>
 	<div>
 		<form action="">
-			<table class="table table-bordered" style="width: 122.5vh; margin-left: 0.75vh;">
+			<table class="table table-bordered" style="width: 100%; margin-left: 0.75vh;">
 				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><span style="font-size: 4vh;"><b>자유게시판</b></span></a></caption>
 				<tr>
 					<td>
@@ -106,12 +106,12 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 122.5vh; height: 62.5vh; font-size: 2vh;">
+						<div style="width: 100%; height: 62.5vh; font-size: 2vh;">
 						<%=dto.getContent() %>
 						
 						<% if(note==0)
 						{%>
-							<div style="width: 122.5vh; height: 62.5vh;" align="center">
+							<div style="width: 100%; height: 62.5vh;" align="center">
 								<div style="margin-top: 45vh; width: 37.5vh; height: 12.5vh; border: 1px solid black;" text-align="center">
 									<div style="text-align: center; line-height: 12.5vh;">
 										<span class="like"><%=dto.getLikes() %></span>
@@ -136,7 +136,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 122.5vh; height: 62.5vh; background-color: gray;">
+						<div style="width: 100%; height: 30vh; background-color: gray;">
 							
 						</div>
 					</td>
@@ -144,15 +144,15 @@
 			</table>
 			
 			<div>
-				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">전체글</button>
+				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" style="font-size: 1.5vh; width: 8vh; height: 4vh;">전체글</button>
 				
 				<div style="float: right;">
 					<%if(dto.getWriter().equals(id))
 					{%>
-					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">수정</button>
-					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">삭제</button>
+					<button type="button" onclick="location.href=''" style="font-size: 1.5vh; width: 6vh; height: 4vh;">수정</button>
+					<button type="button" onclick="location.href=''" style="font-size: 1.5vh; width: 6vh; height: 4vh;">삭제</button>
 					<%}%>
-					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">글쓰기</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" style="font-size: 1.5vh; width: 8vh; height: 4vh;">글쓰기</button>
 				</div>
 			</div>
 		</form>
