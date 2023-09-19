@@ -7,14 +7,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&family=Orbit&display=swap"
-        rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&family=Orbit&display=swap"
+        rel="stylesheet"> -->
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <style type="text/css">
+
 	div.center{
 		z-index: 900;
+		font-family: 'Jalnan';
 	}
 	div.shopdiv{
 		width: 200px;
@@ -24,6 +27,7 @@
 		margin-top: 10px;
 		cursor: pointer;
 		float: left;
+		font-family: 'Jalnan';
 	}
 </style>
 </head>
@@ -32,7 +36,7 @@ ShopDao dao=new ShopDao();
 List<ShopDto> list=dao.getAllShops();
 %>
 <body>
-	<div align="center" style="margin-top: 10%;">
+	<div align="center" style="color: green; ">
 	<h2 style="color: green;">푸드코트</h2>
 	<table style="width: 650px;">
 	<tr>
@@ -41,9 +45,9 @@ List<ShopDto> list=dao.getAllShops();
 			ShopDto dto=list.get(i);
 	%>
 			<td>
-				<div align="center" class="shopdiv" s_id="<%=dto.getS_id()%>">
+				<div style="background-color: white;"align="center" class="shopdiv" s_id="<%=dto.getS_id()%>">
 					<img src="shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px;">
-					<b style="font-size: 13px;"><%=dto.getShop_name() %></b>
+					<b style="font-size: 13px; background-color: white;"><%=dto.getShop_name() %></b>
 				</div>
 			</td>
 		<%

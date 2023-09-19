@@ -28,6 +28,7 @@ span * {
 	width: 100%;
 }
 #ttop {
+	background-color:rgba(255,255,255,0.7);
    margin-top: -18px;
    height: 10vh;
    width: 100%;
