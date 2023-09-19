@@ -48,8 +48,8 @@ List<ShopDto> list=dao.getAllShops();
 			</td>
 		<%
 		if(i%3==2){%>
-			<tr>
 			</tr>
+			<tr>
 	<%}
 	}
 %>

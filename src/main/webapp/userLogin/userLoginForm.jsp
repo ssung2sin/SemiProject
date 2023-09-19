@@ -33,9 +33,9 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 	
 	if(saveok.equals("uyes")){
 		uid=(String)session.getAttribute("id");
-	}else if(saveok.equals("byes")){
+	}/*else if(saveok.equals("byes")){
 		bid=(String)session.getAttribute("id");
-	}
+	} */
 }
 %>
 <body>
@@ -72,7 +72,7 @@ if(saveok!=null){//로그인시 아이디저장을 체크했다면
 						</tr>
 						<tr>
 							<td colspan="2" align="left">
-								<input type="checkbox" name="uSave" <%=saveok.equals("uyes")?"checked":""  %>>아이디저장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="checkbox" name="uSave" <%=saveok.equals("uyes")?"checked":""%>>아이디저장&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<button type="submit" class="btn btn-info" id="loginbtn">로그인</button>
 							</td>
 						</tr>
