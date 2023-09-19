@@ -30,7 +30,7 @@
 		session.setAttribute("loginok", "yes");  //로그인 된 상태인지 다른 페이지에서 볼 수 있도록
 		session.setAttribute("grade","shop");
 		session.setAttribute("id", sId); //로그인 후, 누가 로그인 했는지 표시
-		session.setAttribute("saveok", sSave==null?null:"syes"); //로그인 시, 아이디 저장 체크박스 표시하면 로그인폼에 아이디값 고정
+		session.setAttribute("saveok", sSave==null?null:"byes"); //로그인 시, 아이디 저장 체크박스 표시하면 로그인폼에 아이디값 고정
 	
 		response.sendRedirect("../index.jsp");
 	} else{%> <!--로그인 실패 시 -->
