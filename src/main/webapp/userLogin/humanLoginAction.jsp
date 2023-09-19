@@ -19,13 +19,11 @@
 <body>
 <%
 	String userId=request.getParameter("userId");
-	String userPass=request.getParameter("userPass");
 	String uSave=request.getParameter("uSave");
+	System.out.println("usave="+uSave);
 	
 	UserDao dao=new UserDao();
-	boolean b=dao.isUserIdPass(userId, userPass);
 	
-	if(b){ //로그인 성공 시
 		session.setMaxInactiveInterval(60*60*2);  //로그인 지속시간 2시간 설정
 		session.setAttribute("loginok", "yes");  //로그인 된 상태인지 다른 페이지에서 볼 수 있도록
 		session.setAttribute("id", userId); //로그인 후, 누가 로그인 했는지 표시
@@ -36,14 +34,7 @@
 		String sdfNow=now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.0"));
 		
 		dao.updateLL_date(userId, sdfNow);
-		
 		response.sendRedirect("../index.jsp");
-	} else{%> <!--로그인 실패 시 -->
-		<script type="text/javascript">
-			alert("아이디/비밀번호가 일치하지 않습니다");
-			history.back();
-		</script>	
-	<%}
 %>
 
 </body>

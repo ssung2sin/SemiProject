@@ -77,22 +77,22 @@
 <body>
 	<div>
 		<form action="">
-			<table class="table table-bordered" style="width: 122.5vh;">
-				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><h3>자유게시판</h3></a></caption>
+			<table class="table table-bordered" style="width: 122.5vh; margin-left: 0.75vh;">
+				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><span style="font-size: 4vh;"><b>자유게시판</b></span></a></caption>
 				<tr>
 					<td>
-						<span><h5><%=dto.getTitle() %></h5></span><br>
+						<span style="font-size: 3vh;"><%=dto.getTitle() %></span><br>
 						<%if(note==1)
 						{%>
-						<span><%=dto.getExpress() %></span>
+						<span style="font-size: 2vh;"><%=dto.getExpress() %></span>
 						<%}
 						if(note==0)
 						{%>
-						<span><%=dto.getWriter() %></span>
+						<span style="font-size: 2vh;"><%=dto.getWriter() %></span>
 						<%} %>
-						<span style="margin-left: 10px;"><%=sdf.format(dto.getWriteday()) %></span>
+						<span style="margin-left: 1.25vh; font-size: 2vh;"><%=sdf.format(dto.getWriteday()) %></span>
 						
-						<div style="float: right;">
+						<div style="float: right; font-size: 2vh;">
 							<span>조회 <%=dto.getView() %></span>
 							|
 							<% if(note==0)
@@ -106,7 +106,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 122.5vh; height: 62.5vh;">
+						<div style="width: 122.5vh; height: 62.5vh; font-size: 2vh;">
 						<%=dto.getContent() %>
 						
 						<% if(note==0)
@@ -144,15 +144,15 @@
 			</table>
 			
 			<div>
-				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">전체글</button>
 				
 				<div style="float: right;">
 					<%if(dto.getWriter().equals(id))
 					{%>
-					<button type="button" onclick="location.href=''">수정</button>
-					<button type="button" onclick="location.href=''">삭제</button>
+					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">수정</button>
+					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">삭제</button>
 					<%}%>
-					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'">글쓰기</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">글쓰기</button>
 				</div>
 			</div>
 		</form>

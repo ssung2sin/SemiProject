@@ -181,83 +181,84 @@
 %>
 </head>
 <body>
-	<div>
+	<div style="width: 125vh; height: 80vh; border: 0.5vh solid gold; background-color: white; border-radius: 3vh; margin-left: 0.75vh;">
+		<span style="font-size: 3vh; margin-left: 2vh;"><b>사업자 회원가입(휴게소)</b></span>
+		<hr style="color: gold; border: 0.2vh solid gold; width: 120vh; margin-left: 2vh;">
 		<form action="businessRegistration/expressRProc.jsp" method="post" enctype="multipart/form-data" onsubmit="return checkpass(this)">
-			<table class="table table-bordered form-group" style="width: 1000px;">
-				<caption align="top"><b>사업자 회원가입(휴게소)</b></caption>
+			<table class="table table-bordered form-group" style="width: 120vh; margin-top: 2vh; margin-left: 2vh;">
 				<tr valign="middle">
-					<td style="width: 250px;">사업자번호(사업자 아이디)<span style="margin-left: 10px; color: #FF3333">*</span></td>
-					<td class="form-group" style="width: 750px;">
-						<input type="text" style="width: 70px;"
+					<td style="width: 31.25vh; font-size: 2vh; background-color: #FFFF99;">사업자번호(사업자 아이디)<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
+					<td class="form-group" style="width: 93.75vh;">
+						<input type="text" style="width: 8.75vh;"
 						required="required" maxlength="3" class="b_number1" id="b_number1" name="b_id1">
 						-
-						<input type="text" style="width: 60px;"
+						<input type="text" style="width: 7.5vh;"
 						required="required" maxlength="2" class="b_number2" id="b_number2" name="b_id2">
 						- 
-						<input type="text" style="width: 80px;"
+						<input type="text" style="width: 10vh;"
 						required="required" maxlength="5" class="b_number3" id="b_number3" name="b_id3">
 						
-						<button style="margin-left: 10px; border: 1px solid gray; border-radius: 5px;" id="bnchk">사업자 번호 확인</button>
-						<span style="color: #999999;"><h6>(사업자번호 10자리)</h6></span>
+						<button style="margin-left: 1.25vh; border: 0.2vh solid gray; border-radius: 0.5vh;" id="bnchk">사업자 번호 확인</button><br>
+						<span style="color: #999999; font-size: 2vh;">(사업자번호 10자리)</span>
 						<span id="idprint"></span>
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">비밀번호<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">비밀번호<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td class="form-group">
-						<input type="password" style="width: 200px;" min="4" maxlength="16" required="required" name="b_pass">
-						<span style="color: #999999;"><h6>(영문 대소문자/숫자/특수문자(!@#$%^*+=-) 4자~16자)</h6></span>
+						<input type="password" style="width: 25vh;" min="4" maxlength="16" required="required" name="b_pass"><br>
+						<span style="color: #999999; font-size: 2vh;">(영문 대소문자/숫자/특수문자(!@#$%^*+=-) 4자~16자)</span>
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">비밀번호 확인<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">비밀번호 확인<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<input type="password" style="width: 200px;" min="4" maxlength="16" required="required" name="b_pass1">
+						<input type="password" style="width: 25vh;" min="4" maxlength="16" required="required" name="b_pass1">
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">이름<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">이름<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<input type="text" style="width: 200px;" min="4" maxlength="16" required="required" name="b_name">
+						<input type="text" style="width: 25vh;" min="4" maxlength="16" required="required" name="b_name">
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">주소<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">주소<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
 						<input type="text" id="sample6_postcode" placeholder="우편번호" required="required">
-						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="margin-bottom: 10px;"><br>
-						<input type="text" id="sample6_address" placeholder="주소" name="addr" style="width: 374px; margin-bottom: 10px;" required="required"><br>
+						<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" style="margin-bottom: 1.25vh; border: 0.2vh solid gray; border-radius: 0.5vh;"><br>
+						<input type="text" id="sample6_address" placeholder="주소" name="addr" style="width: 46.75vh; margin-bottom: 1.25vh;" required="required"><br>
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">일반전화<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">일반전화<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<input type="text" style="width: 100px;" maxlength="3" required="required" name="s_hp1" id="s_hp1">
+						<input type="text" style="width: 12.5vh;" maxlength="3" required="required" name="s_hp1" id="s_hp1">
 						-
-						<input type="text" style="width: 100px;" maxlength="3" required="required" name="s_hp2" id="s_hp2">
+						<input type="text" style="width: 12.5vh;" maxlength="3" required="required" name="s_hp2" id="s_hp2">
 						-
-						<input type="text" style="width: 100px;" maxlength="4" required="required" name="s_hp3" id="s_hp3">
+						<input type="text" style="width: 12.5vh;" maxlength="4" required="required" name="s_hp3" id="s_hp3">
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 250px;">휴대전화<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">휴대전화<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<input type="text" style="width: 100px;" maxlength="3" required="required" name="b_hp1" id="b_hp1">
+						<input type="text" style="width: 12.5vh;" maxlength="3" required="required" name="b_hp1" id="b_hp1">
 						-
-						<input type="text" style="width: 100px;" maxlength="4" required="required" name="b_hp2" id="b_hp2">
+						<input type="text" style="width: 12.5vh;" maxlength="4" required="required" name="b_hp2" id="b_hp2">
 						-
-						<input type="text" style="width: 100px;" maxlength="4" required="required" name="b_hp3" id="b_hp3">
+						<input type="text" style="width: 12.5vh;" maxlength="4" required="required" name="b_hp3" id="b_hp3">
 					</td>
 				</tr>
 				<tr>
-					<td style="width: 250px;">휴게소 이미지<span style="margin-left: 10px; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소 이미지<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
 						<input type="file" required="required" name="image">
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<button type="submit" class="btn btn-outline-warning">회원가입</button>
+						<button type="submit" class="btn btn-outline-warning" style="width: 12.5vh; height: 5vh; font-size: 2vh;">회원가입</button>
 					</td>
 				</tr>
 			</table>

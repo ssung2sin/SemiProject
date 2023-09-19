@@ -83,6 +83,7 @@ String root = request.getContextPath();
 
 String inherence_HU=request.getParameter("id");
 String grade=(String)session.getAttribute("grade");
+String loginok=(String)session.getAttribute("loginok");
 if(grade==null){
 	grade="";
 }
@@ -136,7 +137,7 @@ $(function(){
 </head>
 <body>
 	<input type="hidden" id="b_id" value="<%=inherence_HU%>">
-<div class="dv1" style="z-index:999; height: 0px;">
+<div class="dv1" style=" z-index:999; height: 0px;">
    <nav id="ttop" style="">
    <ul class="t1">
       <%-- <li><img src="image/logo.png" style="margin-left: 40px; 
@@ -163,7 +164,7 @@ $(function(){
          <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
          <%
          }
-         if(grade.equals("shop")||grade.equals("user")){
+         if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){
         	 %>   
          <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
          <%

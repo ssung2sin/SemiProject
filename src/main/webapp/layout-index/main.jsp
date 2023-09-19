@@ -381,6 +381,8 @@ map.setZoomable(false);
                   s+="</tr>";
                   s+="</table>";
                   
+           
+                  
                   
                   //주소로 마커찍기
                   geocoder.addressSearch("'"+item.addr+"'", function(result, status) {

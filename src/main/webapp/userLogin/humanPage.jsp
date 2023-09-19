@@ -15,15 +15,18 @@
 <title>Insert title here</title>
 
 <%
+  
+  //난수 인증번호 생성
+ 
 	String userId=(String)pageContext.getSession().getAttribute("userId");
-	String userPass=(String)pageContext.getSession().getAttribute("userPass");
+	String uSave=(String)pageContext.getSession().getAttribute("uSave");
+	System.out.println("휴면페이지에서 "+uSave);
 	UserDao dao=new UserDao();
 	UserDto dto=dao.getData(userId);
-
 	String email = dto.getU_email();
 	
 	String recipient[]=email.split("@");
-  //난수 인증번호 생성
+  	//난수 인증번호 생성
     int ranNum[]=new int[4];
     
     for(int i=0;i<ranNum.length;i++){
@@ -35,25 +38,25 @@
 %>
 
 <style type="text/css">
-	#userhp::placeholder {color: #a9a9a9; font-size: 14px;}
-	#codenum::placeholder {color: #a9a9a9; font-size: 14px;}
-	
-	#userhp{
-		display: inline-block;
-		margin-top: 5px;
-	}
-	#codebtn{
-		margin-bottom: 5px;
-	}
-	#codenum{
-		display: inline-block;
-	}
-	#timer{
-		display: inline-block;
-	}
-	#humanclear{
-		margin-top: 30px;
-	}
+   #userhp::placeholder {color: #a9a9a9; font-size: 14px;}
+   #codenum::placeholder {color: #a9a9a9; font-size: 14px;}
+   
+   #userhp{
+      display: inline-block;
+      margin-top: 5px;
+   }
+   #codebtn{
+      margin-bottom: 5px;
+   }
+   #codenum{
+      display: inline-block;
+   }
+   #timer{
+      display: inline-block;
+   }
+   #humanclear{
+      margin-top: 30px;
+   }
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -170,19 +173,29 @@
 				return true;
 			}
 		}
+		
+		<%-- if(codenum.value != <%=codenumber%>){
+	         alert("인증번호가 틀립니다");
+	         codenum.value = "";      // 잘 못 입력한 전화번호 리셋해주기
+	         codenum.focus();         // 전화번호쪽으로 focus
+	         return false;         // 번호가 일치하지않으면 submit 안되게         
+	      }
+	      else{
+	         return true;
+	      } --%>
 	}
 </script>
 </head>
 <script>
-	
+   
 </script>
 <body>
 
 <div align="center" style="margin-top: 5%">
 	<form action="userLogin/humanLoginAction.jsp" method="post" onsubmit="return check()">
 		<input type="hidden" value="<%=userId%>" name="userId">
-		<input type="hidden" value="<%=userPass%>" name="userPass">
 		<input type="hidden" value="none" class="resetRanNum">
+		<input type="hidden" value="<%=uSave%>" name="uSave">
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
 		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"
