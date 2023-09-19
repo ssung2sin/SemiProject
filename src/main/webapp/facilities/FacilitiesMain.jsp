@@ -9,12 +9,31 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 </head>
 
 <style>
-/* Reset */
+
+div.info {
+  width:13%;
+  height:30%;
+  line-height: 10px;
+  border-radius: 3%;
+  right: 1%;
+  padding: 20px 10px;
+  display: inline-block;
+  position:fixed;
+  top:30%;
+  background-color: orange;
+}
+.toTop{ border:2px solid white; padding:15px; border-radius:60px; color: white; margin-top: 150px; cursor: pointer; }
+.toTop:hover{ color: orange; background-color: white; font-size:1.5em; font-weight: bolder;}
+.toBottom{ border:2px solid white; padding:15px; border-radius:60px; color: white; margin-top: 10px; cursor: pointer; }
+.toBottom:hover{ color: orange; background-color: white; font-size:1.5em; font-weight: bolder;}
+
+.link a{ cursor: pointer; }
+
 html,body{min-height:100%}
 html,body,div,ul,li,dl,dt,dd,p,h2,h3,h4,a,span,form,input, select { margin:0; padding:0; }
 a { border:0; text-decoration:none; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; letter-spacing:-0.3px; }
@@ -24,61 +43,39 @@ body { min-width:1024px; font:normal 14px 'Noto Sans KR',sans-serif; color:#555;
 table { width:100%; border-collapse:collapse; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; }
 input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color:#555; }
 
-#container { padding-top:101px; position: relative; }/*20190325 수정*/
-#container.main h3 { margin-bottom:58px; font-size:38px; font-weight:700; color:#292c25; text-align:center; letter-spacing:-1px; }
+#container { padding-top:101px; position: relative; background-color: white;}
+#container h2 { margin-bottom:58px; font-size:5vh; font-weight:700; color:#292c25; text-align:center; letter-spacing:-1px; align-content: center; color: #66CC66;}
+.backgroundImage { background-image: url("image/Facilities.jpg"); background-size: cover; height: 20vh; width: 130.05vh;}
 
 #contents { width:960px; padding:70px 0 100px; margin:0 auto; }
 
-/* 이미지를 합치고 좌우로 이동하는 애니메이션 css */
 
-/* 
-#sub_01 .slider { overflow:hidden; position:relative; }
-#sub_01 .slider ul { width:500%; position:relative; }
+.item_02 > ul > li { padding-top:50px; overflow:hidden; }
+.item_02 > ul > li:first-child { padding-top:0; }
 
-#sub_01 .slider ul li { width:20%; float:left; }
+.item_02 > ul > li .txt { width:385px; height:260px; display:table; }
+.item_02 > ul > li .txt dl { display:table-cell; vertical-align:middle; }
+.item_02 > ul > li .txt dl dt { font-size:19px; font-weight:700; color:#292c25; }
+.item_02 > ul > li .txt dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
+.item_02 > ul > li .txt dl dd.info { margin-top:5px; font-size:12px; color:#888; }
+.item_02 > ul > li .txt dl dd.link { margin-top:20px; }
+.item_02 > ul > li .txt dl dd.link a { display:inline-block; width:100px; border:1px solid #b2b2b2; font-size:13px; font-weight:500; line-height:34px; color:#56991f; text-align:center; }
+.item_02 > ul > li .txt dl dd.link a:hover { color:#fff; background:#56991f; }
+.item_02 > ul > li .img { width:520px; height: 260px;}
+.item_02 > ul > li.left .img { float:left; }
+.item_02 > ul > li.left .txt { float:right; padding-left:50px; }
+.item_02 > ul > li.right .img { float:right; }
+.item_02 > ul > li.right .txt { float:left; padding-right:55px; }
 
-#sub_01 .slider .btn_prev,
-#sub_01 .slider .btn_next { width:52px; height:52px; position:absolute; top:50%; margin-top:-26px; background:url(/images/arrow_sub_01.png) 0 0 no-repeat; opacity:0.8; }
-#sub_01 .slider .btn_prev:hover,
-#sub_01 .slider .btn_next:hover { opacity:1; }
-#sub_01 .slider .btn_prev { left:20px; }
-#sub_01 .slider .btn_next { right:20px; background-position:right 0; }
-#sub_01 .slider p { width:100%; position:absolute; left:0; bottom:12px; text-align:center; font-size:0; }
-#sub_01 .slider p a { display:inline-block; width:10px; height:10px; margin-left:8px; background:url(/images/bullet.png) right 0 no-repeat; }
-#sub_01 .slider p a:first-child { margin-left:0; }
-#sub_01 .slider p a:hover,
-#sub_01 .slider p a.on { background-position:0 0; } 
-
-#sub_01 .item_01 .title p { font-weight: 700 }.contents_title .slider,
-#sub_01 .item_01 .slider { margin-top:45px; }
-*/
-
-#sub_01 .item_02 > ul > li { padding-top:50px; overflow:hidden; }
-#sub_01 .item_02 > ul > li:first-child { padding-top:0; }
-
-#sub_01 .item_02 > ul > li .txt { width:385px; height:260px; display:table; }
-#sub_01 .item_02 > ul > li .txt dl { display:table-cell; vertical-align:middle; }
-#sub_01 .item_02 > ul > li .txt dl dt { font-size:19px; font-weight:700; color:#292c25; }
-#sub_01 .item_02 > ul > li .txt dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
-#sub_01 .item_02 > ul > li .txt dl dd.info { margin-top:5px; font-size:12px; color:#888; }
-#sub_01 .item_02 > ul > li .txt dl dd.link { margin-top:20px; }
-#sub_01 .item_02 > ul > li .txt dl dd.link a { display:inline-block; width:100px; border:1px solid #b2b2b2; font-size:13px; font-weight:500; line-height:34px; color:#56991f; text-align:center; }
-#sub_01 .item_02 > ul > li .txt dl dd.link a:hover { color:#fff; background:#56991f; }
-#sub_01 .item_02 > ul > li .img { width:520px; height: 2	60px;}
-#sub_01 .item_02 > ul > li.left .img { float:left; }
-#sub_01 .item_02 > ul > li.left .txt { float:right; padding-left:50px; }
-#sub_01 .item_02 > ul > li.right .img { float:right; }
-#sub_01 .item_02 > ul > li.right .txt { float:left; padding-right:55px; }
-
-#sub_01.body .article { margin-top:35px; }
-#sub_01.body .article .img { overflow:hidden; }
-#sub_01.body .article .img p { width:475px; float:left; position:relative; }
-#sub_01.body .article .img p:first-child { margin-right:10px; }
-#sub_01.body .article .img p span { width:104px; position:absolute; left:0; top:0; font-size:13px; font-weight:500; line-height:38px; color:#fff; text-align:center; background:rgba(0,0,0,0.4); }
-#sub_01.body .article dl { margin-top:30px; }
-#sub_01.body .article dl dt { font-size:20px; font-weight:700; color:#292c25; }
-#sub_01.body .article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
-#sub_01.body .article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
+.article { margin-top:35px; }
+.article .img { overflow:hidden; max-width: 100%}
+.article .img p { width:475px; float:left; position:relative; }
+.article .img p:first-child { margin-right:10px; }
+.article .img p span { width:104px; position:absolute; left:0; top:0; font-size:13px; font-weight:500; line-height:38px; color:#fff; text-align:center; background:rgba(0,0,0,0.4); }
+.article dl { margin-top:30px; }
+.article dl dt { font-size:20px; font-weight:700; color:#292c25; }
+.article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
+.article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
 
 #mapsLayerBackground { position: absolute; z-index: 1;}
 #mapsLayerPoint { position: relative; z-index: 100; }
@@ -112,18 +109,19 @@ div.modal-footer { position: relative; z-index: 9999; }
 </style>
 
 <body>
-	<div class="title">
-		<h2 class="nsq">편의시설</h2>
+	<!-- <div class="title">
+		<h2><b style="color: green;">편의시설</b></h2>
 		<p></p>
-	</div>
-		
+	</div> -->
+	
 	<div id="container">
+		<div class="backgroundImage">
+	        <h2 style="height: 25vh; padding-top: 23px;">편의시설안내</h2>
+	        <p></p>
+	    </div>
         <div id="contents">
             <div id="sub_01" class="body">
                 <div class="item_01">
-                    <div class="title">
-                        <h3><b>편의시설 안내</b></h3>
-                    </div>
                     <div class="article">
                         <div class="img">
                             <p class="left"><img src="image/FacilitiesImage/parking_01_01.jpg" /><span class="nts">인천방향(상행)</span></p>
@@ -136,7 +134,7 @@ div.modal-footer { position: relative; z-index: 9999; }
                         </dl>
                     </div>
                 </div>
-           <div class="item_02">
+         		<div class="item_02">
                     <ul>
                         <li class="left">
                             <div class="img">
@@ -259,8 +257,8 @@ div.modal-footer { position: relative; z-index: 9999; }
                         </li>
                     </ul> 
                 </div>
-        </div>
-    </div>
+	        </div>
+	    </div>
 	</div>
 	
 	
@@ -435,6 +433,12 @@ div.modal-footer { position: relative; z-index: 9999; }
 		      </div>
 	  		</div>
 		</div>
+ 	</div>
+ 	
+ 	<div class="layout info">
+ 	<jsp:include page="../layout-index/info.jsp" />
+ 	<div class="toTop" onclick="javascript:window.scrollTo(0,0)" align="center">맨 위로 이동</div>
+ 	<div class="toBottom" onclick="javascript:window.scrollTo(0,5000)" align="center">맨 아래로 이동</div>
  	</div>
 </body>
 </html>

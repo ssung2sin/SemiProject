@@ -70,16 +70,19 @@ myimg = dto.getImage();
 	
 	div.layout{
    		position: absolute;
-   		
 	}
-
+	
+	div.header{
+	
+	}
+	
 	div.header{
    		width: 100%;
    		height: 10%;
-   		position: fixed;
   		text-align: center;
    		background-color:pink;
    		top: 10%;
+   		
 	}
 
 	div.main{

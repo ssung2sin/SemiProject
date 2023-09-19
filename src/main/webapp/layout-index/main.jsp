@@ -147,9 +147,9 @@ request.setCharacterEncoding("UTF-8");
 ExpressDao dao=new ExpressDao();
 ExpressDto dto=new ExpressDto();
 
-//String aaa=null;
+// String aaa=null;
 ArrayList<ExpressDto> list=dao.getIdyo();
-//List<TestAddrDto> list2=dao.getname();
+// List<TestAddrDto> list2=dao.getname();
 %>
 <body>
 
