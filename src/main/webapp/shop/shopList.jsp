@@ -33,7 +33,9 @@
 </head>
 <%
 ShopDao dao=new ShopDao();
-List<ShopDto> list=dao.getAllShops();
+String s_id=(String)session.getAttribute("s_id");
+
+List<ShopDto> list=dao.getAllShops(s_id);
 %>
 <body>
 	<div align="center" style="color: green; ">

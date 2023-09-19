@@ -15,17 +15,18 @@ public class ShopDao {
 	DBConnect db=new DBConnect();
 	
 	//select
-	public List<ShopDto> getAllShops(){
+	public List<ShopDto> getAllShops(String s_id){
 		List<ShopDto> list=new ArrayList<ShopDto>();
 		
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from shop";
+		String sql="select * from shop where s_id=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, s_id);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {

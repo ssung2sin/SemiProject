@@ -1,3 +1,5 @@
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dto.ExpressDto"%>
 <%@page import="data.dao.ExpressDao"%>
@@ -86,6 +88,19 @@ String root = request.getContextPath();
 String inherence_HU=request.getParameter("id");
 String grade=(String)session.getAttribute("grade");
 String loginok=(String)session.getAttribute("loginok");
+String id=(String)session.getAttribute("id");
+
+ShopDao sdao=new ShopDao();
+
+ShopDto sdto=sdao.getData(id);
+
+System.out.println("id="+id);
+String s_id=(String)session.getAttribute("s_id");
+
+if(s_id==null){
+	s_id=request.getParameter("id");
+}
+System.out.println("s_id="+s_id);
 if(grade==null){
 	grade="";
 }
@@ -161,12 +176,12 @@ $(function(){
          <a href="#" class="topmenu" style="width: 150px; margin-left: 20px;">음식점</a>
          <ul class="submenu" style="margin-left: -20px;">
          	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;">음식점</a>
-         <%if(grade.equals("shop")&&loginok!=null){
+         <%if(s_id.equals(sdto.getB_id())&&loginok!=null){
         	 %>
          <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
          <%
          }
-         if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){
+         if((s_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
         	 %>   
          <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
          <%
