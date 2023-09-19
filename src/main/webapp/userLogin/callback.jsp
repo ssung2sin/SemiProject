@@ -1,3 +1,7 @@
+<%@page import="data.dao.UserDao"%>
+<%@page import="data.dto.UserDto"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
+<%@page import="java.time.LocalDateTime"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -47,19 +51,26 @@ String root = request.getContextPath();
    	var N_name=naver_id_login.getProfileData('name');
 	
 	//$("#token").val(N_token);
-	$("#name").val(N_name);
-	$("#email").val(N_email);
+	//$("#name").val(N_name);
+	//$("#email").val(N_email);
+	
+	
+	//회원가입이나 로그인 하면 창을 닫고 부모창에서 인덱스로 이동
+	window.opener.location.href = "../index.jsp";
+	window.close();
+	
   }
  
   /* function name(){
 	  var N_name=naver_id_login.getProfileData('name');
   } */
+  
 </script>
 <!-- //네이버아디디로로그인 Callback페이지 처리 Script -->
 
 <!-- <input type="hidden" name="token" id="token" value="">  -->
-<input type="hidden" name="name" id="name" value=""> 
+<%-- <input type="hidden" name="name" id="name" value=""> 
 <input type="hidden" name="email" id="email" value="">
-<%response.sendRedirect("callbackAction.jsp"); %>
+<%response.sendRedirect("callbackAction.jsp"); %> --%>
   </body>
 </html>
