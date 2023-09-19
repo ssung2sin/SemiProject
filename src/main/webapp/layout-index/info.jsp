@@ -16,7 +16,8 @@
 .wheel{
    width: 3vh;
    height: 6vh;
-   border: 0.5vh solid #fff;
+   border: 0.5vh solid black;
+   background-color : gold;
    border-radius: 1.25vh 1.25vh 2vh 2vh;
    margin: 5vw auto 1vw;
    position: relative;
@@ -27,7 +28,7 @@
    width: 0.7vh;
    height: 0.7vh;
    border-radius: 50%;
-   background-color: #fff;
+   background-color: black;
    position: absolute;
    transform:translate(-50%,-50%);
    top: 50%;
@@ -46,14 +47,37 @@
       opacity:0;
    }
 }
+
+.toTop:hover {
+  filter: brightness(90%);
+  animation: flicker 1s linear alternate infinite;
+}
+.toBottom:hover {
+  filter: brightness(90%);
+  animation: flicker 1s linear alternate infinite;
+}
+@keyframes flicker {
+  0% {
+    filter: brightness(40%);
+  }
+
+  100% {
+    filter: brightness(100%);
+  }
+}
 i{margin: auto;}
 
-.toTop{ border:0.5vh solid white; border-radius:12.5vh; width: 3vh; color: white; margin-top: 6vh; margin-bottom: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh;}
-.toTop:hover{ color: orange; background-color: white;}
-.toBottom{ border:0.5vh solid white; border-radius:12.5vh; width: 3vh; color: white; margin-top: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh; }
-.toBottom:hover{ color: orange; background-color: white;}
+.toTop{ border:0.5vh solid black; color: white; background-color: gold; border-radius:12.5vh; width: 3vh; margin-top: 6vh; margin-bottom: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh;}
+/* .toTop:hover{ color: white; background-color: gray; border:0.5vh solid black;} */
+.toBottom{ border:0.5vh solid black; color: white; background-color: gold; border-radius:12.5vh; width: 3vh; margin-top: 1vh; margin-bottom: 1vh; margin-right: auto; margin-left:auto; cursor: pointer; font-size:2vh;}
+/* .toBottom:hover{ color: white; background-color: gray; border:0.5vh solid black;} */
 
 </style>
+<script type="text/javascript">
+$(function() {
+	
+})
+</script>
 </head>
 <body>
 <div id="mouse">
