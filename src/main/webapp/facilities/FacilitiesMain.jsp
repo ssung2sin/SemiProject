@@ -15,7 +15,7 @@
 
 <style>
 
-div.info {
+/* div.info {
   width:13%;
   height:30%;
   line-height: 10px;
@@ -26,11 +26,7 @@ div.info {
   position:fixed;
   top:30%;
   background-color: orange;
-}
-.toTop{ border:2px solid white; padding:15px; border-radius:60px; color: white; margin-top: 150px; cursor: pointer; }
-.toTop:hover{ color: orange; background-color: white; font-size:1.5em; font-weight: bolder;}
-.toBottom{ border:2px solid white; padding:15px; border-radius:60px; color: white; margin-top: 10px; cursor: pointer; }
-.toBottom:hover{ color: orange; background-color: white; font-size:1.5em; font-weight: bolder;}
+} */
 
 .link a{ cursor: pointer; }
 
@@ -435,10 +431,7 @@ div.modal-footer { position: relative; z-index: 9999; }
 		</div>
  	</div>
  	
- 	<div class="layout info">
- 	<jsp:include page="../layout-index/info.jsp" />
- 	<div class="toTop" onclick="javascript:window.scrollTo(0,0)" align="center">맨 위로 이동</div>
- 	<div class="toBottom" onclick="javascript:window.scrollTo(0,5000)" align="center">맨 아래로 이동</div>
- 	</div>
+ 	<div class="layout info"><jsp:include page="../layout-index/info.jsp" /></div>
+ 	
 </body>
 </html>

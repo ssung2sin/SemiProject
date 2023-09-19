@@ -37,7 +37,7 @@
 	margin-top: 5vh;
 	width: 3vh;
 	height: 3vh;
-	background-color: yellow;
+	
 }
 </style>
 <%

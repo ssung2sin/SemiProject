@@ -39,7 +39,7 @@ div.title {
    height: 15%;
    text-align: center;
 
-   background-color: blue;
+   
 
 }
 
@@ -49,7 +49,7 @@ div.main {
    font-size: 2vh;
    margin-left: 15%;
    top: 15%;
-   background-color: pink;
+   
 }
 
 div.info {
@@ -62,7 +62,7 @@ div.info {
   display: inline-block;
   position:fixed;
   top:30%;
-  background-color: orange;
+  
 }
 
 div.hgintroduce{
