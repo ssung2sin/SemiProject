@@ -168,11 +168,9 @@ $(function(){
 	if(logoimg == null || logoimg == ""){ %>
 		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
 		<% }else{ %>
-<<<<<<< HEAD
+
 		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"> <img style="width: 15vh;  background-size: cover;" src="save/<%=logoimg %>"> </b3>
-=======
-		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'">  <img src="image/<%=logoimg %>"> </b3>
->>>>>>> cac1cca70de800990966a4d810a4f2a38d9787fa
+
 		<%} %>
 	</h6>
    <nav id="ttop" style="">
