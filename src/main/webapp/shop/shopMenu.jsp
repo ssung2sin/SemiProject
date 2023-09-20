@@ -1,3 +1,4 @@
+<%@page import="data.dto.ShopDto"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -104,9 +105,10 @@ categorylist=dao.getCategory(s_id);
 <input type="hidden" id="s_id" value="<%=s_id%>">
 <%
 	for(int i=0;i<list.size();i++){
+		ShopDto sdto=new ShopDto();
 		MenuDto dto=list.get(i);
 		if(s_id.equals("106-31-1000"+(i+1))){%>
-			<img src="../shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px; margin-left: 20px;">
+			<img src="save/<%=sdto.getS_image() %>" style="width: 186px; height: 186px; margin-left: 20px;">
 			<%
 			if(grade.equals("user")&&loginok!=null){ 
 				%>
