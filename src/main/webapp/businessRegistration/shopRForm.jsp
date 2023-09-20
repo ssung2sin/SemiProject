@@ -1,3 +1,6 @@
+<%@page import="data.dto.ExpressDto"%>
+<%@page import="data.dao.ExpressDao"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -174,6 +177,11 @@
 	}
 </script>
 </head>
+<%	
+	ExpressDao dao=new ExpressDao();
+	List<ExpressDto>list=dao.getIdyo();
+
+%>
 <body>
 	<div style="width: 125vh; height: 83vh; border: 0.5vh solid gold; background-color: white; border-radius: 3vh; margin-left: 0.75vh;">
 		<span style="font-size: 3vh; margin-left: 2vh;"><b>상가 회원가입</b></span>
@@ -184,9 +192,14 @@
 					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소선택<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
 						<select id="expressName" name="b_id">
-							<option value="덕평자연휴게소">덕평자연휴게소</option>
-							<option value="서울만남의광장휴게소">서울만남의광장휴게소</option>
-							<option value="천안휴게소">천안휴게소</option>
+						<%
+							for(int i=0;i<list.size();i++){
+								ExpressDto dto=list.get(i);
+								%>
+								<option value="<%=dto.getB_name()%>"><%=dto.getB_name()%></option>
+								<%
+							}
+							%>
 						</select>
 					</td>
 				</tr>

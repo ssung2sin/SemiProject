@@ -9,6 +9,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
@@ -17,6 +19,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 .detail{
+	font-family: 'Jalnan';
 	margin: 75px 50px;
 	width: 720px;
 }
@@ -26,6 +29,8 @@
 	border: 1px solid
 }
 .explain{
+	font-family: 'NanumSquare';
+	font-size: 18px;
 	padding: 30px 30px 30px 30px;
 }
 select::-ms-expand { 
@@ -38,13 +43,17 @@ select::-ms-expand {
   appearance: none;
 }
 .backword{
+	font-family: 'Jalnan';
 	top:50px;
 	left:50px;
 	position: absolute;
 	top:25px;
 	font-size:2.0em;
 	cursor: pointer;
-
+}
+.content{
+	font-family: 'NanumSquare';
+	font-weight: bold;
 }
 </style>
 <%	
@@ -119,8 +128,8 @@ function list(){
 					s+="<i style='color:green; cursor:pointer;' idx="+item.idx+" class='bi bi-pencil-square amod'></i>&nbsp";
 					s+="<i style='color:red; cursor:pointer;' idx="+item.idx+" class='bi bi-trash adel'></i></span></td></tr>";
 				}
-				s+="<tr><td colspan=2 class='content"+item.idx+"'>"+item.content.replace('\n','<br>')+"</td></tr>";
-				s+="<tr><td colsapn=2><span style='color:gray'>"+item.writeday+"</span></td></tr>";
+				s+="<tr><td colspan=2 class='content"+item.idx+" content'>"+item.content.replace('\n','<br>')+"</td></tr>";
+				s+="<tr><td colsapn=2><span style='color:gray; font-size:13px;'>"+item.writeday+"</span></td></tr>";
 				s+="</table>";
 				$(".mScore").text(item.menuScore);
 				if(idx<(data.length-1)){

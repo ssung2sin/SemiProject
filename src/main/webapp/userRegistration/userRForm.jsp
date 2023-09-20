@@ -33,6 +33,15 @@ select.box{
 option{
 	font-size: 16px;
 }
+
+.inputform{
+	width: 125vh;
+	height: 83vh; 
+	border: 0.5vh solid gold; 
+	background-color: white; 
+	border-radius: 3vh; 
+	margin-left: 0.75vh;
+}
 </style>
 <script type="text/javascript">
 
@@ -199,10 +208,11 @@ $(function(){
 %>
 </head>
 <body>
-<div class="inputform" style="width:1000px;">
+<div class="inputform"> <!--style="width:1000px;"  -->
 	<form action="<%=root %>/userRegistration/userRAction.jsp" method="post">
 		<table class="table table-bordered">
 		<caption align="top"><b>개인 회원가입</b></caption>
+		<hr style="color: gold; border: 0.2vh solid gold; width: 120vh; margin-left: 2vh;">
 			<tr>
 				<td style="width: 150px;"><b>아이디<span style="margin-left: 10px; color: #FF3333">*</span></b></td>
 				<td>

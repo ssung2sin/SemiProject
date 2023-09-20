@@ -20,7 +20,62 @@
 		text-decoration: none;
 		color: black;
 	}
+	
+	.btn.btn-outline-secondary.btn-ghost.btn-open-line {
+		  
+		  border: 1px solid white;
+		  transition: 0.3s;
+		
+		  &::before,
+		  &::after {
+		    position: absolute;
+		    content: "";
+		    left: 0;
+		    width: 100%;
+		    height: 1px;
+		    background: var(--btn-bg);
+		    opacity: 1;
+		    transform: scaleX(0);
+		    transition: 0.4s ease-in-out;
+		  }
+		
+		  &::before {
+		    top: 0;
+		  }
+		
+		  &::after {
+		    bottom: 0;
+		  }
+		
+		  &:hover {
+		    letter-spacing: 5px;
+		    color: var(--btn-bg);
+		    background: transparent;
+		    background-color: gold;
+		
+		    &::before,
+		    &::after {
+		      opacity: 1;
+		      transform: scaleX(1.2);
+		    }
+		}
+	}
 </style>
+<%
+	String root = request.getContextPath();
+
+	String num=request.getParameter("num");
+	String currentPage=request.getParameter("currentPage");
+	
+	BoardDao dao=new BoardDao();
+	BoardDto dto=dao.getData(num);
+	
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy년 MM월 dd일");
+	
+	String id=(String)session.getAttribute("id");
+	
+	int note=dto.getNote();
+%>
 <script type="text/javascript">
 	$(function(){
 		
@@ -59,21 +114,23 @@
 			});
 		});
 	});
+	
+	function del(num,currentPage)
+	{
+		var check=confirm("삭제하시겠습니까?");
+		
+		if(check)
+		{
+			location.href="<%=root%>/subPage.jsp?main=board/deleteBoard.jsp?num="+num+"&currentPage="+currentPage;
+		}
+		else
+		{
+			alert("취소되었습니다");
+			return false;
+		}
+	}
 </script>
 </head>
-<%
-	String root = request.getContextPath();
-
-	String num=request.getParameter("num");
-	BoardDao dao=new BoardDao();
-	BoardDto dto=dao.getData(num);
-	
-	SimpleDateFormat sdf=new SimpleDateFormat("yyyy년 MM월 dd일");
-	
-	String id=(String)session.getAttribute("id");
-	
-	int note=dto.getNote();
-%>
 <body>
 	<div>
 		<form action="">
@@ -144,15 +201,15 @@
 			</table>
 			
 			<div>
-				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" style="font-size: 1.5vh; width: 8vh; height: 4vh;">전체글</button>
+				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp?currentPage=<%=currentPage %>'" class="btn btn-outline-secondary btn-ghost btn-open-line">전체글</button>
 				
 				<div style="float: right;">
 					<%if(dto.getWriter().equals(id))
 					{%>
-					<button type="button" onclick="location.href=''" style="font-size: 1.5vh; width: 6vh; height: 4vh;">수정</button>
-					<button type="button" onclick="location.href=''" style="font-size: 1.5vh; width: 6vh; height: 4vh;">삭제</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/updateBoard.jsp?num=<%=dto.getNum() %>&currentPage=<%=currentPage %>'" class="btn btn-outline-secondary btn-ghost btn-open-line">수정</button>
+					<button type="button" onclick="del(<%=dto.getNum() %>,<%=currentPage %>)" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
 					<%}%>
-					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" style="font-size: 1.5vh; width: 8vh; height: 4vh;">글쓰기</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">글쓰기</button>
 				</div>
 			</div>
 		</form>
