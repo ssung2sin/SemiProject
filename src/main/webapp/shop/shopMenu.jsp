@@ -41,7 +41,7 @@
 		
 	}
 	.orderBtn{
-		font-size:30px;
+		font-size:20px;
 		font-family: 'Jalnan';
 		margin-left: 450px;
 		border: 1px solid white;
