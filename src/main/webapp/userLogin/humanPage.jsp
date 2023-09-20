@@ -57,6 +57,9 @@
    #humanclear{
       margin-top: 30px;
    }
+   #userEmail{
+		display: inline-block;
+   }
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -166,7 +169,7 @@
 </script>
 <body>
 
-<div align="center" style="margin-top: 5%; background-color:rgba(255,255,255,0.7); border-radius: 20px; padding: 40px;">
+<div align="center" style="margin-top: 5%; background-color:rgba(255,255,255,0.5); border-radius: 20px; padding: 100px;">
 	<form action="userLogin/humanLoginAction.jsp" method="post" onsubmit="return check()">
 		<input type="hidden" value="<%=userId%>" name="userId">
 		<input type="hidden" value="<%=codenumber %>" class="codeNum">
@@ -175,7 +178,7 @@
 		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"
 		 required="required" placeholder="이메일을 입력하시오" id="userEmail">
-		<button type="button" class="btn btn-success" id="codebtn" style="margin-top: 20px;">인증번호 요청</button><br>
+		<button type="button" class="btn btn-success" id="codebtn">인증번호 요청</button><br>
 		<div id="codeform">
 			<input type="text" style="width: 200px; height: 40px;" class="form-control"
 			 maxlength="4" required="required" placeholder="인증번호를 입력하세요" id="codenum">
