@@ -364,4 +364,48 @@ public class BoardDao {
 				db.dbClose(pstmt, conn);
 			}
 		}
+		
+		//update
+		public void updateBoard(BoardDto dto)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="update board set express=?,title=?,content=? where num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				
+				pstmt.setString(1, dto.getExpress());
+				pstmt.setString(2, dto.getTitle());
+				pstmt.setString(3, dto.getContent());
+				pstmt.setString(4, dto.getNum());
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
+		
+		//delete
+		public void deleteBoard(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="delete from board where num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
 }

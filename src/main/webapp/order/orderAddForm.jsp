@@ -21,7 +21,7 @@
 </style>
 <title>Insert title here</title>
 <%
-	String id=(String)session.getAttribute("idok");
+	String id=(String)session.getAttribute("id");
 
 	ShopDao dao=new ShopDao();
 	

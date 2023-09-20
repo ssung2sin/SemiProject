@@ -61,6 +61,21 @@
 		}
 	}
 </style>
+<%
+	String root = request.getContextPath();
+
+	String num=request.getParameter("num");
+	String currentPage=request.getParameter("currentPage");
+	
+	BoardDao dao=new BoardDao();
+	BoardDto dto=dao.getData(num);
+	
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy년 MM월 dd일");
+	
+	String id=(String)session.getAttribute("id");
+	
+	int note=dto.getNote();
+%>
 <script type="text/javascript">
 	$(function(){
 		
@@ -99,21 +114,23 @@
 			});
 		});
 	});
+	
+	function del(num,currentPage)
+	{
+		var check=confirm("삭제하시겠습니까?");
+		
+		if(check)
+		{
+			location.href="<%=root%>/subPage.jsp?main=board/deleteBoard.jsp?num="+num+"&currentPage="+currentPage;
+		}
+		else
+		{
+			alert("취소되었습니다");
+			return false;
+		}
+	}
 </script>
 </head>
-<%
-	String root = request.getContextPath();
-
-	String num=request.getParameter("num");
-	BoardDao dao=new BoardDao();
-	BoardDto dto=dao.getData(num);
-	
-	SimpleDateFormat sdf=new SimpleDateFormat("yyyy년 MM월 dd일");
-	
-	String id=(String)session.getAttribute("id");
-	
-	int note=dto.getNote();
-%>
 <body>
 	<div>
 		<form action="">
@@ -184,13 +201,13 @@
 			</table>
 			
 			<div>
-				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">전체글</button>
+				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp?currentPage=<%=currentPage %>'" class="btn btn-outline-secondary btn-ghost btn-open-line">전체글</button>
 				
 				<div style="float: right;">
 					<%if(dto.getWriter().equals(id))
 					{%>
-					<button type="button" onclick="location.href=''" class="btn btn-outline-secondary btn-ghost btn-open-line">수정</button>
-					<button type="button" onclick="location.href=''" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/updateBoard.jsp?num=<%=dto.getNum() %>&currentPage=<%=currentPage %>'" class="btn btn-outline-secondary btn-ghost btn-open-line">수정</button>
+					<button type="button" onclick="del(<%=dto.getNum() %>,<%=currentPage %>)" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
 					<%}%>
 					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">글쓰기</button>
 				</div>
