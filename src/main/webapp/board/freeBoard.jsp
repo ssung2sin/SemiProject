@@ -232,7 +232,6 @@
                   int unlikes=dto.getUnlikes();
                   
                   int pop=(likes-unlikes);
-                  System.out.println("pop="+pop);
                %>
                <tr class="<%=pop>=10?"pop":""%>">
                   <td>
