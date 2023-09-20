@@ -29,7 +29,7 @@
 	border: 1px solid
 }
 .explain{
-	font-family: 'NanumSquare';
+	font-family: 'NanumSquare', sans-serif;
 	font-size: 18px;
 	padding: 30px 30px 30px 30px;
 }
@@ -52,7 +52,7 @@ select::-ms-expand {
 	cursor: pointer;
 }
 .content{
-	font-family: 'NanumSquare';
+	font-family: 'NanumSquare', sans-serif;
 	font-weight: bold;
 }
 </style>

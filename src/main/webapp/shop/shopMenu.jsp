@@ -42,7 +42,7 @@
 		
 	}
 	.orderBtn{
-		font-size:30px;
+		font-size:20px;
 		font-family: 'Jalnan';
 		margin-left: 450px;
 		border: 1px solid white;
@@ -114,7 +114,7 @@ System.out.println(categorylist.size());
 			<%
 			if(grade.equals("user")&&loginok!=null){ 
 				%>
-				<b class="name" style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
+				<b class="name" style="margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
 				<%
 				}
 			if(grade.equals("user")||grade.equals("")){

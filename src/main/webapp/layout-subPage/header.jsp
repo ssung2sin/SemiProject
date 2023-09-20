@@ -33,9 +33,10 @@ span * {
 #ttop {
    margin-top: -2vh;
    height: 10vh;
-   width: 60%;
+   width: 100%;
    margin-right: auto;
    margin-left: auto; 
+   background-color:rgba(255,255,255,0.7);
 }
 
 .topmenu {
