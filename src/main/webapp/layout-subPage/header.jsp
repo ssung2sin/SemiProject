@@ -190,7 +190,7 @@ $(function(){
       <li style="width: 25vh;"><!-- menu 시설안내 -->
       	 <a class="topmenu" style="width: 25vh;">시설안내</a>	 
          <ul class="submenu" style="margin-left: -2vh;">
-         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh;">편의시설</a>
+         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh; margin-left: -2vh;">편의시설</a>
          </ul>
       </li>
       
