@@ -188,16 +188,16 @@ $(function(){
       
       <!-- <li style="width: 150px; margin-left: 10vh;">menu 시설안내
       	 <a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">시설안내</a> -->
-      <li style="width: 25vh;"><!-- menu 시설안내 -->
+      <li style="width: 25vh; margin-left: 50vh;"><!-- menu 시설안내 -->
       	 <a class="topmenu" style="width: 25vh;">시설안내</a>	 
-         <ul class="submenu" style="margin-left: -2vh;">
+         <ul class="submenu" style="margin-left: -4vh;">
          	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh;">편의시설</a>
          </ul>
       </li>
       
       <li style="width: 25vh;"><!-- menu 음식점-->
          <a class="topmenu" style="width: 25vh;">음식점</a>
-         <ul class="submenu" style="margin-left: -2vh;">
+         <ul class="submenu" style="margin-left: -4vh;">
          	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 2vh;">음식점</a>
          <%if(id!=null){
         	 if(s_id.equals(sdto.getB_id())&&loginok!=null){
@@ -219,7 +219,7 @@ $(function(){
       
       <li style="width: 25vh;"><!-- menu 이벤트 -->
          <a class="topmenu" style="width: 25vh;">이벤트</a>
-         <ul class="submenu" style="margin-left: -2vh;">
+         <ul class="submenu" style="margin-left: -4vh;">
          <a href="" style="font-size: 2vh;">진행중 이벤트</a>
          <a href="" style="font-size: 2vh;">종료 이벤트</a>
          </ul>
@@ -227,7 +227,7 @@ $(function(){
       
       <li style="width: 25vh;"><!-- menu 자유게시판-->
       <a class="topmenu" style="width: 25vh;">게시판</a>
-         <ul class="submenu" style="margin-left: -2vh;">
+         <ul class="submenu" style="margin-left: -4vh;">
          <a href="" style="font-size: 2vh;">공지게시판</a>
          <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 2vh;">자유게시판</a>
          </ul>
