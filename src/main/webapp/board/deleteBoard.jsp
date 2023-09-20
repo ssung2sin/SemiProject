@@ -25,9 +25,6 @@
 	//db삭제
 	dao.deleteBoard(num);
 	
-	//실제경로
-	String realPath=getServletContext().getRealPath("/save");
-	
 	//보던페이지로 이동
 	response.sendRedirect(root+"/subPage.jsp?main=board/freeBoard.jsp?currentPage="+currentPage);
 %>
