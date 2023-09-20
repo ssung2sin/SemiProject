@@ -257,6 +257,12 @@
 					</td>
 				</tr>
 				<tr>
+					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소 로고 이미지<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
+					<td>
+						<input type="file" name="logoimg">
+					</td>
+				</tr>
+				<tr>
 					<td colspan="2" align="center">
 						<button type="submit" class="btn btn-outline-warning" style="width: 12.5vh; height: 5vh; font-size: 2vh;">회원가입</button>
 					</td>
