@@ -74,7 +74,7 @@
 
 	if(cnt==null)
 	{
-		cnt="10";
+		cnt="5";
 	}
 %>
 <script type="text/javascript">
@@ -189,7 +189,7 @@
             %>
             <tr>
                <td>
-                  <h5 align="center">게시물이 없습니다</h5>
+                  <span align="center" style="font-size: 4vh;">게시물이 없습니다</span>
                </td>
             </tr>
          <%}
@@ -238,7 +238,7 @@
                   <td>
                      <span style="float: left; margin-left: 7.5vh; font-size: 2.25vh;"><%=no--%></span>
                      
-                     <a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title" num="<%=dto.getNum()%>">
+                     <a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage %>" class="title" num="<%=dto.getNum()%>">
                      <span style="float: left; margin-left: 7.5vh; font-size: 2.25vh;">
                         <%=pop>=10?"<img src='image/star.png' style='width: 2.5vh;'>":""%>
                         [<%=dto.getExpress() %>]
