@@ -6,7 +6,7 @@
 	
 	String recipient=recipient1+"@"+recipient2;
 	String codenumber=request.getParameter("codenumber");
-	System.out.println(codenumber);
+	//System.out.println(codenumber);
 	if(codenumber==null){
 		int [] ranNum=new int[4];
 		for(int i=0;i<ranNum.length;i++){

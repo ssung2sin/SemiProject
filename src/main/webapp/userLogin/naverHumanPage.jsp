@@ -77,7 +77,7 @@
 					url:"../mail/mailsend.jsp",
 					data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>',"codenumber":'<%=codenumber%>'},
 					success:function(){
-						
+						$(".codeNum").val(data.ranNum);
 					}
 					
 				})
@@ -114,8 +114,6 @@
 			$("#codenum").attr("placeholder","인증번호를 입력하세요");
 			$("#codenum").val("");
 			clearInterval(x);
-			var email=$(".email-recip").val();
-			var codenumber=$(".codeNum").val();
 			$.ajax({
 				
 				type:"get",
@@ -123,7 +121,7 @@
 				url:"../mail/mailsend.jsp",
 				data:{"recipient1":'<%=recipient[0]%>',"recipient2":'<%=recipient[1]%>'},
 				success:function(data){
-					$(".resetRanNum").val(data.ranNum);
+					$(".codeNum").val(data.ranNum);
 				}
 				
 			})
@@ -152,39 +150,16 @@
 	});
 	
 	function check() {	//인증번호가 같으면 submit
-		var resetRanNum=$(".resetRanNum").val()
-		if(resetRanNum=="none"){
-			if(codenum.value != <%=codenumber%>){
-				alert("인증번호가 틀립니다");
-				codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
-				codenum.focus();			// 전화번호쪽으로 focus
-				return false;			// 번호가 일치하지않으면 submit 안되게			
-			}
-			else{
-				return true;
-			}
+		var resetRanNum=$(".codeNum").val();
+		if(codenum.value != resetRanNum){
+			alert("인증번호가 틀립니다");
+			codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
+			codenum.focus();			// 전화번호쪽으로 focus
+			return false;			// 번호가 일치하지않으면 submit 안되게			
 		}
 		else{
-			if(codenum.value != resetRanNum){
-				alert("인증번호가 틀립니다");
-				codenum.value = "";		// 잘 못 입력한 전화번호 리셋해주기
-				codenum.focus();			// 전화번호쪽으로 focus
-				return false;			// 번호가 일치하지않으면 submit 안되게			
-			}
-			else{
-				return true;
-			}
+			return true;
 		}
-		
-		<%-- if(codenum.value != <%=codenumber%>){
-	         alert("인증번호가 틀립니다");
-	         codenum.value = "";      // 잘 못 입력한 전화번호 리셋해주기
-	         codenum.focus();         // 전화번호쪽으로 focus
-	         return false;         // 번호가 일치하지않으면 submit 안되게         
-	      }
-	      else{
-	         return true;
-	      } --%>
 	}
 </script>
 </head>
@@ -197,7 +172,7 @@
 	<form action="naverHumanLoginAction.jsp" method="post" onsubmit="return check()">
 		<input type="hidden" value="<%=userId%>" name="userId">
 		<input type="hidden" value="<%=modal%>" name="modal">
-		<input type="hidden" value="none" class="resetRanNum">
+		<input type="hidden" value="<%=codenumber %>" class="codeNum">
 		<h1><%=dto.getU_name()%>님은 현재 휴면계정입니다.</h1><br><br>
 		<h6>계정을 활성화 하시려면 이메일인증을 해주세요</h6>
 		<input type="text" style="width: 220px; height: 40px;" class="form-control"
