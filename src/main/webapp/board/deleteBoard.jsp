@@ -12,8 +12,12 @@
 </head>
 <body>
 <%
+	String root=request.getContextPath();
+	
 	String num=request.getParameter("num");
 	String currentPage=request.getParameter("currentPage");
+	
+	System.out.println(currentPage);
 	
 	//db로부터 저장된 이미지명 얻기
 	BoardDao dao=new BoardDao();
@@ -25,7 +29,7 @@
 	String realPath=getServletContext().getRealPath("/save");
 	
 	//보던페이지로 이동
-	response.sendRedirect("../subPage.jsp?main=board/freeBoard.jsp&currentPage="+currentPage);
+	response.sendRedirect(root+"/subPage.jsp?main=board/freeBoard.jsp?currentPage="+currentPage);
 %>
 </body>
 </html>

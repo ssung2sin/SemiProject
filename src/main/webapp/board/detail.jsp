@@ -133,7 +133,7 @@
 </head>
 <body>
 	<div>
-		<form action="">
+		<form>
 			<table class="table table-bordered" style="width: 100%; margin-left: 0.75vh;">
 				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><span style="font-size: 4vh;"><b>자유게시판</b></span></a></caption>
 				<tr>
@@ -207,7 +207,7 @@
 					<%if(dto.getWriter().equals(id))
 					{%>
 					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/updateBoard.jsp?num=<%=dto.getNum() %>&currentPage=<%=currentPage %>'" class="btn btn-outline-secondary btn-ghost btn-open-line">수정</button>
-					<button type="button" onclick="del(<%=dto.getNum() %>,<%=currentPage %>)" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/deleteBoard.jsp?num=<%=num%>&currentPage=<%=currentPage%>'" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
 					<%}%>
 					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">글쓰기</button>
 				</div>

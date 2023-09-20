@@ -105,6 +105,7 @@ public class ShopDao {
 				dto.setShop_addr(rs.getString("shop_addr"));
 				dto.setShop_hp(rs.getString("shop_hp"));
 				dto.setShop_name(rs.getString("shop_name"));
+				dto.setS_image(rs.getString("s_image"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

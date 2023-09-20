@@ -1,4 +1,5 @@
 <%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -78,6 +79,7 @@ UserDto udto=udao.getData(id);
 
 List<String> categorylist=new ArrayList<String>();
 categorylist=dao.getCategory(s_id);
+System.out.println(categorylist.size());
 %>
 <body>
 <script type="text/javascript">
@@ -104,11 +106,10 @@ categorylist=dao.getCategory(s_id);
 <input type="hidden" id="id" value="<%=id%>">
 <input type="hidden" id="s_id" value="<%=s_id%>">
 <%
-	for(int i=0;i<list.size();i++){
-		ShopDto sdto=new ShopDto();
-		MenuDto dto=list.get(i);
-		if(s_id.equals("106-31-1000"+(i+1))){%>
-			<img src="save/<%=sdto.getS_image() %>" style="width: 186px; height: 186px; margin-left: 20px;">
+		ShopDao sdao=new ShopDao();
+		ShopDto sdto=sdao.getData(s_id);
+		%>
+			<img src="../save/<%=sdto.getS_image() %>" style="width: 186px; height: 186px; margin-left: 20px;">
 			<%
 			if(grade.equals("user")&&loginok!=null){ 
 				%>
@@ -135,9 +136,7 @@ categorylist=dao.getCategory(s_id);
 				</span>
 			</div>
 			<input type="hidden" class="s_id" value="<%=s_id%>">
-		<%}
-	}
-%>
+
 
 
 <div align="center" style="margin-top: 5%; margin-bottom: 3%;" id="allbody">
