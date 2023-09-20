@@ -191,7 +191,7 @@
 				<tr valign="middle">
 					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소선택<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<select id="expressName" name="b_id">
+						<select id="expressName" name="s_name">
 						<%
 							for(int i=0;i<list.size();i++){
 								ExpressDto dto=list.get(i);
@@ -201,7 +201,8 @@
 							}
 							%>
 						</select>
-					</td>
+						<input type="hidden" name>
+					</td> 
 				</tr>
 				<tr valign="middle">
 					<td style="width: 31.25vh; background-color: #FFFF99;">매장 사업자번호(상가 아이디)<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
