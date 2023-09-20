@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -26,7 +27,6 @@
 <title>Insert title here</title>
 <style type="text/css">
 div.mt-3 {
-	font-family: 'Jalnan';
 	margin-left: -5px;
 	margin-top: -110px;
 	width: 450px;
@@ -34,6 +34,7 @@ div.mt-3 {
 
 div.menudiv {
 	cursor: pointer;
+	font-family: 'Jalnan';
 }
 
 div.new_menudiv {
@@ -48,6 +49,10 @@ div.new_menudiv {
 	margin-top: 20px;
 	padding-top: 15px;
 	padding-bottom: 15px;
+}
+.nav-item{
+	font-sizs:15px;
+	font-family: 'NanumSquare', sans-serif;
 }
 
 .orderBtn {
@@ -74,7 +79,8 @@ div.new_menudiv {
 	border: 3px solid black;
 	border-radius: 30px 30px 30px 30px;
 	padding: 30px 30px;
-	font-family: 'Dongle';
+	font-sizs:15px;
+	font-family: 'NanumSquare', sans-serif;
 }
 div.allBox{
 	display: flex;
@@ -82,14 +88,15 @@ div.allBox{
 }
 .cart-table{
 	width: 300px;
-	font-size:20px;
+	font-size:12px;
 }
 .order-footer{
+	font-family: 'NanumSquare', sans-serif;
 	position: absolute;
-	top: 620px;
+	top: 640px;
 	width:300px;
 	vertical-align:middle;
-	font-size: 25px;
+	font-size: 15px;
 }
 .su{
 	width: 30px;
@@ -106,9 +113,10 @@ div.allBox{
   	height: 50px;
 }
 #name{
-	font-family: "Dongle";
-	font-size:30px;
+	font-family: 'Jalnan'; 
+	font-size: '20px';
 	margin-left: 650px;
+	margin-top:10px;
 }
 </style>
 <%
@@ -155,11 +163,11 @@ div.allBox{
 				}
 			//alert(name);
 				s="";
-				s+="<tr><td class='td"+i+" td"+i+"first' id='td"+i+"' sang_num='"+sang_num+"'>"+name+"</td>";
-				s+="<td class='td"+i+"'><button type='button' class='minus minus"+i+"'>-</button> <span class='td"+i+"su su' name='su"+i+"'>1</span> "; 
+				s+="<tr><td class='td"+i+" td"+i+"first' style='width:130px;' id='td"+i+"' sang_num='"+sang_num+"'>"+name+"</td>";
+				s+="<td class='td"+i+"' style='width:100px;'><button type='button' class='minus minus"+i+"'>-</button> <span class='td"+i+"su su' name='su"+i+"'>1</span> "; 
 				s+="<button type='button' class='plus plus"+i+"'>+</button></td>";
-				s+="<td class='td"+i+" price price"+i+"' value='"+price+"'>"+price+"</td>";
-				s+="<td class='td"+i+" del'><button class='btn btn-danger sm del' td='td"+i+"'>x</button>";
+				s+="<td class='td"+i+" style='width:100px;' price price"+i+"' value='"+price+"'>"+price+"</td>";
+				s+="<td class='td"+i+" del'><button class='btn btn-danger sm del' style='font-size:5px;' td='td"+i+"'>x</button>";
 				s+="</tr>"
 			
 				$(".cart-table").append(s);
@@ -460,7 +468,7 @@ div.allBox{
 			</div>
 		</div>
 		<div class="orderBox">
-			<h2 class="order-h2">장바구니</h2>
+			<h5 class="order-h5">장바구니</h5>
 			<hr style="border: 3px solid gray">
 			<table class="cart-table">
 				
@@ -471,7 +479,7 @@ div.allBox{
 						총금액 : <span id="total-price">0</span>
 					</td>
 					<td style="width: 70px;">
-						<button type="button" id="alldel" style="width: 60px; font-size: 17px;">전체삭제</button>
+						<button type="button" id="alldel" class="btn btn-danger" style="width: 70px; font-size: 1vh;">전체삭제</button>
 					</td>
 					<td style="width: 130px;">
 						<input type='image' class='addOrder kakao' src='../image/Kakaopay_Logo.png' 

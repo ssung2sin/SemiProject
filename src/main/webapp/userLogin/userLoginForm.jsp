@@ -21,6 +21,7 @@
 <%
 String root=request.getContextPath();
 String saveok=(String)session.getAttribute("saveok");
+session.removeAttribute("modal");
 System.out.println(saveok);
 if(saveok==null){
 	saveok="";

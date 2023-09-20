@@ -59,6 +59,9 @@
    #humanclear{
       margin-top: 30px;
    }
+   #userEmail{
+		display: inline-block;
+   }
 </style>
 <script type="text/javascript">
 	$(function(){
