@@ -89,7 +89,7 @@ if (request.getParameter("main")!= null) {
       <div class="layout title"><jsp:include page="layout-index/title.jsp" /></div>
       <div class="layout main"><jsp:include page="<%=mainPage%>" /></div>
       <div class="layout hgintroduce"><jsp:include page="layout-index/hgintroduce.jsp" /></div>
-      <div class="layout info"><jsp:include page="layout-index/info.jsp" /></div>
+      <div class="layout info"><jsp:include page="layout-index/maininfo.jsp" /></div>
       <%
       String name=(String)session.getAttribute("ssss");
       System.out.println("나오는 session="+name); 
