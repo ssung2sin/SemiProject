@@ -104,7 +104,7 @@
          	
          	 type:"get",
          	 dataType:"html",
-         	 url:"board/listCntChange.jsp",
+         	 url:"board/popListCntChange.jsp",
          	 data:{"cnt":cnt},
          	 success:function(){
          		 
@@ -234,7 +234,6 @@
                
                if(note==0)
                {
-                  System.out.println("pop="+pop);
                %>
                <tr class="<%=pop>=10?"pop":""%>">
                   <td>
