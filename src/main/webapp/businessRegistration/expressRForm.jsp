@@ -81,7 +81,7 @@
 		
 		$("#s_hp2").keyup(function(){
 
-            if($(this).val().length==3)
+            if($(this).val().length==4)
                 $("#s_hp3").focus();
         });
 		
@@ -217,7 +217,7 @@
 					</td>
 				</tr>
 				<tr valign="middle">
-					<td style="width: 31.25vh; background-color: #FFFF99;">이름<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
+					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소이름<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
 						<input type="text" style="width: 25vh;" min="4" maxlength="16" required="required" name="b_name">
 					</td>
@@ -235,7 +235,7 @@
 					<td>
 						<input type="text" style="width: 12.5vh;" maxlength="3" required="required" name="s_hp1" id="s_hp1">
 						-
-						<input type="text" style="width: 12.5vh;" maxlength="3" required="required" name="s_hp2" id="s_hp2">
+						<input type="text" style="width: 12.5vh;" maxlength="4" required="required" name="s_hp2" id="s_hp2">
 						-
 						<input type="text" style="width: 12.5vh;" maxlength="4" required="required" name="s_hp3" id="s_hp3">
 					</td>

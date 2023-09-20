@@ -43,7 +43,7 @@ span * {
    text-decoration: none;
    color: #696969;
    display: block;
-   font-size: 20px;
+   font-size: 2.5vh;
    font-family: 'nanumsquareround', sans-serif;
    font-weight:bold;
    margin-top: 30px;
@@ -53,9 +53,9 @@ span * {
    text-decoration: none;
    color: #696969;
    display: block;
-   font-size: 20px;
+   font-size: 2.5vh;
    font-family: 'nanumsquareround', sans-serif;
-   margin-top: 30px;
+   margin-top: 4vh;
 }
 
 .submenu a:hover{
@@ -169,7 +169,9 @@ $(function(){
 	if(logoimg == null || logoimg == ""){ %>
 		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
 		<% }else{ %>
-		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'">  <img src="image/<%=logoimg %>"> </b3>
+
+		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"> <img style="width: 15vh;  background-size: cover;" src="save/<%=logoimg %>"> </b3>
+
 		<%} %>
 	</h6>
    <nav id="ttop" style="">
@@ -186,28 +188,28 @@ $(function(){
       
       <!-- <li style="width: 150px; margin-left: 10vh;">menu 시설안내
       	 <a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">시설안내</a> -->
-      <li style="margin-left: 25vh; width: 25vh;"><!-- menu 시설안내 -->
-      	 <a href="#" class="topmenu" style="width: 25vh;">시설안내</a>	 
-         <ul class="submenu" style="margin-left: -4vh;">
-         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 15px;">편의시설</a>
+      <li style="width: 25vh;"><!-- menu 시설안내 -->
+      	 <a class="topmenu" style="width: 25vh;">시설안내</a>	 
+         <ul class="submenu" style="margin-left: -2vh;">
+         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh;">편의시설</a>
          </ul>
       </li>
       
       <li style="width: 25vh;"><!-- menu 음식점-->
-         <a href="#" class="topmenu" style="width: 25vh;">음식점</a>
-         <ul class="submenu" style="margin-left: -4vh;">
-         	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;">음식점</a>
+         <a class="topmenu" style="width: 25vh;">음식점</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 2vh;">음식점</a>
          <%if(id!=null){
         	 if(s_id.equals(sdto.getB_id())&&loginok!=null){
         	 %>
-         <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
+         <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 2vh;">음식추가</a>
          <%
         	 }
          }
          if(id!=null){
         	 if((s_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
         	 %>   
-         <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
+         <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 2vh;">주문목록</a>
          <%
         	 }
          }
@@ -216,18 +218,18 @@ $(function(){
       </li>
       
       <li style="width: 25vh;"><!-- menu 이벤트 -->
-         <a href="#" class="topmenu" style="width: 25vh;">이벤트</a>
-         <ul class="submenu" style="margin-left: -4vh;">
-         <a href="" style="font-size: 15px;">진행중 이벤트</a>
-         <a href="" style="font-size: 15px;">종료 이벤트</a>
+         <a class="topmenu" style="width: 25vh;">이벤트</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         <a href="" style="font-size: 2vh;">진행중 이벤트</a>
+         <a href="" style="font-size: 2vh;">종료 이벤트</a>
          </ul>
       </li>
       
       <li style="width: 25vh;"><!-- menu 자유게시판-->
-      <a href="#" class="topmenu" style="width: 25vh;">게시판</a>
-         <ul class="submenu" style="margin-left: -4vh;">
-         <a href="" style="font-size: 15px;">공지게시판</a>
-         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 15px;">자유게시판</a>
+      <a class="topmenu" style="width: 25vh;">게시판</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         <a href="" style="font-size: 2vh;">공지게시판</a>
+         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 2vh;">자유게시판</a>
          </ul>
       </li> 
    </ul>

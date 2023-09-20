@@ -234,10 +234,10 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
      });
 
      var myimage='<%=dto.getImage()%>';
-     var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
+     var mycontent ='<div style="border-radius: 2.5vh; border: 0.25vh solid black;width:150px;text-align:center;padding:6px 0;">';
         mycontent += '<b><%=dto.getB_name()%></b>';
         mycontent += '<br>';
-        mycontent += '<img src="image/<%=dto.getImage()%>" style="width:100%; height:70px">';
+        mycontent += '<img src="save/<%=dto.getImage()%>" style="width:100%; height:70px">';
         mycontent += '<b><%=dto.getB_hp()%></b>';
         mycontent += '<br>';
         mycontent += '<b><%=dto.getS_hp()%></b>';
@@ -394,10 +394,10 @@ map.setZoomable(false);
                           });
 
                           var myimage=item.image;
-                          var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
+                          var mycontent ='<div style="border-radius: 2.5vh; border: 0.25vh solid black; width:150px;text-align:center;padding:6px 0;">';
                              mycontent += '<b>'+item.b_name+'</b>';
                              mycontent += '<br>';
-                             mycontent += '<img src="image/'+myimage+'" style="width:100%; height:70px">';
+                             mycontent += '<img src="save/'+myimage+'" style="width:100%; height:70px">';
                              mycontent += '<b>'+item.b_hp+'</b>';
                              mycontent += '<br>';
                              mycontent += '<b>'+item.s_hp+'</b>';

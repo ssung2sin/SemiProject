@@ -55,7 +55,7 @@ String root=request.getContextPath();
 		/* border: 2px solid red; */
 		position: absolute;
 		top:53vh;
-		font-size: 45px;
+		font-size: 5.5vh;
 		font-weight: bold;
 		color:white;
 		width: auto;
@@ -100,18 +100,19 @@ String root=request.getContextPath();
 	.advantage{
 		border-radius: 50%;
 		position: absolute;
-		width:300px;  /* 250 */
-		height:280px;
+		width:38vh;  /* 250 */
+		height:35vh;
 		text-align: center;
 		/* margin-top: 4vh; */
 		padding-top: 20px;
 		font-family: Jalnan;
 		animation: bounce2 4s ease infinite;
+		font-size: 20vh;
 	}
 	
 	 @keyframes bounce2 {
 		0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-		40% {transform: translateY(-30px);}
+		40% {transform: translateY(-4vh);}
 		60% {transform: translateY(-15px);}
 	}
 	
