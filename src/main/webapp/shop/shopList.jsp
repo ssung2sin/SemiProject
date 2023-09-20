@@ -46,7 +46,7 @@ List<ShopDto> list=dao.getAllShops();
 	%>
 			<td>
 				<div style="background-color: white;"align="center" class="shopdiv" s_id="<%=dto.getS_id()%>">
-					<img src="shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px;">
+					<img src="save/<%=dto.getS_image() %>" style="width: 186px; height: 186px;">
 					<b style="font-size: 13px; background-color: white;"><%=dto.getShop_name() %></b>
 				</div>
 			</td>
