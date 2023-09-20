@@ -38,9 +38,6 @@ div.title {
    width: 100%;
    height: 15%;
    text-align: center;
-
-   
-
 }
 
 div.main {
@@ -92,7 +89,7 @@ if (request.getParameter("main")!= null) {
       <div class="layout bcblack"></div>
       <div class="layout title"><jsp:include page="layout-index/title.jsp" /></div>
       <div class="layout main"><jsp:include page="<%=mainPage%>" /></div>
-      <div class="layout hgintroduce"><%-- <jsp:include page="layout/hgintroduce.jsp" /> --%></div>
+      <div class="layout hgintroduce"><jsp:include page="layout-index/hgintroduce.jsp" /></div>
       <div class="layout info"><jsp:include page="layout-index/info.jsp" /></div>
       <%
       String name=(String)session.getAttribute("ssss");
