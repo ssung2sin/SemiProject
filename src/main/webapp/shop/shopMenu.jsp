@@ -11,8 +11,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Dongle&family=Gugi&family=Orbit&display=swap"
-        rel="stylesheet">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
@@ -20,11 +20,15 @@
 <style type="text/css">
 	div.menudiv{
 		cursor: pointer;
+		font-family: 'Jalnan';
 	}
 	div.new_menudiv{
+		font-family: 'Jalnan';
 		cursor: pointer;
 	}
 	#category{
+		font-family: 'NanumSquare';
+		font-weight: bold;
 		width: 700px;
 		border: 1px solid lightgray;
 		border-color: lightgray;
@@ -36,7 +40,7 @@
 	}
 	.orderBtn{
 		font-size:30px;
-		font-family:'Dongle';
+		font-family: 'Jalnan';
 		margin-left: 450px;
 		border: 1px solid white;
 		width: 150px;
@@ -49,6 +53,7 @@
 		color: orange;
 	}
 	.name{
+		font-family: 'Jalnan';
 		position:absolute;
 		top: 10px;
 		left: 610px;
@@ -108,7 +113,7 @@ categorylist=dao.getCategory(s_id);
 				<b class="name" style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
 				<%
 				}
-			if(grade.equals("user")){
+			if(grade.equals("user")||grade.equals("")){
 			%>
 			<button class="orderBtn">주문하기</button>
 			<%

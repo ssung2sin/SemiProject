@@ -30,11 +30,11 @@ if (request.getParameter("main")!= null) {
 
 	div.main{
 	margin-top:10vh;
-   		width: 150vh;
+   		width: 174vh;
    		height: 90vh;
    		font-size: 2vh;
    		margin-left: 31vh;
-		background-color: orange;
+		background-color: rgba(50,0,0,0.3);
 	}
 	
 	div.menu {
@@ -48,13 +48,13 @@ if (request.getParameter("main")!= null) {
   	 width: 31vh;
   	 height: 10vh;
   	 background-color:blue;
-  	 /*background-color:rgba(0,0,0,0.7);*/
+  	 background-color:rgba(0,0,0,0.7);
 	}
 	div.title2 {
-  	 width: 150vh;
+  	 width: 174vh;
   	 margin-left: 31vh;
   	 height: 10vh;
-  	 background-color:red;
+  	 background-color:rgba(0,0,50,0.3);
   	 /*background-color:rgba(0,0,0,0.7);*/
 	}
 </style>

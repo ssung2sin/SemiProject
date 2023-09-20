@@ -28,7 +28,55 @@
       font-weight: bold;
       color: blue;
    }
+   
+   .btn.btn-outline-secondary.btn-ghost.btn-open-line {
+	  
+	  border: 1px solid white;
+	  transition: 0.3s;
+	
+	  &::before,
+	  &::after {
+	    position: absolute;
+	    content: "";
+	    left: 0;
+	    width: 100%;
+	    height: 1px;
+	    background: var(--btn-bg);
+	    opacity: 1;
+	    transform: scaleX(0);
+	    transition: 0.4s ease-in-out;
+	  }
+	
+	  &::before {
+	    top: 0;
+	  }
+	
+	  &::after {
+	    bottom: 0;
+	  }
+	
+	  &:hover {
+	    letter-spacing: 5px;
+	    color: var(--btn-bg);
+	    background: transparent;
+	    background-color: gold;
+	
+	    &::before,
+	    &::after {
+	      opacity: 1;
+	      transform: scaleX(1.2);
+	    }
+	  }
+	}
 </style>
+<%
+	String cnt=(String)session.getAttribute("cnt");
+
+	if(cnt==null)
+	{
+		cnt="5";
+	}
+%>
 <script type="text/javascript">
    $(function(){
       
@@ -49,11 +97,21 @@
       });
       
       $("select.listcnt").change(function(){
-         
-         var cnt=$(this).val();
-         
-         cnt.prop("selected",true);
-      });
+          
+          var cnt=$(this).val();
+          
+          $.ajax({
+         	
+         	 type:"get",
+         	 dataType:"html",
+         	 url:"board/listCntChange.jsp",
+         	 data:{"cnt":cnt},
+         	 success:function(){
+         		 
+         		 location.reload();
+         	 }
+          });
+       });
    });
 </script>
 </head>
@@ -66,7 +124,7 @@
    int startPage; 
    int endPage; 
    int startNum; 
-   int perPage=10; 
+   int perPage=Integer.parseInt(cnt); 
    int perBlock=5;
    int currentPage;
    int no;
@@ -94,30 +152,30 @@
 %>
 <body>
 <div>
-   <h3>자유게시판</h3>
-   <div style="float: left;">
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
-   </div>
-   <div style="float: right;">
-      <select name="listcnt" style="margin-right: 10px;" class="listcnt">
-         <option value="5">5개</option>
-         <option value="10" selected>10개</option>
-         <option value="20">20개</option>
-      </select>
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
-   </div>
-   <table class="table table-striped" style="width: 1000px;">
+   <span align="top" style="font-size: 4vh; line-height: 5vh; margin-left: 1vh;"><b>인기글</b></span><br>
+   <table class="table table-striped" style="width: 100%;">
+	   <div style="float: left;">
+	   	  <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
+	   </div>
+	   <div style="float: right;">
+	      <select name="listcnt" style="margin-right: 1.25vh;" class="listcnt">
+	         <option value="5" <%=cnt.equals("5")?"selected":"" %>>5개</option>
+	         <option value="10" <%=cnt.equals("10")?"selected":"" %>>10개</option>
+	         <option value="20" <%=cnt.equals("20")?"selected":"" %>>20개</option>
+	      </select>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
+	   </div>
       <tr align="center">
-         <th style="width: 80px; background-color: #;">
-         <span style="float: left; margin-left: 50px;">번호</span>
-         <span style="float: left; margin-left: 200px;">제목</span>
+         <th style="width: 10vh; background-color: #;">
+         <span style="float: left; margin-left: 6.25vh; font-size: 2.25vh;">번호</span>
+         <span style="float: left; margin-left: 25vh; font-size: 2.25vh;">제목</span>
          
          
-         <span style="float: right; margin-right: 50px;">추천</span>
-         <span style="float: right; margin-right: 40px;">조회</span>
-         <span style="float: right; margin-right: 90px;">작성일</span>
-         <span style="float: right; margin-right: 108px;">작성자</span>
+         <span style="float: right; margin-right: 6.25vh; font-size: 2.25vh;">추천</span>
+         <span style="float: right; margin-right: 5vh; font-size: 2.25vh;">조회</span>
+         <span style="float: right; margin-right: 11.25vh; font-size: 2.25vh;">작성일</span>
+         <span style="float: right; margin-right: 13.5vh; font-size: 2.25vh;">작성자</span>
          </th>
       </tr>
       
@@ -131,7 +189,7 @@
             %>
             <tr>
                <td>
-                  <h5 align="center">게시물이 없습니다</h5>
+                  <span align="center" style="font-size: 4vh;">게시물이 없습니다</span>
                </td>
             </tr>
          <%}
@@ -147,17 +205,17 @@
                <tr>
                   <td style="color: red;">
                      <b>
-                     <span style="float: left; margin-left: 45px;">[공지]</span>
+                     <span style="float: left; margin-left: 5.625vh; font-size: 2.25vh;">[공지]</span>
                      
                      <a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage %>" class="notetitle" num="<%=dto.getNum()%>">
-                     <span style="float: left; margin-left: 40px;">[<%=dto.getExpress() %>]</span>
-                     <span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+                     <span style="float: left; margin-left: 5vh; font-size: 2.25vh;">[<%=dto.getExpress() %>]</span>
+                     <span style="float: left; margin-left: 1.25vh; font-size: 2.25vh;"><%=dto.getTitle() %></span>
                      </a>
             
-                     <span style="float: right; margin-right: 60px;">-</span>
-                     <span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-                     <span style="float: right; margin-right: 75px;"><%=sdf.format(dto.getWriteday()) %></span>
-                     <span style="float: right; margin-right: 75px;">관리자</span>
+                     <span style="float: right; margin-right: 7.5vh; font-size: 2.25vh;">-</span>
+                     <span style="float: right; margin-right: 7.5vh; font-size: 2.25vh;"><%=dto.getView() %></span>
+                     <span style="float: right; margin-right: 9.375vh; font-size: 2.25vh;"><%=sdf.format(dto.getWriteday()) %></span>
+                     <span style="float: right; margin-right: 9.375vh; font-size: 2.25vh;">관리자</span>
                      </b>
                   </td>
                </tr>
@@ -180,21 +238,21 @@
                %>
                <tr class="<%=pop>=10?"pop":""%>">
                   <td>
-                     <span style="float: left; margin-left: 60px;"><%=no--%></span>
+                     <span style="float: left; margin-left: 7.5vh; font-size: 2.25vh;"><%=no--%></span>
                      
-                     <a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>" class="title" num="<%=dto.getNum()%>">
-                     <span style="float: left; margin-left: 60px;">
-                        <%=pop>=10?"<img src='image/star.png' style='width: 20px;'>":""%>
+                     <a href="<%=root%>/subPage.jsp?main=board/detail.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage %>" class="title" num="<%=dto.getNum()%>">
+                     <span style="float: left; margin-left: 7.5vh; font-size: 2.25vh;">
+                        <%=pop>=10?"<img src='image/star.png' style='width: 2.5vh;'>":""%>
                         [<%=dto.getExpress() %>]
                      </span>
-                     <span style="float: left; margin-left: 10px;"><%=dto.getTitle() %></span>
+                     <span style="float: left; margin-left: 1.25vh; font-size: 2.25vh;"><%=dto.getTitle() %></span>
                      </a>
             
-                     <span style="float: right; margin-right: 58px;"><%=dto.getLikes() %></span>
+                     <span style="float: right; margin-right: 7.25vh; font-size: 2.25vh;"><%=dto.getLikes() %></span>
                      <input type="hidden" class="pop" value="<%=pop%>">
-                     <span style="float: right; margin-right: 60px;"><%=dto.getView() %></span>
-                     <span style="float: right; margin-right: 80px;"><%=sdf.format(dto.getWriteday()) %></span>
-                     <span style="float: right; margin-right: 65px;"><%=dto.getWriter() %></span>
+                     <span style="float: right; margin-right: 7.5vh; font-size: 2.25vh;"><%=dto.getView() %></span>
+                     <span style="float: right; margin-right: 10vh; font-size: 2.25vh;"><%=sdf.format(dto.getWriteday()) %></span>
+                     <span style="float: right; margin-right: 8.125vh; font-size: 2.25vh;"><%=dto.getWriter() %></span>
                   </td>
                </tr>
                <%}

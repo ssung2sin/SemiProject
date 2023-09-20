@@ -1,3 +1,5 @@
+<%@page import="data.dto.BoardDto"%>
+<%@page import="data.dao.BoardDao"%>
 <%@page import="data.dto.ExpressDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -12,6 +14,10 @@
 	//프로젝트의 경로
 	String root=request.getContextPath();
 	String writer=(String)session.getAttribute("id");
+	String num=request.getParameter("num");
+	String currentPage=request.getParameter("currentPage");
+	BoardDao dao=new BoardDao();
+	BoardDto dto=dao.getData(num);
 %>
 <!-- se2 폴더에서 js 파일 가져오기 -->
 <script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"
@@ -22,9 +28,11 @@
 </head>
 <body>
 <div>
-<form action="board/insertProc.jsp" method="post">
+<form action="board/updateProc.jsp" method="post" enctype="multipart/form-data">
+<input type="hidden" name="num" value="<%=num%>">
+<input type="hidden" name="currentPage" value="<%=currentPage%>">
 	<table class="table table-bordered" style="width: 100%;">
-		<caption align="top" style="font-size: 3vh;">글작성</caption>
+		<caption align="top" style="font-size: 3vh;">수정</caption>
 		<tr>
 			<th bgcolor="#669966" style="font-size: 2.25vh; width: 12.5vh;">작성자</th>
 			<td>
@@ -36,20 +44,20 @@
 			<th bgcolor="#99CC99" style="font-size: 2.25vh; width: 12.5vh;">제  목</th>
 			<td class="form-group">
 				<select	name="express" style="font-size: 2.25vh; width: 17vh;">
-					<option value="덕평자연휴게소">덕평자연휴게소</option>
-					<option value="부산휴게소">부산휴게소</option>
-					<option value="대전휴게소">대전휴게소</option>
-					<option value="수원휴게소">수원휴게소</option>
-					<option value="용인휴게소">용인휴게소</option>
+					<option value="덕평자연휴게소" <%=dto.getExpress().equals("덕평자연휴게소")?"selected":"" %>>덕평자연휴게소</option>
+					<option value="부산휴게소" <%=dto.getExpress().equals("부산휴게소")?"selected":"" %>>부산휴게소</option>
+					<option value="대전휴게소" <%=dto.getExpress().equals("대전휴게소")?"selected":"" %>>대전휴게소</option>
+					<option value="수원휴게소" <%=dto.getExpress().equals("수원휴게소")?"selected":"" %>>수원휴게소</option>
+					<option value="용인휴게소" <%=dto.getExpress().equals("용인휴게소")?"selected":"" %>>용인휴게소</option>
 				</select>
-				<input type="text" name="title" required="required" style="width: 62.5vh;">
+				<input type="text" name="title" required="required" style="width: 62.5vh;" value="<%=dto.getTitle() %>">
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2">
 				<textarea name="content" id="content"		
 					required="required"			
-					style="width: 100%; display: none;"></textarea>	
+					style="width: 100%; display: none;"><%=dto.getContent() %></textarea>		
 			
 			</td>
 		</tr>
@@ -57,7 +65,7 @@
 			<td colspan="2" align="center">
 				<button type="button" class="btn btn-warning"
 					style="width: 15vh; font-size: 2vh;"
-					onclick="submitContents(this)">작성하기</button>
+					onclick="submitContents(this)">수정하기</button>
 				
 				<button type="button" class="btn btn-warning"
 					style="width: 15vh; font-size: 2vh;"

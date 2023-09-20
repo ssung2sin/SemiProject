@@ -51,7 +51,7 @@
 		
 		dao.insertMenu(dto);
 		
-		response.sendRedirect("../dpecoland.jsp?main=order/orderAddForm.jsp");
+		response.sendRedirect("../subPage.jsp?main=order/orderAddForm.jsp");
 	}catch(Exception e){
 		System.out.println("업로드 오류: "+e.getMessage());
 	}

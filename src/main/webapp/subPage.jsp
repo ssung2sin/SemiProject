@@ -31,8 +31,21 @@ if(inherence_HU==null || inherence_HU.equals("null")){
 
 
 if (request.getParameter("main")!= null) {
-   mainPage = request.getParameter("main");
+   mainPage = request.getParameter("main");%>
+   <script type="text/javascript">
+	$(function(){
+		$(".mainwhite").show();
+	});
+</script>
+<%
 }
+else{%>
+	 <script type="text/javascript">
+	$(function(){
+		$(".mainwhite").hide();
+	});
+</script>
+<%}
 
 
 ExpressDao dao=new ExpressDao();
@@ -71,16 +84,13 @@ myimg = dto.getImage();
 	div.layout{
    		position: absolute;
 	}
-	
-	div.header{
-	
-	}
+
 	
 	div.header{
    		width: 100%;
-   		height: 10%;
+   		height: 10vh;
   		text-align: center;
-   		top: 10%;
+   		top: 10vh;
    		
 	}
 
@@ -89,8 +99,8 @@ myimg = dto.getImage();
    		height: 80vh;
    		font-size: 13pt;
    		margin-left: 15%;
-   		top: 20%;
-		
+   		top: 20vh;
+
 	}
 
 	div.info{
@@ -108,14 +118,21 @@ myimg = dto.getImage();
 	}
 	div.title {
   	 width: 100%;
-  	 height: 10%;
+  	 height: 10vh;
   	 text-align: center;
   	 background-color:rgba(0,0,0,0.7);
+	}
+	div.mainwhite{
+	top: 20vh;
+		width:100%;
+		height: 80vh;
+		background-color:rgba(255,255,255,0.5);
 	}
 </style>
 </head>
 <body>
-<body>
+<div class="layout mainwhite">
+</div>
 <div class="layout title">
 	<jsp:include page="layout-subPage/title.jsp"/>
 </div>
@@ -128,5 +145,6 @@ myimg = dto.getImage();
 <div class="layout header">
 	<jsp:include page="layout-subPage/header.jsp"/>
 </div>
+
 </body>
 </html>

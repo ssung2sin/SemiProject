@@ -25,7 +25,7 @@
 %>
 <body>
 <div>
-	<table>
+	<table class="table table-striped" style="background-color: rgba(255,255,255,0.5)">
 		<tr>
 		<th>주문번호</th><th>주문휴게소ID</th><th>주문ID</th><th>주문내역</th><th>가격</th><th>주문시간</th><th>수정/삭제</th>
 		</tr>
