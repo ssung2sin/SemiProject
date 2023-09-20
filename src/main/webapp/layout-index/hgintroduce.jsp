@@ -84,17 +84,17 @@ String root=request.getContextPath();
 	
 	#blackimg1{
 		top: 55vh;
-		left: 8vh;
+		margin-left: 8vh;
 	}
 	
 	#blackimg2{
 		top: 55vh;
-		left: 79vh;
+		margin-left: 79vh;
 	}
 	
 	#blackimg3{
 		top: 55vh;
-		left: 149vh;
+		margin-left: 149vh;
 	}
 	
 	.advantage{
