@@ -26,34 +26,36 @@ String root=request.getContextPath();
 		position: absolute;
 		text-align: center;
 		top: 3vh;
-		left: 65vh;
+		left: 25%;
+		width: 50%;
 	}
 	
 	#intro_text1{
-		font-size: 30px;
+		font-size: 4vh;
 		font-family:Dongle;
 	}
 	
 	#intro_text2{
-		font-size: 80px;
+		font-size: 10vh;
 		font-family:Wallpoet;
 		font-weight: bold;
 	}
 	
 	#intro_text3{
-		font-size: 40px;
+		font-size: 5vh;
 		font-family: Jalnan;
 	}
 	
 	.introbox h6{
 		font-family: Nanum Pen Script;
-		font-size:20px;
+		font-size:2.5vh;
 		color:white;
 	}
 	
 	.icon{
 		/* border: 2px solid red; */
 		position: absolute;
+		background-size: cover;
 		top:53vh;
 		font-size: 5.5vh;
 		font-weight: bold;
@@ -78,42 +80,42 @@ String root=request.getContextPath();
 
 	.blackimg{
 		position: absolute;
-		width: 50vh;
+		width: 25%;
 		height: 43vh;
 	}
 	
 	#blackimg1{
 		top: 55vh;
-		margin-left: 8vh;
+		margin-left: 3%;
 	}
 	
 	#blackimg2{
 		top: 55vh;
-		margin-left: 79vh;
+		margin-left: 37.5%;
 	}
 	
 	#blackimg3{
 		top: 55vh;
-		margin-left: 149vh;
+		margin-left: 72%;
 	}
 	
 	.advantage{
 		border-radius: 50%;
 		position: absolute;
-		width:38vh;  /* 250 */
+		width:18%;  /* 250 */
 		height:35vh;
 		text-align: center;
 		/* margin-top: 4vh; */
-		padding-top: 20px;
+		padding-top: 3vh;
 		font-family: Jalnan;
 		animation: bounce2 4s ease infinite;
-		font-size: 20vh;
+		font-size: 4.5vh;
 	}
 	
 	 @keyframes bounce2 {
 		0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-		40% {transform: translateY(-4vh);}
-		60% {transform: translateY(-15px);}
+		40% {transform: translateY(-5vh);}
+		60% {transform: translateY(-2vh);}
 	}
 	
 	#advantage1{
@@ -139,13 +141,13 @@ String root=request.getContextPath();
 	<h6>We will continue to work hard to provide better services.</h6>
 </div>
 	<div class="advantage" id="advantage1">
-		<h2>휴게소</h2><h2>간편 찾기</h2><h2>기능</h2>
+		<a>휴게소</a><br><a>간편 찾기</a><br><a>기능</a>
 	</div>
 	<div class="advantage" id="advantage2">
-		<h2>휴게소</h2><h2>시설 확인</h2><h2>기능</h2>
+		<a>휴게소</a><br><a>시설 확인</a><br><a>기능</a>
 	</div>
 	<div class="advantage" id="advantage3">
-		<h2>휴게소</h2><h2>음식 주문</h2><h2>예약 기능</h2>
+		<a2>휴게소</a><br><a>음식 주문</a><br><a>예약 기능</a>
 	</div>
 	<div class="icon">
 		<span class="iconbundle1"><i class="bi bi-search"></i></span>
