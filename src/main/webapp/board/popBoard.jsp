@@ -28,6 +28,46 @@
       font-weight: bold;
       color: blue;
    }
+   
+   .btn.btn-outline-secondary.btn-ghost.btn-open-line {
+	  
+	  border: 1px solid white;
+	  transition: 0.3s;
+	
+	  &::before,
+	  &::after {
+	    position: absolute;
+	    content: "";
+	    left: 0;
+	    width: 100%;
+	    height: 1px;
+	    background: var(--btn-bg);
+	    opacity: 1;
+	    transform: scaleX(0);
+	    transition: 0.4s ease-in-out;
+	  }
+	
+	  &::before {
+	    top: 0;
+	  }
+	
+	  &::after {
+	    bottom: 0;
+	  }
+	
+	  &:hover {
+	    letter-spacing: 5px;
+	    color: var(--btn-bg);
+	    background: transparent;
+	    background-color: gold;
+	
+	    &::before,
+	    &::after {
+	      opacity: 1;
+	      transform: scaleX(1.2);
+	    }
+	  }
+	}
 </style>
 <script type="text/javascript">
    $(function(){
@@ -94,20 +134,20 @@
 %>
 <body>
 <div>
-   <h3>자유게시판</h3>
-   <div style="float: left;">
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
-   </div>
-   <div style="float: right;">
-      <select name="listcnt" style="margin-right: 10px;" class="listcnt">
-         <option value="5">5개</option>
-         <option value="10" selected>10개</option>
-         <option value="20">20개</option>
-      </select>
-      <button type="button" style="float: right;" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
-   </div>
+   <span align="top" style="font-size: 4vh; line-height: 5vh; margin-left: 1vh;"><b>자유게시판</b></span><br>
    <table class="table table-striped" style="width: 1000px;">
+	   <div style="float: left;">
+	   	  <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/freeBoard.jsp'">전체글</button>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/popBoard.jsp'">인기글</button>
+	   </div>
+	   <div style="float: right;">
+	      <select name="listcnt" style="margin-right: 10px;" class="listcnt">
+	         <option value="5">5개</option>
+	         <option value="10" selected>10개</option>
+	         <option value="20">20개</option>
+	      </select>
+	      <button type="button" class="btn btn-outline-secondary btn-ghost btn-open-line" onclick="location.href='subPage.jsp?main=board/insertFree.jsp'">작성하기</button>
+	   </div>
       <tr align="center">
          <th style="width: 80px; background-color: #;">
          <span style="float: left; margin-left: 50px;">번호</span>

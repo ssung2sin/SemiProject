@@ -1,3 +1,5 @@
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="java.util.List"%>
 <%@page import="data.dto.ExpressDto"%>
 <%@page import="data.dao.ExpressDao"%>
@@ -7,6 +9,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap"
@@ -16,11 +21,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <title>Nav Bar</title>
 <style>
-@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
-
 span * {
-    font-family: 'OAGothic-ExtraBold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/OAGothic-ExtraBold.woff2') format('woff2');
+    font-family: 'nanumsquareround',sans-serif;
     font-style: normal;
 }
 
@@ -28,6 +30,7 @@ span * {
 	width: 100%;
 }
 #ttop {
+	background-color:rgba(255,255,255,0.7);
    margin-top: -18px;
    height: 10vh;
    width: 100%;
@@ -39,7 +42,8 @@ span * {
    color: #696969;
    display: block;
    font-size: 20px;
-   font-family: 'Jeju Gothic', sans-serif;
+   font-family: 'nanumsquareround', sans-serif;
+   font-weight:bold;
    margin-top: 30px;
 }
 
@@ -48,7 +52,7 @@ span * {
    color: #696969;
    display: block;
    font-size: 20px;
-   font-family: 'Jeju Gothic', sans-serif;
+   font-family: 'nanumsquareround', sans-serif;
    margin-top: 30px;
 }
 
@@ -84,6 +88,19 @@ String root = request.getContextPath();
 String inherence_HU=request.getParameter("id");
 String grade=(String)session.getAttribute("grade");
 String loginok=(String)session.getAttribute("loginok");
+String id=(String)session.getAttribute("id");
+
+ShopDao sdao=new ShopDao();
+
+ShopDto sdto=sdao.getData(id);
+
+System.out.println("id="+id);
+String s_id=(String)session.getAttribute("s_id");
+
+if(s_id==null){
+	s_id=request.getParameter("id");
+}
+System.out.println("s_id="+s_id);
 if(grade==null){
 	grade="";
 }
@@ -159,12 +176,12 @@ $(function(){
          <a href="#" class="topmenu" style="width: 150px; margin-left: 20px;">음식점</a>
          <ul class="submenu" style="margin-left: -20px;">
          	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;">음식점</a>
-         <%if(grade.equals("shop")){
+         <%if(s_id.equals(sdto.getB_id())&&loginok!=null){
         	 %>
          <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
          <%
          }
-         if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){
+         if((s_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
         	 %>   
          <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
          <%

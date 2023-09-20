@@ -20,6 +20,46 @@
 		text-decoration: none;
 		color: black;
 	}
+	
+	.btn.btn-outline-secondary.btn-ghost.btn-open-line {
+		  
+		  border: 1px solid white;
+		  transition: 0.3s;
+		
+		  &::before,
+		  &::after {
+		    position: absolute;
+		    content: "";
+		    left: 0;
+		    width: 100%;
+		    height: 1px;
+		    background: var(--btn-bg);
+		    opacity: 1;
+		    transform: scaleX(0);
+		    transition: 0.4s ease-in-out;
+		  }
+		
+		  &::before {
+		    top: 0;
+		  }
+		
+		  &::after {
+		    bottom: 0;
+		  }
+		
+		  &:hover {
+		    letter-spacing: 5px;
+		    color: var(--btn-bg);
+		    background: transparent;
+		    background-color: gold;
+		
+		    &::before,
+		    &::after {
+		      opacity: 1;
+		      transform: scaleX(1.2);
+		    }
+		}
+	}
 </style>
 <script type="text/javascript">
 	$(function(){
@@ -77,7 +117,7 @@
 <body>
 	<div>
 		<form action="">
-			<table class="table table-bordered" style="width: 122.5vh; margin-left: 0.75vh;">
+			<table class="table table-bordered" style="width: 100%; margin-left: 0.75vh;">
 				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><span style="font-size: 4vh;"><b>자유게시판</b></span></a></caption>
 				<tr>
 					<td>
@@ -106,12 +146,12 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 122.5vh; height: 62.5vh; font-size: 2vh;">
+						<div style="width: 100%; height: 62.5vh; font-size: 2vh;">
 						<%=dto.getContent() %>
 						
 						<% if(note==0)
 						{%>
-							<div style="width: 122.5vh; height: 62.5vh;" align="center">
+							<div style="width: 100%; height: 62.5vh;" align="center">
 								<div style="margin-top: 45vh; width: 37.5vh; height: 12.5vh; border: 1px solid black;" text-align="center">
 									<div style="text-align: center; line-height: 12.5vh;">
 										<span class="like"><%=dto.getLikes() %></span>
@@ -136,7 +176,7 @@
 				</tr>
 				<tr>
 					<td>
-						<div style="width: 122.5vh; height: 62.5vh; background-color: gray;">
+						<div style="width: 100%; height: 30vh; background-color: gray;">
 							
 						</div>
 					</td>
@@ -144,15 +184,15 @@
 			</table>
 			
 			<div>
-				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">전체글</button>
+				<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/freeBoard.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">전체글</button>
 				
 				<div style="float: right;">
 					<%if(dto.getWriter().equals(id))
 					{%>
-					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">수정</button>
-					<button type="button" onclick="location.href=''" style="font-size: 2vh; width: 6vh; height: 4vh;">삭제</button>
+					<button type="button" onclick="location.href=''" class="btn btn-outline-secondary btn-ghost btn-open-line">수정</button>
+					<button type="button" onclick="location.href=''" class="btn btn-outline-secondary btn-ghost btn-open-line">삭제</button>
 					<%}%>
-					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" style="font-size: 2vh; width: 8vh; height: 4vh;">글쓰기</button>
+					<button type="button" onclick="location.href='<%=root%>/subPage.jsp?main=board/insertFree.jsp'" class="btn btn-outline-secondary btn-ghost btn-open-line">글쓰기</button>
 				</div>
 			</div>
 		</form>

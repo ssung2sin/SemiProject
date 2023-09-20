@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://webfontworld.github.io/goodchoice/Jalnan.css" rel="stylesheet">
 <link
    href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Gaegu:wght@300&family=Noto+Serif+KR:wght@200&family=Single+Day&display=swap"
    rel="stylesheet">
@@ -45,8 +46,7 @@ div.main {
    height: 84%;
    font-size: 2vh;
    margin-left: 15%;
-   top: 15%;
-   
+   top: 15%;  
 }
 
 div.info {
@@ -59,7 +59,6 @@ div.info {
   display: inline-block;
   position:fixed;
   top:30%;
-  
 }
 
 div.hgintroduce{

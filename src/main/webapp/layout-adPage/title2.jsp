@@ -16,7 +16,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 #titlepage{
-   font-family:Wallpoet;
+   
    font-size: 5vh;
    color:gold;
    position: absolute;
@@ -31,6 +31,6 @@
 
 </head>
 <body>
-	<h1 id="titlepage">[]</h1>
+	<h1 id="titlepage">리스트</h1>
 </body>
 </html>
