@@ -195,10 +195,12 @@
 						<select id="expressName" name="b_name">
 						<%
 							String firstName="";
+							String firstB_id="";
 							for(int i=0;i<list.size();i++){
 								ExpressDto dto=list.get(i);
 								if(i==0){
 									firstName=dto.getB_name();
+									firstB_id=dto.getB_id();
 								}
 								%>
 								<option value="<%=dto.getB_id()%>"><%=dto.getB_name()%></option>
@@ -206,7 +208,7 @@
 							}
 							%>
 						</select>
-						<input type="hidden" name="b_id" id="returnBid" value="">
+						<input type="hidden" name="b_id" id="returnBid" value="<%=firstB_id%>">
 					</td>
 				</tr>
 				<tr valign="middle">
@@ -230,7 +232,7 @@
 					<td style="width: 31.25vh; background-color: #FFFF99;">비밀번호<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td class="form-group">
 						<input type="password" style="width: 25vh;" min="4" maxlength="16" required="required" name="s_pass"><br>
-						<span style="color: #999999; font-size: 2vh;">(영문 대소문자/숫자 4자~16자)</span>
+						<span style="color: #999999; font-size: 2vh;">(영문 대소문자/숫자/특수문자(!@#$%^*+=-) 4자~16자)</span>
 					</td>
 				</tr>
 				<tr valign="middle">
@@ -249,7 +251,7 @@
 					<td style="width: 31.25vh; background-color: #FFFF99;">상호명<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td class="form-group">
 						<span id="expressName2"><%=firstName %></span>
-						<input type="hidden" id="expressName3" name="shop_name1" value="덕평자연휴게소">
+						<input type="hidden" id="expressName3" name="shop_name1" value="<%=firstName%>">
 						<input type="text" style="width: 25vh;" name="shop_name2">
 					</td>
 				</tr>
