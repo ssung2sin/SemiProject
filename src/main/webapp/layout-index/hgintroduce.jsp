@@ -52,30 +52,23 @@ String root=request.getContextPath();
 		color:white;
 	}
 	
-	.icon{
-		/* border: 2px solid red; */
+	.iconbundle{
 		position: absolute;
-		background-size: cover;
 		top:53vh;
 		font-size: 5.5vh;
 		font-weight: bold;
 		color:white;
-		width: auto;
-		left:20vh;
 	}
 	
-	.iconbundle1{
-		padding-left: 9vh;
-		padding-right: 30vh;
+	#iconbundle1{
+		margin-left: 14%;
+	}
+	#iconbundle2{
+		margin-left: 49%;
 	}
 	
-	.iconbundle2{
-		padding-left: 34vh;
-		padding-right: 30vh;
-	}
-	
-	.iconbundle3{
-		padding-left: 32vh;
+	#iconbundle3{
+		margin-left: 83%;
 	}
 
 	.blackimg{
@@ -120,17 +113,17 @@ String root=request.getContextPath();
 	
 	#advantage1{
 		top: 63vh;
-		left: 12vh;	
+		left: 6.5%;	
 	}
 	
 	#advantage2{
 		top: 63vh;
-		left: 83.8vh;
+		left: 41%;
 	}
 	
 	#advantage3{
 		top: 63vh;
-		left: 154vh;
+		left: 75.5%;
 	}
 </style>
 <div class="introbox">
@@ -149,11 +142,10 @@ String root=request.getContextPath();
 	<div class="advantage" id="advantage3">
 		<a2>휴게소</a><br><a>음식 주문</a><br><a>예약 기능</a>
 	</div>
-	<div class="icon">
-		<span class="iconbundle1"><i class="bi bi-search"></i></span>
-		<span class="iconbundle2"><i class="bi bi-geo-alt"></i></span>
-		<span class="iconbundle3"><i class="bi bi-shop-window"></i></span>
-	</div>
+		<div id="iconbundle1" class="iconbundle"><i class="bi bi-search"></i></div>
+		<div id="iconbundle2" class="iconbundle"><i class="bi bi-geo-alt"></i></div>
+		<div id="iconbundle3" class="iconbundle"><i class="bi bi-shop-window"></i></div>
+
 <div>
 	<img class="blackimg" id="blackimg1" src="<%=root%>/image/IntroImage/blacklaurel.png">
 	<img class="blackimg" id="blackimg2" src="<%=root%>/image/IntroImage/blacklaurel.png">
