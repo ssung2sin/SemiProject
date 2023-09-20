@@ -281,4 +281,30 @@ public class ExpressDao {
 		}
 		   return bname;
 	   }
+	   public String getDataId(String name) {
+			String b_id="";
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select b_id from express where b_name=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					b_id=rs.getString(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			
+			return b_id;
+		}
 }

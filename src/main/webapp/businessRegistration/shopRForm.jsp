@@ -16,10 +16,11 @@
 		
 		$("#expressName").change(function(){
 			
-			var name=$(this).val();
+			var name=$("select[id=expressName] option:selected").text();
 			$("#expressName3").val(name);
 			$("#expressName2").text(name);
 			alert($("#expressName3").val());
+			$("#returnBid").val($(this).val());
 		});
 		
 		$("#s_number1").keyup(function(){
@@ -191,16 +192,21 @@
 				<tr valign="middle">
 					<td style="width: 31.25vh; background-color: #FFFF99;">휴게소선택<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td>
-						<select id="expressName" name="b_id">
+						<select id="expressName" name="b_name">
 						<%
+							String firstName="";
 							for(int i=0;i<list.size();i++){
 								ExpressDto dto=list.get(i);
+								if(i==0){
+									firstName=dto.getB_name();
+								}
 								%>
-								<option value="<%=dto.getB_name()%>"><%=dto.getB_name()%></option>
+								<option value="<%=dto.getB_id()%>"><%=dto.getB_name()%></option>
 								<%
 							}
 							%>
 						</select>
+						<input type="hidden" name="b_id" id="returnBid" value="">
 					</td>
 				</tr>
 				<tr valign="middle">
@@ -242,7 +248,7 @@
 				<tr valign="middle">
 					<td style="width: 31.25vh; background-color: #FFFF99;">상호명<span style="margin-left: 1.25vh; color: #FF3333">*</span></td>
 					<td class="form-group">
-						<span id="expressName2">덕평자연휴게소</span>
+						<span id="expressName2"><%=firstName %></span>
 						<input type="hidden" id="expressName3" name="shop_name1" value="덕평자연휴게소">
 						<input type="text" style="width: 25vh;" name="shop_name2">
 					</td>
