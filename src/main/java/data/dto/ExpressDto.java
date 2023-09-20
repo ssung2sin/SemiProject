@@ -9,6 +9,7 @@ public class ExpressDto {
 	private String b_hp;
 	private String s_hp;
 	private String image;
+	private String logoimg;
 	
 	public String getImage() {
 		return image;
@@ -52,5 +53,12 @@ public class ExpressDto {
 	public void setS_hp(String s_hp) {
 		this.s_hp = s_hp;
 	}
+	public String getLogoimg() {
+		return logoimg;
+	}
+	public void setLogoimg(String logoimg) {
+		this.logoimg = logoimg;
+	}
+	
 	
 }

@@ -20,7 +20,7 @@ public class ExpressDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into express values(?,?,?,?,?,?,?)";
+		String sql="insert into express values(?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -31,6 +31,7 @@ public class ExpressDao {
 			pstmt.setString(5, dto.getB_hp());
 			pstmt.setString(6, dto.getS_hp());
 			pstmt.setString(7, dto.getImage());
+			pstmt.setString(8, dto.getLogoimg());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -161,7 +162,7 @@ public class ExpressDao {
 	            dto.setB_hp(rs.getString("b_hp"));
 	            dto.setS_hp(rs.getString("s_hp"));
 	            dto.setImage(rs.getString("image"));
-	            
+	            dto.setLogoimg(rs.getString("logoimg"));
 	            list.add(dto);
 	         }
 	      } catch (SQLException e) {

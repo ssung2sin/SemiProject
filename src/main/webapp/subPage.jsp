@@ -75,7 +75,7 @@ myimg = dto.getImage();
 %>
 <style type="text/css">
 	body{
-   		background-image: url("image/<%=myimg%>");
+   		background-image: url("save/<%=myimg%>");
      	background-size: 100% 100vh;
     	background-attachment: scroll;
    		background-repeat: no-repeat;

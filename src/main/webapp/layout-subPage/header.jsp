@@ -26,22 +26,23 @@ span * {
     font-style: normal;
 }
 
-	.dv1{
+.dv1{
 	width: 100%;
 }
+
 #ttop {
-	background-color:rgba(255,255,255,0.7);
-   margin-top: -18px;
+   margin-top: -2vh;
    height: 10vh;
-   width: 100%;
-   
+   width: 60%;
+   margin-right: auto;
+   margin-left: auto; 
 }
 
 .topmenu {
    text-decoration: none;
    color: #696969;
    display: block;
-   font-size: 20px;
+   font-size: 2.5vh;
    font-family: 'nanumsquareround', sans-serif;
    font-weight:bold;
    margin-top: 30px;
@@ -51,9 +52,9 @@ span * {
    text-decoration: none;
    color: #696969;
    display: block;
-   font-size: 20px;
+   font-size: 2.5vh;
    font-family: 'nanumsquareround', sans-serif;
-   margin-top: 30px;
+   margin-top: 4vh;
 }
 
 .submenu a:hover{
@@ -64,9 +65,11 @@ span * {
 #ttop ul li {
    list-style: none;
    float: left;
-   line-height: 30px;
+   line-height: 40px;
    vertical-align: middle;
    text-align: center;
+   width:18vh; 
+   position:relative;
 }
 
 .submenu{
@@ -78,8 +81,9 @@ span * {
   height: 500px;
   transition-duration: 1s;
   }
+  
 
-
+h6 {position:absolute; top:2vh; left:4vh; }
 </style>
 <%
 //절대경로보기
@@ -120,10 +124,12 @@ System.out.println(inherence_HU);
 
 String myimg=null;
 String mytitle=null;
+String logoimg=null; 
 for (int i = 0; i < list.size(); i++) {
 	dto = list.get(i);
 	myimg = dto.getImage();
 	mytitle = dto.getB_name();
+	logoimg = dto.getLogoimg();
 }
 %>
 <script type="text/javascript">
@@ -154,39 +160,53 @@ $(function(){
 </head>
 <body>
 	<input type="hidden" id="b_id" value="<%=inherence_HU%>">
-<div class="dv1" style=" z-index:999; height: 0px;">
+	
+
+<div class="dv1" style=" z-index:999; height: 0px;">	
+	<h6>
+	<%
+	if(logoimg == null || logoimg == ""){ %>
+		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
+		<% }else{ %>
+		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"> <img style="width: 15vh;  background-size: cover;" src="save/<%=logoimg %>"> </b3>
+		<%} %>
+	</h6>
    <nav id="ttop" style="">
-   <ul class="t1">
+   <ul class="t1" >
       <%-- <li><img src="image/logo.png" style="margin-left: 40px; 
       cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"></li> --%>
       
-      
-      <li><!-- title 각휴게소 -->
+      <!-- title 각휴게소 -->
+      <%-- 
+      <li>
       	<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
-      </li>
+      </li> 
+      --%>
       
-      <li><!-- menu 시설안내 -->
-      	 <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">시설안내</a>
-         <ul class="submenu" style="margin-left: -20px;">
-         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 15px;">편의시설</a>
+      <!-- <li style="width: 150px; margin-left: 10vh;">menu 시설안내
+      	 <a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">시설안내</a> -->
+      <li style="width: 25vh;"><!-- menu 시설안내 -->
+      	 <a class="topmenu" style="width: 25vh;">시설안내</a>	 
+         <ul class="submenu" style="margin-left: -2vh;">
+         	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh;">편의시설</a>
          </ul>
       </li>
       
-      <li><!-- menu 음식점-->
-         <a href="#" class="topmenu" style="width: 150px; margin-left: 20px;">음식점</a>
-         <ul class="submenu" style="margin-left: -20px;">
-         	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 15px;">음식점</a>
+      <li style="width: 25vh;"><!-- menu 음식점-->
+         <a class="topmenu" style="width: 25vh;">음식점</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 2vh;">음식점</a>
          <%if(id!=null){
         	 if(s_id.equals(sdto.getB_id())&&loginok!=null){
         	 %>
-         <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 15px;">음식추가</a>
+         <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 2vh;">음식추가</a>
          <%
         	 }
          }
          if(id!=null){
         	 if((s_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
         	 %>   
-         <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 15px;">주문목록</a>
+         <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 2vh;">주문목록</a>
          <%
         	 }
          }
@@ -194,19 +214,19 @@ $(function(){
          </ul>
       </li>
       
-      <li><!-- menu 이벤트 -->
-         <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">이벤트</a>
-         <ul class="submenu" style="margin-left: -20px;">
-         <a href="" style="font-size: 15px;">진행중 이벤트</a>
-         <a href="" style="font-size: 15px;">종료 이벤트</a>
+      <li style="width: 25vh;"><!-- menu 이벤트 -->
+         <a class="topmenu" style="width: 25vh;">이벤트</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         <a href="" style="font-size: 2vh;">진행중 이벤트</a>
+         <a href="" style="font-size: 2vh;">종료 이벤트</a>
          </ul>
       </li>
       
-      <li><!-- menu 자유게시판-->
-      <a href="#" class="topmenu" style="width: 150px; margin-left: 5px;">게시판</a>
-         <ul class="submenu" style="margin-left: -20px;">
-         <a href="" style="font-size: 15px;">공지게시판</a>
-         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 15px;">자유게시판</a>
+      <li style="width: 25vh;"><!-- menu 자유게시판-->
+      <a class="topmenu" style="width: 25vh;">게시판</a>
+         <ul class="submenu" style="margin-left: -2vh;">
+         <a href="" style="font-size: 2vh;">공지게시판</a>
+         <a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" style="font-size: 2vh;">자유게시판</a>
          </ul>
       </li> 
    </ul>
