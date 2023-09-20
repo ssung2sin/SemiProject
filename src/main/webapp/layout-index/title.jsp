@@ -117,9 +117,15 @@ $(function(){
     	location.href="index.jsp?main=mypage/mypageForm.jsp";
     });
     $("#myadmin").click(function(){
-        location.href='index.jsp?main=adlogin/adLoginForm.jsp';
-    });
+    	location.href='index.jsp?main=adlogin/adLoginForm.jsp';
+	});
 
+    window.addEventListener("keyup", (e) => {
+    	  const key = document.getElementById(e.key);
+    	  if(key) {
+    		  key.classList.remove("pressed");
+    	  }
+    	});
  });
 
 

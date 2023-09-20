@@ -40,8 +40,6 @@ div.title {
    height: 15%;
    text-align: center;
 
-   
-
 }
 
 div.main {
@@ -49,8 +47,7 @@ div.main {
    height: 84%;
    font-size: 2vh;
    margin-left: 15%;
-   top: 15%;
-   
+   top: 15%;  
 }
 
 div.info {
@@ -63,7 +60,6 @@ div.info {
   display: inline-block;
   position:fixed;
   top:30%;
-  
 }
 
 div.hgintroduce{

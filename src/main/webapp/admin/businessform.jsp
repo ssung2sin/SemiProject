@@ -25,7 +25,7 @@
 %>
 <body>
 <div>
-	<table>
+	<table class="table table-striped" style="background-color: rgba(255,255,255,0.5)">
 		<tr>
 		<th>입점번호(ID)</th><th>비밀번호</th><th>이름</th><th>입점명</th><th>매장위치</th><th>매장전화번호</th><th>휴대폰</th><th>휴개소번호</th><th>수정/삭제</th>
 		</tr>

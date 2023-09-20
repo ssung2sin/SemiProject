@@ -331,11 +331,7 @@ function makeOutListener(infowindow) {
      infowindow.close();
   };
 }
-function qwer(){
-    alert("dddd");
-    
-    
-    
+function qwer(){    
     $("#map").empty();//맵 정보 날리기
     //$("#map_wrap").html('<div id="map"></div>');
     
@@ -369,26 +365,25 @@ map.setZoomable(false);
         dataType:"json",
         data:{"myname":$("#keyword").val()},
          success:function(res){
-          
+        	
 
           
             var s = "";
            $.each(res,function(idx,item){
-             
-                  s+="<table style='width:200px;' >";
-                  s+="<tr style=' border: 2px solid black;'><td style='font-size: 1.2em;'>"	+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
-                  s+="</td>";
-                  s+="</tr>";
-                  s+="</table>";
-                  
-           
-                  
-                  
+
+        	   var cilckgy = "location.href='subPage.jsp?id="+item.b_id+"'";
+        	   s+="<table style='width:25vh; cursor:pointer;' onclick="+cilckgy+">";
+               s+="<tr style=' border: 2px solid black;'><td style='font-size: 2vh;'>"+item.b_name+"<br>"+item.addr+"<br>s_HP:"+item.s_hp;
+               s+="</td>";
+               s+="</tr>";
+               s+="</table>";
                   //주소로 마커찍기
                   geocoder.addressSearch("'"+item.addr+"'", function(result, status) {
                      
                       // 정상적으로 검색이 완료됐으면 
                        if (status === kakao.maps.services.Status.OK) {
+                    	   
+                    	   
 
                           var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
@@ -442,16 +437,14 @@ map.setZoomable(false);
                   
                        }
                   });
+                  
+                  $("div.alist").html(s);
            });
-           
-           
-               $("div.alist").html(s);
-
          
      }
    });
 }
-      
+      $("#dsa").o
    </script>
 </body>
 </html>

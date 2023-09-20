@@ -19,7 +19,7 @@
 	AdDto dto =new AdDto();
 %>
 <body>
-<table>
+<table class="table table-striped" style="background-color: rgba(255,255,255,0.5)">
 		<tr>
 		<th>숫자</th><th>아이디</th><th>비밀번호</th><th>이름</th><th>전화번호</th><th>생년월일</th><th>이메일</th><th>가입날짜</th><th>수정/삭제</th>
 		</tr>

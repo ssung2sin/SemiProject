@@ -19,7 +19,7 @@
 	AdDto dto =new AdDto();
 %>
 <body>
-<table>
+<table class="table table-striped" style="background-color: rgba(255,255,255,0.5)">
 		<tr>
 		<th>사업자번호(ID)</th><th>비밀번호</th><th>휴개소이름</th><th>주소</th><th>휴대폰</th><th>전화번호</th><th>수정/삭제</th>
 		</tr>
