@@ -72,7 +72,7 @@ String allId=(String)session.getAttribute("id");
 if(grade.equals("shop"))
 {
 	selectId="s_id";
-	name="s_name";
+	name="shop_name";
 } else if(grade.equals("express")){
 	
 	selectId="b_id";

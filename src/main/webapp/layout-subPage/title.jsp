@@ -22,7 +22,7 @@
    	color:white;
    	font-size: 1.2rem;
    	cursor: pointer;
-   	right:8%;
+   	right:-8%;
    	top:50%;
    	transform: translate(-50%, -50%);
 }
@@ -46,7 +46,8 @@
         padding: 10px;
         width: 350px;
         display: none; /* Hide initially */
-    }
+}
+
 </style>
 <%
 //절대경로잡기
@@ -54,11 +55,11 @@ String root=request.getContextPath();
 
 //로그인세션_로그인/로그아웃 표현 위함,개인/사업자 db 접근 위함,아이디얻기
 String loginok=(String)session.getAttribute("loginok"); //로그인,로그아웃
-System.out.println(loginok);
+//System.out.println(loginok);
 String grade=(String)session.getAttribute("grade"); //개인,사업자
-System.out.println(grade);
+//System.out.println(grade);
 String id=(String)session.getAttribute("id"); //아이디
-System.out.println(id);
+//System.out.println(id);
 
 
 //db에 이름 반환해주는 메소드 사용하기
@@ -80,7 +81,7 @@ String allId=(String)session.getAttribute("id");
 if(grade.equals("shop"))
 {
 	selectId="s_id";
-	name="s_name";
+	name="shop_name";
 } else if(grade.equals("express")){
 	
 	selectId="b_id";
@@ -92,7 +93,7 @@ if(grade.equals("shop"))
 }
 
 if(loginok!=null){
-	System.out.println("hi");
+	System.out.println("로그인중 아님");
 	titleName=udao.allSelect(grade, id, name, selectId);
 }
 
@@ -136,14 +137,9 @@ $(function(){
    <section class="container">
    	<%
       if(loginok==null){%>
-         <h5><span id="login">로그인</span>
+         <h5><span id="login">로그인</span></h5>
       <%
       }else{%>
-      	<h5><% if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){%>
-			<i class="bi bi-bell-fill order-alert" style="width: 50px; height: 50px;"></i>
-      		<%
-   			}
-      	%></h5>
          <h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
          <%=titleName %>님 환영합니다&nbsp;&nbsp;
          <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span></h5>
