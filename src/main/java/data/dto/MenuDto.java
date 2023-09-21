@@ -9,7 +9,14 @@ public class MenuDto {
 	private String m_image;
 	private String category;
 	private String eng_category;
+	private String content;
 	
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getEng_category() {
 		return eng_category;
 	}

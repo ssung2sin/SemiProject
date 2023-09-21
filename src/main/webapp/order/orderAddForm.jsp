@@ -65,12 +65,19 @@ td{
 			}
 		})
 	})
+	function check() {	//인증번호가 같으면 submit
+		var content=$(".cont").val();
+		content=content.replace(/(?:\r\n|\r|\n)/g, '<br>');
+		$(".content").val(content);
+		
+		return true;
+	}
 
 </script>
 </head>
 <body>
 <div class="inputform" style="width: 650px;">
-		<form action="order/orderAddAction.jsp" method="post" enctype="multipart/form-data">
+		<form action="order/orderAddAction.jsp" method="post" enctype="multipart/form-data" onclick="return check()">
 			<input type="hidden" name="s_id" value="<%=id%>">
 			<table class="table table-bordered">
 				<caption align="top" style="font-family: 'Jalnan';"><b>상품등록</b></caption>
@@ -116,6 +123,16 @@ td{
 					 </td>
 				</tr>
 				<tr>
+					<th style="width: 150px;" class="table-success">	
+					 	<b>상품설명</b>
+					 </th>
+					<td>
+						<textarea class="cont" style="width: 450px;" class="form-control" required="required"
+        				placeholder="댓글 입력"></textarea>
+        				<input type="hidden" name="content" class="content">
+					</td>
+				</tr>
+				<tr>
 					 <th style="width: 150px;" class="table-success">	
 					 	<b>상품가격</b>
 					 </th>
@@ -129,7 +146,7 @@ td{
 						<button type="submit" class="btn btn-outline-success"
 						style="width: 100px;">상품저장</button>
 						<button type="button" class="btn btn-outline-info"
-						style="width: 100px;" onclick="location.href='index.jsp?main=shop/shoplist.jsp'">상품목록</button>
+						style="width: 100px;" onclick="location.href='subPage.jsp?main=shop/shopList.jsp'">상품목록</button>
 					</td>
 				</tr>
 			</table>
