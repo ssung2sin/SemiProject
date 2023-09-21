@@ -39,8 +39,8 @@
 		<tr>
 		<td><%=dto.getNum2() %></td><td><%=dto.getU_id2() %></td><td><%=dto.getU_pass()%></td><td><%=dto.getU_name()%></td><td><%=dto.getU_hp() %></td><td><%=dto.getU_birth() %></td><td><%=dto.getU_email() %></td><td><%=dto.getU_rdate() %></td>
 		<td>
-		<button type="button" class="btn btn-info">수정버튼</button>
-		<button type="button" class="btn btn-danger">삭제버튼</button>
+		<button type="button" onclick="location.href='#'" class="btn btn-info">수정버튼</button>
+		<button type="button" onclick="location.href='admin/individualdeleteaction.jsp?num=<%=dto.getNum2() %>'" class="btn btn-danger">삭제버튼</button>
 		</td>
 		</tr>
 		

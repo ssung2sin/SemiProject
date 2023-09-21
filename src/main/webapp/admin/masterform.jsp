@@ -39,8 +39,8 @@
 		<tr>
 		<td><%= dto.getB_id()%></td><td><%=dto.getB_pass() %></td><td><%=dto.getB_name()%></td><td><%=dto.getAddr()%></td><td><%=dto.getB_hp() %></td><td><%=dto.getS_hp() %></td>
 		<td>
-		<button type="button" class="btn btn-info">수정버튼</button>
-		<button type="button" class="btn btn-danger">삭제버튼</button>
+		<button type="button" onclick="location.href='#'" class="btn btn-info">수정버튼</button>
+		<button type="button" onclick="location.href='admin/masterdeleteaction.jsp?b_id=<%= dto.getB_id()%>'" class="btn btn-danger">삭제버튼</button>
 		</td>
 		</tr>
 		
