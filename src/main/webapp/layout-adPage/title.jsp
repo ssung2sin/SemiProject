@@ -15,20 +15,16 @@
 
 <title>Insert title here</title>
 <style type="text/css">
-#titlepage{
+#titlepageasa{
    font-family:Wallpoet;
    font-size: 5vh;
    color:gold;
-   position: absolute;
-   top:30%;
-   bottom:4%;
-   left:3vh;
    cursor: pointer;
 }
 </style>
 <script type="text/javascript">
 	$(function() {
-		$("#titlepage").click(function(){
+		$("#titlepageasa").click(function(){
 	    	location.href='adPage.jsp';
 	    });
 	});
@@ -37,6 +33,6 @@
 
 </head>
 <body>
-	<h1 id="titlepage">HG 관리자</h1>
+	<h1 id="titlepageasa">HG<br>관리자</h1>
 </body>
 </html>

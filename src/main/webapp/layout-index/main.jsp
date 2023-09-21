@@ -234,7 +234,7 @@ geocoder.addressSearch('<%=sr%>', function(result, status) {
      });
 
      var myimage='<%=dto.getImage()%>';
-     var mycontent ='<div style="border-radius: 2.5vh; border: 0.25vh solid black;width:150px;text-align:center;padding:6px 0;">';
+     var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
         mycontent += '<b><%=dto.getB_name()%></b>';
         mycontent += '<br>';
         mycontent += '<img src="save/<%=dto.getImage()%>" style="width:100%; height:70px">';
@@ -394,7 +394,7 @@ map.setZoomable(false);
                           });
 
                           var myimage=item.image;
-                          var mycontent ='<div style="border-radius: 2.5vh; border: 0.25vh solid black; width:150px;text-align:center;padding:6px 0;">';
+                          var mycontent ='<div style="width:150px;text-align:center;padding:6px 0;">';
                              mycontent += '<b>'+item.b_name+'</b>';
                              mycontent += '<br>';
                              mycontent += '<img src="save/'+myimage+'" style="width:100%; height:70px">';

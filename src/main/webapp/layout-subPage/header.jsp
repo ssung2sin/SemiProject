@@ -28,15 +28,18 @@ span * {
 
 .dv1{
 	width: 100%;
+	z-index:999;
+	height: 0px;
 }
 
 #ttop {
-   margin-top: -2vh;
+   position:absolute;
    height: 10vh;
    width: 100%;
    margin-right: auto;
    margin-left: auto; 
    background-color:rgba(255,255,255,0.7);
+ 
 }
 
 .topmenu {
@@ -46,7 +49,7 @@ span * {
    font-size: 2.5vh;
    font-family: 'nanumsquareround', sans-serif;
    font-weight:bold;
-   margin-top: 30px;
+   margin-top: 3vh;
 }
 
 .submenu a{
@@ -66,7 +69,7 @@ span * {
 #ttop ul li {
    list-style: none;
    float: left;
-   line-height: 40px;
+   line-height: 4vh;
    vertical-align: middle;
    text-align: center;
    width:18vh; 
@@ -79,12 +82,19 @@ span * {
 }
 
 #ttop:hover .submenu {
-  height: 500px;
+  height: 38vh;
   transition-duration: 1s;
   }
   
 
-h6 {position:absolute; top:2vh; left:4vh; }
+h6 {
+	z-index:1000;
+	font-size:5vh;
+	position:absolute;
+	top:2vh; 
+	left:4vh;
+	color: green;
+}
 </style>
 <%
 //절대경로보기
@@ -99,13 +109,13 @@ ShopDao sdao=new ShopDao();
 if(id!=null){
 	sdto=sdao.getData(id);
 }
-System.out.println("id="+id);
-String s_id=(String)session.getAttribute("inherence_HU");
+//System.out.println("id="+id);
+String b_id=sdto.getB_id();
 
-if(s_id==null){
-	s_id=request.getParameter("id");
+if(b_id==null){
+	b_id="";
 }
-System.out.println("s_id="+s_id);
+System.out.println("b_id="+b_id);
 if(grade==null){
 	grade="";
 }
@@ -113,13 +123,13 @@ if(grade==null){
 if(inherence_HU==null){
 	inherence_HU=(String)session.getAttribute("inherence_HU");
 }
-System.out.println("aaaaaaa"+(String)session.getAttribute("inherence_HU"));
+//System.out.println("aaaaaaa"+(String)session.getAttribute("inherence_HU"));
 
 ExpressDao dao=new ExpressDao();
 ExpressDto dto=new ExpressDto();
 
 List<ExpressDto> list=dao.getId(inherence_HU);
-System.out.println(inherence_HU);
+//System.out.println(inherence_HU);
 
 
 
@@ -149,11 +159,11 @@ $(function(){
 	//alert(s_id);
 	
 	  $("#ttop").mouseout(function(){
-	         $(".dv1").css("height","0px").css("background-color","white").css("transition","all 0.5s ease-in-out");
+	         $(".dv1").css("height","0vh").css("background-color","white").css("transition","all 0.5s ease-in-out");
 	      });
 	      
 	$("#ttop").mouseover(function(){
-        $(".dv1").css("height","400px").css("background-color","#F5F5F5").css("transition","all 0.5s ease-in-out");
+        $(".dv1").css("height","50vh").css("background-color","#F5F5F5").css("transition","all 0.5s ease-in-out");
      });
 });
 
@@ -163,14 +173,14 @@ $(function(){
 	<input type="hidden" id="b_id" value="<%=inherence_HU%>">
 	
 
-<div class="dv1" style=" z-index:999; height: 0px;">	
+<div class="dv1">	
 	<h6>
 	<%
 	if(logoimg == null || logoimg == ""){ %>
-		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
+		<b3 style="margin-left: 5vh; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"><%=mytitle %></b3>
 		<% }else{ %>
 
-		<b3 style="margin-left: 40px; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"> <img style="width: 15vh;  background-size: cover;" src="save/<%=logoimg %>"> </b3>
+		<b3 style="margin-left: 5vh; cursor: pointer;" onclick="location.href='<%=root%>/subPage.jsp'"> <img style="width: 15vh;  background-size: cover;" src="save/<%=logoimg %>"> </b3>
 
 		<%} %>
 	</h6>
@@ -200,14 +210,14 @@ $(function(){
          <ul class="submenu" style="margin-left: -4vh;">
          	<a href="<%=root%>/subPage.jsp?main=shop/shopList.jsp" style="font-size: 2vh;">음식점</a>
          <%if(id!=null){
-        	 if(s_id.equals(sdto.getB_id())&&loginok!=null){
+        	 if(b_id.equals(sdto.getB_id())&&loginok!=null){
         	 %>
          <a href="<%=root%>/subPage.jsp?main=order/orderAddForm.jsp" style="font-size: 2vh;">음식추가</a>
          <%
         	 }
          }
          if(id!=null){
-        	 if((s_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
+        	 if((b_id.equals(sdto.getB_id())||grade.equals("user"))&&loginok!=null){
         	 %>   
          <a href="<%=root%>/subPage.jsp?main=order/orderCheckPage.jsp" style="font-size: 2vh;">주문목록</a>
          <%

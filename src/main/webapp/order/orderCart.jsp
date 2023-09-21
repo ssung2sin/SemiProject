@@ -1,3 +1,5 @@
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="data.dto.MenuDto"%>
 <%@page import="data.dao.MenuDao"%>
@@ -96,7 +98,7 @@ div.allBox{
 	top: 640px;
 	width:300px;
 	vertical-align:middle;
-	font-size: 15px;
+	font-size: 12px;
 }
 .su{
 	width: 30px;
@@ -136,6 +138,9 @@ div.allBox{
 	UserDto udto = new UserDto();
 	udto = udao.getData(id);
 	
+	ShopDao sdao=new ShopDao();
+	ShopDto sdto=sdao.getData(s_id);
+	
 	NumberFormat nf=NumberFormat.getCurrencyInstance();
 %>
 <script type="text/javascript">
@@ -166,7 +171,7 @@ div.allBox{
 				s+="<tr><td class='td"+i+" td"+i+"first' style='width:130px;' id='td"+i+"' sang_num='"+sang_num+"'>"+name+"</td>";
 				s+="<td class='td"+i+"' style='width:100px;'><button type='button' class='minus minus"+i+"'>-</button> <span class='td"+i+"su su' name='su"+i+"'>1</span> "; 
 				s+="<button type='button' class='plus plus"+i+"'>+</button></td>";
-				s+="<td class='td"+i+" style='width:100px;' price price"+i+"' value='"+price+"'>"+price+"</td>";
+				s+="<td class='td"+i+" price price"+i+"' style='width:100px; text-align:center;' value='"+price+"'>"+price+"</td>";
 				s+="<td class='td"+i+" del'><button class='btn btn-danger sm del' style='font-size:5px;' td='td"+i+"'>x</button>";
 				s+="</tr>"
 			
@@ -229,7 +234,7 @@ div.allBox{
 			var totPrice=$("#total-price").text();
 			var s_id=$("#s_id").val();
 			var u_id='<%=id%>';
-			alert(u_id);
+			//alert(u_id);
 			for(var i=0;i<idx;i++){
 				if($(".price"+i).text()==0){
 					continue;
@@ -382,7 +387,7 @@ div.allBox{
 	<input type="hidden" id="s_id" value="<%=s_id%>">
 	<div class="allBox">
 		<div class="mt-3">
-			<img src="../shopimg/shop1.png"
+			<img src="../save/<%=sdto.getS_image() %>"
 				style="width: 120px; height: 120px; margin-left: 20px;"> <br>
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">

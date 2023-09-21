@@ -34,9 +34,10 @@
 		String category=multi.getParameter("category");
 		String eng_category=multi.getParameter("eng_category");
 		String[] categorySplit = category.split(",");
-		
+		String content=multi.getParameter("content");
 		int price=Integer.parseInt(multi.getParameter("price"));
 		String m_image=multi.getFilesystemName("m_image");
+		
 		
 		MenuDto dto=new MenuDto();
 		
@@ -46,6 +47,7 @@
 		dto.setMenu(menu);
 		dto.setPrice(price);
 		dto.setS_id(s_id);
+		dto.setContent(content);
 		
 		MenuDao dao=new MenuDao();
 		

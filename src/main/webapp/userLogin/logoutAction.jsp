@@ -15,8 +15,12 @@
 <body>
 <%
 	session.removeAttribute("loginok");
-	
-	response.sendRedirect("../index.jsp");
+	String b_id=(String)session.getAttribute("inherence_HU");
+	if(b_id!=null){
+		response.sendRedirect("../subPage.jsp?id="+b_id);
+	}else{
+		response.sendRedirect("../index.jsp");
+	}
 %>
 </body>
 </html>

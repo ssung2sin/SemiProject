@@ -175,7 +175,7 @@ System.out.println(categorylist.size());
 			//alert(s_id);
 			//alert(sang_num);
 				
-			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+			window.open("detailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
 		});
 		
 		$(document).on("click","div.new_menudiv",function(){
@@ -184,7 +184,7 @@ System.out.println(categorylist.size());
 			//alert(s_id);
 			//alert(sang_num);
 				
-			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+			window.open("detailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
 		});
 		
 		$(".rbtn").click(function(){

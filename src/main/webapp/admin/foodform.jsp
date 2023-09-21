@@ -45,8 +45,8 @@
 		<tr>
 		<td><%=dto.getNum() %></td><td><%=dto.getS_id() %></td><td><%=dto.getU_id() %></td><td><%=dto.getReceipt() %></td><td><%=dto.getTotal_price() %></td><td><%=dto.getOrder_time() %></td>
 		<td>
-		<button type="button" class="btn btn-info">수정버튼</button>
-		<button type="button" class="btn btn-danger">삭제버튼</button>
+		<button type="button" onclick="location.href='#'" class="btn btn-info">수정버튼</button>
+		<button type="button" onclick="location.href='admin/fooddeleteaction.jsp?num=<%=dto.getNum() %>'" class="btn btn-danger">삭제버튼</button>
 		</td>
 		</tr>
 		
