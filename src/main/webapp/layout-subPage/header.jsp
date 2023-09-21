@@ -188,7 +188,7 @@ $(function(){
       
       <!-- <li style="width: 150px; margin-left: 10vh;">menu 시설안내
       	 <a href="#" class="topmenu" style="width: 150px; margin-left: 10px;">시설안내</a> -->
-      <li style="width: 25vh; margin-left: 50vh;"><!-- menu 시설안내 -->
+      <li style="width: 25vh; margin-left: 40vh;"><!-- menu 시설안내 -->
       	 <a class="topmenu" style="width: 25vh;">시설안내</a>	 
          <ul class="submenu" style="margin-left: -4vh;">
          	<a href="<%=root %>/subPage.jsp?main=facilities/FacilitiesMain.jsp" style="font-size: 2vh;">편의시설</a>
