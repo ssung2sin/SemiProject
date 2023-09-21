@@ -45,7 +45,7 @@ h5>span{
 <%
 //절대경로잡기
 String root=request.getContextPath();
-
+session.removeAttribute("inherence_HU");
 //로그인세션_로그인/로그아웃 표현 위함,개인/사업자 db 접근 위함,아이디얻기
 String loginok=(String)session.getAttribute("loginok"); //로그인,로그아웃
 System.out.println(loginok);
