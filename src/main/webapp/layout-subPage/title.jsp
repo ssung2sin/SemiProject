@@ -20,7 +20,7 @@
 .container h5{
 	position:absolute;
    	color:white;
-   	font-size: 1.2rem;
+   	font-size: 2vh;
    	cursor: pointer;
    	right:8%;
    	top:50%;
@@ -29,7 +29,7 @@
 .container h1{
 	
    font-family:Wallpoet;
-   font-size: 5em;
+   font-size: 7vh;
    color:gold;
    cursor: pointer;
   position: absolute;
@@ -40,7 +40,7 @@
 .notification-panel {
         position: absolute;
         right:8%;
-   		top:110px;
+   		top:14vh;
         background-color: #ffffff;
         border: 1px solid #ccc;
         padding: 10px;
@@ -140,11 +140,11 @@ $(function(){
       <%
       }else{%>
       	<h5><% if((grade.equals("shop")||grade.equals("user"))&&loginok!=null){%>
-			<i class="bi bi-bell-fill order-alert" style="width: 50px; height: 50px;"></i>
+			<i class="bi bi-bell-fill order-alert" style="width: 5vh; height: 5vh;"></i>
       		<%
    			}
       	%></h5>
-         <h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.3em;"></i>&nbsp;
+         <h5><span id="titleName"><i class="bi bi-person-circle" style="font-size:1.5vh;"></i>&nbsp;
          <%=titleName %>님 환영합니다&nbsp;&nbsp;
          <input type="button" value="로그아웃" class="btn btn-danger" onclick="location.href='<%=root%>/userLogin/logoutAction.jsp'"></span></h5>
       <%}%>
