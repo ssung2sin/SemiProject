@@ -20,7 +20,7 @@ public class ExpressDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into express values(?,?,?,?,?,?,?)";
+		String sql="insert into express values(?,?,?,?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -31,6 +31,7 @@ public class ExpressDao {
 			pstmt.setString(5, dto.getB_hp());
 			pstmt.setString(6, dto.getS_hp());
 			pstmt.setString(7, dto.getImage());
+			pstmt.setString(8, dto.getLogoimg());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -161,7 +162,7 @@ public class ExpressDao {
 	            dto.setB_hp(rs.getString("b_hp"));
 	            dto.setS_hp(rs.getString("s_hp"));
 	            dto.setImage(rs.getString("image"));
-	            
+	            dto.setLogoimg(rs.getString("logoimg"));
 	            list.add(dto);
 	         }
 	      } catch (SQLException e) {
@@ -280,5 +281,30 @@ public class ExpressDao {
 		}
 		   return bname;
 	   }
-	
+	   public String getDataId(String name) {
+			String b_id="";
+			
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			
+			String sql="select b_id from express where b_name=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, name);
+				
+				rs=pstmt.executeQuery();
+				if(rs.next()) {
+					b_id=rs.getString(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			
+			return b_id;
+		}
 }

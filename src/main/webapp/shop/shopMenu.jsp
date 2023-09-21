@@ -1,3 +1,5 @@
+<%@page import="data.dto.ShopDto"%>
+<%@page import="data.dao.ShopDao"%>
 <%@page import="data.dto.UserDto"%>
 <%@page import="data.dao.UserDao"%>
 <%@page import="java.util.ArrayList"%>
@@ -16,6 +18,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
 <title>Insert title here</title>
 <style type="text/css">
 	div.menudiv{
@@ -39,7 +42,7 @@
 		
 	}
 	.orderBtn{
-		font-size:30px;
+		font-size:20px;
 		font-family: 'Jalnan';
 		margin-left: 450px;
 		border: 1px solid white;
@@ -77,6 +80,7 @@ UserDto udto=udao.getData(id);
 
 List<String> categorylist=new ArrayList<String>();
 categorylist=dao.getCategory(s_id);
+System.out.println(categorylist.size());
 %>
 <body>
 <script type="text/javascript">
@@ -103,14 +107,14 @@ categorylist=dao.getCategory(s_id);
 <input type="hidden" id="id" value="<%=id%>">
 <input type="hidden" id="s_id" value="<%=s_id%>">
 <%
-	for(int i=0;i<list.size();i++){
-		MenuDto dto=list.get(i);
-		if(s_id.equals("106-31-1000"+(i+1))){%>
-			<img src="../shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px; margin-left: 20px;">
+		ShopDao sdao=new ShopDao();
+		ShopDto sdto=sdao.getData(s_id);
+		%>
+			<img src="../save/<%=sdto.getS_image() %>" style="width: 186px; height: 186px; margin-left: 20px;">
 			<%
 			if(grade.equals("user")&&loginok!=null){ 
 				%>
-				<b class="name" style="font-family: 'Dongle'; font-size: 30px; margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
+				<b class="name" style="margin-left: 50px;"><%=udto.getU_name() %>님 환영합니다!</b>
 				<%
 				}
 			if(grade.equals("user")||grade.equals("")){
@@ -133,9 +137,7 @@ categorylist=dao.getCategory(s_id);
 				</span>
 			</div>
 			<input type="hidden" class="s_id" value="<%=s_id%>">
-		<%}
-	}
-%>
+
 
 
 <div align="center" style="margin-top: 5%; margin-bottom: 3%;" id="allbody">
@@ -173,7 +175,7 @@ categorylist=dao.getCategory(s_id);
 			//alert(s_id);
 			//alert(sang_num);
 				
-			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+			window.open("detailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
 		});
 		
 		$(document).on("click","div.new_menudiv",function(){
@@ -182,7 +184,7 @@ categorylist=dao.getCategory(s_id);
 			//alert(s_id);
 			//alert(sang_num);
 				
-			window.open("megaDetailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
+			window.open("detailPage.jsp?sang_num="+sang_num+"&s_id="+s_id,"_self","width=900, height=700, scrollbars=yes");
 		});
 		
 		$(".rbtn").click(function(){

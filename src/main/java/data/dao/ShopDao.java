@@ -15,18 +15,18 @@ public class ShopDao {
 	DBConnect db=new DBConnect();
 	
 	//select
-	public List<ShopDto> getAllShops(String s_id){
+	public List<ShopDto> getAllShops(String b_id){
 		List<ShopDto> list=new ArrayList<ShopDto>();
 		
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
 		
-		String sql="select * from shop where s_id=?";
+		String sql="select * from shop where b_id=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, s_id);
+			pstmt.setString(1, b_id);
 			rs=pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -40,6 +40,7 @@ public class ShopDao {
 				dto.setS_phone(rs.getString("s_phone"));
 				dto.setB_id(rs.getString("b_id"));
 				dto.setShop_hp(rs.getString("shop_hp"));
+				dto.setS_image(rs.getString("s_image"));
 				
 				list.add(dto);
 			}
@@ -104,6 +105,7 @@ public class ShopDao {
 				dto.setShop_addr(rs.getString("shop_addr"));
 				dto.setShop_hp(rs.getString("shop_hp"));
 				dto.setShop_name(rs.getString("shop_name"));
+				dto.setS_image(rs.getString("s_image"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

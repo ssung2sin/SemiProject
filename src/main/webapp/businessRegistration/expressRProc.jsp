@@ -25,7 +25,9 @@ String root=request.getContextPath();
 		String s_hp=multi.getParameter("s_hp1")+"-"+multi.getParameter("s_hp2")+"-"+multi.getParameter("s_hp3");
 		String b_hp=multi.getParameter("b_hp1")+"-"+multi.getParameter("b_hp2")+"-"+multi.getParameter("b_hp3");
 		String image=multi.getFilesystemName("image");
-		System.out.println(addr);
+		String logoimg=multi.getFilesystemName("logoimg");
+
+		
 		ExpressDto dto=new ExpressDto();
 		dto.setB_id(b_id);
 		dto.setB_pass(b_pass);
@@ -34,6 +36,7 @@ String root=request.getContextPath();
 		dto.setS_hp(s_hp);
 		dto.setB_hp(b_hp);
 		dto.setImage(image);
+		dto.setLogoimg(logoimg);
 		
 		ExpressDao dao=new ExpressDao();
 		dao.insertExpress(dto);

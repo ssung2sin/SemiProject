@@ -33,8 +33,8 @@
 </head>
 <%
 ShopDao dao=new ShopDao();
-String s_id=(String)session.getAttribute("s_id");
-
+String s_id=(String)session.getAttribute("inherence_HU");
+System.out.println("bid="+s_id);
 List<ShopDto> list=dao.getAllShops(s_id);
 %>
 <body>
@@ -48,7 +48,7 @@ List<ShopDto> list=dao.getAllShops(s_id);
 	%>
 			<td>
 				<div style="background-color: white;"align="center" class="shopdiv" s_id="<%=dto.getS_id()%>">
-					<img src="shopimg/shop<%=i+1 %>.png" style="width: 186px; height: 186px;">
+					<img src="save/<%=dto.getS_image() %>" style="width: 186px; height: 186px;">
 					<b style="font-size: 13px; background-color: white;"><%=dto.getShop_name() %></b>
 				</div>
 			</td>

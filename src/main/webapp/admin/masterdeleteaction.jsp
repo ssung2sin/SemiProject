@@ -1,3 +1,4 @@
+<%@page import="data.dao.AdDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +11,22 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+String root=request.getContextPath();
 
+String b_id=request.getParameter("b_id");
+String currentPage=request.getParameter("currentPage");
+
+System.out.println(currentPage);
+
+//db로부터 저장된 이미지명 얻기
+AdDao dao=new AdDao();
+
+//db삭제
+	dao.deletemaster(b_id);
+
+//보던페이지로 이동
+response.sendRedirect(root+"/adPage.jsp?main=admin/masterform.jsp");
+%>
 </body>
 </html>

@@ -121,7 +121,7 @@
 		
 		if(check)
 		{
-			location.href="<%=root%>/subPage.jsp?main=board/deleteBoard.jsp?num="+num+"&currentPage="+currentPage;
+			location.href="<%=root%>/board/deleteBoard.jsp?num="+num+"&currentPage="+currentPage;
 		}
 		else
 		{
@@ -133,7 +133,7 @@
 </head>
 <body>
 	<div>
-		<form action="">
+		<form>
 			<table class="table table-bordered" style="width: 100%; margin-left: 0.75vh;">
 				<caption align="top"><a href="<%=root%>/subPage.jsp?main=board/freeBoard.jsp" class="freeboard"><span style="font-size: 4vh;"><b>자유게시판</b></span></a></caption>
 				<tr>

@@ -30,31 +30,31 @@ if (request.getParameter("main")!= null) {
 
 	div.main{
 	margin-top:10vh;
-   		width: 174vh;
+   		width: 85%;
    		height: 90vh;
    		font-size: 2vh;
-   		margin-left: 31vh;
-		background-color: rgba(50,0,0,0.3);
+   		margin-left: 15%;
+		background-color: rgba(25,0,0,0.1);
 	}
 	
 	div.menu {
-	 margin-top:10vh;
-  	 width: 31vh;
+	 margin-top:20vh;
+  	 width: 15%;
   	 height: 100vh;
   	 background-color:rgba(0,0,0,0.7);
 	}
 	
 	div.title {
-  	 width: 31vh;
-  	 height: 10vh;
+  	 width: 15%;
+  	 height: 20vh;
   	 background-color:blue;
-  	 background-color:rgba(0,0,0,0.7);
+  	 background-color:rgba(0,0,0,0.8);
 	}
 	div.title2 {
-  	 width: 174vh;
-  	 margin-left: 31vh;
+  	 width: 85%;
+  	 margin-left: 15%;
   	 height: 10vh;
-  	 background-color:rgba(0,0,50,0.3);
+  	 background-color:rgba(0,0,50,0);
   	 /*background-color:rgba(0,0,0,0.7);*/
 	}
 </style>
@@ -67,7 +67,7 @@ if (request.getParameter("main")!= null) {
 <div class="layout main">
 	<jsp:include page='<%=mainPage %>'/>
 </div>
-<div class="layout title">
+<div align="center" class="layout title">
 	<jsp:include page="layout-adPage/title.jsp"/>
 </div>
 <div class="layout title2">

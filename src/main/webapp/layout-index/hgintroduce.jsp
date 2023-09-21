@@ -26,108 +26,104 @@ String root=request.getContextPath();
 		position: absolute;
 		text-align: center;
 		top: 3vh;
-		left: 65vh;
+		left: 25%;
+		width: 50%;
 	}
 	
 	#intro_text1{
-		font-size: 30px;
+		font-size: 4vh;
 		font-family:Dongle;
 	}
 	
 	#intro_text2{
-		font-size: 80px;
+		font-size: 10vh;
 		font-family:Wallpoet;
 		font-weight: bold;
 	}
 	
 	#intro_text3{
-		font-size: 40px;
+		font-size: 5vh;
 		font-family: Jalnan;
 	}
 	
 	.introbox h6{
 		font-family: Nanum Pen Script;
-		font-size:20px;
+		font-size:2.5vh;
 		color:white;
 	}
 	
-	.icon{
-		/* border: 2px solid red; */
+	.iconbundle{
 		position: absolute;
 		top:53vh;
-		font-size: 45px;
+		font-size: 5.5vh;
 		font-weight: bold;
 		color:white;
-		width: auto;
-		left:20vh;
 	}
 	
-	.iconbundle1{
-		padding-left: 9vh;
-		padding-right: 30vh;
+	#iconbundle1{
+		margin-left: 14%;
+	}
+	#iconbundle2{
+		margin-left: 49%;
 	}
 	
-	.iconbundle2{
-		padding-left: 34vh;
-		padding-right: 30vh;
-	}
-	
-	.iconbundle3{
-		padding-left: 32vh;
+	#iconbundle3{
+		margin-left: 83%;
 	}
 
 	.blackimg{
 		position: absolute;
-		width: 50vh;
+		width: 25%;
 		height: 43vh;
 	}
 	
 	#blackimg1{
 		top: 55vh;
-		left: 8vh;
+		margin-left: 3%;
 	}
 	
 	#blackimg2{
 		top: 55vh;
-		left: 79vh;
+		margin-left: 37.5%;
 	}
 	
 	#blackimg3{
 		top: 55vh;
-		left: 149vh;
+		margin-left: 72%;
 	}
 	
 	.advantage{
 		border-radius: 50%;
 		position: absolute;
-		width:300px;  /* 250 */
-		height:280px;
+		width:18%;  /* 250 */
+		height:35vh;
 		text-align: center;
 		/* margin-top: 4vh; */
-		padding-top: 20px;
+		padding-top: 3vh;
 		font-family: Jalnan;
 		animation: bounce2 4s ease infinite;
+		font-size: 4.5vh;
 	}
 	
 	 @keyframes bounce2 {
 		0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-		40% {transform: translateY(-30px);}
-		60% {transform: translateY(-15px);}
+		40% {transform: translateY(-5vh);}
+		60% {transform: translateY(-2vh);}
 	}
 	
 	#advantage1{
 		top: 63vh;
-		left: 12vh;	
+		left: 6.5%;	
 	}
 	
 	#advantage2{
 		top: 63vh;
-		left: 83.8vh;
+		left: 41%;
 	}
 	
 	#advantage3{
 		top: 63vh;
-		left: 154vh;
+		left: 75.5%;
 	}
 </style>
 <div class="introbox">
@@ -138,19 +134,18 @@ String root=request.getContextPath();
 	<h6>We will continue to work hard to provide better services.</h6>
 </div>
 	<div class="advantage" id="advantage1">
-		<h2>휴게소</h2><h2>간편 찾기</h2><h2>기능</h2>
+		<a>휴게소</a><br><a>간편 찾기</a><br><a>기능</a>
 	</div>
 	<div class="advantage" id="advantage2">
-		<h2>휴게소</h2><h2>시설 확인</h2><h2>기능</h2>
+		<a>휴게소</a><br><a>시설 확인</a><br><a>기능</a>
 	</div>
 	<div class="advantage" id="advantage3">
-		<h2>휴게소</h2><h2>음식 주문</h2><h2>예약 기능</h2>
+		<a2>휴게소</a><br><a>음식 주문</a><br><a>예약 기능</a>
 	</div>
-	<div class="icon">
-		<span class="iconbundle1"><i class="bi bi-search"></i></span>
-		<span class="iconbundle2"><i class="bi bi-geo-alt"></i></span>
-		<span class="iconbundle3"><i class="bi bi-shop-window"></i></span>
-	</div>
+		<div id="iconbundle1" class="iconbundle"><i class="bi bi-search"></i></div>
+		<div id="iconbundle2" class="iconbundle"><i class="bi bi-geo-alt"></i></div>
+		<div id="iconbundle3" class="iconbundle"><i class="bi bi-shop-window"></i></div>
+
 <div>
 	<img class="blackimg" id="blackimg1" src="<%=root%>/image/IntroImage/blacklaurel.png">
 	<img class="blackimg" id="blackimg2" src="<%=root%>/image/IntroImage/blacklaurel.png">

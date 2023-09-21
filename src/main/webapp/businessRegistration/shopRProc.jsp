@@ -31,11 +31,6 @@
 		String b_id=multi.getParameter("b_id");
 		
 		
-		if(b_id.equals("덕평자연휴게소"))
-		{
-			b_id="106-33-15937";
-		}
-		
 		String s_id=multi.getParameter("s_id1")+"-"+multi.getParameter("s_id2")+"-"+multi.getParameter("s_id3");
 		String s_pass=multi.getParameter("s_pass");
 		String s_name=multi.getParameter("s_name");

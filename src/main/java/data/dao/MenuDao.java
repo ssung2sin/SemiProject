@@ -24,7 +24,7 @@ public class MenuDao {
 		Connection conn=db.getConnection();
 		PreparedStatement pstmt=null;
 		
-		String sql="insert into menu values(null,?,?,?,0,?,?,?)";
+		String sql="insert into menu values(null,?,?,?,0,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -34,6 +34,7 @@ public class MenuDao {
 			pstmt.setString(4, dto.getM_image());
 			pstmt.setString(5, dto.getCategory());
 			pstmt.setString(6, dto.getEng_category());
+			pstmt.setString(7, dto.getContent());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -69,6 +70,7 @@ public class MenuDao {
 					dto.setM_score(rs.getDouble("m_score"));
 					dto.setM_image(rs.getString("m_image"));
 					dto.setCategory(rs.getString("category"));
+					dto.setContent(rs.getString("content"));
 					
 					list.add(dto);
 				}
@@ -106,6 +108,7 @@ public class MenuDao {
 	            dto.setM_score(rs.getDouble("m_score"));
 	            dto.setM_image(rs.getString("m_image"));
 	            dto.setCategory(rs.getString("category"));
+	            dto.setContent(rs.getString("content"));
 	         }
 	         
 	      } catch (SQLException e) {
@@ -191,6 +194,7 @@ public class MenuDao {
 				dto.setPrice(rs.getInt("price"));
 				dto.setMenu(rs.getString("menu"));
 				dto.setM_score(rs.getDouble("m_score"));
+				dto.setContent(rs.getString("content"));
 					
 				list.add(dto);
 			}

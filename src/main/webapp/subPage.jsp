@@ -75,7 +75,7 @@ myimg = dto.getImage();
 %>
 <style type="text/css">
 	body{
-   		background-image: url("image/<%=myimg%>");
+   		background-image: url("save/<%=myimg%>");
      	background-size: 100% 100vh;
     	background-attachment: scroll;
    		background-repeat: no-repeat;
@@ -123,7 +123,7 @@ myimg = dto.getImage();
   	 background-color:rgba(0,0,0,0.7);
 	}
 	div.mainwhite{
-	top: 20vh;
+		top: 20vh;
 		width:100%;
 		height: 80vh;
 		background-color:rgba(255,255,255,0.5);

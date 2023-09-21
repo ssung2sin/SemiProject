@@ -15,7 +15,7 @@
 <body>
 <%
 	session.removeAttribute("loginok");
-	
+
 	response.sendRedirect("../index.jsp");
 %>
 </body>

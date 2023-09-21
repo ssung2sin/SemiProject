@@ -45,8 +45,8 @@
 		<tr>
 		<td><%=dto.getS_id2() %></td><td><%=dto.getS_pass() %></td><td><%=dto.getS_name() %></td><td><%=dto.getShop_name() %></td><td><%=dto.getShop_addr() %></td><td><%=dto.getShop_hp() %></td><td><%=dto.getS_phone() %></td><td><%=dto.getB_id2() %></td>
 		<td>
-		<button type="button" class="btn btn-info">수정버튼</button>
-		<button type="button" class="btn btn-danger">삭제버튼</button>
+		<button type="button" onclick="location.href='#'" class="btn btn-info">수정버튼</button>
+		<button type="button" onclick="location.href='admin/businessdeleteaction.jsp?s_id=<%=dto.getS_id2() %>'" class="btn btn-danger">삭제버튼</button>
 		</td>
 		</tr>
 		

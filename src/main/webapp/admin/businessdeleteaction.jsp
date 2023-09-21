@@ -1,4 +1,5 @@
-<%@page import="data.dao.BoardDao"%>
+
+<%@page import="data.dao.AdDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,20 +14,17 @@
 <body>
 <%
 	String root=request.getContextPath();
-	
-	String num=request.getParameter("num");
-	String currentPage=request.getParameter("currentPage");
-	
-	System.out.println(currentPage);
+
+	String s_id=request.getParameter("s_id");
 	
 	//db로부터 저장된 이미지명 얻기
-	BoardDao dao=new BoardDao();
-	
+	AdDao dao=new AdDao();
+
 	//db삭제
-	dao.deleteBoard(num);
-	
+	dao.deletebusiness(s_id);
+
 	//보던페이지로 이동
-	response.sendRedirect(root+"/subPage.jsp?main=board/freeBoard.jsp?currentPage="+currentPage);
+	response.sendRedirect(root+"/adPage.jsp?main=admin/businessform.jsp");
 %>
 </body>
 </html>

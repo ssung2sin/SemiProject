@@ -79,6 +79,25 @@ public class AdDao {
 			
 			return list;
 		}
+		//delete
+		public void deleteOrder(String num)
+		{
+			Connection conn=db.getConnection();
+			PreparedStatement pstmt=null;
+			
+			String sql="delete from order_menu where num=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, num);
+				pstmt.execute();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} finally {
+				db.dbClose(pstmt, conn);
+			}
+		}
 		//개인 회원 조회
 		
 		public List<AdDto> selectindiv() {
@@ -117,7 +136,25 @@ public class AdDao {
 			
 			return list;
 		}
-		
+		//delete
+				public void deleteindiv(String num)
+				{
+					Connection conn=db.getConnection();
+					PreparedStatement pstmt=null;
+					
+					String sql="delete from user where num=?";
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setString(1, num);
+						pstmt.execute();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally {
+						db.dbClose(pstmt, conn);
+					}
+				}
 		
 		//휴개소 회원 조회
 		
@@ -155,7 +192,25 @@ public class AdDao {
 			
 			return list;
 		}
-		
+		//delete
+				public void deletemaster(String b_id)
+				{
+					Connection conn=db.getConnection();
+					PreparedStatement pstmt=null;
+					
+					String sql="delete from express where b_id=?";
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setString(1, b_id);
+						pstmt.execute();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally {
+						db.dbClose(pstmt, conn);
+					}
+				}
 		
 		//입점주 회원조회
 		
@@ -195,5 +250,25 @@ public class AdDao {
 			
 			return list;
 		}
+		
+		//delete
+				public void deletebusiness(String s_id)
+				{
+					Connection conn=db.getConnection();
+					PreparedStatement pstmt=null;
+					
+					String sql="delete from shop where s_id=?";
+					
+					try {
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setString(1, s_id);
+						pstmt.execute();
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} finally {
+						db.dbClose(pstmt, conn);
+					}
+				}
 		
 }
