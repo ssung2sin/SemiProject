@@ -16,24 +16,20 @@
 
 <style>
 
-.link a{ cursor: pointer;}
-
-html,body{min-height:100%; font-family: }
-html,body,div,ul,li,dl,dt,dd,p,h2,h3,h4,a,span,form,input, select { margin:0; padding:0; }
-a { border:0; text-decoration:none; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; letter-spacing:-0.3px; }
+html,body{min-height:100%; font-family: 'NanumSquare'; margin:0; padding:0; }
+div,ul,li,dl,dt,dd,p,h2,h3,h4,a,span,form,input, select { margin:0; padding:0; }
 ul,dl,ol { list-style:none; }
 img { max-width:100%; border:0; vertical-align:top; -webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select: none; }
-body { min-width:1024px; font:normal 14px 'Noto Sans KR',sans-serif; color:#555; letter-spacing:-0.3px;}
-table { width:100%; border-collapse:collapse; font:normal 14px 'Noto Sans KR',sans-serif; color:#333; }
-input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color:#555; }
+body { min-width:1024px; font:normal 14px 'NanumSquare',sans-serif; color:#555; letter-spacing:-0.3px;}
+table { width:100%; border-collapse:collapse; font:normal 14px 'NanumSquare',sans-serif; color:#333; }
+input,select,textarea,button { font:normal 14px 'NanumSquare',sans-serif; color:#555; }
 
-#container { padding-top:101px; position: relative; background-color: white; font-family: font-family: 'NanumSquare';}
+#container { padding-top:101px; position: relative; background-color: white; font-family:'NanumSquare';}
 #container h2 { margin-bottom:58px; font-size:5vh; font-weight:700; color:#292c25; text-align:center; letter-spacing:-1px; align-content: center; color: #66CC66;}
 .backgroundImage { background-image: url("image/Facilities.jpg"); background-size: cover; height: 20vh; width: 130.05vh; }
 .backgroundImage > h2 { height: 25vh; padding-top: 23px;}
 
 #contents { width:960px; padding:70px 0 100px; margin:0 auto; }
-
 
 .item_02 > ul > li { padding-top:50px; overflow:hidden; }
 .item_02 > ul > li:first-child { padding-top:0; }
@@ -49,6 +45,7 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 .item_02 > ul > li .img { width:520px; height: 260px;}
 .item_02 > ul > li.left .img { float:left; }
 .item_02 > ul > li.left .txt { float:right; padding-left:50px; }
+
 .item_02 > ul > li.right .img { float:right; }
 .item_02 > ul > li.right .txt { float:left; padding-right:55px; }
 
@@ -62,6 +59,10 @@ input,select,textarea,button { font:normal 14px 'Noto Sans KR',sans-serif; color
 .article dl dd { margin-top:12px; font-size:15px; line-height:150%; color:#666; }
 .article dl dd.info { margin-top:12px; font-size:14px; color:#888; }
 
+
+
+a { border:0; text-decoration:none; font:normal 14px 'NanumSquare',sans-serif; color:#333; letter-spacing:-0.3px; cursor: pointer;}
+/* modal Css */
 #mapsLayerBackground { position: absolute; z-index: 1;}
 #mapsLayerPoint { position: relative; z-index: 100; }
 div.modal{font-family: 'NanumSquare';}
@@ -70,13 +71,13 @@ div.modal-dialog { position: relative; z-index: 2000; }
 div.modal-content { position: relative; z-index: 3000; }
 div.modal-footer { position: relative; z-index: 9999; }
 
-
 .flicker{
    -webkit-animation: blink 0.5s ease-in-out infinite alternate; 
    -moz-animation: blink 0.5s ease-in-out infinite alternate;
    animation: blink 0.5s ease-in-out infinite alternate;
 }
-/* 웹키트 : 애플 브라우저에서 사용 */
+
+/* 웹키트 : 애플 브라우저(Mac 등의 ios기반) 에서 사용 */
  @-webkit-keyframes blink{
   0% {opacity: 0;}
   100% {opacity: 1;}
@@ -91,7 +92,7 @@ div.modal-footer { position: relative; z-index: 9999; }
   0% {opacity: 0;}
   100% {opacity: 1;}
 } 
-
+/* modal Css */
 </style>
 
 <body>
