@@ -110,7 +110,7 @@ if(id!=null){
 	sdto=sdao.getData(id);
 }
 //System.out.println("id="+id);
-String b_id=(String)session.getAttribute("inherence_HU");
+String b_id=sdto.getB_id();
 
 if(b_id==null){
 	b_id="";

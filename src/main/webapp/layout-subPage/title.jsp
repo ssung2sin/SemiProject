@@ -93,7 +93,7 @@ if(grade.equals("shop"))
 }
 
 if(loginok!=null){
-	System.out.println("로그인중 아님");
+	System.out.println("로그인중");
 	titleName=udao.allSelect(grade, id, name, selectId);
 }
 
