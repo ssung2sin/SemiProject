@@ -107,7 +107,7 @@ Map 활용 전국 휴게소 찾기!! <br>
 - 오더페이지&결제API(카카오페이&토스)
 ![결제 및 오더페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/6504b94a-b4b6-46e2-8b49-2639138806bc)
 - 매장&유저 주문창
-https://github.com/jooyoungsong/SemiProject/assets/136788985/a8048209-35e5-4e0a-9923-3bfbcd0467fa
+[https://github.com/jooyoungsong/SemiProject/assets/136788985/a8048209-35e5-4e0a-9923-3bfbcd0467fa](https://github-production-user-asset-6210df.s3.amazonaws.com/136788985/270375387-a8048209-35e5-4e0a-9923-3bfbcd0467fa.mp4)
 - 이메일API&난수발생
 ![난수발생](https://github.com/jooyoungsong/SemiProject/assets/136788985/eba3a3ba-2e5c-48f3-9d72-77c4ced922e3)
 
