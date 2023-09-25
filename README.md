@@ -1,5 +1,5 @@
 <div align='left'>
-<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=100&fontColor=d6ace6" />
+<img width="40%" alt="image-removebg-preview" src="https://github.com/jooyoungsong/SemiProject/assets/111737185/cb02d8b6-36d5-4911-8a14-7c72bc2a6af3">
 <br>
 휴게소 통합 사이트
 한 눈에 전국 휴게소 찾기 <br>
@@ -78,3 +78,32 @@ Map 활용 전국 휴게소 찾기!! <br>
   - Git 주소 : https://github.com/ssung2sin
 - 윤호석 이메일 : hs970216@naver.com
   - Git 주소 : https://github.com/otfeb
+
+
+## 시연 영상
+
+### 김석진
+- 휴게소 위치 찾기
+![KakaoTalk_Photo_2023-09-25-17-15-59 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/994362ea-939c-4b2c-a99e-3632912caa2e)
+
+### 최성현
+- 회원가입 유효성 검사 및 주소 API
+![회원가입 유효성 검사](https://github.com/jooyoungsong/SemiProject/assets/111737185/588cd1cf-93e3-4684-925f-f404b928e0b2)
+- 게시글 인기글 모음 및 버튼 CSS
+![인기글 모음 및 버튼 css](https://github.com/jooyoungsong/SemiProject/assets/111737185/4aa9fae6-7bb3-48fb-83bd-9c4fe75829fa)
+- 게시글 수 변경
+![게시물 갯수](https://github.com/jooyoungsong/SemiProject/assets/111737185/c13cb02a-9d2a-46f0-a9a6-af09c3525cc0)
+
+### 이성신
+- 음식추가
+![KakaoTalk_Photo_2023-09-25-17-22-40](https://github.com/jooyoungsong/SemiProject/assets/111737185/a005f68f-06cc-44aa-be73-2dec0f46a4ec)
+
+### 윤호석
+- 휴면계정 이메일 인증 1
+![KakaoTalk_Photo_2023-09-25-17-21-12 001](https://github.com/jooyoungsong/SemiProject/assets/111737185/0cbfab6d-9f0c-4b04-b633-7f108c997ffe)
+- 휴면계정 이메일 인증 2
+![KakaoTalk_Photo_2023-09-25-17-21-12 002](https://github.com/jooyoungsong/SemiProject/assets/111737185/648f8219-ac9e-4974-a187-c4d41d740bb7)
+- 매장 페이지 기능 1
+![KakaoTalk_Photo_2023-09-25-17-21-12 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/696ed586-2d24-423b-8bfe-dad85f361bee)
+- 매장 페이지 기능 2
+![KakaoTalk_Photo_2023-09-25-17-21-12 004](https://github.com/jooyoungsong/SemiProject/assets/111737185/df33197b-f45d-48bc-929b-3364ed6cffda)
