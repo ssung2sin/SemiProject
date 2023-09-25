@@ -102,6 +102,14 @@ Map 활용 전국 휴게소 찾기!! <br>
 ### 이성신
 - 음식추가
 ![KakaoTalk_Photo_2023-09-25-17-22-40](https://github.com/jooyoungsong/SemiProject/assets/111737185/a005f68f-06cc-44aa-be73-2dec0f46a4ec)
+- 디테일페이지
+![디테일 페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/00ffc9ee-2204-41af-9fb0-e7a00929db20)
+- 오더페이지&결제API(카카오페이&토스)
+![결제 및 오더페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/6504b94a-b4b6-46e2-8b49-2639138806bc)
+- 매장&유저 주문창
+ 
+- 이메일API&난수발생
+![난수발생](https://github.com/jooyoungsong/SemiProject/assets/136788985/eba3a3ba-2e5c-48f3-9d72-77c4ced922e3)
 
 ### 윤호석
 - 휴면계정 이메일 인증 1
