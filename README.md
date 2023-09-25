@@ -85,6 +85,9 @@ Map 활용 전국 휴게소 찾기!! <br>
 ### 김석진
 - 휴게소 위치 찾기
 ![KakaoTalk_Photo_2023-09-25-17-15-59 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/994362ea-939c-4b2c-a99e-3632912caa2e)
+-
+
+-
 
 ### 최성현
 - 회원가입 유효성 검사 및 주소 API
