@@ -1,11 +1,13 @@
 <div align='left'>
-<img width="40%" alt="image-removebg-preview" src="https://github.com/jooyoungsong/SemiProject/assets/111737185/cb02d8b6-36d5-4911-8a14-7c72bc2a6af3">
+<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=90&fontColor="#f7f5f5"&color=gradient />
 <br>
+<div >
 휴게소 통합 사이트
 한 눈에 전국 휴게소 찾기 <br>
 Map 활용 전국 휴게소 찾기!! <br>
 휴게소 음식 예약 주문 대기시간 단축!! <br>
 휴게소 이용객의 편의성을 고려한 HG
+</div>
 </div>
 
 
@@ -85,9 +87,6 @@ Map 활용 전국 휴게소 찾기!! <br>
 ### 김석진
 - 휴게소 위치 찾기
 ![KakaoTalk_Photo_2023-09-25-17-15-59 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/994362ea-939c-4b2c-a99e-3632912caa2e)
--
-
--
 
 ### 최성현
 - 회원가입 유효성 검사 및 주소 API
@@ -96,6 +95,9 @@ Map 활용 전국 휴게소 찾기!! <br>
 ![인기글 모음 및 버튼 css](https://github.com/jooyoungsong/SemiProject/assets/111737185/4aa9fae6-7bb3-48fb-83bd-9c4fe75829fa)
 - 게시글 수 변경
 ![게시물 갯수](https://github.com/jooyoungsong/SemiProject/assets/111737185/c13cb02a-9d2a-46f0-a9a6-af09c3525cc0)
+
+### 송주영
+
 
 ### 이성신
 - 음식추가
