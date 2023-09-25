@@ -108,7 +108,7 @@ Map 활용 전국 휴게소 찾기!! <br>
 ![결제 및 오더페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/6504b94a-b4b6-46e2-8b49-2639138806bc)
 - 매장&유저 주문창
 <video autoplay loop style="width:100%; height: auto; position:absolute; z-index: -1;">
-  <source src="[http://syddev.com/jquery.videoBG/assets/tunnel_animation.mp4](https://github.com/jooyoungsong/SemiProject/assets/136788985/85a3f9c1-a0e4-4826-a55f-f8cbe1639b90)" type="video/mp4" />
+  <source src="https://github.com/jooyoungsong/SemiProject/assets/136788985/85a3f9c1-a0e4-4826-a55f-f8cbe1639b90" type="video/mp4" />
 </video>
 - 이메일API&난수발생
 ![난수발생](https://github.com/jooyoungsong/SemiProject/assets/136788985/eba3a3ba-2e5c-48f3-9d72-77c4ced922e3)
