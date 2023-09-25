@@ -1,6 +1,5 @@
 <div align='left'>
-<img width="40%" alt="image-removebg-preview" src="https://github.com/jooyoungsong/SemiProject/assets/111737185/cb02d8b6-36d5-4911-8a14-7c72bc2a6af3">
-<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=capsule%20render&fontSize=90" />
+<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=100&fontColor=d6ace6" />
 <br>
 휴게소 통합 사이트
 한 눈에 전국 휴게소 찾기 <br>
