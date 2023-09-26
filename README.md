@@ -113,7 +113,7 @@ Map 활용 전국 휴게소 찾기!! <br>
 - 음식추가
 <video src="https://github.com/jooyoungsong/SemiProject/assets/136788985/99ef3e83-e099-419d-a5a6-81f47589cf99.mp4" type="video/mp4"></video>
 - 디테일페이지
-![디테일 페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/00ffc9ee-2204-41af-9fb0-e7a00929db20)
+<video src="https://github.com/jooyoungsong/SemiProject/assets/136788985/afa85e66-d01a-4980-af82-42c6097a9ba8.mp4" type="video/mp4"></video>
 - 오더페이지&결제API(카카오페이&토스)
 ![결제 및 오더페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/6504b94a-b4b6-46e2-8b49-2639138806bc)
 - 매장&유저 주문창
