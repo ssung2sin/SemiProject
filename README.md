@@ -111,7 +111,7 @@ Map 활용 전국 휴게소 찾기!! <br>
 
 ### 이성신
 - 음식추가
-<video src="\https://github.com/jooyoungsong/SemiProject/assets/136788985/99ef3e83-e099-419d-a5a6-81f47589cf99.mp4" type="video/mp4"></video>
+<video src="https://github.com/jooyoungsong/SemiProject/assets/136788985/99ef3e83-e099-419d-a5a6-81f47589cf99.mp4" type="video/mp4"></video>
 - 디테일페이지
 ![디테일 페이지](https://github.com/jooyoungsong/SemiProject/assets/136788985/00ffc9ee-2204-41af-9fb0-e7a00929db20)
 - 오더페이지&결제API(카카오페이&토스)
