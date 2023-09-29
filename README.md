@@ -1,5 +1,4 @@
-![네이버로그인마이페이지](https://github.com/jooyoungsong/SemiProject/assets/136789635/14280b82-943d-496d-9bf1-cbdd293d7a59)<div align='left'>
-<img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=90&fontColor="#f7f5f5"&color=gradient />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=400&section=header&text=HYUGO&fontSize=90&fontColor="#f7f5f5"&color=gradient />
 <br>
 <div >
 휴게소 통합 사이트
