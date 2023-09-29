@@ -1,6 +1,6 @@
 <img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=90" />
 <br>
-<div > 
+<div align=center> 
 전국 휴게소 찾기 통합 사이트 HYUGO<br>
 MAP 활용으로 이용객 편의성을 높이고 음식 주문으로 대기시간도 줄일 수 있도록 설계한 HG에 오신 걸 환영합니다 <br>
 </div>
