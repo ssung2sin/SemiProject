@@ -1,4 +1,4 @@
-<div align='left'>
+![네이버로그인마이페이지](https://github.com/jooyoungsong/SemiProject/assets/136789635/14280b82-943d-496d-9bf1-cbdd293d7a59)<div align='left'>
 <img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=400&section=header&text=HYUGO&fontSize=90&fontColor="#f7f5f5"&color=gradient />
 <br>
 <div >
@@ -113,7 +113,17 @@ Map 활용 전국 휴게소 찾기!! <br>
 ![게시물 갯수](https://github.com/jooyoungsong/SemiProject/assets/111737185/c13cb02a-9d2a-46f0-a9a6-af09c3525cc0)
 
 ### 송주영
-
+-메인페이지 css
+![main css Animation](https://github.com/jooyoungsong/SemiProject/assets/136789635/099620de-9c33-4ab3-8a4f-37f82d9e66d6)
+-개인회원가입
+![idpassAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/8ee89b3a-5c7f-4ee3-99c8-2403b313e6a6)
+![emailbirthhpAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/08d6b093-5475-4260-b72b-5cc1c9e8252e)
+-로그인 css/기능
+![login1Animation](https://github.com/jooyoungsong/SemiProject/assets/136789635/bab56bb6-0052-4c54-b6a4-cfd47ea5a1bd)
+-네이버 로그인
+![naverLoginAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/6cff86f0-95c4-4bcb-9e51-db29a9bf1619)
+-마이페이지
+![네이버로그인마이페이지](https://github.com/jooyoungsong/SemiProject/assets/136789635/d11b870a-4a52-45a3-93c1-831b4411f299)
 
 ### 이성신
 - 음식추가
