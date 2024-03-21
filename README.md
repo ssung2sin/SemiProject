@@ -77,51 +77,8 @@ MAP 활용으로 이용객 편의성을 높이고 음식 주문으로 대기시�
 - 윤호석 이메일 : hs970216@naver.com
   - Git 주소 : https://github.com/otfeb
 
-
 ## 시연 영상
 
-### 김석진
-
--반응형
-![반응형](https://github.com/jooyoungsong/SemiProject/assets/45508671/47fbf7fe-82c4-45cb-b01d-f8550c5ee7c6)
-- 휴게소 위치 검색및찾기
-![휴게소리스트](https://github.com/jooyoungsong/SemiProject/assets/45508671/4d9ed1db-9c29-4ef6-9081-269079ce84c9)
-- 휴게소 추가 및 생성
-![KakaoTalk_Photo_2023-09-25-17-15-59 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/994362ea-939c-4b2c-a99e-3632912caa2e)
-- 관리자 페이지 이동
-![관리자페이지이동](https://github.com/jooyoungsong/SemiProject/assets/45508671/664b936e-2416-4456-9d06-03ef5d87fb1e)
-### 박희찬
-- 지도 API 구현
-<img width="708" alt="스크린샷 2023-09-21 181703" src="https://github.com/jooyoungsong/SemiProject/assets/136789700/a907a3a7-7887-4d96-8967-f418b6e4e642">
-
-- 편의시설 안내 페이지
-
-![편의시설안내1](https://github.com/jooyoungsong/SemiProject/assets/136789700/8b291000-a779-4d2d-bbbd-d55f98e46153)
-![편의시설안내2](https://github.com/jooyoungsong/SemiProject/assets/136789700/cf032ad3-e25a-4165-814a-6e85e4cb7db2)
-![편의시설안내3](https://github.com/jooyoungsong/SemiProject/assets/136789700/283eaf07-5c89-46cd-ad10-005d3acfddd2)
-
-### 최성현
-- 회원가입 유효성 검사 및 주소 API
-![회원가입 유효성 검사](https://github.com/jooyoungsong/SemiProject/assets/111737185/588cd1cf-93e3-4684-925f-f404b928e0b2)
-- 게시글 인기글 모음 및 버튼 CSS
-![인기글 모음 및 버튼 css](https://github.com/jooyoungsong/SemiProject/assets/111737185/4aa9fae6-7bb3-48fb-83bd-9c4fe75829fa)
-- 게시글 수 변경
-![게시물 갯수](https://github.com/jooyoungsong/SemiProject/assets/111737185/c13cb02a-9d2a-46f0-a9a6-af09c3525cc0)
-
-### 송주영
--메인페이지 css
-![main css Animation](https://github.com/jooyoungsong/SemiProject/assets/136789635/099620de-9c33-4ab3-8a4f-37f82d9e66d6)
--개인회원가입
-![idpassAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/8ee89b3a-5c7f-4ee3-99c8-2403b313e6a6)
-![emailbirthhpAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/08d6b093-5475-4260-b72b-5cc1c9e8252e)
--로그인 css/기능
-![login1Animation](https://github.com/jooyoungsong/SemiProject/assets/136789635/bab56bb6-0052-4c54-b6a4-cfd47ea5a1bd)
--네이버 로그인
-![naverLoginAnimation](https://github.com/jooyoungsong/SemiProject/assets/136789635/6cff86f0-95c4-4bcb-9e51-db29a9bf1619)
--마이페이지
-![네이버로그인마이페이지](https://github.com/jooyoungsong/SemiProject/assets/136789635/d11b870a-4a52-45a3-93c1-831b4411f299)
-
-### 이성신
 - 음식추가
 <video src="https://github.com/jooyoungsong/SemiProject/assets/136788985/99ef3e83-e099-419d-a5a6-81f47589cf99.mp4" type="video/mp4"></video>
 - 디테일페이지
@@ -133,12 +90,3 @@ MAP 활용으로 이용객 편의성을 높이고 음식 주문으로 대기시�
 - 이메일API&난수발생
 ![난수발생](https://github.com/jooyoungsong/SemiProject/assets/136788985/eba3a3ba-2e5c-48f3-9d72-77c4ced922e3)
 
-### 윤호석
-- 휴면계정 이메일 인증 1
-![KakaoTalk_Photo_2023-09-25-17-21-12 001](https://github.com/jooyoungsong/SemiProject/assets/111737185/0cbfab6d-9f0c-4b04-b633-7f108c997ffe)
-- 휴면계정 이메일 인증 2
-![KakaoTalk_Photo_2023-09-25-17-21-12 002](https://github.com/jooyoungsong/SemiProject/assets/111737185/648f8219-ac9e-4974-a187-c4d41d740bb7)
-- 매장 페이지 기능 1
-![KakaoTalk_Photo_2023-09-25-17-21-12 003](https://github.com/jooyoungsong/SemiProject/assets/111737185/696ed586-2d24-423b-8bfe-dad85f361bee)
-- 매장 페이지 기능 2
-![KakaoTalk_Photo_2023-09-25-17-21-12 004](https://github.com/jooyoungsong/SemiProject/assets/111737185/df33197b-f45d-48bc-929b-3364ed6cffda)
